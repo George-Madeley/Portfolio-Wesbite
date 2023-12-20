@@ -1,0 +1,58 @@
+.bio {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 5vh 10vw;
+
+    border: 2px solid red;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bio .bio-container {
+    height: 100%;
+
+    padding: 0 2em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: hsla(28, 11%, 23%, 0.4);
+    border-radius: 3em;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.bio .profile-pic {
+    width: 30vw;
+    aspect-ratio: 1/1;
+
+    margin: 3em;
+
+    border-radius: 50%;
+    background-color: var(--color-2);
+}
+
+.bio .bio-text {
+
+    text-align: left;
+
+    margin: 3em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+
+    color: var(--color-5)
+}
+
+.bio p {
+    margin: 0.5em;
+}

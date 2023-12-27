@@ -73,13 +73,12 @@ li::before {
     background-image: linear-gradient(
         to top right, var(--p-color-3) 0%, var(--p-color-4) 100%
     );
-    transition: .3s ease;
+    transition: .3s ease-out;
     display: block;
     z-index: -1;
 }
 
 li:hover::before {
-    transition: .3s ease .2s;
     height: 100%;
 }
 

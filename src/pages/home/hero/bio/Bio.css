@@ -1,0 +1,21 @@
+.hero-bio {
+    position: relative;
+    width: 100%;
+    margin: 0 0 1em 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    font-family: var(--font-body), sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+
+.hero-bio .hero-bio-text:last-child {
+    margin: 0;
+    font-size: 1rem;
+    color: #444;
+}

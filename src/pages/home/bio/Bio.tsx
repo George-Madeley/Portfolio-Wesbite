@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Bio.css';
 
+import { Gradient } from 'whatamesh';
+
 export default function Bio() {
+  useEffect(() => {
+    const gradient = new Gradient();
+    gradient.initGradient('#bio-gradient');
+  }, [])
+
   return (
     <div className="bio">
-      <div className="bio-container">
-        <div className="profile-pic"></div>
+      <span className="bio-info">
         <div className="bio-text">
           <p>Hi, I'm <strong>George</strong>.</p>
           <p>
@@ -21,6 +27,11 @@ export default function Bio() {
             repairing computers, or even playing video games during my free time.
           </p>
         </div>
+        <div className='bio-stats'>
+        </div>
+      </span>
+      <div className='bio-gradient-container'>
+        <canvas className='bio-gradient' id='bio-gradient'></canvas>
       </div>
     </div>
   )

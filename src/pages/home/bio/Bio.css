@@ -1,58 +1,90 @@
 .bio {
-    width: 100%;
+    position: relative;
 
+    width: 100%;
+}
+
+.bio .bio-info {
     box-sizing: border-box;
 
-    padding: 5vh 10vw;
+    width: 100%;
 
-    border: 2px solid red;
+    height: 25em;
+
+    padding: 2em 0;
 
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-.bio .bio-container {
-    height: 100%;
-
-    padding: 0 2em;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: hsla(28, 11%, 23%, 0.4);
-    border-radius: 3em;
-    border: 1px solid rgba(255, 255, 255, 0.125);
-}
-
-.bio .profile-pic {
-    width: 30vw;
-    aspect-ratio: 1/1;
-
-    margin: 3em;
-
-    border-radius: 50%;
-    background-color: var(--color-2);
+    align-items: stretch;
 }
 
 .bio .bio-text {
+    flex: 1;
 
-    text-align: left;
-
-    margin: 3em;
+    margin-left: 15vw;
+    margin-right: 1em;
+    padding: 2em 0;
 
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: flex-start;
 
-    color: var(--color-5)
+    font-size: 1.2em;
 }
 
-.bio p {
-    margin: 0.5em;
+.bio .bio-text p {
+    margin: 0;
+}
+
+.bio .bio-stats {
+    border-radius: 1.5em;
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+    box-shadow:  10px 10px 20px #bebebe,
+                -10px -10px 20px #ffffff;
+
+    z-index: 1;
+
+    width: 40vw;
+    max-width: 30em;
+    margin-right: 5vw;
+}
+
+.bio .bio-gradient-container {
+    --gradientColorZeroTransparent: rgba(169,96,238,0);
+    --gradientColorOneTransparent: rgba(255,51,61,0);
+    --gradientColorTwoTransparent: rgba(144,224,255,0);
+    --gradientColorThreeTransparent: rgba(255,203,87,0);
+
+    --gradient-color-1: var(--p-color-1);
+    --gradient-color-2: var(--p-color-2);
+    --gradient-color-3: var(--p-color-3);
+    --gradient-color-4: var(--p-color-4);
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    height: 30em;
+
+    transform-origin: top left;
+
+    transform:
+        rotate(-4deg)
+        skewX(-4deg)
+        scaleX(1.2);
+}
+
+.bio-gradient {
+    position: relative;
+    display: block;
+    
+    width: inherit;
+    height: 100%;
+    opacity: 0;
+}
+
+.bio-gradient.isLoaded {
+    opacity: 1;
+    transition: opacity 2s ease-in 50ms;
 }

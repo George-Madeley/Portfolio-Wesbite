@@ -24,13 +24,11 @@ header {
     max-width: 30em;
 }
 
-
-
 .hero-image-container {
     position: absolute;
 
     left: 0;
-    bottom: 0;
+    bottom: -3em;
 
     width: 35vw;
     max-width: 25em;

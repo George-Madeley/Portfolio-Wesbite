@@ -1,4 +1,47 @@
 .highlights {
+    --highlights-margin-top: 7em;
+
+    position: relative;
+    top: -7em;
+    width: 100%;
+
+    margin: var(--highlights-margin-top) 0;
+    
+}
+
+.highlights .heading-bg {
+    top: calc(-1 * var(--highlights-margin-top));
+    left: 0;
+
+    z-index: 0;
+
+    height: 12em;
+
+    clip-path: polygon(0 0, 100% 0, 100% 6em, 0% 100%);
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.highlights .heading-visible:nth-child(1) {
+    top: var(--highlights-margin-top);
+}
+
+.highlights h2 {
+    position: relative;
+
+    margin: 0 15vw 5vh 15vw;
+    font-size: clamp(2em, 10vw, 4em);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-family: var(--font-heading), sans-serif;
+    
+
+    z-index: 1;
+}
+
+.highlights .tile-container {
     position: relative;
 
     margin: 1rem 15vw;

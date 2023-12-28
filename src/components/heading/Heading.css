@@ -1,0 +1,56 @@
+.heading-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: #898989;
+
+    width: 100%;
+}
+
+.heading-bg {
+    position: absolute;
+
+    width: 100vw;
+
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+    box-shadow:  10px 10px 20px #bebebe,
+                -10px -10px 20px #ffffff;
+}
+
+.heading-invisible {
+    visibility: hidden;
+}
+
+.heading-visible {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 2;
+}
+
+
+.heading-visible:nth-child(1) {
+    opacity: 1;
+    color: #000;
+    left: var(--hero-heading-margin);
+}
+
+.heading-visible:nth-child(3) {
+    mix-blend-mode: color-burn;
+    opacity: 1;
+    color: #3a3a3a;
+}
+
+.heading-visible:nth-child(4) {
+    opacity: .3;
+    color: #000;
+}

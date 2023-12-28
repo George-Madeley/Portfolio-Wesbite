@@ -1,6 +1,28 @@
-.hightlights {
+.highlights {
     position: relative;
 
-    width: 100%;
+    margin: 1rem 15vw;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    gap: 2rem;
+
     z-index: 1;
+}
+
+.highlights .tile {
+    margin: 0 1em;
+}
+
+.highlights .tile:only-child {
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 776px) {
+    .highlights {
+        justify-content: center;
+    }
 }

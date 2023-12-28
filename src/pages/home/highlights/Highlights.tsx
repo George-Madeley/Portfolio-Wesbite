@@ -7,6 +7,8 @@ export default function Highlights() {
   return (
     <div className='highlights'>
       <Tile />
+      <Tile />
+      <Tile />
     </div>
   )
 }

@@ -1,6 +1,6 @@
-    header {
+header {
     width: 100%;
-    margin-top: 8em;
+    margin: 8em 0 5em 0;
 
     position: relative;
 
@@ -28,7 +28,7 @@
     position: absolute;
 
     left: 0;
-    bottom: -3em;
+    bottom: -2em;
 
     width: 35vw;
     max-width: 25em;
@@ -46,14 +46,13 @@
     object-position: bottom right;
 }
 
-
 .hero-container .heading-bg {
     --heading-bg-top: 15vw;
     top: var(--heading-bg-top);
     left: calc(-1 * 15vw);
     height: 35em;
 
-    clip-path: polygon(0 0, 100% 15vw, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 10vw, 100% 100%, 0% 100%);
 }
 
 .hero-container .heading-visible:nth-child(1) {

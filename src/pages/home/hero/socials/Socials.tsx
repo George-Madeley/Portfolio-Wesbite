@@ -4,7 +4,7 @@ import './Socials.css'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 
-import Button from '../button/Button'
+import Button from '../../../../components/button/Button'
 
 export default function Socials() {
   return (

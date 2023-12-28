@@ -1,7 +1,11 @@
 .tile {
     position: relative;
 
-    width: 12em;
+    flex: 1;
+
+    width: 100%;
+    min-width: 12em;
+    max-width: 20em;
 
     padding: 1em;
 
@@ -13,6 +17,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    justify-items: normal;
 
 
     border-radius: 1.5em;

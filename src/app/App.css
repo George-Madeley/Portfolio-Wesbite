@@ -1,9 +1,76 @@
 .app {
+  position: relative;
+
   width: 100%;
-  max-height: 100vh;
+  min-height: 100vh;
 
   overflow-x: hidden;
 
   background-color: var(--bg-color);
   
+}
+
+.gradient-container {
+  --gradientColorZeroTransparent: rgba(169,96,238,0);
+  --gradientColorOneTransparent: rgba(255,51,61,0);
+  --gradientColorTwoTransparent: rgba(144,224,255,0);
+  --gradientColorThreeTransparent: rgba(255,203,87,0);
+
+  --gradient-color-1: var(--p-color-1);
+  --gradient-color-2: var(--p-color-2);
+  --gradient-color-3: var(--p-color-3);
+  --gradient-color-4: var(--p-color-4);
+
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: inherit;
+  height: 100%;
+
+  z-index: -1;
+}
+
+.gradient {
+  position: relative;
+  display: block;
+  
+  width: inherit;
+  height: 100%;
+  opacity: 0;
+}
+
+.gradient.isLoaded {
+  opacity: 1;
+  transition: opacity 2s ease-in 50ms;
+}
+
+.gradient-container::after {
+  content: "";
+  position: absolute;
+
+  top: auto;
+  bottom: 0;
+  left: 0;
+
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+
+  background: radial-gradient(
+          var(--p-color-4) 40%,
+          rgba(255, 255, 255, 0) 60%
+      ) -420px -180px no-repeat,
+      radial-gradient(
+          var(--p-color-3) 23%,
+          rgba(255, 255, 255, 0) 70%
+      ) 240px -24px no-repeat,
+      radial-gradient(
+          var(--p-color-3) 30%,
+          rgba(255, 255, 255, 0) 70%
+      ) -270px 220px no-repeat,
+      var(--p-color-1);
+
+  transition: opacity 2s ease-in 50ms;
 }

@@ -1,90 +1,69 @@
 .bio {
     position: relative;
 
-    width: 100%;
-}
-
-.bio .bio-info {
-    box-sizing: border-box;
+    z-index: 1;
 
     width: 100%;
-
-    height: 25em;
-
-    padding: 2em 0;
 
     display: flex;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
+
+    filter: 
+        drop-shadow(10px 10px 20px #bebebe) 
+        drop-shadow(-10px -10px 20px #bebebe);
+}
+
+.bio .bio-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+
+    width: 100vw;
+    height: 100%;
+
+    clip-path: polygon(0 10vw, 100% 0, 100% 100%, 0% calc(100% - 5vw));
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.bio .bio-icon {
+    margin: 0 15vw;
+    font-size: 25em;
+    color: #ddd;
+}
+
+.bio .bio-info {
+    margin: clamp(5em, 15vw, 15vw) 15vw clamp(5em, 10vw, 10vw) 15vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1;
 }
 
 .bio .bio-text {
-    flex: 1;
 
-    margin-left: 15vw;
-    margin-right: 1em;
-    padding: 2em 0;
+    flex: 2;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: stretch;
 
-    font-size: 1.2em;
+    gap: 1em;
+
+    text-align: justify;
+
 }
 
-.bio .bio-text p {
+.bio .bio-info p {
     margin: 0;
-}
-
-.bio .bio-stats {
-    border-radius: 1.5em;
-    background: linear-gradient(145deg, #eee, #f0f0f0);
-    box-shadow:  10px 10px 20px #bebebe,
-                -10px -10px 20px #ffffff;
-
-    z-index: 1;
-
-    width: 40vw;
-    max-width: 30em;
-    margin-right: 5vw;
-}
-
-.bio .bio-gradient-container {
-    --gradientColorZeroTransparent: rgba(169,96,238,0);
-    --gradientColorOneTransparent: rgba(255,51,61,0);
-    --gradientColorTwoTransparent: rgba(144,224,255,0);
-    --gradientColorThreeTransparent: rgba(255,203,87,0);
-
-    --gradient-color-1: var(--p-color-1);
-    --gradient-color-2: var(--p-color-2);
-    --gradient-color-3: var(--p-color-3);
-    --gradient-color-4: var(--p-color-4);
-
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100vw;
-    height: 30em;
-
-    transform-origin: top left;
-
-    transform:
-        rotate(-4deg)
-        skewX(-4deg)
-        scaleX(1.2);
-}
-
-.bio-gradient {
-    position: relative;
-    display: block;
-    
-    width: inherit;
-    height: 100%;
-    opacity: 0;
-}
-
-.bio-gradient.isLoaded {
-    opacity: 1;
-    transition: opacity 2s ease-in 50ms;
+    font-size: 1.2em;
 }

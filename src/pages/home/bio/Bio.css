@@ -5,41 +5,65 @@
 
     width: 100%;
 
+    padding: 5em 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    
+    background: linear-gradient(145deg, #eee, #f0f0f0);
 
     filter: 
         drop-shadow(10px 10px 20px #bebebe) 
         drop-shadow(-10px -10px 20px #bebebe);
 }
 
-.bio .bio-bg {
+.bio::before,
+.bio::after {
+    content: "";
+
     position: absolute;
-    top: 0;
     left: 0;
 
     background: linear-gradient(145deg, #eee, #f0f0f0);
+    width: 100vw;
+    height: var(--wedge-height);
+}
+
+.bio::before {
+    --wedge-height: 5em;
+    top: calc(-1 * var(--wedge-height));
+
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+}
+
+.bio::after {
+    --wedge-height: 3em;
+    bottom: calc(-1 * var(--wedge-height));
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+}
+
+.bio .bio-bg {
+    position: absolute;
+    top: 0;
+    left: 20vw;
 
     width: 100vw;
     height: 100%;
-
-    clip-path: polygon(0 10vw, 100% 0, 100% 100%, 0% calc(100% - 5vw));
     
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
 }
 
 .bio .bio-icon {
-    margin: 0 15vw;
     font-size: 25em;
     color: #ddd;
 }
 
 .bio .bio-info {
-    margin: clamp(5em, 15vw, 15vw) 15vw clamp(5em, 10vw, 10vw) 15vw;
+    margin: 2em 15vw;
 
     display: flex;
     justify-content: center;

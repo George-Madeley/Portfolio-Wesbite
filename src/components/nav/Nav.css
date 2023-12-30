@@ -10,7 +10,7 @@ nav {
     justify-content: center;
 }
 
-ul {
+nav ul {
     padding: 0.5em;
     margin: 0.5em;
 
@@ -29,7 +29,7 @@ ul {
     list-style: none;
 }
 
-li {
+nav li {
     position: relative;
 
     flex: 1;
@@ -47,7 +47,7 @@ li {
     transition: all 0.2s ease-out;
 }
 
-li::before {
+nav li::before {
     content: '';
     width: 100%;
     height: 0;
@@ -63,7 +63,7 @@ li::before {
     z-index: -1;
 }
 
-li:hover::before {
+nav li:hover::before {
     height: 100%;
 }
 
@@ -82,13 +82,13 @@ nav .link {
     text-decoration: none;
 }
 
-li .nav-icon {
+nav li .nav-icon {
     width: 1.5em;
     visibility: visible;
     display: block;
 }
 
-li p {
+nav li p {
     padding: 0.3em 0.5em 0em 0.5em;
     margin: 0;
 
@@ -99,7 +99,7 @@ li p {
 }
 
 @media screen and (max-width: 1200px) {
-    li .nav-icon {
+    nav li .nav-icon {
         width: 0;
         visibility: hidden;
         display: none;
@@ -107,7 +107,7 @@ li p {
 }
 
 @media screen and (max-width: 786px) {
-    ul {
+    nav ul {
         max-width: 20em;
         width: clamp(10em, 100%, 20em);
         justify-content: space-between;
@@ -115,17 +115,17 @@ li p {
         margin: 0.5em 1em;;
     }
 
-    li {
+    nav li {
         padding: 0em 0.5em;
     }
 
-    li .nav-icon {
+    nav li .nav-icon {
         width: 1.5em;
         visibility: visible;
         display: block;
     }
 
-    li .nav-text {
+    nav li .nav-text {
         display: none;
     }
 }

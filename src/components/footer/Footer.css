@@ -103,6 +103,10 @@ footer > .contact input:checked ~ label > svg:last-child {
     display: none;
 }
 
+footer > .contact label > svg:last-child:hover {
+    transform: scale(1.2);
+}
+
 
 
 

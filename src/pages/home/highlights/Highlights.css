@@ -1,9 +1,26 @@
 .highlights {
-    --highlights-margin-top: 7em;
 
     position: relative;
     width: 100%;
-    
+    height: max-content;
+}
+
+.highlights::after {
+    content: "";
+
+    --wedge-size: 5em;
+
+    position: absolute;
+    bottom: calc(-1 * var(--wedge-size));
+    left: 0;
+
+    width: 100%;
+    height: var(--wedge-size);
+
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+
 }
 
 .highlights .heading-bg {
@@ -41,6 +58,7 @@
     position: relative;
 
     margin: 5rem 15vw;
+    padding-bottom: 5em;
 
     display: flex;
     flex-flow: row wrap;

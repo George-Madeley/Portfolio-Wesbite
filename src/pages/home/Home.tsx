@@ -7,7 +7,7 @@ import Highlights from './highlights/Highlights';
 
 export default function Home() {
   return (
-    <div className="home">
+    <div className="home-page">
       <Hero />
       <Bio />
       <Highlights />

@@ -8,6 +8,8 @@ footer {
 
     gap: 2em;
 
+    height: unset;
+
     padding: 3em 15vw;
     border: 0;
     margin: 0;

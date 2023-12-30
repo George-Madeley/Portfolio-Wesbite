@@ -3,6 +3,8 @@ import './Projects.css'
 
 export default function Projects() {
   return (
-    <div>Projects</div>
+    <div className='projects-page'>
+      Projects
+    </div>
   )
 }

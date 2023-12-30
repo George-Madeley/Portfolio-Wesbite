@@ -1,0 +1,133 @@
+footer {
+    position: relative;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+
+    gap: 2em;
+
+    padding: 3em 15vw;
+    border: 0;
+    margin: 0;
+
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+    filter: 
+        drop-shadow(10px 10px 20px #bebebe) 
+        drop-shadow(-10px -10px 20px #bebebe);
+}
+
+footer::before {
+    content: "";
+
+    --wedge-height: 3em;
+
+    position: absolute;
+    top: calc(-1 * var(--wedge-height) + 1px);
+    left: 0;
+
+    width: 100vw;
+    height: var(--wedge-height);
+
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+    clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+}
+
+footer > div {
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    min-height: 6em;
+
+}
+
+footer .email-container {
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 0 1em;
+
+    margin: 0 5vw;
+    padding: 0;
+
+    width: auto;
+
+    font-size: 1em;
+}
+
+footer p {
+    margin: 0 2em 0 0;
+    padding: 0;
+    cursor: default;
+}
+
+footer > .contact input {
+    display: none;
+}
+
+footer > .contact label {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+footer > .contact label > svg:first-child {
+    display: none;
+}
+
+footer > .contact label > svg:last-child {
+    display: block;
+}
+
+footer > .contact input:checked ~ label > svg:first-child {
+    display: block;
+}
+
+footer > .contact input:checked ~ label > svg:last-child {
+    display: none;
+}
+
+
+
+
+footer .social {
+    gap: 2em;
+    padding: 1em 0;
+
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+footer .social .button-container {
+    width: 12em;
+}
+
+@media screen and (max-width: 420px) {
+    footer {
+        padding: 3em 0vw;;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    footer .contact > div svg:first-child {
+        display: none;
+    }
+}

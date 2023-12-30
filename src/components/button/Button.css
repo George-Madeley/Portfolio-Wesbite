@@ -27,10 +27,10 @@
 .button::before {
     content: '';
     width: 100%;
-    height: 0;
+    height: 100%;
     
     position: absolute;
-    bottom: 0;
+    top: 100%;
     left: 0;
     background-image: linear-gradient(
         to top right, var(--p-color-3) 0%, var(--p-color-4) 100%
@@ -41,7 +41,7 @@
 }
 
 .button:hover::before {
-    height: 100%;
+    transform: translateY(-100%);
 }
 
 .button-icon {

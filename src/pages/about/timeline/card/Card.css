@@ -36,36 +36,59 @@
         drop-shadow(-10px -10px 20px #bebebe);
 }
 
-.timeline-card::before {
-    --wedge-height: 2rem;
-
+.timeline-card::before,
+.timeline-card::after {
     content: '';
 
     position: absolute;
     left: 0;
-    top: calc(-1 * var(--wedge-height) + 1px);
 
     width: 100%;
-    height: var(--wedge-height);
 
     background: linear-gradient(145deg, #eee, #f0f0f0);
+}
+
+.timeline-card-container:nth-child(3n) > .timeline-card::before {
+    --wedge-height: 5rem;
+    top: calc(-1 * var(--wedge-height) + 1px);
+    height: var(--wedge-height);
     clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
 }
 
-.timeline-card::after {
+.timeline-card-container:nth-child(3n) > .timeline-card::after {
     --wedge-height: 5rem;
-
-    content: '';
-
-    position: absolute;
-    left: 0;
     bottom: calc(-1 * var(--wedge-height) + 1px);
-
-    width: 100%;
     height: var(--wedge-height);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+}
 
-    background: linear-gradient(145deg, #eee, #f0f0f0);
+.timeline-card-container:nth-child(3n + 1) > .timeline-card::before {
+    --wedge-height: 3rem;
+    top: calc(-1 * var(--wedge-height) + 1px);
+    height: var(--wedge-height);
+    clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+}
+
+.timeline-card-container:nth-child(3n + 1) > .timeline-card::after {
+    --wedge-height: 4rem;
+    bottom: calc(-1 * var(--wedge-height) + 1px);
+    height: var(--wedge-height);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+}
+
+.timeline-card-container:nth-child(3n + 2) > .timeline-card::before {
+    --wedge-height: 5rem;
+    top: calc(-1 * var(--wedge-height) + 1px);
+    height: var(--wedge-height);
+    clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+}
+
+.timeline-card-container:nth-child(3n + 2) > .timeline-card::after {
+    --wedge-height: 3rem;
+    bottom: calc(-1 * var(--wedge-height) + 1px);
+    height: var(--wedge-height);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
 }
 
 .timeline-card > .date {

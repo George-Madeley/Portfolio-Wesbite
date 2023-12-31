@@ -1,4 +1,4 @@
-.description {
+.about-description {
     position: relative;
 
     display: flex;
@@ -19,7 +19,7 @@
 
 }
 
-.description::before {
+.about-description::before {
     --wedge-height: 3em;
 
     content: "";
@@ -34,7 +34,7 @@
     clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 100%);
 }
 
-.description::after {
+.about-description::after {
     --wedge-height: 6em;
 
     content: "";
@@ -49,7 +49,7 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 0%);
 }
 
-.description p {
+.about-description p {
     position: relative;
 
     margin: 0 0 5vh 0;

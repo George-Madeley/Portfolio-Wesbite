@@ -36,6 +36,10 @@
 
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body), sans-serif;
@@ -43,6 +47,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   cursor: default;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+
+  height: 100vh;
 }
 
 code {

@@ -2,6 +2,7 @@ import React from 'react'
 import './Projects.css'
 
 import Heading from '../../components/heading/Heading'
+import Description from './description/Description'
 
 export default function Projects() {
   return (
@@ -9,6 +10,7 @@ export default function Projects() {
       <Heading>
         <h1>Projects</h1>
       </Heading>
+      <Description />
     </div>
   )
 }

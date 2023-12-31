@@ -2,7 +2,7 @@ import React from 'react'
 import './About.css'
 
 import Heading from '../../components/heading/Heading'
-import Description from '../description/Description'
+import Description from './description/Description'
 import Timeline from './timeline/Timeline'
 
 export default function About() {

@@ -1,11 +1,11 @@
 import React from "react";
-import './Home.css';
+import './HomePage.css';
 
 import Bio from './bio/Bio';
 import Hero from './hero/Hero';
 import Highlights from './highlights/Highlights';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="home-page">
       <Hero />

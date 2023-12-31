@@ -1,11 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Contact from './Contact';
+import ProjectsPage from './ProjectsPage';
 
-describe('Contact Component', () => {
+describe('Projects Component', () => {
     it('renders without crashing', () => {
-        render(<Contact />);
+        render(<ProjectsPage />);
     });
-
-    // Add more tests here...
 });

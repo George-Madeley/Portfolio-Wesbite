@@ -7,10 +7,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import App from './app/App';
 
-import About from './pages/about/About';
-import Contact from './pages/contact/Contact';
-import Projects from './pages/projects/Projects';
-import Home from './pages/home/Home';
+import AboutPage from './pages/about_page/AboutPage';
+import ContactPage from './pages/contact_page/ContactPage';
+import ProjectsPage from './pages/projects_page/ProjectsPage';
+import HomePage from './pages/home_page/HomePage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,11 +20,11 @@ root.render(
     <Router>
       <Routes>
         <Route path='/' element={<App />}>
-          <Route index element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='*' element={<Home />} />
+          <Route index element={<HomePage />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/contact' element={<ContactPage />} />
+          <Route path='/projects' element={<ProjectsPage />} />
+          <Route path='*' element={<HomePage />} />
         </Route>
       </Routes>
     </Router>

@@ -12,6 +12,16 @@
   --p-color-3: #d400ff;
   --p-color-4: #ff0080;
 
+  --l-color-1: hsl(210, 100%, 70%);
+  --l-color-2: hsl(250, 100%, 70%);
+  --l-color-3: hsl(290, 100%, 70%);
+  --l-color-4: hsl(330, 100%, 70%);
+
+  --d-color-1: hsl(210, 100%, 30%);
+  --d-color-2: hsl(250, 100%, 30%);
+  --d-color-3: hsl(290, 100%, 30%);
+  --d-color-4: hsl(330, 100%, 30%);
+
   --bg-color-1: hsl(291, 100%, 97%);
   --bg-color-2: hsl(291, 20%, 90%);
 
@@ -22,6 +32,8 @@
   padding: 0;
   border: 0;
 
+  cursor: inherit;
+
 }
 
 body {
@@ -29,6 +41,8 @@ body {
   font-family: var(--font-body), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  cursor: default;
 }
 
 code {

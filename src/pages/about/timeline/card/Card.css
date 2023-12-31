@@ -1,0 +1,186 @@
+.timeline-card-container {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding-top: 5em;
+
+    scroll-snap-align: start;
+}
+
+.timeline-card {
+    position: relative;
+
+    box-sizing: border-box;
+    width: 100%;
+
+    padding: 2rem 15vw 1em 15vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2rem;
+    
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+
+    filter: 
+        drop-shadow(10px 10px 20px #bebebe) 
+        drop-shadow(-10px -10px 20px #bebebe);
+}
+
+.timeline-card::before {
+    --wedge-height: 2rem;
+
+    content: '';
+
+    position: absolute;
+    left: 0;
+    top: calc(-1 * var(--wedge-height) + 1px);
+
+    width: 100%;
+    height: var(--wedge-height);
+
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+}
+
+.timeline-card::after {
+    --wedge-height: 5rem;
+
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: calc(-1 * var(--wedge-height));
+
+    width: 100%;
+    height: var(--wedge-height);
+
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+}
+
+.timeline-card > .date {
+    font-size: 3em;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 5em;
+}
+
+.timeline-card > .date > p {
+    margin: 0;
+    color: #888;
+}
+
+.timeline-card > .content {
+    flex: 1;
+}
+
+.timeline-card > .content > h2 {
+    font-size: 4em;
+    font-weight: 700;
+}
+
+.timeline-card > .content > .company-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 1em;
+
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #888;
+
+    margin: 0.5em 0 0 0;
+
+    transform-origin: left;
+
+    transition: .2s ease-out;
+
+    cursor: pointer;
+}
+
+.timeline-card > .content > .company-name:hover {
+    transform: scale(1.1);
+}
+
+.timeline-card > .content > .content-text {
+    margin: 1em 0 0 0;
+    font-size: 1em;
+    font-weight: 400;
+    color: #333;
+
+    text-wrap: wrap;
+}
+
+.timeline-card > .content > .project-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+
+    margin: 1.5em 0.8em;
+
+    list-style: none;
+}
+
+.timeline-card > .content > .project-links a {
+    font-weight: 700;
+    color: black;
+
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+
+    cursor: pointer;
+
+    transition: .2s ease-out;
+}
+
+.timeline-card > .content > .project-links a:hover {
+    transform: scale(1.2);
+}
+
+.timeline-card > .content > .language-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+
+    margin: 1em 0 0 0;
+
+    list-style: none;
+}
+
+.timeline-card > .content > .language-list li {
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 1em;
+    padding: 0.5em 1em;
+    background-color: var(--l-color-1);
+    color: var(--d-color-1)
+}
+

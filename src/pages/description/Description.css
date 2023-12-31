@@ -1,0 +1,62 @@
+.description {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    width: 100vw;
+
+    padding: 7vh 15vw 3vh 15vw;
+
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+    filter: 
+        drop-shadow(10px 10px 20px #bebebe) 
+        drop-shadow(-10px -10px 20px #bebebe);
+
+}
+
+.description::before {
+    --wedge-height: 3em;
+
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--wedge-height));
+    left: 0;
+
+    width: 100vw;
+    height: var(--wedge-height);
+
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+    clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 100%);
+}
+
+.description::after {
+    --wedge-height: 6em;
+
+    content: "";
+    position: absolute;
+    bottom: calc(-1 * var(--wedge-height));
+    left: 0;
+
+    width: 100vw;
+    height: var(--wedge-height);
+
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 0%);
+}
+
+.description p {
+    position: relative;
+
+    margin: 0 0 5vh 0;
+    padding: 0 5vw;
+
+    width: 100%;;
+
+    text-align: center;
+    color: #3a3a3a;
+}

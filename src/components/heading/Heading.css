@@ -45,6 +45,10 @@
     left: var(--h-margin);
 }
 
+.heading-visible:nth-child(1) > * {
+    margin: 0;
+}
+
 .heading-visible:nth-child(3) {
     mix-blend-mode: color-burn;
     opacity: 1;

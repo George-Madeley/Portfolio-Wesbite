@@ -18,6 +18,10 @@
   --font-heading: 'Gabarito', sans-serif;
   --font-body: 'Josefin Sans', sans-serif;
 
+  margin: 0;
+  padding: 0;
+  border: 0;
+
 }
 
 body {

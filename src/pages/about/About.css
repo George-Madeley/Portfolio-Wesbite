@@ -4,3 +4,41 @@
 
     margin: 5em 0;
 }
+
+.about-page .heading-container {
+    margin-top: 10em;
+}
+
+.about-page .heading-bg {
+    --wedge-height: 15em;
+    --heading-bg-top: -3em;
+
+    left: 0;
+    top: var(--heading-bg-top);
+
+    z-index: 0;
+    height: var(--wedge-height);
+
+    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0% 100%);
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.about-page .heading-visible {
+    top: 0em;
+}
+
+.about-page h1 {
+    position: relative;
+
+    margin: 0 15vw 5vh 15vw;
+    font-size: clamp(2em, 15vw, 8em);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-family: var(--font-heading), sans-serif;
+    
+
+    z-index: 1;
+}

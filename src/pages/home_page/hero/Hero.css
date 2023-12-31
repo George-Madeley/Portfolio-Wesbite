@@ -16,9 +16,7 @@ header {
     justify-content: flex-start;
     align-items: center;
 
-    --hero-heading-margin: 15vw;
-
-    margin: 0 var(--hero-heading-margin);
+    margin: 0 var(--h-margin);
 
     width: 70vw;
     max-width: 30em;

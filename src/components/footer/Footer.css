@@ -10,7 +10,7 @@ footer {
 
     height: unset;
 
-    padding: 3em 15vw;
+    padding: 3em var(--h-margin);
     border: 0;
     margin: 0;
 
@@ -108,9 +108,6 @@ footer > .contact input:checked ~ label > svg:last-child {
 footer > .contact label > svg:last-child:hover {
     transform: scale(1.2);
 }
-
-
-
 
 footer .social {
     gap: 2em;

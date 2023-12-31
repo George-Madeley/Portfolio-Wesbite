@@ -63,7 +63,7 @@
 }
 
 .bio .bio-info {
-    margin: 2em 15vw;
+    margin: 2em var(--h-margin);
 
     display: flex;
     justify-content: center;

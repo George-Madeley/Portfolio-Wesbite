@@ -42,7 +42,7 @@
     opacity: 1;
     color: #000;
     top: calc(-1 * var(--heading-bg-top));
-    left: var(--hero-heading-margin);
+    left: var(--h-margin);
 }
 
 .heading-visible:nth-child(3) {

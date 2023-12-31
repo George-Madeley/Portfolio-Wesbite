@@ -28,6 +28,8 @@
   --font-heading: 'Gabarito', sans-serif;
   --font-body: 'Josefin Sans', sans-serif;
 
+  --h-margin: 15vw;
+
   margin: 0;
   padding: 0;
   border: 0;

@@ -10,7 +10,7 @@
 
     width: 100vw;
 
-    padding: 7vh 15vw 3vh 15vw;
+    padding: 7vh var(--h-margin) 3vh var(--h-margin);
 
     background: linear-gradient(145deg, #eee, #f0f0f0);
     filter: 
@@ -55,7 +55,7 @@
     margin: 0 0 5vh 0;
     padding: 0 5vw;
 
-    width: 100%;;
+    width: 100%;
 
     text-align: center;
     color: #3a3a3a;

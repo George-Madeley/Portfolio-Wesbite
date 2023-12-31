@@ -1,16 +1,18 @@
 import React from 'react'
-import './Projects.css'
+import './AboutPage.css'
 
 import Heading from '../../components/heading/Heading'
 import Description from './description/Description'
+import Timeline from './timeline/Timeline'
 
-export default function Projects() {
+export default function AboutPage() {
   return (
-    <div className='projects-page'>
+    <div className='about-page'>
       <Heading>
-        <h1>Projects</h1>
+        <h1>About Me</h1>
       </Heading>
       <Description />
+      <Timeline />
     </div>
   )
 }

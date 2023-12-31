@@ -42,3 +42,9 @@
 
     z-index: 1;
 }
+
+@media screen and (max-width: 900px) {
+    .about-page .heading-visible {
+        text-align: center;
+    }
+}

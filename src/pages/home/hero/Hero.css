@@ -57,7 +57,9 @@ header {
 
 .hero-container .heading-visible:nth-child(1) {
     top: calc(-1 * var(--heading-bg-top));
+}
 
+.hero-container .heading-visible {
     width: 70vw;
     max-width: 30em;
 }

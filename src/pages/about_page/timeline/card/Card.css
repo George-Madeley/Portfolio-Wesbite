@@ -21,7 +21,7 @@
     box-sizing: border-box;
     width: 100%;
 
-    padding: 2rem 15vw 1em 15vw;
+    padding: 2rem var(--h-margin) 1em var(--h-margin);
 
     display: flex;
     flex-direction: row;

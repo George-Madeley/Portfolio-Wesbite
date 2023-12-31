@@ -59,7 +59,7 @@
 
     position: absolute;
     left: 0;
-    bottom: calc(-1 * var(--wedge-height));
+    bottom: calc(-1 * var(--wedge-height) + 1px);
 
     width: 100%;
     height: var(--wedge-height);

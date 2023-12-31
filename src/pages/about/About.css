@@ -34,8 +34,8 @@
     position: relative;
 
     margin: 0 15vw 5vh 15vw;
-    font-size: clamp(2em, 15vw, 8em);
-    font-weight: 600;
+    font-size: clamp(4em, 10vw, 8em);
+    font-weight: 700;
     letter-spacing: 0.1em;
     font-family: var(--font-heading), sans-serif;
     

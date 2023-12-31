@@ -41,6 +41,7 @@
 .heading-visible:nth-child(1) {
     opacity: 1;
     color: #000;
+    top: calc(-1 * var(--heading-bg-top));
     left: var(--hero-heading-margin);
 }
 

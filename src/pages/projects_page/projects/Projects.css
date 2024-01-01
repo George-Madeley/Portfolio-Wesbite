@@ -1,9 +1,73 @@
 .projects {
-    margin: 20em 10vw;
+    margin: 10em 10vw;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 1em;
+}
+
+.projects > .table-header {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+    width: 100%;
+
+    z-index: 1;
+
+    min-height: 2em;
+    
+    padding: 0.2em 1em 0.2em 4em;
+    
+    border-radius: 1.5em;
+    filter: 
+        drop-shadow(5px 5px 10px #bebebe) 
+        drop-shadow(-5px -5px 10px #bebebe);
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+}
+
+.projects > .table-header > * {
+    box-sizing: border-box;
+
+    font-size: 1em;
+    font-weight: 600;
+    color: #000
+}
+
+.projects > .table-header .date {
+    flex: 1;
+}
+
+.projects > .table-header .title {
+    flex: 3;
+}
+
+.projects > .table-header .languages {
+    flex: 5;
+}
+
+.projects > .table-header .link {
+    flex: 3;
+}
+
+@media screen and (max-width: 1000px) {
+    .projects > .table-header .languages {
+        display: none;
+    }
+
+    .projects > .table-header .title {
+        flex: 5;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .projects > .table-header .link {
+        display: none;
+    }
 }

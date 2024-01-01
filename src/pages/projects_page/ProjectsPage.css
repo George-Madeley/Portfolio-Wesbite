@@ -41,4 +41,8 @@
         text-align: center;
         left: 0;
     }
+
+    .projects-page .heading-visible > h1 {
+        margin: 0 0 5vh 0;
+    }
 }

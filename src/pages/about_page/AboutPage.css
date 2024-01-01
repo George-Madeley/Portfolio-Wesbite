@@ -46,5 +46,6 @@
 @media screen and (max-width: 900px) {
     .about-page .heading-visible {
         text-align: center;
+        left: 0 !important;
     }
 }

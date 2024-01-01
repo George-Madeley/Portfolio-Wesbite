@@ -39,5 +39,6 @@
 @media screen and (max-width: 900px) {
     .projects-page .heading-visible {
         text-align: center;
+        left: 0;
     }
 }

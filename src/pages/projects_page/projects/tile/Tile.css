@@ -1,0 +1,316 @@
+.projects-tile {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    
+    filter: 
+        drop-shadow(5px 5px 10px #bebebe) 
+        drop-shadow(-5px -5px 10px #bebebe);
+    
+    border-radius: 1.5em;
+}
+
+.projects-tile input {
+    display: none;
+}
+
+.projects-tile .info-container {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+    width: 100%;
+
+    z-index: 1;
+    
+    padding: 0.5em 1em;
+    
+    border-radius: inherit;
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+}
+
+.projects-tile .info-container > * {
+    border: 1px solid green;
+}
+
+.projects-tile .info-container label {
+    width: 2em;
+    height: 2em;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: .2s ease-in-out;
+}
+
+.projects-tile .info-container input:checked ~ label {
+    transform: rotate(180deg);
+}
+
+.projects-tile .info-container .date {
+    flex: 1;
+    margin-top: 0.2em;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #888
+
+}
+
+.projects-tile .info-container .title,
+.projects-tile .info-container a:first-of-type {
+    flex: 3;
+    margin-top: 0.2em;
+    font-size: 1.2em;
+    font-weight: 600;
+
+    color: black;
+}
+.projects-tile .info-container a:first-of-type {
+    display: none;
+    text-decoration: none;
+}
+
+.projects-tile .info-container .language-container {
+    flex: 5;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.projects-tile .info-container .language-container li {
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 1em;
+    padding: 0.2em 0.5em;
+    background-color: var(--l-color-1);
+    color: var(--d-color-1)
+}
+
+.projects-tile .info-container a:last-of-type {
+    text-decoration: none;
+    color: #888;
+
+    flex: 3;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.projects-tile .expansion-container {
+    box-sizing: border-box;
+
+    padding-top: 1em;
+
+    max-height: 0;
+
+    transition: .2s ease-in-out;
+    
+}
+
+.projects-tile .expansion {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 10em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1em;
+
+    overflow: hidden;
+
+    padding: 1em 4em;
+
+    border-radius: 1.5em;
+    background: linear-gradient(145deg, #eee, #f0f0f0);
+}
+
+.projects-tile .description-container {
+    --blur-height: 1em;
+    --scroll-track-width: 0.5em;
+
+    position: relative;
+    flex: 1;
+    height: 100%;
+}
+
+.projects-tile .description-container::before,
+.projects-tile .description-container::after {
+    content: "";
+
+    position: absolute;
+    right: var(--scroll-track-width);
+
+    width: 100%;
+
+    height: var(--blur-height);
+
+}
+
+.projects-tile .description-container::before {
+    top: 0;
+    background: linear-gradient(0deg, #fff0, #eee);
+}
+
+.projects-tile .description-container::after {
+    bottom: 0;
+    background: linear-gradient(0deg, #eee, #fff0);
+}
+
+.projects-tile .description {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1em;
+
+    height: 100%;
+    width: 100%;
+
+    padding: var(--blur-height) 0;
+
+    overflow-y: scroll;
+
+    color: #333;
+}
+
+.projects-tile .description::-webkit-scrollbar {
+    width: var(--scroll-track-width);
+}
+
+.projects-tile .description::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.projects-tile .description::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 0.25em;
+}
+
+.projects-tile .description::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.projects-tile .description::-webkit-scrollbar-button {
+    display: none;
+}
+
+.projects-tile .stats-container {
+    width: 5em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    color: #888;
+}
+
+.projects-tile .stats-container > div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+    
+    padding: 0.3em 0;
+}
+
+.projects-tile .stats-container > div > *:first-child {
+    width: 2em;
+}
+
+.projects-tile > input:checked ~ .expansion-container {
+    max-height: 11em;
+}
+
+@media screen and (max-width: 1000px) {
+    .projects-tile .info-container .language-container {
+        display: none;
+    }
+
+    .projects-tile .info-container .title {
+        flex: 5;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .projects-tile .expansion {
+        flex-direction: column;
+        gap: 0em;
+        height: clamp(15em, calc(100vh - 50vw), 100vh);
+        padding: 1em 2em;;
+    }
+
+    .projects-tile .stats-container {
+        order: 1;
+        width: 100%;
+        height: 2em;
+        flex-direction: row;
+        gap: 2em;
+
+        font-size: 0.8em;
+    }
+
+    .projects-tile .stats-container > div {
+        width: unset;
+        gap: 0.5em;
+    }
+
+    .projects-tile .description-container {
+        order: 2;
+        width: 100%;
+        height: 11em;
+
+    }
+    
+    .projects-tile > input:checked ~ .expansion-container {
+        max-height: clamp(15em, calc(100vh - 50vw + 2em), 100vh)
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .projects-tile .info-container a:last-of-type,
+    .projects-tile .info-container .title {
+        display: none;
+    }
+
+    .projects-tile .info-container a:first-of-type {
+        flex: 7;
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+    }
+}

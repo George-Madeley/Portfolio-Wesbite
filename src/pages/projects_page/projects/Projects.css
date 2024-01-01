@@ -1,19 +1,9 @@
 .projects {
-    margin: 10em var(--h-margin);
+    margin: 20em 10vw;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 5em;
-}
-
-@media screen and (max-width: 1100px) {
-    .projects {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .projects {
-        grid-template-columns: repeat(1, 1fr);
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
 }

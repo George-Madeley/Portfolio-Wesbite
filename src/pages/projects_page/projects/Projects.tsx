@@ -38,7 +38,7 @@ export default function Projects() {
         id='projects-2'
         date='2021'
         name='Portfolio'
-        languages={['React', 'TypeScript', 'CSS', 'HTML']}
+        languages={['React', 'TypeScript', 'CSS', 'HTML', 'JavaScript']}
         link=''
         linkText='portfolio.com'
         stars='0'

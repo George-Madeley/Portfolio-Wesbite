@@ -16,6 +16,12 @@ export default function Projects() {
 
   return (
     <div className='projects'>
+      <div className='table-header'>
+        <p className='date'>Year</p>
+        <p className='title'>Project</p>
+        <p className='languages'>Languages</p>
+        <p className='link'>Link</p>
+      </div>
       <Tile
         id='projects-1'
         date='2021'

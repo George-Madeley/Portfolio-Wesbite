@@ -48,7 +48,7 @@
     margin: 0.2em 0.2em;
 
     border-radius: 1em;
-    background: var(--p-color-3);
+    background: var(--l-color-3);
 
     opacity: 0.8;
 }
@@ -57,7 +57,7 @@
     margin: 0;
     padding: 0;
 
-    color: #fff;
+    color: var(--d-color-3);
 }
 
 .tile .title {

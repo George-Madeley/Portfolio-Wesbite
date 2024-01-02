@@ -1,89 +1,51 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Timeline.css'
 
 import Card from './card/Card'
 
+import json from '../../../data/experience.real.json'
+
 export default function Timeline() {
-  return (
-    <div className='timeline'>
-        <Card
-            time='2019 - Present'
-            position='Software Engineer'
-            company='Cognizant Technology Solutions'
-            links={[
-                {
-                    name: 'Cognizant',
-                    url: 'https://www.cognizant.com/'
-                }
-            ]}
-            languages={[
-                'ReactJS',
-                'Redux',
-                'HTML',
-                'CSS',
-                'JavaScript',
-                'TypeScript',
-                'SQL',
-                'Git'
-            ]}
-        >
-            <p>
-                I am currently working as a Software Engineer at Cognizant Technology Solutions. I am working on a project for a large financial institution. I am responsible for developing and maintaining a web application that is used by thousands of users. I am also responsible for developing and maintaining a mobile application that is used by thousands of users. I am responsible for developing and maintaining a web application that is used by thousands of users.
-            </p>
-        </Card>
-        <Card
-            time='2018 - 2019'
-            position='Software Engineer'
-            company='Cognizant Technology Solutions'
-            links={[
-                {
-                    name: 'Cognizant',
-                    url: 'https://www.cognizant.com/'
-                }
-            ]}
-            languages={[
-                'ReactJS',
-                'Redux',
-                'HTML',
-                'CSS',
-                'JavaScript',
-                'TypeScript',
-                'SQL',
-                'Git'
-            ]}
-        >
-            <p>
-                I worked as a Software Engineer at Cognizant Technology Solutions. I worked on a project for a large financial institution. I was responsible for developing and maintaining a web application that is used by thousands of users. I was also responsible for developing and maintaining a mobile application that is used by thousands of users. I was responsible for developing and maintaining a web application that is used by thousands of users.
-            </p>
-        </Card>
-        <Card
-            time='2017 - 2018'
-            position='Software Engineer'
-            company='Cognizant Technology Solutions'
-            links={[
-                {
-                    name: 'Cognizant',
-                    url: 'https://www.cognizant.com/'
-                }
-            ]}
-            languages={[
-                'ReactJS',
-                'Redux',
-                'HTML',
-                'CSS',
-                'JavaScript',
-                'TypeScript',
-                'SQL',
-                'Git'
-            ]}
-        >
-            <p>
-                I worked as a Software Engineer at Cognizant Technology Solutions. I worked on a project for a large financial institution. I was responsible for developing and maintaining a web application that is used by thousands of users. I was also responsible for developing and maintaining a mobile application that is used by thousands of users. I was responsible for developing and maintaining a web application that is used by thousands of users.
-            </p>
-            <p>
-                Anim nostrud consectetur fugiat nulla cillum consectetur consequat sunt dolor dolor. Dolor occaecat proident laborum fugiat excepteur dolore do. Enim irure labore Lorem ea.
-            </p>
-        </Card>
-    </div>
-  )
+
+    const [experiences, setExperiences] = React.useState<any[]>([])
+
+    useEffect(() => {
+        // sort experience by the time field then reverse it so that the most recent experience is first
+        const sortedExperiences = json.experiences.sort((a, b) => {
+            return a.time < b.time ? 1 : -1
+        })
+        setExperiences(sortedExperiences)
+    }, [experiences])
+
+    return (
+        <div className='timeline'>
+            {
+                experiences.map((item, index) => {
+                    return (
+                        <Card
+                            key={index}
+                            time={item.timePeriod}
+                            position={item.position}
+                            company={item.company}
+                            companyLink={item.companyLink}
+                            links={item.links}
+                            languages={item.languages}
+                        >
+                            <div className='paragraphs'>
+                                {
+                                    item.description.map((paragraph: string, index: number) => {
+                                        return (
+                                            <p key={index}>
+                                                {paragraph}
+                                            </p>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </Card>
+                    )
+                })
+            }
+        </div>
+    )
 }

@@ -1,0 +1,93 @@
+.card-content > .content-text {
+    margin-top: 1em;
+    font-size: 1em;
+    font-weight: 400;
+
+    text-wrap: wrap;
+    position: relative;
+
+    overflow: hidden;
+
+    max-height: 12em;
+
+    transition: .2s ease-out;
+}
+
+.card-content .content-text-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.2em;
+}
+
+.card-content > .content-text p {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+.card-content > input {
+    display: none;
+}
+
+.card-content > input:checked ~ .content-text {
+    max-height: unset;
+}
+
+.card-content > input:checked ~ .label-container span:last-of-type {
+    display: block;
+}
+
+.card-content > input:checked ~ .label-container span:first-of-type {
+    display: none;
+}
+
+.card-content > input:checked ~ .label-container::before {
+    display: none;
+}
+
+.card-content > .label-container {
+    position: relative;
+
+    padding-top: 0.5em;
+
+    width: 100%;
+}
+
+
+.card-content > .label-container::before {
+    content: '';
+
+    --wedge-height: 2rem;
+
+    position: absolute;
+    left: 0;
+    top: calc(-1 * var(--wedge-height));
+
+    height: var(--wedge-height);
+    width: 100%;
+
+    background: linear-gradient(to bottom, #fff0, #eeef);
+}
+
+.card-content > .label-container label {
+    width: min-content;
+
+    cursor: pointer;
+    color: #555;
+
+    transition: .2s ease-out;
+}
+
+.card-content label:hover {
+    color: #000;
+}
+
+.card-content > .label-container span {
+    text-wrap: nowrap;
+}
+
+.card-content > .label-container span:last-of-type {
+    display: none;
+}

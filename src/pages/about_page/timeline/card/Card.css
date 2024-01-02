@@ -133,12 +133,19 @@
     transform-origin: left;
 
     transition: .2s ease-out;
+}
 
+.timeline-card > .content > a > svg {
+    transition: .3s ease-out;
+}
+
+.timeline-card > .content > a:hover {
+    transform: scale(1.1);
     cursor: pointer;
 }
 
-.timeline-card > .content > .company-name:hover {
-    transform: scale(1.1);
+.timeline-card > .content > a:hover > svg {
+    transform: translateX(200%);
 }
 
 .timeline-card > .content > .content-text {

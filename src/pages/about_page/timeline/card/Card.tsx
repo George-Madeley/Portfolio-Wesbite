@@ -13,10 +13,18 @@ export default function Card(props: any) {
                 </div>
                 <div className='content'>
                     <h2>{props.position}</h2>
-                    <a className='company-name' href={props.companyLink}>
-                        <h3>{props.company}</h3>
-                        <FontAwesomeIcon icon={faArrowRight} />
-                    </a>
+                    {
+                        props.companyLink ? (
+                            <a className='company-name' href={props.companyLink}>
+                                <h3>{props.company}</h3>
+                                <FontAwesomeIcon icon={faArrowRight} />
+                            </a>
+                        ) : (
+                            <div className='company-name'>
+                                <h3>{props.company}</h3>
+                            </div>
+                        )
+                    }
                     <div className='content-text'>
                         {
                             props.children

@@ -20,6 +20,8 @@ export default function Tile(props: any) {return (
             <Expansion
                 stars={props.stars}
                 commits={props.commits}
+                forks={props.forks}
+                watchers={props.watchers}
             >
                 {props.children}
             </Expansion>

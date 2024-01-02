@@ -47,7 +47,7 @@ export const getLanguages = async (owner: string, repo: string): Promise<any> =>
     }
 };
 
-export const getNumberOfCommits = async (owner: string, repo: string): Promise<any> => {
+export const getNumberOfCommits = async (owner: string, repo: string): Promise<any[]> => {
     try {
         const response = await octokit.request('GET /repos/{owner}/{repo}/stats/contributors', {
             owner: owner,
@@ -61,7 +61,7 @@ export const getNumberOfCommits = async (owner: string, repo: string): Promise<a
             throw new Error(`Failed to fetch number of commits. Status: ${response.status}`);
         }
 
-        return response.data;
+        return response.data as any[];
     } catch (error) {
         console.error(error);
         throw error;

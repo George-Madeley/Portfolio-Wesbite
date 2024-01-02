@@ -149,12 +149,86 @@
 }
 
 .timeline-card > .content > .content-text {
-    margin: 1em 0 0 0;
+    margin: 1em 0 0.5em 0;
     font-size: 1em;
     font-weight: 400;
-    color: #333;
 
     text-wrap: wrap;
+    position: relative;
+
+    overflow: hidden;
+
+    max-height: 12em;
+
+    transition: .2s ease-out;
+}
+
+.timeline-card > .content > .content-text::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    height: 2em;
+    width: 100%;
+
+    background: linear-gradient(to bottom, #fff0, #eeef);
+}
+
+.timeline-card .content-text-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.2em;
+}
+
+.timeline-card > .content > .content-text p {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+.timeline-card > .content > input {
+    display: none;
+}
+
+.timeline-card > .content > input:checked ~ .content-text {
+    max-height: unset;
+}
+
+.timeline-card > .content > input:checked ~ label > span:last-of-type {
+    display: block;
+}
+
+.timeline-card > .content > input:checked ~ label > span:first-of-type {
+    display: none;
+}
+
+.timeline-card > .content > input:checked ~ .content-text::after {
+    display: none;
+}
+
+.timeline-card > .content > label {
+    width: min-content;
+
+    cursor: pointer;
+    color: #555;
+
+    transition: .2s ease-out;
+}
+
+.timeline-card > .content > label:hover {
+    color: #000;
+}
+
+.timeline-card > .content > label span {
+    text-wrap: nowrap;
+}
+
+.timeline-card > .content > label > span:last-of-type {
+    display: none;
 }
 
 .timeline-card > .content > .project-links {

@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Card.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 export default function Card(props: any) {
+    const [isReadMoreVisible, setReadMoreVisible] = useState(false);
+
+    const contentTextRef = useRef<HTMLDivElement>(null);
+    const contentTextInnerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (contentTextRef.current) {
+            const contentHeight = contentTextRef.current.offsetHeight;
+            const contentInnerHeight = contentTextInnerRef.current?.offsetHeight;
+            if (contentInnerHeight && contentHeight < contentInnerHeight) {
+                setReadMoreVisible(true);
+            }
+        }
+    }, []);
+
+
     return (
         <div className='timeline-card-container'>
             <div className='timeline-card'>
@@ -25,11 +41,18 @@ export default function Card(props: any) {
                             </div>
                         )
                     }
-                    <div className='content-text'>
-                        {
-                            props.children
-                        }
+                    <input type='checkbox' id={`read-more-${props.id}`} name='read-more' />
+                    <div className='content-text' ref={contentTextRef}>
+                        <div className='content-text-inner' ref={contentTextInnerRef}>
+                            {
+                                props.children
+                            }
+                        </div>
                     </div>
+                    <label htmlFor={`read-more-${props.id}`} style={{display: isReadMoreVisible ? 'block' : 'none'}}>
+                        <span>Read More</span>
+                        <span>Read Less</span>
+                    </label>
                     <ul className='project-links'>
                         {
                             props.links.map((link: any, index: number) => {

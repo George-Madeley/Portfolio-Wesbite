@@ -22,6 +22,8 @@
 
     height: 2.5em;
     border: none;
+
+    cursor: pointer;
 }
 
 .button::before {

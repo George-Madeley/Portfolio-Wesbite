@@ -24,3 +24,5 @@ yarn-error.log*
 
 # real data
 *.real.json
+
+.env

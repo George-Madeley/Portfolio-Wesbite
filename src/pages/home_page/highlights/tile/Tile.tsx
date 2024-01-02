@@ -5,25 +5,25 @@ import thumbail from '../../../../img/code-thumbnail.png'
 import Button from '../../../../components/button/Button';
 
 
-export default function Tile() {
-    const languages = ['TypeScript', 'React', 'HTML', 'CSS'];
-
+export default function Tile(props: any) {
     return (
         <div className='tile'>
             <img src={thumbail} alt='thumbnail' />
             <div className='language-container'>
-                {languages.map((language, index) => {
-                    return (
-                        <div key={index} className='language'>
-                            <p>{language}</p>
-                        </div>
-                    )
-                })}
+                {
+                    props.languages.map((language: string, index: number) => {
+                        return (
+                            <div key={index} className='language'>
+                                <p>{language}</p>
+                            </div>
+                        )
+                    })
+                }
             </div>
-            <p className='title'>Title</p>
-            <p className='description'>Officia cillum culpa anim cupidatat eiusmod elit sint deserunt fugiat ad cillum Lorem amet.</p>
+            <p className='title'>{props.name}</p>
+            <p className='description'>{props.description}</p>
             <div className='button-container'>
-                <Button link='' icon='code' text='Learn More' />
+                <Button link={props.link} icon='code' text='Learn More' />
             </div>
         </div>
     )

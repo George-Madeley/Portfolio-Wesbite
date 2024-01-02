@@ -125,6 +125,7 @@
 
     font-size: 1.5em;
     font-weight: 700;
+    text-decoration: none   ;
     color: #888;
 
     margin: 0.5em 0 0 0;
@@ -151,10 +152,10 @@
 
 .timeline-card > .content > .project-links {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: flex-start;
     align-items: center;
-    gap: 1em;
+    gap: 1em 2em;
 
     margin: 1.5em 0.8em;
 

@@ -32,9 +32,11 @@ export default function Projects() {
               "description": repo.description,
               "html_url": repo.html_url,
               "stargazers_count": repo.stargazers_count,
+              "forks_count": repo.forks,
+              "watchers_count": repo.watchers_count,
               "updated_at": repo.updated_at.substring(0, 4),
               "languages": Object.keys(languages),
-              "commits_count": numberOfCommits[0].total
+              "commits_count": numberOfCommits.reduce((acc: number, curr: any) => acc + curr.total, 0)
             }
             return newRepo;
           });
@@ -66,6 +68,8 @@ export default function Projects() {
               link={repo.html_url}
               linkText={`${repo.name}.git`}
               stars={repo.stargazers_count}
+              forks={repo.forks_count}
+              watchers={repo.watchers_count}
               commits={repo.commits_count}
               isSelected={selectedTile === `${repo.id}`}
               handleChange={handleTileSelect}

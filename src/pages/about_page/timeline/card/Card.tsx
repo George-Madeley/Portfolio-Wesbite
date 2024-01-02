@@ -49,10 +49,12 @@ export default function Card(props: any) {
                             }
                         </div>
                     </div>
-                    <label htmlFor={`read-more-${props.id}`} style={{display: isReadMoreVisible ? 'block' : 'none'}}>
-                        <span>Read More</span>
-                        <span>Read Less</span>
-                    </label>
+                    <div className='label-container' style={{display: isReadMoreVisible ? 'block' : 'none'}}>
+                        <label htmlFor={`read-more-${props.id}`}>
+                            <span>Read More</span>
+                            <span>Read Less</span>
+                        </label>
+                    </div>
                     <ul className='project-links'>
                         {
                             props.links.map((link: any, index: number) => {

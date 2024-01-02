@@ -149,7 +149,7 @@
 }
 
 .timeline-card > .content > .content-text {
-    margin: 1em 0 0.5em 0;
+    margin-top: 1em;
     font-size: 1em;
     font-weight: 400;
 
@@ -161,19 +161,6 @@
     max-height: 12em;
 
     transition: .2s ease-out;
-}
-
-.timeline-card > .content > .content-text::after {
-    content: '';
-
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    height: 2em;
-    width: 100%;
-
-    background: linear-gradient(to bottom, #fff0, #eeef);
 }
 
 .timeline-card .content-text-inner {
@@ -198,19 +185,43 @@
     max-height: unset;
 }
 
-.timeline-card > .content > input:checked ~ label > span:last-of-type {
+.timeline-card > .content > input:checked ~ .label-container span:last-of-type {
     display: block;
 }
 
-.timeline-card > .content > input:checked ~ label > span:first-of-type {
+.timeline-card > .content > input:checked ~ .label-container span:first-of-type {
     display: none;
 }
 
-.timeline-card > .content > input:checked ~ .content-text::after {
+.timeline-card > .content > input:checked ~ .label-container::before {
     display: none;
 }
 
-.timeline-card > .content > label {
+.timeline-card > .content > .label-container {
+    position: relative;
+
+    padding-top: 0.5em;
+
+    width: 100%;
+}
+
+
+.timeline-card > .content > .label-container::before {
+    content: '';
+
+    --wedge-height: 2rem;
+
+    position: absolute;
+    left: 0;
+    top: calc(-1 * var(--wedge-height));
+
+    height: var(--wedge-height);
+    width: 100%;
+
+    background: linear-gradient(to bottom, #fff0, #eeef);
+}
+
+.timeline-card > .content > .label-container label {
     width: min-content;
 
     cursor: pointer;
@@ -219,15 +230,15 @@
     transition: .2s ease-out;
 }
 
-.timeline-card > .content > label:hover {
+.timeline-card > .content label:hover {
     color: #000;
 }
 
-.timeline-card > .content > label span {
+.timeline-card > .content > .label-container span {
     text-wrap: nowrap;
 }
 
-.timeline-card > .content > label > span:last-of-type {
+.timeline-card > .content > .label-container span:last-of-type {
     display: none;
 }
 

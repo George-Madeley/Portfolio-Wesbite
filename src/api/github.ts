@@ -6,18 +6,20 @@ const octokit = new Octokit({
 
 export const getRepos = async (): Promise<any[]> => {
     try {
-        const response = await octokit.request('GET /users/{username}/repos', {
-            username: 'George-Madeley',
+        const response = await octokit.request('GET /user/repos', {
             headers: {
                 'X-GitHub-Api-Version': '2022-11-28'
             },
-            type: 'all',
+            affiliation: 'owner,organization_member',
+            visibility: 'all',
             sort: 'updated'
         });
 
         if (response.status > 299) {
             throw new Error(`Failed to fetch repos. Status: ${response.status}`);
         }
+
+        console.log(response.data);
 
         return response.data;
     } catch (error) {
@@ -61,7 +63,7 @@ export const getNumberOfCommits = async (owner: string, repo: string): Promise<a
             throw new Error(`Failed to fetch number of commits. Status: ${response.status}`);
         }
 
-        return response.data as any[];
+        return response.data ? response.data as any[] : [];
     } catch (error) {
         console.error(error);
         throw error;

@@ -52,6 +52,10 @@
     flex: 5;
 }
 
+.projects > .table-header .visibility {
+    flex: 2;
+}
+
 .projects > .table-header .link {
     flex: 3;
 }
@@ -64,10 +68,19 @@
     .projects > .table-header .title {
         flex: 5;
     }
+
+    .projects > .table-header .visibility {
+        flex: 1;
+    }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .projects > .table-header .link {
         display: none;
     }
+
+    .projects > .table-header .visibility {
+        display: none;
+    }
+
 }

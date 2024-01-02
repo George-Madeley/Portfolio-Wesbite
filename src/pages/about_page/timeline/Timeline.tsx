@@ -24,6 +24,7 @@ export default function Timeline() {
                     return (
                         <Card
                             key={index}
+                            id={index}
                             time={item.timePeriod}
                             position={item.position}
                             company={item.company}
@@ -31,17 +32,15 @@ export default function Timeline() {
                             links={item.links}
                             languages={item.languages}
                         >
-                            <div className='paragraphs'>
-                                {
-                                    item.description.map((paragraph: string, index: number) => {
-                                        return (
-                                            <p key={index}>
-                                                {paragraph}
-                                            </p>
-                                        )
-                                    })
-                                }
-                            </div>
+                            {
+                                item.description.map((paragraph: string, index: number) => {
+                                    return (
+                                        <p key={index}>
+                                            {paragraph}
+                                        </p>
+                                    )
+                                })
+                            }
                         </Card>
                     )
                 })

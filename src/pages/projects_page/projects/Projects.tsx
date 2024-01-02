@@ -24,8 +24,19 @@ export default function Projects() {
         repos.map((repo: any) => {
           return Promise.all([
             getLanguages(repo.owner.login, repo.name),
-            getNumberOfCommits(repo.owner.login, repo.name)
+            getNumberOfCommits(repo.owner.login, repo.name) 
           ]).then(([languages, numberOfCommits]) => {
+            const year = repo.updated_at.substring(0, 4)
+            const isPublic = repo.visibility === "public"
+            const languageList = Object.keys(languages)
+            let commitsCount = 0
+            try {
+              commitsCount = numberOfCommits.reduce(
+                (acc: number, curr: any) => acc + curr.total, 0
+              )
+            } catch {
+              commitsCount = 0
+            }
             const newRepo = {
               "id": repo.id,
               "name": repo.name,
@@ -34,9 +45,10 @@ export default function Projects() {
               "stargazers_count": repo.stargazers_count,
               "forks_count": repo.forks,
               "watchers_count": repo.watchers_count,
-              "updated_at": repo.updated_at.substring(0, 4),
-              "languages": Object.keys(languages),
-              "commits_count": numberOfCommits.reduce((acc: number, curr: any) => acc + curr.total, 0)
+              "updated_at": year,
+              "isPublic": isPublic,
+              "languages": languageList,
+              "commits_count": commitsCount
             }
             return newRepo;
           });
@@ -54,6 +66,7 @@ export default function Projects() {
         <p className='date'>Year</p>
         <p className='title'>Project</p>
         <p className='languages'>Languages</p>
+        <p className='visibility'>Visibility</p>
         <p className='link'>Link</p>
       </div>
       {
@@ -65,6 +78,7 @@ export default function Projects() {
               date={repo.updated_at}
               name={repo.name.replace(/-/g, ' ')}
               languages={repo.languages}
+              isPublic={repo.isPublic}
               link={repo.html_url}
               linkText={`${repo.name}.git`}
               stars={repo.stargazers_count}

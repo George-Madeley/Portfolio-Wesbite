@@ -2,7 +2,7 @@ import React from 'react'
 import './Info.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown, faLink, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faLink, faArrowRight, faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons'
 
 export default function Info(props: any) {
   return (
@@ -15,7 +15,9 @@ export default function Info(props: any) {
         <p className='title'>{props.name}</p>
         <a className='title-link' href={props.link} target='_blank' rel='noreferrer'>
             <p>{props.name}</p>
-            <FontAwesomeIcon icon={faArrowRight} />
+            <div className='icon-container'>
+                <FontAwesomeIcon icon={faArrowRight} />
+            </div>
         </a>
         <ul className='language-container'>
             {props.languages.map((language: string, index: number) => {
@@ -26,6 +28,20 @@ export default function Info(props: any) {
                 )
             })}
         </ul>
+        <div className='visibility'>
+            {
+                props.isPublic ? 
+                <div className='public'>
+                    <FontAwesomeIcon icon={faLockOpen} />
+                    <p>Public</p>
+                </div>
+                :
+                <div className='private'>
+                    <FontAwesomeIcon icon={faLock} />
+                    <p>Private</p>
+                </div>
+            }
+        </div>
         <a href={props.link} target='_blank' rel='noreferrer'>
             <FontAwesomeIcon icon={faLink} />
             <p>{props.linkText}</p>

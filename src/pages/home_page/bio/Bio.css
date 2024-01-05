@@ -57,25 +57,15 @@
     align-items: center;
 }
 
-.bio .bio-icon {
-    font-size: 25em;
-    color: var(--bg-t-color-3);
-}
-
 .bio .bio-info {
     margin: 2em var(--h-margin);
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-    z-index: 1;
 }
 
 .bio .bio-text {
-
-    flex: 2;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,11 +73,9 @@
 
     gap: 1em;
 
-    text-align: justify;
-
+    text-align: center;
 }
 
-.bio .bio-info p {
-    margin: 0;
-    font-size: 1.2em;
+.bio .bio-text p {
+    color: var(--font-color-1);
 }

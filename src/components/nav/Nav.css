@@ -96,6 +96,12 @@ nav li p {
     line-height: 1.2em;
 
     white-space: nowrap;
+
+    color: var(--font-color-1);
+}
+
+nav li svg {
+    color: var(--font-color-1);
 }
 
 @media screen and (max-width: 1200px) {

@@ -10,17 +10,16 @@
     align-items: center;
 
     gap: 1em;
-
-    font-size: 1.5em;
-    font-weight: 700;
-    text-decoration: none   ;
-    color: var(--font-color-3);
+    text-decoration: none;
 
     margin: 0.5em 0 0 0;
 
     transform-origin: left;
-
     transition: .2s ease-out;
+}
+
+.card-heading h3 {
+    color: var(--font-color-2);
 }
 
 .card-heading > a > svg {

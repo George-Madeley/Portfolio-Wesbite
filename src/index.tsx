@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './app/App';
 
 import AboutPage from './pages/about_page/AboutPage';
-import ContactPage from './pages/contact_page/ContactPage';
 import ProjectsPage from './pages/projects_page/ProjectsPage';
 import HomePage from './pages/home_page/HomePage';
 
@@ -22,7 +21,6 @@ root.render(
         <Route path='/' element={<App />}>
           <Route index element={<HomePage />} />
           <Route path='/about' element={<AboutPage />} />
-          <Route path='/contact' element={<ContactPage />} />
           <Route path='/projects' element={<ProjectsPage />} />
           <Route path='*' element={<HomePage />} />
         </Route>

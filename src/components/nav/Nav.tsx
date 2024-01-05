@@ -4,7 +4,7 @@ import './Nav.css';
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faUser, faFileCode, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faUser, faFileCode } from "@fortawesome/free-solid-svg-icons";
 
 export default function Nav() {
   return (
@@ -26,12 +26,6 @@ export default function Nav() {
               <Link to='/about' className="link">
                 <FontAwesomeIcon icon={faUser} className="nav-icon"/>
                 <p className="nav-text">About Me</p>
-              </Link>
-            </li>
-            <li>
-              <Link to='/contact' className="link">
-                <FontAwesomeIcon icon={faEnvelope} className="nav-icon"/>
-                <p className="nav-text">Contact</p>
               </Link>
             </li>
         </ul>

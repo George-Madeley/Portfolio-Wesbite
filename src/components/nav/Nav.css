@@ -14,12 +14,9 @@ nav ul {
     padding: 0.5em;
     margin: 0.5em;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    justify-items: stretch;
-    align-items: center;
-    gap: 1em;
+    display: grid;
+    grid-template-columns: repeat(3, 4fr) 3fr;
+    gap: 0.5em;
 
     border-radius: 2em;
     background: linear-gradient(145deg, var(--bg-b-color-1), var(--bg-b-color-2));
@@ -31,40 +28,13 @@ nav ul {
 
 nav li {
     position: relative;
-
-    flex: 1;
-
-    z-index: 1;
-
-    overflow: hidden;
-
-    border-radius: 1.5em;
-
-    background: linear-gradient(145deg, var(--btn-color-1), var(--btn-color-2));
-    box-shadow:  10px 10px 20px var(--shadow-color-1),
-                -10px -10px 20px var(--shadow-color-2);
-
-    transition: all 0.2s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-nav li::before {
-    content: '';
-    width: 100%;
-    height: 0;
-    
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(
-        to top right, var(--p-color-3) 0%, var(--p-color-4) 100%
-    );
-    transition: .3s ease-out;
-    display: block;
-    z-index: -1;
-}
-
-nav li:hover::before {
-    height: 100%;
+nav li:last-of-type {
+    gap: 0.5em;
 }
 
 nav .link {
@@ -82,26 +52,8 @@ nav .link {
     text-decoration: none;
 }
 
-nav li .nav-icon {
-    width: 1.5em;
-    visibility: visible;
-    display: block;
-}
-
 nav li p {
-    padding: 0.3em 0.5em 0em 0.5em;
-    margin: 0;
-
-    font-size: 1.2em;
-    line-height: 1.2em;
-
-    white-space: nowrap;
-
-    color: var(--font-color-1);
-}
-
-nav li svg {
-    color: var(--font-color-1);
+    text-wrap: nowrap;
 }
 
 @media screen and (max-width: 1200px) {
@@ -125,13 +77,13 @@ nav li svg {
         padding: 0em 0.5em;
     }
 
-    nav li .nav-icon {
+    nav li svg {
         width: 1.5em;
         visibility: visible;
         display: block;
     }
 
-    nav li .nav-text {
+    nav li p {
         display: none;
     }
 }

@@ -3,10 +3,10 @@ import './Button.css'
 
 export default function Button(props: any) {
   return (
-    <button className='button'>
+    <div className='button'>
       {
         props.children
       }
-    </button>
+    </div>
   )
 }

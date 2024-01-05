@@ -40,7 +40,9 @@ export default function Highlights() {
   return (
     <div className='highlights'>
       <Heading>
-        <h2>Top Projects</h2>
+        <div className='heading-content'>
+          <h2>Top Projects</h2>
+        </div>
       </Heading>
       <span className='tile-container'>
         {

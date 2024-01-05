@@ -9,7 +9,9 @@ export default function ProjectsPage() {
   return (
     <div className='projects-page'>
       <Heading>
-        <h1>Projects</h1>
+        <div className='heading-content'>
+          <h1>Projects</h1>
+        </div>
       </Heading>
       <Description />
       <Projects />

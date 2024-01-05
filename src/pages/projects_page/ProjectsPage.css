@@ -7,7 +7,7 @@
 .projects-page .heading-bg {
     --v-margin: 8em;
 
-    height: 15em;
+    height: 17em;
 
     clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 100%);
 }

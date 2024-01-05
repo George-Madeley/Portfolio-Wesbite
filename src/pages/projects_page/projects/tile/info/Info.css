@@ -1,10 +1,8 @@
 .info-container {
     box-sizing: border-box;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 2em 3em 8fr 8fr 4fr 6fr;
     gap: 1em;
 
     width: 100%;
@@ -22,6 +20,7 @@
 .info-container > * {
     min-height: 32px;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .info-container label {
@@ -44,24 +43,24 @@
 }
 
 .info-container .date {
-    flex: 1;
-    
-    padding-top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     font-size: 1.25em;
     line-height: 1.25em;
     font-weight: 400;
-    color: var(--font-color-3)
+    color: var(--font-color-3);
 
 }
 
 .info-container .title,
 .info-container a:first-of-type {
-    flex: 3;
-    padding-top: 4px;
-    font-size: 1.25em;
-    line-height: 1.25em;
-    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
     color: var(--font-color-1);
 }
@@ -78,6 +77,7 @@
 
 .info-container a:first-of-type > p {
     flex: 1;
+    color: var(--font-color-1);
 }
 
 .info-container a:first-of-type > div {
@@ -89,6 +89,7 @@
 }
 
 .info-container a:first-of-type svg {
+    color: var(--font-color-1);
     transition: .3s ease-in-out;
 }
 
@@ -101,8 +102,6 @@
 }
 
 .info-container .language-container {
-    flex: 5;
-
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -120,12 +119,10 @@
     border-radius: 1em;
     padding: 0.2em 0.5em;
     background-color: var(--l-color-a);
-    color: var(--d-color-a)
+    color: var(--d-color-a);
 }
 
 .info-container .visibility {
-    flex: 2;
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -149,7 +146,6 @@
     text-decoration: none;
     color: var(--font-color-3);
 
-    flex: 3;
     padding-top: 4px;
 
     display: flex;
@@ -157,6 +153,20 @@
     justify-content: flex-start;
     align-items: center;
     gap: 0.5em;
+}
+
+.info-container a:last-of-type:hover {
+    transform: scale(1.1);
+}
+
+.info-container a:last-of-type:hover > svg,
+.info-container a:last-of-type:hover > p {
+    transition: .2s ease-out;
+}
+
+.info-container a:last-of-type:hover > svg,
+.info-container a:last-of-type:hover > p {
+    color: var(--font-color-1);
 }
 
 .info-container a {
@@ -167,16 +177,12 @@
 }
 
 @media screen and (max-width: 1000px) {
+    .info-container {
+        grid-template-columns: 2em 3em 11fr 1fr 6fr;
+    }
+
     .info-container .language-container {
         display: none;
-    }
-
-    .info-container .title {
-        flex: 5;
-    }
-
-    .info-container .visibility {
-        flex: 1;
     }
 
     .info-container .visibility > div {
@@ -189,13 +195,16 @@
 }
 
 @media screen and (max-width: 700px) {
+    .info-container {
+        grid-template-columns: 2em 3em 1fr;
+    }
+
     .info-container a:last-of-type,
     .info-container .title {
         display: none;
     }
 
     .info-container a:first-of-type {
-        flex: 7;
         display: flex;
     }
 
@@ -214,6 +223,11 @@
 }
 
 @media screen and (max-width: 350px) {
+    .info-container {
+        grid-template-columns: 2em 1fr;
+    }
+
+
    .info-container .date {
         display: none;
     }

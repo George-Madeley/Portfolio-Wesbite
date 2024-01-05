@@ -12,7 +12,7 @@ export default function Info(props: any) {
             <FontAwesomeIcon icon={faChevronDown} />
         </label>
         <p className='date'>{props.date}</p>
-        <p className='title'>{props.name}</p>
+        <h4 className='title'>{props.name}</h4>
         <a className='title-link' href={props.link} target='_blank' rel='noreferrer'>
             <p>{props.name}</p>
             <div className='icon-container'>

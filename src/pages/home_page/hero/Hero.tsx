@@ -11,17 +11,17 @@ export default function Hero() {
 
   return (
     <header className='hero'>
-      <div className='hero-container'>
-        <Heading>
+      <Heading>
+        <div className='heading-content'>
           <p>The Portolio of</p>
-          <p>George Madeley</p>
-        </Heading>
-        <div className='hero-image-container'>
-          <img className='hero-image' src={portrait} alt='George Madeley' />
+          <h1>George Madeley</h1>
         </div>
-        <Bio />
-        <Socials />
+      </Heading>
+      <div className='hero-image-container'>
+        <img className='hero-image' src={portrait} alt='George Madeley' />
       </div>
+      <Bio />
+      <Socials />
     </header>
   )
 }

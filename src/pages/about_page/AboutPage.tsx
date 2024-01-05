@@ -9,7 +9,9 @@ export default function AboutPage() {
   return (
     <div className='about-page'>
       <Heading>
-        <h1>About Me</h1>
+        <div className='heading-content'>
+          <h1>About Me</h1>
+        </div>
       </Heading>
       <Description />
       <Timeline />

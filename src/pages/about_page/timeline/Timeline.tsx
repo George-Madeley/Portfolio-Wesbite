@@ -3,19 +3,20 @@ import './Timeline.css'
 
 import Card from './card/Card'
 
-import json from '../../../data/experience.real.json'
-
-export default function Timeline() {
+export default function Timeline(props: any) {
 
     const [experiences, setExperiences] = React.useState<any[]>([])
 
     useEffect(() => {
         // sort experience by the time field then reverse it so that the most recent experience is first
-        const sortedExperiences = json.experiences.sort((a, b) => {
-            return a.time < b.time ? 1 : -1
+        const sortedExperiences = props.content.sort((a: any, b: any) => {
+            if (a.endTime === b.endTime) {
+                return a.startTime < b.startTime ? 1 : -1
+            }
+            return a.endTime < b.endTime ? 1 : -1
         })
         setExperiences(sortedExperiences)
-    }, [experiences])
+    }, [props.content])
 
     return (
         <div className='timeline'>

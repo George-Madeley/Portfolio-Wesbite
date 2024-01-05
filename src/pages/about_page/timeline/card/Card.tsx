@@ -9,9 +9,9 @@ export default function Card(props: any) {
     return (
         <div className='timeline-card-container'>
             <div className='timeline-card'>
-                <div className='date'>
-                    <p>{props.time}</p>
-                </div>
+                <aside className='date'>
+                    <h3>{props.time}</h3>
+                </aside>
                 <div className='content'>
                     <Heading position={props.position} company={props.company} companyLink={props.companyLink} />
                     <Content id={props.id}>

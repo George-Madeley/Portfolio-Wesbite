@@ -73,8 +73,8 @@ nav li p {
         margin: 0.5em 1em;;
     }
 
-    nav li {
-        padding: 0em 0.5em;
+    nav .button {
+        padding: 0em;
     }
 
     nav li svg {
@@ -84,6 +84,10 @@ nav li p {
     }
 
     nav li p {
+        display: none;
+    }
+
+    nav li:last-of-type svg {
         display: none;
     }
 }

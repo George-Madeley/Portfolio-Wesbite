@@ -33,6 +33,10 @@
 .projects > .table-header > * {
     box-sizing: border-box;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     font-size: 1em;
     font-weight: 600;
     color: var(--font-color-1)

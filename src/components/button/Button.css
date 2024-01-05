@@ -5,11 +5,9 @@
     z-index: 1;
 
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    gap: 1em;
 
-    text-decoration: none;
     color: var(--font-color-1);
 
     border-radius: 1.5em;
@@ -47,12 +45,22 @@
     transform: translateY(-100%);
 }
 
-.button-icon {
+.button > * {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+
+    text-decoration: none;
+}
+
+.button svg {
     font-size: 1.5em;
     color: var(--font-color-1);
 }
 
-.button-text {
+.button p {
     padding-top: 0.3em;
     margin: 0;
     color: var(--font-color-1);

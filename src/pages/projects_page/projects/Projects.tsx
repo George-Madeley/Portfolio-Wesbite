@@ -88,11 +88,15 @@ export default function Projects() {
               isSelected={selectedTile === `${repo.id}`}
               handleChange={handleTileSelect}
             >
-              <h4>
+              <h5>
                 Description
-              </h4>
+              </h5>
               <p>
-                {repo.description}
+                {
+                  repo.description ?
+                  repo.description :
+                  'No description provided.'
+                }
               </p>
             </Tile>
           )

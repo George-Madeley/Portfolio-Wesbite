@@ -15,7 +15,10 @@
     line-height: 1.5rem;
 }
 
+.hero-bio .hero-bio-text:first-child {
+    color: var(--font-color-1)
+}
+
 .hero-bio .hero-bio-text:last-child {
-    font-size: 1rem;
     color: var(--font-color-2);
 }

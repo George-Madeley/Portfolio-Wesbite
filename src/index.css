@@ -102,12 +102,6 @@ p {
   font-size: var(--p1-font-size);
   line-height: var(--p1-line-height);
   color: var(--font-color-2);
-
-  --p1-font-size: 16px;
-  --p1-line-height: 21px;
-
-  --p2-font-size: 12px;
-  --p2-line-height: 16px;
 }
 
 svg {

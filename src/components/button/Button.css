@@ -5,8 +5,9 @@
     z-index: 1;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    gap: 1em;
 
     text-decoration: none;
     color: var(--font-color-1);
@@ -48,11 +49,12 @@
 
 .button-icon {
     font-size: 1.5em;
+    color: var(--font-color-1);
 }
 
 .button-text {
-    padding: 0.3em 0em 0em 0.5em;
+    padding-top: 0.3em;
     margin: 0;
-    font-size: 1.2em;
-    line-height: 1.2em;
+    color: var(--font-color-1);
+
 }

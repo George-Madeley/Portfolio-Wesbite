@@ -5,16 +5,16 @@
 }
 
 .about-page .heading-bg {
-    --wedge-height: 15em;
-    --v-margin: 3em;
+    --v-margin: 4em;
 
-    height: 15em;
+    height: 21em;
 
     clip-path: polygon(0 100%, 100% 0, 100% 100%, 0% 100%);
 }
 
 .about-page .heading-content {
     padding-top: 10em;
+    padding-bottom: 5em;
 
     text-wrap: nowrap;
 }

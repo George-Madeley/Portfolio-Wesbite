@@ -1,6 +1,6 @@
 .hero-bio {
     position: relative;
-    width: 100%;
+    max-width: 30em;
     margin: 2em 0 1em 0;
 
     display: flex;
@@ -17,5 +17,5 @@
 
 .hero-bio .hero-bio-text:last-child {
     font-size: 1rem;
-    color: #444;
+    color: var(--font-color-2);
 }

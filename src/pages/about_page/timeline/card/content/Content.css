@@ -68,20 +68,20 @@
     height: var(--wedge-height);
     width: 100%;
 
-    background: linear-gradient(to bottom, #fff0, #eeef);
+    background: linear-gradient(to bottom, #fff0, var(--bg-b-color-2));
 }
 
 .card-content > .label-container label {
     width: min-content;
 
     cursor: pointer;
-    color: #555;
+    color: var(--font-color-3);
 
     transition: .2s ease-out;
 }
 
 .card-content label:hover {
-    color: #000;
+    color: var(--font-color-1);
 }
 
 .card-content > .label-container span {

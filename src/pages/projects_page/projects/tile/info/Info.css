@@ -16,7 +16,7 @@
     padding: 8px 1em;
     
     border-radius: 24px;
-    background: linear-gradient(145deg, #eee, #f0f0f0);
+    background: linear-gradient(145deg, var(--bg-t-color-1), var(--bg-t-color-2));
 }
 
 .info-container > * {
@@ -51,7 +51,7 @@
     font-size: 1.25em;
     line-height: 1.25em;
     font-weight: 400;
-    color: #888
+    color: var(--font-color-3)
 
 }
 
@@ -63,7 +63,7 @@
     line-height: 1.25em;
     font-weight: 600;
 
-    color: black;
+    color: var(--font-color-1);
 }
 
 .info-container a:first-of-type {
@@ -86,8 +86,6 @@
     width: calc((var(--translate-x) + var(--icon-width) + 1vw) * 1.1);
 
     transform-origin: center left;
-
-    border: 1px solid red;
 }
 
 .info-container a:first-of-type svg {
@@ -121,8 +119,8 @@
 
     border-radius: 1em;
     padding: 0.2em 0.5em;
-    background-color: var(--l-color-1);
-    color: var(--d-color-1)
+    background-color: var(--l-color-a);
+    color: var(--d-color-a)
 }
 
 .info-container .visibility {
@@ -149,7 +147,7 @@
 
 .info-container a:last-of-type {
     text-decoration: none;
-    color: #888;
+    color: var(--font-color-3);
 
     flex: 3;
     padding-top: 4px;

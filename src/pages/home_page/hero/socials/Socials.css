@@ -1,13 +1,13 @@
 .hero-socials {
     margin: 1vw 0;
-    padding: 0.5em;
     max-width: 30em;
     width: 100%;
 
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    gap: 1em;
 
     --btn-font-size: 1.2rem;
     --btn-icon-size: 1.5rem;

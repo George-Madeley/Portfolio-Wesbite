@@ -25,7 +25,11 @@ export default function Tile(props: any) {
                 <p className='description'>{props.description}</p>
             </div>
             <div className='button-container'>
-                <Button link={props.link} icon='code' text='Learn More' />
+                <Button>
+                    <a href={props.link} target='_blank' rel='noreferrer'>
+                        <p>Learn More</p>
+                    </a>
+                </Button>
             </div>
         </div>
     )

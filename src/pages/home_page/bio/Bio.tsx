@@ -3,9 +3,6 @@ import './Bio.css';
 
 import json from '../../../data/home_page.real.json';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-
 export default function Bio() {
   const [bio, setBio] = React.useState<any[]>([])
 
@@ -15,10 +12,6 @@ export default function Bio() {
 
   return (
     <div className="bio">
-      <div className='bio-bg'>
-        <FontAwesomeIcon icon={faUser} className="bio-icon"/>
-      </div>
-
       <span className="bio-info">
         <div className='bio-text'>
           {

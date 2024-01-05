@@ -1,5 +1,5 @@
 .projects {
-    margin: 10em 10vw;
+    margin: 10em 0;
 
     display: flex;
     flex-direction: column;
@@ -11,10 +11,8 @@
 .projects > .table-header {
     box-sizing: border-box;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 3em 8fr 8fr 4fr 6fr;
     gap: 1em;
 
     width: 100%;
@@ -23,7 +21,7 @@
 
     min-height: 2em;
     
-    padding: 0.2em 1em 0.2em 4em;
+    padding: 0.2em 2em 0.2em 4em;
     
     border-radius: 1.5em;
     background: linear-gradient(145deg, var(--bg-t-color-1), var(--bg-t-color-2));
@@ -40,41 +38,21 @@
     color: var(--font-color-1)
 }
 
-.projects > .table-header .date {
-    flex: 1;
-}
-
-.projects > .table-header .title {
-    flex: 3;
-}
-
-.projects > .table-header .languages {
-    flex: 5;
-}
-
-.projects > .table-header .visibility {
-    flex: 2;
-}
-
-.projects > .table-header .link {
-    flex: 3;
-}
-
 @media screen and (max-width: 1000px) {
+    .projects > .table-header {
+        grid-template-columns: 3em 11fr 1fr 6fr;
+    }
+
     .projects > .table-header .languages {
         display: none;
-    }
-
-    .projects > .table-header .title {
-        flex: 5;
-    }
-
-    .projects > .table-header .visibility {
-        flex: 1;
     }
 }
 
 @media screen and (max-width: 700px) {
+    .projects > .table-header {
+        grid-template-columns: 3em 1fr;
+    }
+
     .projects > .table-header .link {
         display: none;
     }

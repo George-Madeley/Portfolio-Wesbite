@@ -4,11 +4,13 @@ import './Projects.css'
 import { getRepos, getLanguages, getNumberOfCommits } from '../../../api/github'
 
 import Tile from './tile/Tile'
+import LoadingTile from './loading_tile/LoadingTile'
 
 export default function Projects() {
   const [selectedTile, setSelectedTile] = React.useState('' as string)
 
   const [repos, setRepos] = React.useState([] as any[]);
+  const [isLoading, setIsLoading] = React.useState(true as boolean);
 
   const handleTileSelect = (event: any) => {
     if (event.target.checked) {
@@ -56,6 +58,7 @@ export default function Projects() {
       ).then((reposWithDetails) => {
         console.log(reposWithDetails);
         setRepos(reposWithDetails);
+        setIsLoading(false);
       });
     });
   }, [])
@@ -70,6 +73,8 @@ export default function Projects() {
         <p className='link'>Link</p>
       </div>
       {
+        isLoading ?
+        <LoadingTile /> :
         repos.map((repo: any, index: number) => {
           return (
             <Tile

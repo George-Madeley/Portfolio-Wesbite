@@ -14,8 +14,8 @@
 
     
     filter: 
-        drop-shadow(5px 5px 10px #bebebe) 
-        drop-shadow(-5px -5px 10px #bebebe);
+        drop-shadow(5px 5px 10px var(--shadow-color-1)) 
+        drop-shadow(-5px -5px 10px var(--shadow-color-2));
     
     border-radius: 1.5em;
 }

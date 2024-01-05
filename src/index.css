@@ -1,32 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&family=Josefin+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
 * {
-  --color-1: #403933;
-  --color-2: #595048;
-  --color-3: #8C837B;
-  --color-4: #F2EADF;
-  --color-5: #D9CCC1;
-
   --p-color-1: #0080ff;
   --p-color-2: #2b00ff;
   --p-color-3: #d400ff;
   --p-color-4: #ff0080;
+  --p-color-a: rgb(128, 0, 255);
 
   --l-color-1: hsl(210, 100%, 70%);
   --l-color-2: hsl(250, 100%, 70%);
   --l-color-3: hsl(290, 100%, 70%);
   --l-color-4: hsl(330, 100%, 70%);
+  --l-color-a: hsl(270, 100%, 70%);
 
   --d-color-1: hsl(210, 100%, 30%);
   --d-color-2: hsl(250, 100%, 30%);
   --d-color-3: hsl(290, 100%, 30%);
   --d-color-4: hsl(330, 100%, 30%);
+  --d-color-a: hsl(270, 100%, 30%);
 
-  --bg-color-1: hsl(291, 100%, 97%);
-  --bg-color-2: hsl(291, 20%, 90%);
+  --btn-color-1: #f2eef6;
+  --btn-color-2: #f5f1f9;
+
+  --bg-t-color-1: #f2eef6;
+  --bg-t-color-2: #f5f1f9;
+  --bg-t-color-3: hsl(270, 40%, 94%);
+
+  --bg-b-color-1: #f2eef6;
+  --bg-b-color-2: #f5f1f9;
+  --bg-b-color-3: hsl(270, 40%, 94%);
+
+  --shadow-color-1: hsl(270, 9%, 85%);
+  --shadow-color-2: hsl(270, 100%, 98%);
 
   --font-heading: 'Gabarito', sans-serif;
   --font-body: 'Josefin Sans', sans-serif;
+  --font-color-1: #000;
+  --font-color-2: #444;
+  --font-color-3: #777;
 
   --h-margin: 15vw;
 
@@ -41,6 +52,56 @@
   -moz-user-select: none;
   -ms-user-select: none;  
 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--font-color-1);
+}
+
+h1 {
+  font-size: 67px;
+  font-weight: 700;
+  line-height: 89px;
+}
+
+h2 {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 67px;
+}
+
+h3 {
+  font-size: 37px;
+  font-weight: 500;
+  line-height: 50px;
+}
+
+h4 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 37px;
+}
+
+h5 {
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+p {
+  font-family: var(--font-body);
+  color: var(--font-color-2);
+
+  --p1-font-size: 16px;
+  --p1-line-height: 21px;
+
+  --p2-font-size: 12px;
+  --p2-line-height: 16px;
+}
+
+svg {
+  color: var(--font-color-2)
 }
 
 html {
@@ -65,4 +126,44 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  * {
+    --p-color-1: #1f66ad;
+    --p-color-2: #361fad;
+    --p-color-3: #961fad;
+    --p-color-4: #ad1f66;
+    --p-color-a: hsl(270, 70%, 40%);
+  
+    --l-color-1: hsl(210, 70%, 70%);
+    --l-color-2: hsl(250, 70%, 70%);
+    --l-color-3: hsl(290, 70%, 70%);
+    --l-color-4: hsl(330, 70%, 70%);
+    --l-color-a: hsl(270, 70%, 70%);
+  
+    --d-color-1: hsl(210, 70%, 30%);
+    --d-color-2: hsl(250, 70%, 30%);
+    --d-color-3: hsl(290, 70%, 30%);
+    --d-color-4: hsl(330, 70%, 30%);
+    --d-color-a: hsl(270, 70%, 30%);
+
+    --btn-color-1: hsl(270, 20%, 24%);
+    --btn-color-2: hsl(270, 12%, 20%);
+  
+    --bg-t-color-1: hsl(270, 20%, 18%);
+    --bg-t-color-2: hsl(270, 12%, 15%);
+    --bg-t-color-3: hsl(270, 20%, 12%);
+  
+    --bg-b-color-1: hsl(270, 20%, 15%);
+    --bg-b-color-2: hsl(270, 12%, 12%);
+    --bg-b-color-3: hsl(270, 20%, 9%);
+  
+    --shadow-color-1: hsla(0, 0, 0, 0);
+    --shadow-color-2: hsla(0, 0, 0, 0);
+
+    --font-color-1: hsl(0, 0%, 100%);
+    --font-color-2: hsl(0, 0%, 73%);
+    --font-color-3: hsl(0, 0%, 53%);
+  }
 }

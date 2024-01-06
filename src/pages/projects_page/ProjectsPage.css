@@ -18,7 +18,7 @@
 }
 
 .projects-page h1 {
-    font-size: clamp(4em, 10vw, 8em);
+    font-size: clamp(1em, 13vw, 8em);
     font-weight: 700;
     letter-spacing: 0.1em;
     font-family: var(--font-heading), sans-serif;

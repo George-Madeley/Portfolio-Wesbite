@@ -7,11 +7,12 @@ import { getRepo, getLanguages } from '../../../api/github';
 
 import Tile from './tile/Tile';
 import LoadingTile from './loading_tile/LoadingTile';
+import ErrorTile from './error_tile/ErrorTile';
 
 import Heading from '../../../components/heading/Heading';
 
 export default function Highlights() {
-  const [repos, setRepos] = React.useState<any[]>([])
+  const [tileContent, setTileContent] = React.useState<any[]>([])
   const [isLoading, setLoading] = React.useState<boolean>(true)
 
   React.useEffect(() => {
@@ -30,14 +31,29 @@ export default function Highlights() {
               "languages": languageList,
             }
             return newRepo;
+          }, (error: Error) => {
+            console.error(error ?? "Error occured");
+            const newRepo = {
+              "isError": true as boolean,
+              "message": error.message,
+              }
+              return newRepo;
           });
         })
       })
-    ).then((reposWithDetails) => {
-      setRepos(reposWithDetails);
+    ).then((responseData: any) => {
+      setTileContent(responseData);
       setLoading(false);
-    })
-  }, [repos])
+    }, (error: Error) => {
+      console.log(error);
+      console.error(error ?? "Error occured");
+      setTileContent([{
+        "isError": true as boolean,
+        "message": error.message
+        }]);
+      setLoading(false);
+    });
+  }, [])
 
 
   return (
@@ -55,10 +71,18 @@ export default function Highlights() {
             <LoadingTile />
             <LoadingTile />
           </> :
-          repos.map((repo) => {
+          tileContent.map((repo: any, index: number) => {
+            if (repo.isError) {
+              return (
+                <ErrorTile
+                  key={index}
+                  message={repo.message}
+                />
+              )
+            }
             return (
               <Tile
-                key={repo.id}
+                key={index}
                 name={repo.name}
                 description={repo.description}
                 link={repo.html_url}

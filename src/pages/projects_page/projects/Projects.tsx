@@ -5,6 +5,7 @@ import { getRepos, getLanguages, getNumberOfCommits } from '../../../api/github'
 
 import Tile from './tile/Tile'
 import LoadingTile from './loading_tile/LoadingTile'
+import ErrorTile from './error_tile/ErrorTile'
 
 export default function Projects() {
   const [selectedTile, setSelectedTile] = React.useState('' as string)
@@ -41,6 +42,7 @@ export default function Projects() {
             }
             const newRepo = {
               "id": repo.id,
+              "isError": false,
               "name": repo.name,
               "description": repo.description,
               "html_url": repo.html_url,
@@ -53,13 +55,47 @@ export default function Projects() {
               "commits_count": commitsCount
             }
             return newRepo;
+          }, (error: Error) => {
+            const year = repo.updated_at.substring(0, 4)
+            const isPublic = repo.visibility === "public"
+            return {
+              "id": repo.id,
+              "isError": false,
+              "name": repo.name,
+              "description": repo.description,
+              "html_url": repo.html_url,
+              "stargazers_count": repo.stargazers_count,
+              "forks_count": repo.forks,
+              "watchers_count": repo.watchers_count,
+              "updated_at": year,
+              "isPublic": isPublic,
+              "languages": [],
+              "commits_count": 0
+            }
           });
         })
       ).then((reposWithDetails) => {
-        console.log(reposWithDetails);
         setRepos(reposWithDetails);
         setIsLoading(false);
+      }, (error: Error) => {
+        setRepos([
+          {
+            "id": 1,
+            "isError": true,
+            "message": error.message
+          }
+        ]);
+        setIsLoading(false);
       });
+    }, (error: Error) => {
+      setRepos([
+        {
+          "id": 1,
+          "isError": true,
+          "message": error.message
+        }
+      ]);
+      setIsLoading(false);
     });
   }, [])
 
@@ -76,6 +112,14 @@ export default function Projects() {
         isLoading ?
         <LoadingTile /> :
         repos.map((repo: any, index: number) => {
+          if (repo.isError) {
+            return (
+              <ErrorTile
+                key={index}
+                message={repo.message}
+              />
+            )
+          }
           return (
             <Tile
               key={index}

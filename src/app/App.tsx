@@ -11,7 +11,7 @@ import { useMediaQuery } from 'react-responsive';
 function App() {
   const [isDarkMode, setDarkMode] = React.useState(true );
 
-  const systemPrefersDark = useMediaQuery(
+  useMediaQuery(
       {
           query: '(prefers-color-scheme: dark)'
       },

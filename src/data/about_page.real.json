@@ -1,0 +1,333 @@
+{
+    "introduction": [
+        "Over the years, I have developed a passion for programming and applied my knowledge to a wide range of different careers and sectors within software development. From each of these experiences, I have gained a unique set of skills and knowledge that I have developed further by undertaking online courses and personal projects. I have also had the opportunity to work with a variety of different technologies and frameworks, which has allowed me to gain a deeper understanding of the software development process. I have also had the privilege of working with a diverse range of people, which has helped me develop my communication and collaboration skills. Overall, I have gained a wealth of experience in software development, which I believe will allow me to excel in this field.",
+        "The following section is a history of my experiences in software development. It includes my education, work experience, and personal projects. It also includes a list of the technologies and frameworks I have worked with. I have also included links to my GitHub repositories, where you can find the code for my projects."
+    ],
+    "experiences": [
+        {
+            "startTime": 2023,
+            "endTime": 2024,
+            "timePeriod": "2023 - Present",
+            "type": "work",
+            "position": "Lead Software Engineer",
+            "company": "Biodevices Without Borders",
+            "companyLink": "",
+            "links": [
+                {
+                    "name": "Mobile App Code",
+                    "url": "https://github.com/Bath-Biodevices-Without-Borders/App"
+                },
+                {
+                    "name": "Microcontroller Code",
+                    "url": "https://github.com/Bath-Biodevices-Without-Borders/Microcontroller"
+                },
+                {
+                    "name": "Website Code",
+                    "url": "https://github.com/Bath-Biodevices-Without-Borders/Website"
+                }
+            ],
+            "languages": [
+                "React Native",
+                "React",
+                "Redux",
+                "TypeScript",
+                "JavaScript",
+                "HTML",
+                "CSS",
+                "C++"
+            ],
+            "description": [
+                "I collaborated in designing and developing a handheld water quality tester to be deployed to Sub-Saharan Africa to under developed communities. Programmed a React Native companion mobile application for iOS and Android which displays the measured properties of the tested water. Utilised Redux Saga and React-Native-BLE-PLX libraries to run multiple asynchronous threads to enable constant communication between the application and the water tester device via Bluetooth. Formed a back-end application in Firebase to upload the test results and GPS location to a database to be used to identify sources of water contamination. Collaborated with full-stack web developers to improve the company website. Built features allowing viewers to donate money to the non-profit organization. Cultivated the code bases for the microcontroller of the device and merged them together to form a complete device to communicate with the device sensors and the mobile application. Liaised with the social media team to develop a company wide branding document. "
+            ]
+        },
+        {
+            "startTime": 2021,
+            "endTime": 2022,
+            "timePeriod": "2021 - 2022",
+            "type": "work",
+            "position": "Front-end Web Developer",
+            "company": "BT",
+            "companyLink": "https://www.bt.com/",
+            "links": [],
+            "languages": [
+                "JavaScript",
+                "HTML",
+                "CSS",
+                "Docker",
+                "Microsoft Power Platform",
+                "Power BI",
+                "Power Apps",
+                "C#",
+                "Unity"
+            ],
+            "description": [
+                "Collaborated with senior team members in creating ergonomic and practical web app to aid health and safety inspections world-wide utilising Microsoft Power Platform. Independently enhanced a company wide holiday booking calendar adopting tools such as HTML, CSS, TypeScript, React, and Redux. Educated team members on how employ Docker into their repositories and adapted already existing Git repositories to benefit from using Docker. Coached a team of graduates on how to use the Unity game engine in creating 3D augmented reality experiences for the next evolution in global marketing. Evaluated a series of for inaccuracies, using unit tests, integration tests, function tests, and acceptance tests, and investigates the source of errors to improve my own understanding of implementing Full-Stack development.",
+                "Undertook a series of Codecademy courses in Front-End, Back-End, and Full-Stack web developed acquiring skills and techniques to be applied in a variety of corporate and personal projects. Developed a series of web-apps: on using the Spotify API, another to solve a campus wide revision difficulty, and another to visual aid managers in who in their team has booked time off. Enhanced skills in Python, C, C++, Unix CMD, Git, and Artificial Intelligence."
+            ]
+        },
+        {
+            "startTime": 2020,
+            "endTime": 2022,
+            "timePeriod": "2020 - 2022",
+            "type": "personal",
+            "position": "Game Developer",
+            "company": "Independent",
+            "companyLink": "",
+            "links": [
+                {
+                    "name": "Zombie Runner",
+                    "url": "https://github.com/George-Madeley/GameDevTV-Unity3D-ZombieRunner"
+                },
+                {
+                    "name": "Realm Rush",
+                    "url": "https://github.com/George-Madeley/GameDevTV-Unity3D-RealmRush"
+                },
+                {
+                    "name": "Obstacle Course",
+                    "url": "https://github.com/George-Madeley/GameDevTV-Unity3D-ObstacleCourse"
+                },
+                {
+                    "name": "Project Boost",
+                    "url": "https://github.com/George-Madeley/GameDevTV-Unity3D-ProjectBoost"
+                },
+                {
+                    "name": "Argon Assault",
+                    "url": "https://github.com/George-Madeley/GameDevTV-Unity3D-ArgonAssault"
+                }
+            ],
+            "languages": [
+                "C#",
+                "Unity"
+            ],
+            "description": [
+                "Adapted to coronavirus challenges and enrolled in online Udemy courses in C# video game design using Unity. Developed a 2D, rogue-like roleplay game using the gained knowledge. Produced artwork and graphics, a fully functioning inventory system, and a sophisticated questing system. Optimised code design to improve performance and readability. Learnt 3D game design to train a team for use in augmented reality advertising.",
+                "Undertook online courses in C# and Unity by Codecademy and GameDev.tv to develop skills in game development. Created a series of games including a 3D space shooter, a 3D obstacle course, a 3D tower defence game, and a 2D platformer."
+            ]
+        },
+        {
+            "startTime": 2019,
+            "endTime": 2024,
+            "timePeriod": "2019 - Present",
+            "type": "education",
+            "position": "MEng Computer Sysmtems Engineer",
+            "company": "University of Bath",
+            "companyLink": "https://www.bath.ac.uk/",
+            "links": [
+                {
+                    "name": "AI Sodoku Solver",
+                    "url": "https://github.com/George-Madeley/CM20252-AI-Sodoku-Solver"
+                },
+                {
+                    "name": "Circuit Analysis",
+                    "url": "https://github.com/George-Madeley/EE20084-Circuit-Analysis-Coursework"
+                },
+                {
+                    "name": "Shared Memory",
+                    "url": "https://github.com/George-Madeley/CM30225-Shared-Memory-Coursework"
+                },
+                {
+                    "name": "Distributed Memory",
+                    "url": "https://github.com/George-Madeley/CM30225-Distributed-Memory-Coursework"
+                },
+                {
+                    "name": "Image Filtering",
+                    "url": "https://github.com/George-Madeley/EE40054-Image-Filtering-Coursework"
+                },
+                {
+                    "name": "Neural Networks",
+                    "url": "https://github.com/George-Madeley/EE40094-Neural-Networks-Coursework"
+                },
+                {
+                    "name": "Genetic Algorithms",
+                    "url": "https://github.com/George-Madeley/EE40094-Genetic-Algorithms-Coursework"
+                },
+                {
+                    "name": "EEG Spike Classification",
+                    "url": "https://github.com/George-Madeley/EE40094-EEG-Spike-Classification-Coursework"
+                }
+            ],
+            "languages": [
+                "C",
+                "Python",
+                "MATLAB",
+                "Java",
+                "Assembly",
+                "VHDL",
+                "Verilog"
+            ],
+            "description":[
+                "I Programmed multiple different data structures, including lists, binary trees and string comparison using Java in IntelliJ IDE. Proceeded to use algorithms including depth-first search and constraint satisfaction to program an artificial intelligence agent to solve sudoku problems under thirty seconds. From sixty different puzzles with four difficulties, the agent cracked forty-five puzzles under one second and the remaining fifteen puzzles in under 30 seconds.",
+                "Developed a series of different machine learning algorithms to classify EEG signals, classify numbers from the MNIST dataset, and optimise other procedures. Utilised a variety of different machine learning techniques including neural networks, genetic algorithms, and support vector machines. Achieved an accuracy of 98.8% in classifying numbers from the MNIST dataset using a neural network. Created a genetic algorithm to solve polynomial equations and optimise the parameters of a neural network.",
+                "Investigated varying noise reduction techniques to improve the quality of images. Programmed a series of different filters including a Gaussian filter, a median filter, and a butter-worth filter. Utilised Python to program the filters and test them on a series of different images.",
+                "Created a program to perform convolution on a series of different images. Programmed the convolution in C and utilised multiple threads to parallelise the code. Investigated the performance of the code on a series of different images and compared the performance of the code on different numbers of threads. Investigated the performance when using shared memory and distributed memory.",
+                "Programmed and assessed the circuit of a stopwatch and digital lock using Assembly language on MPLabX. Utilised various electrical components to produce a user-friendly product. Adapted to coronavirus restriction and developed the design of an electronic self-driving car that would follow a 20KHz signal along a taped wire. Simulated the circuit and reformed the model accordingly."
+            ]
+        },
+        {
+            "startTime": 2017,
+            "endTime": 2019,
+            "timePeriod": "2017 - 2019",
+            "type": "education",
+            "position": "A-Levels",
+            "company": "University Technical College Norfolk",
+            "companyLink": "https://www.utcn.org.uk/",
+            "links": [],
+            "languages": [],
+            "description": [
+                "Designed a computer case on Fusion 360 based on the NZXTs H700i case. Adapted to new CAD software and dedicated time researching case standards, cooling methods, and component dimensions which involved first-hand measurements."
+            ]
+        },
+        {
+            "startTime": 2018,
+            "endTime": 2018,
+            "timePeriod": "2018 - 2018",
+            "type": "work",
+            "position": "Intern",
+            "company": "East Coast Engery Internship",
+            "companyLink": "https://www.ogdentrust.com/funding/coastal-energy/",
+            "links": [
+                {
+                    "name": "Vattenfall",
+                    "url": "https://www.vattenfall.co.uk/"
+                }
+            ],
+            "languages": [],
+            "description": [
+                "I Spearheaded the research, design, and manufacture of an electronic careers event stand. Corporate with four engineering firms to deliberate the final design, amend issues, and begin manufacturing. I Innovated the circuit board design by minimising the number of components, learning different solutions, and cultivating new techniques."
+            ]
+        },
+        {
+            "startTime": 2017,
+            "endTime": 2017,
+            "timePeriod": "2017 - 2017",
+            "type": "education",
+            "position": "Team Manager",
+            "company": "F1 in Schools",
+            "companyLink": "https://www.f1inschools.co.uk/",
+            "links": [
+                {
+                    "name": "Sprowston Community Academy",
+                    "url": "https://sprowstoncommunityacademy.co.uk/"
+                }
+            ],
+            "languages": [],
+            "description": [
+                "I collaborated in designing and manufacturing a Formula One car. This car successfully placed my team first in the East Anglia Regional competition 2017. We acquired the best research and development trophies and ‘best car.’ We proceeded to the National Finals at Silverstone. Reached eighth place and won the best team design award whilst positively representing the school."
+            ]
+        },
+        {
+            "startTime": 2018,
+            "endTime": 2018,
+            "timePeriod": "2018 - 2018",
+            "type": "work",
+            "position": "Researcher",
+            "company": "Nuffield Foundation",
+            "companyLink": "https://www.nuffieldfoundation.org/",
+            "links": [
+                {
+                    "name": "UEA",
+                    "url": "https://www.uea.ac.uk/"
+                }
+            ],
+            "languages": [],
+            "description": [
+                "Supported the reach and design of a 3D implantable device to aid in tendon repair. Conducted simulations on seven different scaffold designs using the custom-made material. I created an optimal model by evaluating each design with the specification until. Engaged with biology PhD students and doctorates and, through them, adjusted to the unfamiliar subjects."
+            ]
+        },
+        {
+            "startTime": 2021,
+            "endTime": 2022,
+            "timePeriod": "2021 - 2022",
+            "type": "personal",
+            "position": "Full-Stack Web Developer",
+            "company": "Independent",
+            "companyLink": "",
+            "links": [
+                {
+                    "name": "Past Paper Answer Website",
+                    "url": "https://github.com/George-Madeley/UoB-Past-Paper-Answer-Website"
+                },
+                {
+                    "name": "Ravenous",
+                    "url": "https://github.com/George-Madeley/Ravenous"
+                },
+                {
+                    "name": "Jammming",
+                    "url": "https://github.com/George-Madeley/Jammming"
+                },
+                {
+                    "name": "My Portfolio",
+                    "url": "https://github.com/George-Madeley/my-portfolio"
+                }
+            ],
+            "languages": [
+                "TypeScript",
+                "JavaScript",
+                "React",
+                "Redux",
+                "Express.js",
+                "Node.js",
+                "Vue.js",
+                "JQuery",
+                "HTML",
+                "CSS",
+                "Sass",
+                "SQL"
+            ],
+            "description": [
+                "After completing a series of Codecademy courses in full-stack web development, I gained a solid foundation in various technologies and frameworks. These courses covered topics such as HTML, CSS, JavaScript, React, Redux, Express.js, Node.js, and SQL. Armed with these skills, I was ready to apply my knowledge in real-world scenarios.",
+                "At BT, I had the opportunity to work on web app development projects. Leveraging my full-stack web development skills, I contributed to the creation of user-friendly and responsive web applications. I collaborated with a team of developers and designers to implement features, enhance functionality, and ensure seamless user experiences. By applying the principles and techniques I learned from Codecademy, I was able to contribute effectively to the development process.",
+                "Additionally, I had the privilege of working with Biodevices Without Borders, where I utilized my full-stack web development skills to create web apps that supported their mission of improving healthcare in underserved communities. I worked closely with the organization's team to understand their requirements and translate them into functional and intuitive web applications. By leveraging my knowledge of React, Redux, and other technologies, I was able to develop robust and scalable solutions that addressed their specific needs.",
+                "Furthermore, I applied my full-stack web development skills to create my own website. Using the technologies and frameworks I learned from Codecademy, I developed a personal portfolio website that showcased my projects, skills, and experiences. This website served as a platform to demonstrate my capabilities as a full-stack web developer and allowed me to showcase my work to potential clients and employers.",
+                "Overall, undertaking Codecademy courses in full-stack web development provided me with the necessary skills and knowledge to excel in web app development. I successfully applied these skills in professional settings at BT and Biodevices Without Borders, as well as in creating my own website."
+            ]
+        },
+        {
+            "startTime": 2023,
+            "endTime": 2023,
+            "timePeriod": "2023 - 2023",
+            "type": "personal",
+            "position": "Machine Learning Engineer",
+            "company": "Independent",
+            "companyLink": "",
+            "links": [
+                {
+                    "name": "Wordle Solver",
+                    "url": "https://github.com/George-Madeley/AI-Wordle-Solver"
+                },
+                {
+                    "name": "2048",
+                    "url": "https://github.com/George-Madeley/AI-2048"
+                },
+                {
+                    "name": "EEG Spike Classification",
+                    "url": "https://github.com/George-Madeley/EE40094-EEG-Spike-Classification-Coursework"
+                },
+                {
+                    "name": "Genetic Algorithms",
+                    "url": "https://github.com/George-Madeley/EE40094-Genetic-Algorithms-Coursework"
+                },
+                {
+                    "name": "Neural Networks",
+                    "url": "https://github.com/George-Madeley/EE40094-Neural-Networks-Coursework"
+                }
+            ],
+            "languages": [
+                "Python",
+                "Pandas",
+                "NumPy",
+                "SciPy",
+                "Matplotlib",
+                "Scikit-Learn",
+                "TensorFlow",
+                "Keras"
+            ],
+            "description": [
+                "I undertook a series of Codecademy courses in machine learning to develop my skills in this field. These courses covered topics such as Python, Pandas, NumPy, SciPy, Matplotlib, Scikit-Learn, TensorFlow, and Keras. I also completed a series of projects that allowed me to apply my knowledge in real-world scenarios.",
+                "Additionally, I had the privilege of working with Biodevices Without Borders, where I utilized my machine learning skills to develop solutions that supported their mission of improving healthcare in underserved communities. I worked closely with the organization's team to understand their requirements and translate them into functional and intuitive solutions. By leveraging my knowledge of Python, Pandas, NumPy, SciPy, Matplotlib, Scikit-Learn, TensorFlow, and Keras, I was able to develop robust and scalable solutions that addressed their specific needs.",
+                "Furthermore, I applied my machine learning skills to create my own projects. Using the technologies and frameworks I learned from Codecademy, I developed solutions that solved various problems. I developed AI solutions for Wordle and 2048, leveraging my machine learning skills and the knowledge I gained from Codecademy courses. These projects showcased my capabilities as a machine learning engineer and demonstrated my ability to solve complex problems using AI techniques.These projects served as a platform to demonstrate my capabilities as a machine learning engineer and allowed me to showcase my work to potential clients and employers.",
+                "Overall, undertaking Codecademy courses in machine learning provided me with the necessary skills and knowledge to excel in this field. I successfully applied these skills in professional settings at BT and Biodevices Without Borders, as well as in creating my own projects."
+            ]
+        }
+    ]
+}

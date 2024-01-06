@@ -1,0 +1,22 @@
+{
+    "repos": [
+        {
+            "name": "EE40094-EEG-Spike-Classification-Coursework",
+            "owner": "George-Madeley"
+        },
+        {
+            "name": "GameDevTV-Unity3D-RealmRush",
+            "owner": "George-Madeley"
+        },
+        {
+            "name": "App",
+            "owner": "Bath-Biodevices-Without-borders"
+        }
+    ],
+    "bio": [
+        "Hi, I'm George.",
+        "I'm a student studying an integrated Master's of Engineering in Computer Systems Engineering at the University of Bath. (Aug 2022)",
+        "With interests in full-stack development and artificial intelligence.",
+        "You can find me optimizing my code for many projects, building and repairing computers, or even playing video games during my free time."
+    ]
+}

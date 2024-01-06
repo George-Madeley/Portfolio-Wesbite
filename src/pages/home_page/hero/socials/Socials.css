@@ -14,7 +14,7 @@
 }
 
 .hero-socials .button-container {
-    width: 10em;
+    width: 12em;
 }
 
 @media screen and (max-width: 400px) {
@@ -25,7 +25,6 @@
     }
 
     .hero-socials .button-container {
-        width: 100%;
         margin: 0.5em 0;
     }
 }

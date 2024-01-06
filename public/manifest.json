@@ -8,8 +8,23 @@
       "type": "image/x-icon"
     }
   ],
+  "description": "Full Stack Developer | Machine Learning Engineer | Game Developer. Masters of Computer Systems Engineering student at the University of Bath.",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#8000ff",
+  "background_color": "#d9c9e8",
+  "categories": [
+    "portfolio",
+    "resume",
+    "cv",
+    "george",
+    "madeley",
+    "programming",
+    "software",
+    "development",
+    "web",
+    "design",
+    "development",
+    "designer"
+  ]
 }

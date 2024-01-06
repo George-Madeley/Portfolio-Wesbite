@@ -128,6 +128,7 @@ body {
 
   --heading-blend-mode: color-burn;
   --heading-opacity: .3;
+  --heading-color: #3a3a3a;
 
   --h-margin: 15vw;
 }
@@ -173,7 +174,8 @@ body.dark{
   --font-color-3: hsl(0, 0%, 53%);
 
   --heading-blend-mode: overlay;
-  --heading-opacity: .5;
+  --heading-opacity: .3;
+  --heading-color: #fff;
 }
 
 code {

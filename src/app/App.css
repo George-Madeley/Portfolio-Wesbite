@@ -22,8 +22,7 @@
   --gradient-color-4: var(--p-color-4);
 
   position: absolute;
-  top: auto;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: inherit;
   height: 100%;

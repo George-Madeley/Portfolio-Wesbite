@@ -37,7 +37,7 @@
     top: 100%;
     left: 0;
     background-image: linear-gradient(
-        to top right, var(--p-color-3) 0%, var(--p-color-4) 100%
+        to top right, var(--btn-color-hover-1) 0%, var(--btn-color-hover-2) 100%
     );
     transition: .2s ease-out;
     display: block;
@@ -60,12 +60,20 @@
 
 .button svg {
     font-size: 1.5em;
-    color: var(--font-color-1);
 }
 
 .button p {
     padding-top: 0.3em;
     margin: 0;
-    color: var(--font-color-1);
+}
 
+.button svg,
+.button p {
+    color: var(--font-color-1);
+    transition: .1s ease-out;
+}
+
+.button:hover svg,
+.button:hover p {
+    color: white;
 }

@@ -21,8 +21,6 @@
 
 .heading-visible {
     position: absolute;
-
-    z-index: 2;
 }
 
 .heading-container .heading-split {
@@ -35,13 +33,17 @@
 
 .heading-container > .heading-burn {
     mix-blend-mode: var(--heading-blend-mode);
+    color: var(--heading-color);
     opacity: 1;
-    color: var(--font-color-1);
+
+    z-index: 2;
 }
 
 .heading-container > .heading-overlay {
     opacity: var(--heading-opacity);
-    color: var(--font-color-1);
+    color: var(--heading-color);
+
+    z-index: 2;
 }
 
 .heading-invisible {

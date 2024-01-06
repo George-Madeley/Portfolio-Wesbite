@@ -6,11 +6,13 @@ import json from '../../../data/home_page.real.json'
 import { getRepo, getLanguages } from '../../../api/github';
 
 import Tile from './tile/Tile';
+import LoadingTile from './loading_tile/LoadingTile';
 
 import Heading from '../../../components/heading/Heading';
 
 export default function Highlights() {
   const [repos, setRepos] = React.useState<any[]>([])
+  const [isLoading, setLoading] = React.useState<boolean>(true)
 
   React.useEffect(() => {
     Promise.all(
@@ -33,6 +35,7 @@ export default function Highlights() {
       })
     ).then((reposWithDetails) => {
       setRepos(reposWithDetails);
+      setLoading(false);
     })
   }, [repos])
 
@@ -46,6 +49,12 @@ export default function Highlights() {
       </Heading>
       <span className='tile-container'>
         {
+          isLoading ? 
+          <>
+            <LoadingTile />
+            <LoadingTile />
+            <LoadingTile />
+          </> :
           repos.map((repo) => {
             return (
               <Tile

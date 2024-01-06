@@ -97,19 +97,22 @@ body {
   --d-color-4: hsl(330, 100%, 30%);
   --d-color-a: hsl(270, 100%, 30%);
 
-  --btn-color-1: #f2eef6;
-  --btn-color-2: #f5f1f9;
+  --btn-color-1: hsl(270, 31%, 95%);
+  --btn-color-2: hsl(270, 40%, 96%);
 
-  --bg-t-color-1: #f2eef6;
-  --bg-t-color-2: #f5f1f9;
-  --bg-t-color-3: hsl(270, 40%, 94%);
+  --btn-color-hover-1: var(--p-color-1);
+  --btn-color-hover-2: var(--p-color-2);
 
-  --bg-b-color-1: #f2eef6;
-  --bg-b-color-2: #f5f1f9;
-  --bg-b-color-3: hsl(270, 40%, 94%);
+  --bg-t-color-1: hsl(270, 31%, 85%);
+  --bg-t-color-2: hsl(270, 40%, 88%);
+  --bg-t-color-3: hsl(270, 40%, 91%);
 
-  --shadow-color-1: hsl(270, 9%, 85%);
-  --shadow-color-2: hsl(270, 100%, 98%);
+  --bg-b-color-1: hsl(270, 31%, 82%);
+  --bg-b-color-2: hsl(270, 40%, 85%);
+  --bg-b-color-3: hsl(270, 40%, 88%);
+
+  --shadow-color-1: hsla(270, 9%, 80%);
+  --shadow-color-2: hsla(270, 40%, 85%);
 
   --font-heading: 'Gabarito', sans-serif;
   --font-body: 'Josefin Sans', sans-serif;
@@ -147,6 +150,9 @@ body.dark{
 
   --btn-color-1: hsl(270, 20%, 24%);
   --btn-color-2: hsl(270, 12%, 20%);
+
+  --btn-color-hover-1: var(--p-color-3);
+  --btn-color-hover-2: var(--p-color-4);
 
   --bg-t-color-1: hsl(270, 20%, 18%);
   --bg-t-color-2: hsl(270, 12%, 15%);

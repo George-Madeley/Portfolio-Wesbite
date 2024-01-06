@@ -40,8 +40,6 @@ export const getRepos = async (): Promise<any[]> => {
             throw new Error(`Failed to fetch repos. Status: ${response.status}`);
         }
 
-        console.log(response.data);
-
         return response.data;
     } catch (error) {
         console.error(error);

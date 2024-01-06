@@ -126,6 +126,9 @@ body {
   --p2-font-size: 12px;
   --p2-line-height: 16px;
 
+  --heading-blend-mode: color-burn;
+  --heading-opacity: .3;
+
   --h-margin: 15vw;
 }
 
@@ -168,6 +171,9 @@ body.dark{
   --font-color-1: hsl(0, 0%, 100%);
   --font-color-2: hsl(0, 0%, 73%);
   --font-color-3: hsl(0, 0%, 53%);
+
+  --heading-blend-mode: overlay;
+  --heading-opacity: .5;
 }
 
 code {

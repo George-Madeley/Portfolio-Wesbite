@@ -34,26 +34,16 @@
 }
 
 .heading-container > .heading-burn {
-    mix-blend-mode: color-burn;
+    mix-blend-mode: var(--heading-blend-mode);
     opacity: 1;
     color: var(--font-color-1);
 }
 
 .heading-container > .heading-overlay {
-    opacity: .3;
+    opacity: var(--heading-opacity);
     color: var(--font-color-1);
 }
 
 .heading-invisible {
     visibility: hidden;
-}
-
-@media (prefers-color-scheme: dark) {
-    .heading-container > .heading-burn {
-        mix-blend-mode: overlay;
-    }
-
-    .heading-container > .heading-overlay {
-        opacity: .5;
-    }
 }

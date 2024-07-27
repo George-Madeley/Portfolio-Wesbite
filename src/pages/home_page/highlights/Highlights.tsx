@@ -1,7 +1,7 @@
 import React from 'react';
 import './Highlights.css'
 
-import json from '../../../data/home_page.real.json'
+import json from '../../../content/home_page.real.json'
 
 import { getRepo, getLanguages } from '../../../api/github';
 

@@ -5,7 +5,7 @@ import Heading from '../../components/heading/Heading'
 import Description from './description/Description'
 import Projects from './projects/Projects'
 
-import json from '../../data/project_page.real.json'
+import json from '../../content/project_page.real.json'
 
 export default function ProjectsPage() {
   return (

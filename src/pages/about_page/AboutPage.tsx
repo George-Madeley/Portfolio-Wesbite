@@ -5,7 +5,7 @@ import Heading from '../../components/heading/Heading'
 import Description from './description/Description'
 import Timeline from './timeline/Timeline'
 
-import json from '../../data/about_page.real.json'
+import json from '../../content/about_page.real.json'
 
 export default function AboutPage() {
   return (

@@ -5,13 +5,34 @@
     ],
     "experiences": [
         {
+            "startTime": 2024,
+            "endTime": 2024,
+            "timePeriod": "2024 - Present",
+            "type": "work",
+            "position": "Software Engineer",
+            "company": "Atlantic Technology Ltd.",
+            "companyLink": "https://www.atlantictechnology.co.uk/",
+            "links": [],
+            "languages": [
+                "Python",
+                "C++",
+                "JavaScript",
+                "TypeScript",
+                "HTML",
+                "CSS"
+            ],
+            "description": [
+                "I am currently working as a software engineer at Atlantic Technology Ltd. My role involves developing software solutions for clients in a variety of different sectors. I work closely with clients to understand their requirements and develop bespoke software solutions that meet their needs. I also collaborate with a team of developers to design and implement software solutions that are robust, scalable, and user-friendly. I have gained experience in a wide range of technologies and frameworks, including Python, C++, JavaScript, TypeScript, HTML, and CSS. I have also developed my skills in software design, development, and testing, which has allowed me to deliver high-quality software solutions to clients. I am excited to continue my career in software development and look forward to working on new and exciting projects at Atlantic Technology Ltd."
+            ]
+        },
+        {
             "startTime": 2023,
             "endTime": 2024,
-            "timePeriod": "2023 - Present",
+            "timePeriod": "2023 - 2024",
             "type": "work",
             "position": "Lead Software Engineer",
             "company": "Biodevices Without Borders",
-            "companyLink": "",
+            "companyLink": "https://bathbiodevices.com/",
             "links": [
                 {
                     "name": "Mobile App Code",

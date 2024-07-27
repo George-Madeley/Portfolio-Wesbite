@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Bio.css';
 
-import json from '../../../data/home_page.real.json';
+import json from '../../../content/home_page.real.json';
 
 export default function Bio() {
   const [bio, setBio] = React.useState<any[]>([])

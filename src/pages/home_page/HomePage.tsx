@@ -1,9 +1,9 @@
 import React from "react";
-import './HomePage.css';
+import "./HomePage.css";
 
-import Bio from './bio/Bio';
-import Hero from './hero/Hero';
-import Highlights from './highlights/Highlights';
+import Bio from "./bio/Bio";
+import Hero from "./hero/Hero";
+import Highlights from "./highlights/Highlights";
 
 export default function HomePage() {
   return (
@@ -12,5 +12,5 @@ export default function HomePage() {
       <Bio />
       <Highlights />
     </div>
-  )
+  );
 }

@@ -1,47 +1,47 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
-import App from './app/App';
+import App from "./app/App";
 
-import AboutPage from './pages/about_page/AboutPage';
-import ProjectsPage from './pages/projects_page/ProjectsPage';
-import HomePage from './pages/home_page/HomePage';
+import AboutPage from "./pages/about_page/AboutPage";
+import ProjectsPage from "./pages/projects_page/ProjectsPage";
+import HomePage from "./pages/home_page/HomePage";
 
 const router = createHashRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
-        path: '',
-        element: <HomePage />
+        path: "",
+        element: <HomePage />,
       },
       {
-        path: 'about',
-        element: <AboutPage />
+        path: "about",
+        element: <AboutPage />,
       },
       {
-        path: 'projects',
-        element: <ProjectsPage />
+        path: "projects",
+        element: <ProjectsPage />,
       },
       {
-        path: '*',
-        element: <HomePage />
-      }
-    ]
-  }
-])
+        path: "*",
+        element: <HomePage />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

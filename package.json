@@ -23,7 +23,7 @@
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.26.0",
     "react-scripts": "^5.0.1",
-    "typescript": "^5.5.4",
+    "typescript": "^4.9.5",
     "whatamesh": "^0.2.0"
   },
   "devDependencies": {
@@ -75,7 +75,7 @@
     "lint": "eslint src && prettier --check \"./src/**/*.{js,ts,tsx,jsx}\"",
     "lint:fix": "eslint --fix src && prettier --write \"./src/**/*.{js,ts,tsx,jsx}\"",
     "predeploy": "npm run build",
-    "prepare": "husky install",
+    "prepare": "husky",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },

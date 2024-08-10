@@ -1,9 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import HomePage from './HomePage';
+import "@testing-library/jest-dom";
 
 describe("Check for all Home Page Componets", () => {
-    test("Check for Hero component", () => {
-        
-    })
-})
+  test("Check for Hero component", () => {});
+});

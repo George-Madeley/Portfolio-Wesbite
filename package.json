@@ -1,8 +1,16 @@
 {
-  "name": "my-portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://www.george-madeley-portfolio.co.uk/",
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
@@ -29,34 +37,44 @@
   "release": {
     "branches": ["master", "next", "main", "production"]
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/js": "^9.9.0",
     "@svgr/webpack": "^8.1.0",
-    "gh-pages": "^6.1.0"
-  }
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.35.0",
+    "gh-pages": "^6.1.0",
+    "globals": "^15.9.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.8",
+    "prettier": "^3.3.3",
+    "typescript-eslint": "^8.0.1"
+  },
+  "homepage": "https://www.george-madeley-portfolio.co.uk/",
+  "lint-staged": {
+    "src/**/*.{js,ts}": [
+      "eslint --quiet --fix"
+    ],
+    "src/**/*.{json,js,ts}": [
+      "prettier --write --ignore-unknown"
+    ]
+  },
+  "name": "my-portfolio",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "eject": "react-scripts eject",
+    "format": "eslint --fix src && prettier --write \"./src/**/*.{js,ts,tsx,jsx}\"",
+    "lint": "eslint src && prettier --check \"./src/**/*.{js,ts,tsx,jsx}\"",
+    "lint:fix": "eslint --fix src && prettier --write \"./src/**/*.{js,ts,tsx,jsx}\"",
+    "predeploy": "npm run build",
+    "prepare": "husky install",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
+  "type": "module",
+  "version": "0.1.0"
 }

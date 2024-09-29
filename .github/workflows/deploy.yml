@@ -48,7 +48,8 @@ jobs:
           path: ./build
 
       - name: Semantic release
-        run: npx semantic-release
+        run: npm i -g semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/commit-analyzer @semantic-release/release-notes-generator conventional-changelog-conventionalcommits
+        run: npx semantic-release --debug --dry-run
           
   # Deployment job
   deploy:

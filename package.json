@@ -65,8 +65,7 @@
     "branches": [
       "master",
       "next",
-      "main",
-      "production"
+      "main"
     ]
   },
   "scripts": {

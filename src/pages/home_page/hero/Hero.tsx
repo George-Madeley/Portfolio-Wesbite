@@ -12,7 +12,7 @@ export default function Hero() {
     <header className="hero">
       <Heading>
         <div className="heading-content">
-          <p>The Portolio of</p>
+          <p>The Portfolio of</p>
           <h1>George Madeley</h1>
         </div>
       </Heading>

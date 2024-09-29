@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      REACT_APP_GITHUB_TOKEN: ${{ secrets.REACT_APPGITHUB_TOKEN }}
+      REACT_APP_GITHUB_TOKEN: ${{ secrets.REACT_APP_GITHUB_TOKEN }}
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     steps:

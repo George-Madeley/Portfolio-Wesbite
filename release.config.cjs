@@ -1,6 +1,7 @@
 /**
  * @type {import('semantic-release').GlobalConfig}
  */
+// eslint-disable-next-line no-undef
 module.exports = {
   branches: ["main", "next", "master"],
   plugins: [

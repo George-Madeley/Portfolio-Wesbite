@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - production
+      - main
 
   workflow_dispatch:
 
@@ -48,8 +48,7 @@ jobs:
           path: ./build
 
       - name: Semantic release
-        run: npm i -g semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/commit-analyzer @semantic-release/release-notes-generator conventional-changelog-conventionalcommits
-        run: npx semantic-release --debug --dry-run
+        run: npx semantic-release
           
   # Deployment job
   deploy:

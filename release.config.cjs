@@ -1,75 +1,65 @@
+/* eslint-disable no-undef */
 /**
  * @type {import('semantic-release').GlobalConfig}
  */
-// eslint-disable-next-line no-undef
 module.exports = {
-  branches: ["main", "next", "master"],
+  branches: ["release", { name: "develop", prerelease: true }],
   plugins: [
     [
       "@semantic-release/commit-analyzer",
       {
-        preset: "angular",
+        preset: "conventionalCommits",
         releaseRules: [
-          {
-            breaking: true,
-            release: "major",
-          },
-          {
-            type: "feat",
-            release: "minor",
-          },
-          {
-            type: "fix",
-            release: "patch",
-          },
-          {
-            type: "docs",
-            scope: "README",
-            release: "patch",
-          },
-          {
-            type: "chore",
-            release: "patch",
-          },
+          { type: "revert", scope: "", release: "patch" },
+          { type: "docs", scope: "", release: "patch" },
+          { type: "style", scope: "", release: "patch" },
+          { type: "chore", scope: "", release: "patch" },
+          { type: "refactor", scope: "", release: "patch" },
+          { type: "test", scope: "", release: "patch" },
+          { type: "build", scope: "", release: "patch" },
+          { type: "ci", scope: "", release: "patch" },
+          { type: "improvement", scope: "*", release: "patch" },
         ],
-        parserOpts: {
-          noteKeywords: ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"],
-        },
+        defaultReleaseType: "patch",
       },
     ],
     [
       "@semantic-release/release-notes-generator",
       {
-        /*  
-            use conventionalcommits instead of conventional-changelog-angular (default)
-            to introduce new sections in changelog
-        */
-        preset: "conventionalcommits",
+        preset: "conventionalCommits",
         presetConfig: {
           types: [
-            { type: "feat", section: "Features", hidden: false },
-            { type: "fix", section: "Bug Fixes", hidden: false },
-            { type: "docs", section: "Miscellaneous Chores", hidden: false },
-            { type: "chore", section: "Miscellaneous Chores", hidden: false },
+            { type: "feat", section: "Features ✨" },
+            { type: "fix", section: "Fixes 🐛" },
+            { type: "perf", section: "Performance Improvements 🚀" },
+            { type: "revert", section: "Reverts 🗑" },
+            { type: "docs", section: "Documentation 📚", hidden: false },
+            { type: "style", section: "Styles 💎", hidden: false },
+            { type: "chore", section: "Chores ♻️", hidden: false },
+            { type: "refactor", section: "Refactors 📦", hidden: false },
+            { type: "test", section: "Tests 🚨", hidden: false },
+            { type: "build", section: "Build 🛠", hidden: false },
+            { type: "ci", section: "CI/CD ⚙️", hidden: false },
+            { type: "improvement", section: "Improvements ⚡️", hidden: false },
           ],
         },
-        parserOpts: {
-          noteKeywords: ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"],
-        },
       },
     ],
     [
-      "@semantic-release/changelog",
+      "@semantic-release/npm",
       {
-        changelogFile: "CHANGELOG.md",
-      },
-    ],
-    [
-      "@semantic-release/git",
-      {
-        assets: ["package.json", "CHANGELOG.md"],
+        npmPublish: false,
       },
     ],
     "@semantic-release/github",
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/git",
+      {
+        assets: ["CHANGELOG.md", "package.json"],
+        message:
+          "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
+      },
+    ],
   ],
 };

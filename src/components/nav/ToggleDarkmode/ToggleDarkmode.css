@@ -1,0 +1,42 @@
+.toggle-container {
+    position: relative;
+    width: 50px;
+    height: 25px;
+  }
+
+  .toggle-container input[type="checkbox"] {
+    display: none;
+  }
+  
+  .toggle-container label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 25px;
+    border-radius: 50px;
+    background: linear-gradient(to bottom, var(--p-color-2), var(--p-color-1));
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .toggle-container label:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background-color: var(--btn-color-1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .toggle-container input[type="checkbox"]:checked + label {
+    background: linear-gradient(to bottom, var(--p-color-4), var(--p-color-3));
+  }
+  
+  .toggle-container input[type="checkbox"]:checked + label:after {
+    transform: translateX(25px);
+  }

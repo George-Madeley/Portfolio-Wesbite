@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import "./Expansion.css";
+import "./ProjectTileBody.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,7 +11,7 @@ import {
   faLockOpen,
 } from "@fortawesome/free-solid-svg-icons";
 
-interface ExpansionProps {
+interface ProjectTileBodyProps {
   languages: string[];
   isPublic: boolean;
   stars: number;
@@ -20,7 +20,9 @@ interface ExpansionProps {
   watchers: number;
 }
 
-export function Expansion(props: PropsWithChildren<ExpansionProps>) {
+export function ProjectTileBody(
+  props: PropsWithChildren<ProjectTileBodyProps>
+) {
   return (
     <div className="expansion-container">
       <div className="expansion">

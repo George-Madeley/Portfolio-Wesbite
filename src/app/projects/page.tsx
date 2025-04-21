@@ -1,4 +1,4 @@
-import "./page.module.css";
+import "./page.css";
 
 import React from "react";
 import { AboutDescription, Heading, Projects } from "~/components";

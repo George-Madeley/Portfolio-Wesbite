@@ -5,8 +5,8 @@ import { Repo } from "~/types";
 
 import { getLanguages, getRepo } from "../../api/github";
 import { Heading } from "../heading";
-import { ErrorTile } from "./error_tile";
-import { Tile } from "./tile";
+import { HighLightsTileError } from "./HighlightsTileError";
+import { HighlightsTile } from "./HighlightsTile";
 
 interface HighlightsProps {
   repos: Repo[];
@@ -65,10 +65,10 @@ export async function Highlights(props: HighlightsProps) {
       <span className="tile-container">
         {content.map((repo: any, index: number) => {
           if (repo.isError) {
-            return <ErrorTile key={index} message={repo.message} />;
+            return <HighLightsTileError key={index} message={repo.message} />;
           }
           return (
-            <Tile
+            <HighlightsTile
               key={index}
               name={repo.name}
               description={repo.description}

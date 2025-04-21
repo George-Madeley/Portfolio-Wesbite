@@ -2,13 +2,13 @@ import React from "react";
 import "./Projects.css";
 
 import { getRepos, getLanguages, getNumberOfCommits } from "~/api/github";
-import { ErrorTile } from "./error_tile";
-import { Tile } from "./tile";
+import { ProjectTileError } from "./ProjectTileError";
+import { Tile } from "./ProjectTile";
 
 export async function Projects() {
   const repos =
     (await getRepos().then(
-      (repos: any[]) => {
+      (repos: any[]) =>
         Promise.all(
           repos.map((repo: any) => {
             return Promise.all([
@@ -77,8 +77,7 @@ export async function Projects() {
               },
             ];
           }
-        );
-      },
+        ),
       (error: Error) => {
         return [
           {
@@ -89,6 +88,8 @@ export async function Projects() {
         ];
       }
     )) || [];
+
+  console.log(repos);
 
   return (
     <div className="projects">
@@ -101,7 +102,7 @@ export async function Projects() {
       </div>
       {repos.map((repo: any, index: number) => {
         if (repo.isError) {
-          return <ErrorTile key={index} message={repo.message} />;
+          return <ProjectTileError key={index} message={repo.message} />;
         }
         return (
           <Tile

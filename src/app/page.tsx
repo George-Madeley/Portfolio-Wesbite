@@ -1,4 +1,4 @@
-import "./page.module.css";
+import "./page.css";
 
 import React from "react";
 import { Bio, Hero, Highlights } from "~/components";

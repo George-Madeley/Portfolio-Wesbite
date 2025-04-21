@@ -1,20 +1,20 @@
-import "./ErrorTile.css";
+import "./HighlightsTileError.css";
 
 import Image from "next/image";
 import React from "react";
 
-import thumbail from "~/../public/thumbnail.png";
+import thumbnail from "~/../public/thumbnail.png";
 
-interface ErrorTileProps {
+interface HighlightsTileErrorProps {
   message: string;
 }
 
-export function ErrorTile(props: ErrorTileProps) {
+export function HighLightsTileError(props: HighlightsTileErrorProps) {
   return (
     <div className="error-tile">
       <div className="content-container">
         <div className="img-container">
-          <Image src={thumbail} alt="thumbnail" />
+          <Image src={thumbnail} alt="thumbnail" />
         </div>
         <div className="language-container"></div>
         <div className="title">

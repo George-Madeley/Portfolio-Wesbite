@@ -1,9 +1,9 @@
-import "./Tile.css";
+import "./ProjectTile.css";
 
 import React, { PropsWithChildren } from "react";
 
-import { Expansion } from "./expansion";
-import { Info } from "./info";
+import { ProjectTileBody } from "./ProjectTileBody";
+import { ProjectTileHeading } from "./ProjectTileHeading";
 
 interface TileProps {
   id: string;
@@ -22,7 +22,7 @@ interface TileProps {
 export function Tile(props: PropsWithChildren<TileProps>) {
   return (
     <div className="projects-tile">
-      <Info
+      <ProjectTileHeading
         id={props.id}
         date={props.date}
         name={props.name}
@@ -32,7 +32,7 @@ export function Tile(props: PropsWithChildren<TileProps>) {
         isPublic={props.isPublic}
       />
       <input type="checkbox" id={props.id} readOnly />
-      <Expansion
+      <ProjectTileBody
         languages={props.languages}
         isPublic={props.isPublic}
         stars={props.stars}
@@ -41,7 +41,7 @@ export function Tile(props: PropsWithChildren<TileProps>) {
         watchers={props.watchers}
       >
         {props.children}
-      </Expansion>
+      </ProjectTileBody>
     </div>
   );
 }

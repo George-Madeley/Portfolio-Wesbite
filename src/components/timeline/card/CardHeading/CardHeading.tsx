@@ -1,17 +1,17 @@
-import "./Heading.css";
+import "./CardHeading.css";
 
 import React from "react";
 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-interface HeadingProps {
+interface CardHeadingProps {
   position: string;
   company: string;
   companyLink?: string;
 }
 
-export function Heading(props: HeadingProps) {
+export function CardHeading(props: CardHeadingProps) {
   return (
     <div className="card-heading">
       <h2>{props.position}</h2>

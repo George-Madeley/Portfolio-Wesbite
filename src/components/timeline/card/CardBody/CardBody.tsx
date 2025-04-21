@@ -1,10 +1,14 @@
 "use client";
 
-import "./Content.css";
+import "./CardBody.css";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { PropsWithChildren, useEffect, useRef, useState } from "react";
 
-export function Content(props: any) {
+interface CardBodyProps {
+  id: number;
+}
+
+export function CardBody(props: PropsWithChildren<CardBodyProps>) {
   const [isReadMoreVisible, setReadMoreVisible] = useState(false);
 
   const contentTextRef = useRef<HTMLDivElement>(null);

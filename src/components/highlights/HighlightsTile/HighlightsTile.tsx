@@ -1,22 +1,22 @@
-import "./Tile.css";
+import "./HighlightsTile.css";
 
 import Image from "next/image";
 import React from "react";
-import thumbail from "~/../public/code-thumbnail.png";
+import thumbnail from "~/../public/code-thumbnail.png";
 import { Button } from "~/components/button";
 
-interface TileProps {
+interface HighlightsTileProps {
   name: string;
   description: string;
   languages: string[];
   link: string;
 }
 
-export function Tile(props: TileProps) {
+export function HighlightsTile(props: HighlightsTileProps) {
   return (
     <div className="tile">
       <div className="content-container">
-        <Image src={thumbail} alt="thumbnail" />
+        <Image src={thumbnail} alt="thumbnail" />
         <div className="language-container">
           {props.languages.map((language: string, index: number) => {
             return (

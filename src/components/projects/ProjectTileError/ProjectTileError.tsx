@@ -1,12 +1,12 @@
-import "./ErrorTile.css";
+import "./ProjectTileError.css";
 
 import React from "react";
 
-interface ErrorTileProps {
+interface ProjectTileErrorProps {
   message: string;
 }
 
-export function ErrorTile(props: ErrorTileProps) {
+export function ProjectTileError(props: ProjectTileErrorProps) {
   return (
     <div className="projects-error-tile">
       <div></div>

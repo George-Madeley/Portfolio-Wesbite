@@ -1,4 +1,4 @@
-import "./Info.css";
+import "./ProjectTileHeading.css";
 
 import React from "react";
 
@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-interface InfoProps {
+interface ProjectTileHeadingProps {
   id: string;
   date: string;
   name: string;
@@ -21,7 +21,7 @@ interface InfoProps {
   linkText: string;
 }
 
-export function Info(props: InfoProps) {
+export function ProjectTileHeading(props: ProjectTileHeadingProps) {
   return (
     <div className="info-container">
       <input type="checkbox" id={props.id} />

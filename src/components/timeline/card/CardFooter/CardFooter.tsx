@@ -1,16 +1,16 @@
-import "./Footer.css";
+import "./CardFooter.css";
 
 import React from "react";
 
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-interface FooterProps {
+interface CardFooterProps {
   links?: { name: string; url: string }[];
   languages?: string[];
 }
 
-export function Footer(props: FooterProps) {
+export function CardFooter(props: CardFooterProps) {
   console.debug("Links type:", typeof props.links);
 
   return (

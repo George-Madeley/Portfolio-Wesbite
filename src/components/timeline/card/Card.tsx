@@ -2,9 +2,9 @@ import "./Card.css";
 
 import React, { PropsWithChildren } from "react";
 
-import { Content } from "./content";
-import { Footer } from "./footer";
-import { Heading } from "./heading";
+import { CardBody } from "./CardBody";
+import { CardFooter } from "./CardFooter";
+import { CardHeading } from "./CardHeading";
 
 interface CardProps {
   time: string;
@@ -24,13 +24,13 @@ export function Card(props: PropsWithChildren<CardProps>) {
           <h3>{props.time}</h3>
         </aside>
         <div className="content">
-          <Heading
+          <CardHeading
             position={props.position}
             company={props.company}
             companyLink={props.companyLink}
           />
-          <Content id={props.id}>{props.children}</Content>
-          <Footer links={props.links} languages={props.languages} />
+          <CardBody id={props.id}>{props.children}</CardBody>
+          <CardFooter links={props.links} languages={props.languages} />
         </div>
       </div>
     </div>

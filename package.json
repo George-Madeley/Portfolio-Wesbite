@@ -54,10 +54,10 @@
   },
   "homepage": "https://www.george-madeley-portfolio.co.uk/",
   "lint-staged": {
-    "src/**/*.{js,ts}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --quiet --fix"
     ],
-    "src/**/*.{json,js,ts}": [
+    "*.{js,jsx,ts,tsx,json,html,yml}": [
       "prettier --write --ignore-unknown"
     ]
   },

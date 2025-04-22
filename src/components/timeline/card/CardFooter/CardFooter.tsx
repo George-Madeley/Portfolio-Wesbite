@@ -17,10 +17,10 @@ export function CardFooter(props: CardFooterProps) {
     <div className="card-footer">
       <ul className="project-links">
         {props.links &&
-          props.links.map((link: any, index: number) => {
+          props.links.map((link, index: number) => {
             return (
               <li key={index}>
-                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                <a href={link.url} rel="noopener noreferrer" target="_blank">
                   <FontAwesomeIcon icon={faLink} />
                   <p>{link.name}</p>
                 </a>
@@ -30,7 +30,7 @@ export function CardFooter(props: CardFooterProps) {
       </ul>
       <ul className="language-list">
         {props.languages &&
-          props.languages.map((language: any, index: number) => {
+          props.languages.map((language: string, index: number) => {
             return <li key={index}>{language}</li>;
           })}
       </ul>

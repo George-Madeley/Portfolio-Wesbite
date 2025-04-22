@@ -25,12 +25,12 @@ export function Card(props: PropsWithChildren<CardProps>) {
         </aside>
         <div className="content">
           <CardHeading
-            position={props.position}
             company={props.company}
             companyLink={props.companyLink}
+            position={props.position}
           />
           <CardBody id={props.id}>{props.children}</CardBody>
-          <CardFooter links={props.links} languages={props.languages} />
+          <CardFooter languages={props.languages} links={props.links} />
         </div>
       </div>
     </div>

@@ -26,8 +26,9 @@
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@eslint/eslintrc": "^3",
-    "@eslint/js": "^9.9.0",
+    "@eslint/compat": "^1.2.8",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.25.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
@@ -41,6 +42,7 @@
     "eslint-config-next": "15.3.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "globals": "^15.9.0",
     "husky": "^9.1.4",
     "lint-staged": "^15.2.8",
@@ -52,10 +54,10 @@
   },
   "homepage": "https://www.george-madeley-portfolio.co.uk/",
   "lint-staged": {
-    "src/**/*.{js,ts}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --quiet --fix"
     ],
-    "src/**/*.{json,js,ts}": [
+    "*.{js,jsx,ts,tsx,json,html,yml,css}": [
       "prettier --write --ignore-unknown"
     ]
   },
@@ -68,9 +70,8 @@
   },
   "scripts": {
     "build": "next build",
-    "format": "eslint --fix src && prettier --write \"./src/**/*.{js,ts,tsx,jsx}\"",
-    "lint": "eslint src && prettier --check \"./src/**/*.{js,ts,tsx,jsx}\"",
-    "lint:fix": "eslint --fix src && prettier --write \"./src/**/*.{js,ts,tsx,jsx}\"",
+    "lint": "eslint src && prettier --check .",
+    "lint:fix": "eslint --fix src && prettier --write .",
     "prepare": "husky",
     "preview": "next start",
     "release": "semantic-release",

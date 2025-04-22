@@ -14,7 +14,7 @@ export function HighLightsTileError(props: HighlightsTileErrorProps) {
     <div className="error-tile">
       <div className="content-container">
         <div className="img-container">
-          <Image src={thumbnail} alt="thumbnail" />
+          <Image alt="thumbnail" src={thumbnail} />
         </div>
         <div className="language-container"></div>
         <div className="title">

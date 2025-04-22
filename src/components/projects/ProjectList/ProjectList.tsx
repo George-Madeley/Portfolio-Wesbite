@@ -2,7 +2,7 @@
 
 import "./ProjectList.css";
 
-import React, { Fragment } from "react";
+import React, { Fragment, useCallback } from "react";
 import { Repository } from "~/types";
 
 import { ProjectTileBody } from "../ProjectTileBody";
@@ -18,19 +18,19 @@ export function ProjectList(props: ProjectListProps) {
 
   const [selectedId, setSelectedId] = React.useState<number>(0);
 
-  const handleSelect = (id: number) => {
+  const handleSelect = useCallback((id: number) => {
     setSelectedId((prevId) => (prevId === id ? 0 : id));
-  };
+  }, []);
 
   return (
     <Fragment>
       {repositories.length ? (
         repositories.map((repository: Repository, index: number) => (
-          <div key={index} className="projects-tile">
+          <div className="projects-tile" key={index}>
             <ProjectTileHeading
+              onSelect={handleSelect}
               repository={repository}
               selected={selectedId === repository.id}
-              onSelect={handleSelect}
             />
             <ProjectTileBody
               repository={repository}

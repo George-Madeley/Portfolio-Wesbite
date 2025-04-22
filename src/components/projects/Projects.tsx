@@ -1,23 +1,22 @@
 "use server";
 
-import React, { Fragment } from "react";
 import "./Projects.css";
 
-import { ProjectTileError } from "./ProjectTileError";
-import { ProjectTile } from "./ProjectTile";
+import Link from "next/link";
+import React, { Fragment } from "react";
+import { getLanguages, getNumberOfCommits, getRepos } from "~/api/github";
 import { Repository } from "~/types";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
-import { getLanguages, getNumberOfCommits, getRepos } from "~/api/github";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { ProjectList } from "./ProjectList";
 
 interface ProjectsProps {
   page: number;
-  projectId: number;
 }
 
 export async function Projects(props: ProjectsProps) {
@@ -53,24 +52,7 @@ export async function Projects(props: ProjectsProps) {
 
   return (
     <Fragment>
-      {content.repositories.length ? (
-        content.repositories.map((repository: Repository, index: number) => (
-          <ProjectTile
-            key={index}
-            repository={repository}
-            projectId={props.projectId}
-          >
-            <h5>Description</h5>
-            <p>
-              {repository.description
-                ? repository.description
-                : "No description provided."}
-            </p>
-          </ProjectTile>
-        ))
-      ) : (
-        <ProjectTileError message="Failed to load data" />
-      )}
+      <ProjectList repositories={content.repositories} />
       <div className="pagination">
         {content.hasPrev && (
           <Link href={`/projects?page=${props.page - 1}`}>

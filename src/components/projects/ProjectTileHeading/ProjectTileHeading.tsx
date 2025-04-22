@@ -1,27 +1,41 @@
+"use client";
+
 import "./ProjectTileHeading.css";
 
-import React from "react";
+import React, { useCallback } from "react";
 import { Repository } from "~/types";
 
 import {
   faArrowRight,
+  faChevronDown,
   faLink,
   faLock,
   faLockOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ToggleChevron } from "../ToggleChevron";
 
 interface ProjectTileHeadingProps {
   repository: Repository;
+  selected: boolean;
+  onSelect: (id: number) => void;
 }
 
 export function ProjectTileHeading(props: ProjectTileHeadingProps) {
   const { repository } = props;
 
+  const handleClick = useCallback(
+    () => props.onSelect(props.repository.id ?? 0),
+    [props]
+  );
+
   return (
     <div className="info-container">
-      <ToggleChevron id={repository.id ?? 0} />
+      <div
+        className={`toggle-chevron ${props.selected ? "toggle-chevron-open" : ""}`}
+        onClick={handleClick}
+      >
+        <FontAwesomeIcon icon={faChevronDown} />
+      </div>
       <p className="date">{repository.updated_at?.substring(0, 4)}</p>
       <h4 className="title">{repository.name}</h4>
       <a

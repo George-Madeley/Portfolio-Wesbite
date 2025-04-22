@@ -23,6 +23,25 @@
     overflow-x: hidden;
 }
 
+.toggle-chevron {
+    width: 2em;
+    height: 2em;
+  
+    cursor: pointer;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    align-self: center;
+  
+    transition: .2s ease-in-out;
+  }
+  
+  .toggle-chevron-open {
+    transform: rotate(180deg);
+  }
+
 .info-container .date {
     display: flex;
     justify-content: center;

@@ -18,9 +18,6 @@ export default async function Page({ searchParams }: PageProps) {
   const awaitedSearchParams = await searchParams;
 
   const page = awaitedSearchParams.page ? Number(awaitedSearchParams.page) : 1;
-  const projectId = awaitedSearchParams.projectId
-    ? Number(awaitedSearchParams.projectId)
-    : 0;
 
   return (
     <div className="projects-page">
@@ -39,7 +36,7 @@ export default async function Page({ searchParams }: PageProps) {
           <p className="link">Link</p>
         </div>
         <Suspense fallback={<ProjectTileLoading />} key={page}>
-          <Projects page={page} projectId={projectId} />
+          <Projects page={page} />
         </Suspense>
       </div>
     </div>

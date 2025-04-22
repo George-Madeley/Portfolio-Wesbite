@@ -18,7 +18,7 @@ export function Hero() {
         </div>
       </Heading>
       <div className="hero-image-container">
-        <Image className="hero-image" src={portrait} alt="George Madeley" />
+        <Image alt="George Madeley" className="hero-image" src={portrait} />
       </div>
       <Tag />
       <Socials />

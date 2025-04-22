@@ -35,7 +35,7 @@ export function ProjectTileBody(
           {repository.languages &&
             repository.languages.map((language: string, index: number) => {
               return (
-                <li key={index} className="language">
+                <li className="language" key={index}>
                   {language}
                 </li>
               );

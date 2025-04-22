@@ -1,37 +1,37 @@
 .about-page {
-    min-height: 100vh;
+  min-height: 100vh;
 
-    padding: 0 var(--h-margin)
+  padding: 0 var(--h-margin);
 }
 
 .about-page .heading-bg {
-    --v-margin: 4em;
+  --v-margin: 4em;
 
-    height: 21em;
+  height: 21em;
 
-    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0% 100%);
 }
 
 .about-page .heading-content {
-    padding-top: 10em;
-    padding-bottom: 5em;
+  padding-top: 10em;
+  padding-bottom: 5em;
 
-    text-wrap: nowrap;
+  text-wrap: nowrap;
 }
 
 .about-page h1 {
-    font-size: clamp(1em, 13vw, 8em);
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    font-family: var(--font-heading), sans-serif;
+  font-size: clamp(1em, 13vw, 8em);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-family: var(--font-heading), sans-serif;
 }
 
 @media screen and (max-width: 900px) {
-    .about-page .heading-content {
-        text-align: center;
-    }
+  .about-page .heading-content {
+    text-align: center;
+  }
 
-    .about-page .heading-content > h1 {
-        margin: 0 0 5vh 0;
-    }
+  .about-page .heading-content > h1 {
+    margin: 0 0 5vh 0;
+  }
 }

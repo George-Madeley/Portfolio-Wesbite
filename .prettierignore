@@ -1,2 +1,11 @@
+# dependencies
 node_modules
-lib
+
+# Builds
+dist
+build
+out
+.next
+
+# CI/CD
+.husky

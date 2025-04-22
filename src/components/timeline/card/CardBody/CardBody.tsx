@@ -9,7 +9,7 @@ interface CardBodyProps {
 }
 
 export function CardBody(props: PropsWithChildren<CardBodyProps>) {
-  const [isReadMoreVisible, setReadMoreVisible] = useState(false);
+  const [readMore, setReadMore] = useState(false);
 
   const contentTextRef = useRef<HTMLDivElement>(null);
   const contentTextInnerRef = useRef<HTMLDivElement>(null);
@@ -19,14 +19,14 @@ export function CardBody(props: PropsWithChildren<CardBodyProps>) {
       const contentHeight = contentTextRef.current.offsetHeight;
       const contentInnerHeight = contentTextInnerRef.current?.offsetHeight;
       if (contentInnerHeight && contentHeight < contentInnerHeight) {
-        setReadMoreVisible(true);
+        setReadMore(true);
       }
     }
   }, []);
 
   return (
     <div className="card-content">
-      <input type="checkbox" id={`read-more-${props.id}`} name="read-more" />
+      <input id={`read-more-${props.id}`} name="read-more" type="checkbox" />
       <div className="content-text" ref={contentTextRef}>
         <div className="content-text-inner" ref={contentTextInnerRef}>
           {props.children}
@@ -34,7 +34,7 @@ export function CardBody(props: PropsWithChildren<CardBodyProps>) {
       </div>
       <div
         className="label-container"
-        style={{ display: isReadMoreVisible ? "block" : "none" }}
+        style={{ display: readMore ? "block" : "none" }}
       >
         <label htmlFor={`read-more-${props.id}`}>
           <span>Read More</span>

@@ -33,13 +33,13 @@ export function Copy(props: CopyProps) {
     <Fragment>
       <input
         className="copy-input"
-        type="radio"
         id={props.id}
         name="contact"
+        onChange={copyToClipboard}
+        type="radio"
         value={props.text}
-        onChange={(e) => copyToClipboard(e)}
       />
-      <label htmlFor={props.id} className="copy-icon">
+      <label className="copy-icon" htmlFor={props.id}>
         <FontAwesomeIcon icon={faCheck} />
         <FontAwesomeIcon icon={faCopy} />
       </label>

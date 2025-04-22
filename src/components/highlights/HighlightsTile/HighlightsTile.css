@@ -1,81 +1,81 @@
 .tile {
-    position: relative;
+  position: relative;
 
-    flex: 1;
+  flex: 1;
 
-    width: 100%;
-    min-width: 12em;
-    max-width: 20em;
+  width: 100%;
+  min-width: 12em;
+  max-width: 20em;
 
-    padding: 1em;
+  padding: 1em;
 
-    z-index: 1;
+  z-index: 1;
 
-    overflow: hidden;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    justify-items: normal;
+  overflow: hidden;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  justify-items: normal;
 
-    border-radius: 1.5em;
-    background: linear-gradient(145deg, var(--bg-t-color-1), var(--bg-t-color-2));
-    box-shadow:  2px 2px 4px var(--shadow-color-1),
-                -2px -2px 4px var(--shadow-color-2);
+  border-radius: 1.5em;
+  background: linear-gradient(145deg, var(--bg-t-color-1), var(--bg-t-color-2));
+  box-shadow:
+    2px 2px 4px var(--shadow-color-1),
+    -2px -2px 4px var(--shadow-color-2);
 }
 
 .tile img {
-    width: 100%;
-    object-fit: cover;
+  width: 100%;
+  object-fit: cover;
 
-    border-radius: 0.5em;
+  border-radius: 0.5em;
 }
 
 .tile .language-container {
-    padding: 1em 0 0.5em 0;
+  padding: 1em 0 0.5em 0;
 
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .tile .language {
-    padding: 0.3em 0.8em 0.1em 0.8em;
-    margin: 0.2em 0.2em;
+  padding: 0.3em 0.8em 0.1em 0.8em;
+  margin: 0.2em 0.2em;
 
-    border-radius: 1em;
-    background: var(--l-color-a);
+  border-radius: 1em;
+  background: var(--l-color-a);
 
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .tile .language p {
-    color: var(--d-color-a);
-    font-size: var(--p2-font-size);
-    line-height: var(--p2-line-height);
+  color: var(--d-color-a);
+  font-size: var(--p2-font-size);
+  line-height: var(--p2-line-height);
 }
 
 .tile .title {
-    padding: 0.5em 0.4em 0 0.4em;
-    margin: 0;
-    color: var(--font-color-1);
+  padding: 0.5em 0.4em 0 0.4em;
+  margin: 0;
+  color: var(--font-color-1);
 }
 
 .tile .description {
-    padding: 0.5em 0.6em 0 0.4em;
-    margin: 0;
+  padding: 0.5em 0.6em 0 0.4em;
+  margin: 0;
 }
 
 .tile .button-container {
-    margin-top: 1em;
+  margin-top: 1em;
 
-    align-self: center;
+  align-self: center;
 
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }

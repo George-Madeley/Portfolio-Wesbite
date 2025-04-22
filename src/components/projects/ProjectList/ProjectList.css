@@ -1,25 +1,23 @@
 .projects-tile {
-    position: relative;
+  position: relative;
 
-    width: 100%;
+  width: 100%;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    box-sizing: border-box;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+  box-sizing: border-box;
 
-    
-    filter: 
-        drop-shadow(1px 1px 2px var(--shadow-color-1)) 
-        drop-shadow(-1px -1px 2px var(--shadow-color-2));
-    
-    border-radius: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  filter: drop-shadow(1px 1px 2px var(--shadow-color-1))
+    drop-shadow(-1px -1px 2px var(--shadow-color-2));
+
+  border-radius: 1.5em;
 }
 
 .projects-tile input {
-    display: none;
+  display: none;
 }

@@ -21,7 +21,7 @@ export function Nav() {
       <ul>
         <li>
           <Button>
-            <Link href="/" className="link">
+            <Link className="link" href="/">
               <FontAwesomeIcon icon={faHome} />
               <p className="nav-text">Home</p>
             </Link>
@@ -29,7 +29,7 @@ export function Nav() {
         </li>
         <li>
           <Button>
-            <Link href="/projects" className="link">
+            <Link className="link" href="/projects">
               <FontAwesomeIcon icon={faFileCode} />
               <p className="nav-text">Projects</p>
             </Link>
@@ -37,7 +37,7 @@ export function Nav() {
         </li>
         <li>
           <Button>
-            <Link href="/about" className="link">
+            <Link className="link" href="/about">
               <FontAwesomeIcon icon={faUser} />
               <p className="nav-text">About Me</p>
             </Link>

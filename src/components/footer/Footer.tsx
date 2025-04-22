@@ -35,8 +35,8 @@ export function Footer() {
           <Button>
             <a
               href="https://github.com/George-Madeley"
-              target="_blank"
               rel="noreferrer"
+              target="_blank"
             >
               <FontAwesomeIcon icon={faGithub} />
               <p>Github</p>
@@ -47,8 +47,8 @@ export function Footer() {
           <Button>
             <a
               href="https://www.linkedin.com/in/georgemadeleybathcompsyseng"
-              target="_blank"
               rel="noreferrer"
+              target="_blank"
             >
               <FontAwesomeIcon icon={faLinkedin} />
               <p>LinkedIn</p>

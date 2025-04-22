@@ -11,12 +11,12 @@ export function ToggleDarkMode() {
   return (
     <div className="toggle-container">
       <input
-        type="checkbox"
-        id="toggle"
-        value={isDarkMode ? "dark" : "light"}
-        name="toggle"
         checked={isDarkMode}
+        id="toggle"
+        name="toggle"
         onChange={toggleDarkMode}
+        type="checkbox"
+        value={isDarkMode ? "dark" : "light"}
       />
       <label htmlFor="toggle" title="dark mode toggle"></label>
     </div>

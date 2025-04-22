@@ -110,10 +110,7 @@ export const getNumberOfCommits = async (
     }
 
     if (Array.isArray(response.data)) {
-      return response.data.reduce(
-        (acc: number, curr: any) => acc + curr.total,
-        0
-      );
+      return response.data.reduce((acc: number, curr) => acc + curr.total, 0);
     } else {
       return response.data.total ?? 0;
     }

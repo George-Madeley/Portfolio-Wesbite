@@ -29,7 +29,7 @@ export async function Highlights(props: HighlightsProps) {
             return newRepo;
           },
           (error: Error) => {
-            console.error(error ?? "Error occured");
+            console.error(error ?? "Error occurred");
             const newRepo = {
               isError: true as boolean,
               message: error.message,
@@ -45,7 +45,7 @@ export async function Highlights(props: HighlightsProps) {
     },
     (error: Error) => {
       console.log(error);
-      console.error(error ?? "Error occured");
+      console.error(error ?? "Error occurred");
       return [
         {
           isError: true as boolean,

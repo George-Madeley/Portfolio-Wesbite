@@ -1,11 +1,23 @@
 import "./page.css";
 
-import React from "react";
-import { AboutDescription, Heading, Projects } from "~/components";
+import { Suspense } from "react";
+import {
+  Heading,
+  ProjectDescription,
+  Projects,
+  ProjectTileLoading,
+} from "~/components";
 
 import json from "./content.json";
 
-export default function ProjectsPage() {
+interface PageProps {
+  searchParams: Record<string, string | string[] | undefined>;
+}
+
+export default async function Page({ searchParams }: PageProps) {
+  const page = (await searchParams).page;
+  const repoPageNum = page ? Number(page) : 1;
+
   return (
     <div className="projects-page">
       <Heading>
@@ -13,8 +25,19 @@ export default function ProjectsPage() {
           <h1>Projects</h1>
         </div>
       </Heading>
-      <AboutDescription content={json.introduction} />
-      <Projects />
+      <ProjectDescription content={json.introduction} />
+      <div className="projects">
+        <div className="table-header">
+          <p className="date">Year</p>
+          <p className="title">Project</p>
+          <p className="languages">Languages</p>
+          <p className="visibility">Visibility</p>
+          <p className="link">Link</p>
+        </div>
+        <Suspense fallback={<ProjectTileLoading />} key={repoPageNum}>
+          <Projects page={repoPageNum} />
+        </Suspense>
+      </div>
     </div>
   );
 }

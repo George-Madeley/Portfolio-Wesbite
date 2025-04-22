@@ -1,6 +1,7 @@
 import "./ProjectTileHeading.css";
 
 import React from "react";
+import { Repository } from "~/types";
 
 import {
   faArrowRight,
@@ -12,46 +13,43 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface ProjectTileHeadingProps {
-  id: string;
-  date: string;
-  name: string;
-  link: string;
-  languages: string[];
-  isPublic: boolean;
-  linkText: string;
+  repository: Repository;
 }
 
 export function ProjectTileHeading(props: ProjectTileHeadingProps) {
+  const { repository } = props;
+
   return (
     <div className="info-container">
-      <input type="checkbox" id={props.id} />
-      <label htmlFor={props.id} className="icon-container">
+      <input type="checkbox" id={`${repository.id}`} />
+      <label htmlFor={`${repository.id}`} className="icon-container">
         <FontAwesomeIcon icon={faChevronDown} />
       </label>
-      <p className="date">{props.date}</p>
-      <h4 className="title">{props.name}</h4>
+      <p className="date">{repository.updated_at?.substring(0, 4)}</p>
+      <h4 className="title">{repository.name}</h4>
       <a
         className="title-link"
-        href={props.link}
+        href={repository.html_url}
         target="_blank"
         rel="noreferrer"
       >
-        <p>{props.name}</p>
+        <p>{repository.name}</p>
         <div className="icon-container">
           <FontAwesomeIcon icon={faArrowRight} />
         </div>
       </a>
       <ul className="language-container">
-        {props.languages.map((language: string, index: number) => {
-          return (
-            <li key={index} className="language">
-              {language}
-            </li>
-          );
-        })}
+        {repository.languages &&
+          repository.languages.map((language: string, index: number) => {
+            return (
+              <li key={index} className="language">
+                {language}
+              </li>
+            );
+          })}
       </ul>
       <div className="visibility">
-        {props.isPublic ? (
+        {repository.visibility === "public" ? (
           <div className="public">
             <FontAwesomeIcon icon={faLockOpen} />
             <p>Public</p>
@@ -63,9 +61,9 @@ export function ProjectTileHeading(props: ProjectTileHeadingProps) {
           </div>
         )}
       </div>
-      <a href={props.link} target="_blank" rel="noreferrer">
+      <a href={repository.html_url} target="_blank" rel="noreferrer">
         <FontAwesomeIcon icon={faLink} />
-        <p>{props.linkText}</p>
+        <p>{repository.name}.git</p>
       </a>
     </div>
   );

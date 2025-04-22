@@ -1,131 +1,83 @@
-import React from "react";
+"use server";
+
+import React, { Fragment } from "react";
 import "./Projects.css";
 
-import { getRepos, getLanguages, getNumberOfCommits } from "~/api/github";
 import { ProjectTileError } from "./ProjectTileError";
-import { Tile } from "./ProjectTile";
+import { ProjectTile } from "./ProjectTile";
+import { Repository } from "~/types";
 
-export async function Projects() {
-  const repos =
-    (await getRepos().then(
-      (repos: any[]) =>
-        Promise.all(
-          repos.map((repo: any) => {
-            return Promise.all([
-              getLanguages(repo.owner.login, repo.name),
-              getNumberOfCommits(repo.owner.login, repo.name),
-            ]).then(
-              ([languages, numberOfCommits]) => {
-                const year = repo.updated_at.substring(0, 4);
-                const isPublic = repo.visibility === "public";
-                const languageList = Object.keys(languages);
-                let commitsCount = 0;
-                try {
-                  commitsCount = numberOfCommits.reduce(
-                    (acc: number, curr: any) => acc + curr.total,
-                    0
-                  );
-                } catch {
-                  commitsCount = 0;
-                }
-                const newRepo = {
-                  id: repo.id,
-                  isError: false,
-                  name: repo.name,
-                  description: repo.description,
-                  html_url: repo.html_url,
-                  stargazers_count: repo.stargazers_count,
-                  forks_count: repo.forks,
-                  watchers_count: repo.watchers_count,
-                  updated_at: year,
-                  isPublic: isPublic,
-                  languages: languageList,
-                  commits_count: commitsCount,
-                };
-                return newRepo;
-              },
-              () => {
-                const year = repo.updated_at.substring(0, 4);
-                const isPublic = repo.visibility === "public";
-                return {
-                  id: repo.id,
-                  isError: false,
-                  name: repo.name,
-                  description: repo.description,
-                  html_url: repo.html_url,
-                  stargazers_count: repo.stargazers_count,
-                  forks_count: repo.forks,
-                  watchers_count: repo.watchers_count,
-                  updated_at: year,
-                  isPublic: isPublic,
-                  languages: [],
-                  commits_count: 0,
-                };
-              }
-            );
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+import { getLanguages, getNumberOfCommits, getRepos } from "~/api/github";
+
+interface ProjectsProps {
+  page: number;
+}
+
+export async function Projects(props: ProjectsProps) {
+  const content =
+    (await getRepos(props.page).then(async (res) => ({
+      hasPrev: res.link
+        ? !!res.link
+            .split(",")
+            .find((link: string) => link.includes('rel="prev"'))
+        : false,
+      hasNext: res.link
+        ? !!res.link
+            .split(",")
+            .find((link: string) => link.includes('rel="next"'))
+        : false,
+      repositories: await Promise.all(
+        res.data.map((repo) =>
+          Promise.all([
+            getLanguages(repo.owner.login, repo.name),
+            getNumberOfCommits(repo.owner.login, repo.name),
+          ]).then(([languages, numberOfCommits]): Repository => {
+            const languageList = Object.keys(languages);
+            const newRepo: Repository = {
+              ...repo,
+              languages: languageList,
+              num_of_commits: numberOfCommits,
+            };
+            return newRepo;
           })
-        ).then(
-          (reposWithDetails: any[]) => {
-            return reposWithDetails;
-          },
-          (error: Error) => {
-            return [
-              {
-                id: 1,
-                isError: true,
-                message: error.message,
-              },
-            ];
-          }
-        ),
-      (error: Error) => {
-        return [
-          {
-            id: 1,
-            isError: true,
-            message: error.message,
-          },
-        ];
-      }
-    )) || [];
-
-  console.log(repos);
+        )
+      ),
+    }))) || [];
 
   return (
-    <div className="projects">
-      <div className="table-header">
-        <p className="date">Year</p>
-        <p className="title">Project</p>
-        <p className="languages">Languages</p>
-        <p className="visibility">Visibility</p>
-        <p className="link">Link</p>
-      </div>
-      {repos.map((repo: any, index: number) => {
-        if (repo.isError) {
-          return <ProjectTileError key={index} message={repo.message} />;
-        }
-        return (
-          <Tile
-            key={index}
-            id={repo.id}
-            date={repo.updated_at}
-            name={repo.name.replace(/-/g, " ")}
-            languages={repo.languages}
-            isPublic={repo.isPublic}
-            link={repo.html_url}
-            linkText={`${repo.name}.git`}
-            stars={repo.stargazers_count}
-            forks={repo.forks_count}
-            watchers={repo.watchers_count}
-            commits={repo.commits_count}
-          >
+    <Fragment>
+      {content.repositories.length ? (
+        content.repositories.map((repository: Repository, index: number) => (
+          <ProjectTile key={index} repository={repository}>
             <h5>Description</h5>
             <p>
-              {repo.description ? repo.description : "No description provided."}
+              {repository.description
+                ? repository.description
+                : "No description provided."}
             </p>
-          </Tile>
-        );
-      })}
-    </div>
+          </ProjectTile>
+        ))
+      ) : (
+        <ProjectTileError message="Failed to load data" />
+      )}
+      <div className="pagination">
+        {content.hasPrev && (
+          <Link href={`/projects?page=${props.page - 1}`}>
+            <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
+          </Link>
+        )}
+        {content.hasNext && (
+          <Link href={`/projects?page=${props.page + 1}`}>
+            <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
+          </Link>
+        )}
+      </div>
+    </Fragment>
   );
 }

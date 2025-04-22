@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Gabarito, Josefin_Sans } from "next/font/google";
 import { ThemeContextProvider } from "~/context";
 import { Footer, Nav } from "~/components";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fontHeading = Gabarito({
+  variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fontBody = Josefin_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${fontHeading.variable} ${fontBody.variable}`}>
         <ThemeContextProvider>
           <Nav />
           <main>{children}</main>

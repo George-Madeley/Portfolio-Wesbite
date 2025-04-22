@@ -7,7 +7,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import { useMediaQuery } from "react-responsive";
 import { Gradient } from "whatamesh";
 
 interface ThemeContextType {
@@ -24,29 +23,41 @@ export function ThemeContextProvider({ children }: PropsWithChildren) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = useCallback(() => {
-    setIsDarkMode((prev) => !prev);
-  }, []);
-
-  useMediaQuery(
-    {
-      query: "(prefers-color-scheme: dark)",
-    },
-    undefined,
-    (isSystemDark) => setIsDarkMode(isSystemDark)
-  );
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add("dark");
-    } else {
+    if (document.body.classList.contains("dark")) {
+      setIsDarkMode(false);
       document.body.classList.remove("dark");
+    } else {
+      setIsDarkMode(true);
+      document.body.classList.add("dark");
     }
-  }, [isDarkMode]);
-
-  useEffect(() => {
     const gradient = new Gradient();
     gradient.initGradient("#gradient");
-  }, [isDarkMode]);
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        setIsDarkMode(true);
+        document.body.classList.add("dark");
+      } else {
+        setIsDarkMode(false);
+        document.body.classList.remove("dark");
+      }
+      const gradient = new Gradient();
+      gradient.initGradient("#gradient");
+    };
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    if (mediaQuery.matches) {
+      setIsDarkMode(true);
+      document.body.classList.add("dark");
+    }
+    const gradient = new Gradient();
+    gradient.initGradient("#gradient");
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>

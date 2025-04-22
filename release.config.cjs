@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /**
  * @type {import('semantic-release').GlobalConfig}
  */
@@ -19,6 +18,7 @@ module.exports = {
           { type: "build", scope: "", release: "patch" },
           { type: "ci", scope: "", release: "patch" },
           { type: "improvement", scope: "*", release: "patch" },
+          { type: "break", scope: "*", release: "major" },
         ],
         defaultReleaseType: "patch",
       },

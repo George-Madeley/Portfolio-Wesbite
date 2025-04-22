@@ -1,6 +1,9 @@
-import React from "react";
+"use server";
+
 import "./Button.css";
 
-export default function Button(props: any) {
-  return <div className="button">{props.children}</div>;
+import React, { PropsWithChildren } from "react";
+
+export async function Button({ children }: PropsWithChildren) {
+  return <div className="button">{children}</div>;
 }

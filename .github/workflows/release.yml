@@ -38,11 +38,6 @@ jobs:
       - name: Build project
         run: npx --no-install npm run build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./build
-
   # Deployment job
   release:
     runs-on: ubuntu-latest

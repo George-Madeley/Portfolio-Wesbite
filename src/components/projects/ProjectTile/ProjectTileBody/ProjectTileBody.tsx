@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface ProjectTileBodyProps {
   repository: Repository;
+  selected: boolean;
 }
 
 export function ProjectTileBody(
@@ -23,7 +24,9 @@ export function ProjectTileBody(
   const { repository } = props;
 
   return (
-    <div className="expansion-container">
+    <div
+      className={`expansion-container ${props.selected ? "expansion-container-selected" : ""}`}
+    >
       <div className="expansion">
         <div className="description-container">
           <div className="description">{props.children}</div>

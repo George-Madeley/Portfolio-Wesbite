@@ -15,8 +15,12 @@ interface PageProps {
 }
 
 export default async function Page({ searchParams }: PageProps) {
-  const page = (await searchParams).page;
-  const repoPageNum = page ? Number(page) : 1;
+  const awaitedSearchParams = await searchParams;
+
+  const page = awaitedSearchParams.page ? Number(awaitedSearchParams.page) : 1;
+  const projectId = awaitedSearchParams.projectId
+    ? Number(awaitedSearchParams.projectId)
+    : 0;
 
   return (
     <div className="projects-page">
@@ -34,8 +38,8 @@ export default async function Page({ searchParams }: PageProps) {
           <p className="visibility">Visibility</p>
           <p className="link">Link</p>
         </div>
-        <Suspense fallback={<ProjectTileLoading />} key={repoPageNum}>
-          <Projects page={repoPageNum} />
+        <Suspense fallback={<ProjectTileLoading />} key={page}>
+          <Projects page={page} projectId={projectId} />
         </Suspense>
       </div>
     </div>

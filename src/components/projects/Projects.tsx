@@ -17,6 +17,7 @@ import { getLanguages, getNumberOfCommits, getRepos } from "~/api/github";
 
 interface ProjectsProps {
   page: number;
+  projectId: number;
 }
 
 export async function Projects(props: ProjectsProps) {
@@ -54,7 +55,11 @@ export async function Projects(props: ProjectsProps) {
     <Fragment>
       {content.repositories.length ? (
         content.repositories.map((repository: Repository, index: number) => (
-          <ProjectTile key={index} repository={repository}>
+          <ProjectTile
+            key={index}
+            repository={repository}
+            projectId={props.projectId}
+          >
             <h5>Description</h5>
             <p>
               {repository.description

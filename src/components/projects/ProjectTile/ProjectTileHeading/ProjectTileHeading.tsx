@@ -5,12 +5,12 @@ import { Repository } from "~/types";
 
 import {
   faArrowRight,
-  faChevronDown,
   faLink,
   faLock,
   faLockOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ToggleChevron } from "../ToggleChevron";
 
 interface ProjectTileHeadingProps {
   repository: Repository;
@@ -21,10 +21,7 @@ export function ProjectTileHeading(props: ProjectTileHeadingProps) {
 
   return (
     <div className="info-container">
-      <input type="checkbox" id={`${repository.id}`} />
-      <label htmlFor={`${repository.id}`} className="icon-container">
-        <FontAwesomeIcon icon={faChevronDown} />
-      </label>
+      <ToggleChevron id={repository.id ?? 0} />
       <p className="date">{repository.updated_at?.substring(0, 4)}</p>
       <h4 className="title">{repository.name}</h4>
       <a

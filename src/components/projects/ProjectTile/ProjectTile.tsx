@@ -8,6 +8,7 @@ import { Repository } from "~/types";
 
 interface ProjectTileProps {
   repository: Repository;
+  projectId: number;
 }
 
 export function ProjectTile(props: PropsWithChildren<ProjectTileProps>) {
@@ -16,8 +17,10 @@ export function ProjectTile(props: PropsWithChildren<ProjectTileProps>) {
   return (
     <div className="projects-tile">
       <ProjectTileHeading repository={repository} />
-      <input type="checkbox" id={`${repository.id}`} readOnly />
-      <ProjectTileBody repository={repository}>
+      <ProjectTileBody
+        repository={repository}
+        selected={props.projectId === repository.id}
+      >
         {props.children}
       </ProjectTileBody>
     </div>

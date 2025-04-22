@@ -1,0 +1,29 @@
+.pagination {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.pagination > * {
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 3rem;
+    aspect-ratio: 1/1;
+
+    cursor: pointer;
+
+    background: linear-gradient(145deg, var(--bg-b-color-1), var(--bg-b-color-2));
+    filter: 
+        drop-shadow(1px 1px 2px var(--shadow-color-1)) 
+        drop-shadow(-1px -1px 2px var(--shadow-color-2));
+    
+    border-radius: 1.5em;
+}

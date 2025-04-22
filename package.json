@@ -57,7 +57,7 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --quiet --fix"
     ],
-    "*.{js,jsx,ts,tsx,json,html,yml}": [
+    "*.{js,jsx,ts,tsx,json,html,yml,css}": [
       "prettier --write --ignore-unknown"
     ]
   },
@@ -70,9 +70,8 @@
   },
   "scripts": {
     "build": "next build",
-    "format": "eslint --fix src && prettier --write \"./src/**/*.{js,ts,tsx,jsx}\"",
-    "lint": "eslint src && prettier --check \"./src/**/*.{js,ts,tsx,jsx}\"",
-    "lint:fix": "eslint --fix src && prettier --write \"./src/**/*.{js,ts,tsx,jsx}\"",
+    "lint": "eslint src && prettier --check .",
+    "lint:fix": "eslint --fix src && prettier --write .",
     "prepare": "husky",
     "preview": "next start",
     "release": "semantic-release",

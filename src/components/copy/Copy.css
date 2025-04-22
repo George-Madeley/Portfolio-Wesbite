@@ -1,0 +1,29 @@
+.copy-input{
+  display: none;
+}
+
+.copy-icon {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.copy-icon > svg:first-child {
+  display: none;
+}
+
+.copy-icon > svg:last-child {
+  display: block;
+}
+
+.copy-input:checked ~ label > svg:first-child {
+  display: block;
+}
+
+.copy-input:checked ~ label > svg:last-child {
+  display: none;
+}
+
+.copy-icon > svg:last-child:hover {
+  transform: scale(1.2);
+}

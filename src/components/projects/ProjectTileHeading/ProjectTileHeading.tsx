@@ -41,8 +41,8 @@ export function ProjectTileHeading(props: ProjectTileHeadingProps) {
       <a
         className="title-link"
         href={repository.html_url}
-        target="_blank"
         rel="noreferrer"
+        target="_blank"
       >
         <p>{repository.name}</p>
         <div className="icon-container">
@@ -53,7 +53,7 @@ export function ProjectTileHeading(props: ProjectTileHeadingProps) {
         {repository.languages &&
           repository.languages.map((language: string, index: number) => {
             return (
-              <li key={index} className="language">
+              <li className="language" key={index}>
                 {language}
               </li>
             );
@@ -72,7 +72,7 @@ export function ProjectTileHeading(props: ProjectTileHeadingProps) {
           </div>
         )}
       </div>
-      <a href={repository.html_url} target="_blank" rel="noreferrer">
+      <a href={repository.html_url} rel="noreferrer" target="_blank">
         <FontAwesomeIcon icon={faLink} />
         <p>{repository.name}.git</p>
       </a>

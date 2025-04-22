@@ -37,14 +37,14 @@ export function Timeline(props: TimelineProps) {
       {experiences.map((item: Content, index: number) => {
         return (
           <Card
-            key={index}
-            id={index}
-            time={item.timePeriod}
-            position={item.position}
             company={item.company}
             companyLink={item.companyLink}
-            links={item.links}
+            id={index}
+            key={index}
             languages={item.languages}
+            links={item.links}
+            position={item.position}
+            time={item.timePeriod}
           >
             {item.description.map((paragraph: string, index: number) => {
               return <p key={index}>{paragraph}</p>;

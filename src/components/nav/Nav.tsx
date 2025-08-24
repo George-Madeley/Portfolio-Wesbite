@@ -1,54 +1,50 @@
-import "./Nav.css";
-
 import Link from "next/link";
 import React from "react";
 
-import {
-  faFileCode,
-  faHome,
-  faMoon,
-  faSun,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ToggleDarkMode from "./ToggleDarkmode";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import HomeIcon from "@mui/icons-material/Home";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import PersonIcon from "@mui/icons-material/Person";
 
-import { Button } from "../button";
-import { ToggleDarkMode } from "./ToggleDarkmode";
+import Card from "@mui/material/Card";
 
 export function Nav() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Button>
-            <Link className="link" href="/">
-              <FontAwesomeIcon icon={faHome} />
-              <p className="nav-text">Home</p>
-            </Link>
+    <Stack
+      alignItems="center"
+      component="nav"
+      justifyContent="start"
+      sx={{ width: "100%", height: 70 }}
+    >
+      <Card sx={{ width: "fit-content", m: 1, p: 1, position: "fixed" }}>
+        <Stack
+          alignItems="center"
+          direction="row"
+          gap={3}
+          justifyContent="center"
+        >
+          <Button LinkComponent={Link} href={"/"} startIcon={<HomeIcon />}>
+            Home
           </Button>
-        </li>
-        <li>
-          <Button>
-            <Link className="link" href="/projects">
-              <FontAwesomeIcon icon={faFileCode} />
-              <p className="nav-text">Projects</p>
-            </Link>
+          <Button
+            LinkComponent={Link}
+            href={"/projects"}
+            startIcon={<GitHubIcon />}
+          >
+            Projects
           </Button>
-        </li>
-        <li>
-          <Button>
-            <Link className="link" href="/about">
-              <FontAwesomeIcon icon={faUser} />
-              <p className="nav-text">About Me</p>
-            </Link>
+          <Button
+            LinkComponent={Link}
+            href={"/about"}
+            startIcon={<PersonIcon />}
+          >
+            About Me
           </Button>
-        </li>
-        <li>
-          <FontAwesomeIcon icon={faSun} />
           <ToggleDarkMode />
-          <FontAwesomeIcon icon={faMoon} />
-        </li>
-      </ul>
-    </nav>
+        </Stack>
+      </Card>
+    </Stack>
   );
 }

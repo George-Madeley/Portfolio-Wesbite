@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Gabarito, Josefin_Sans } from "next/font/google";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Footer, Nav } from "~/components";
 import { ThemeContextProvider } from "~/context";
+import theme from "~/style/theme";
 
-const fontHeading = Gabarito({
-  variable: "--font-heading",
-  subsets: ["latin"],
-});
+import { Roboto } from "next/font/google";
+import { ThemeProvider } from "@mui/material/styles";
 
-const fontBody = Josefin_Sans({
-  variable: "--font-body",
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -65,16 +66,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${fontHeading.variable} ${fontBody.variable}`}>
-        <ThemeContextProvider>
-          <Nav />
-          <main>{children}</main>
-          <Footer />
-          <div className="gradient-container">
-            <canvas className="gradient" id="gradient"></canvas>
-          </div>
-        </ThemeContextProvider>
+    <html className={roboto.variable} lang="en">
+      <body>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <ThemeContextProvider>
+              <Nav />
+              <main>{children}</main>
+              <Footer />
+              <div className="gradient-container">
+                <canvas className="gradient" id="gradient"></canvas>
+              </div>
+            </ThemeContextProvider>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

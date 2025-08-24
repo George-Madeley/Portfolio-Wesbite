@@ -2,47 +2,34 @@
 
 import "./Copy.css";
 
-import React, { Fragment, useCallback } from "react";
+import { useCallback, useState } from "react";
 
-import { faCheck, faCopy } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 interface CopyProps {
-  id: string;
   text: string;
+  label: string;
 }
 
 export function Copy(props: CopyProps) {
-  const copyToClipboard = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      // get the text to copy
-      const text = e.target.value;
-      // copy the text to the clipboard
-      navigator.clipboard.writeText(text);
+  const [clicked, setClicked] = useState<boolean>(false);
 
-      // After 5 seconds, remove the check mark
-      setTimeout(() => {
-        const radio = document.getElementById(e.target.id) as HTMLInputElement;
-        radio.checked = false;
-      }, 2000);
-    },
-    []
-  );
+  const handleClick = useCallback(() => {
+    navigator.clipboard.writeText(props.text);
+    setClicked(true);
+    setTimeout(() => {
+      setClicked(false);
+    }, 2000);
+  }, [props.text]);
 
   return (
-    <Fragment>
-      <input
-        className="copy-input"
-        id={props.id}
-        name="contact"
-        onChange={copyToClipboard}
-        type="radio"
-        value={props.text}
-      />
-      <label className="copy-icon" htmlFor={props.id}>
-        <FontAwesomeIcon icon={faCheck} />
-        <FontAwesomeIcon icon={faCopy} />
-      </label>
-    </Fragment>
+    <Tooltip aria-label={`Copy ${props.label}`} title="Copy">
+      <IconButton onClick={handleClick}>
+        {clicked ? <CheckCircleIcon /> : <ContentCopyIcon />}
+      </IconButton>
+    </Tooltip>
   );
 }

@@ -7,5 +7,4 @@ export * from "./heading";
 export * from "./hero";
 export * from "./highlights";
 export * from "./nav";
-export * from "./projects";
 export * from "./timeline";

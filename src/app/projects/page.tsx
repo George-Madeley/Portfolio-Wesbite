@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import { Projects } from "~/components";
 import BlendedHeading from "~/components/BlendedHeading";
 import CommitHeatMap from "~/components/CommitHeatMap/CommitHeatMap";
+import Projects from "~/components/projects/Projects";
 import NeatBackground from "~/style/NeatBackground";
 
 import Card from "@mui/material/Card";

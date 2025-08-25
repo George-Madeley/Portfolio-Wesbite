@@ -25,7 +25,7 @@ interface ProjectsProps {
   page: number;
 }
 
-export async function Projects(props: ProjectsProps) {
+export default async function Projects(props: ProjectsProps) {
   const repos = await getRepos({
     per_page: 15,
     page: props.page,

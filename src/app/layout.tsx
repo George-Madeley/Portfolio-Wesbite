@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Footer, Nav } from "~/components";
-import { ThemeContextProvider } from "~/context";
 import theme from "~/style/theme";
 
-import { Roboto } from "next/font/google";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import CssBaseline from "@mui/material/CssBaseline";
+import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import { ThemeProvider } from "@mui/material/styles";
-
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-roboto",
-});
 
 export const metadata: Metadata = {
   title: "Portfolio of George Madeley",
@@ -66,18 +59,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={roboto.variable} lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <InitColorSchemeScript attribute="class" defaultMode="dark" />
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <ThemeContextProvider>
-              <Nav />
-              <main>{children}</main>
-              <Footer />
-              <div className="gradient-container">
-                <canvas className="gradient" id="gradient"></canvas>
-              </div>
-            </ThemeContextProvider>
+          <ThemeProvider
+            defaultMode="dark"
+            disableTransitionOnChange
+            theme={theme}
+          >
+            <CssBaseline />
+            <Nav />
+            <main>{children}</main>
+            <Footer />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

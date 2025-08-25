@@ -16,9 +16,17 @@ export function Nav() {
       alignItems="center"
       component="nav"
       justifyContent="start"
-      sx={{ width: "100%", height: 70 }}
+      sx={{ width: "100%" }}
     >
-      <Card sx={{ width: "fit-content", m: 1, p: 1, position: "fixed" }}>
+      <Card
+        sx={{
+          width: "fit-content",
+          m: 1,
+          p: 1,
+          position: "fixed",
+          zIndex: 1000,
+        }}
+      >
         <Stack
           alignItems="center"
           direction="row"

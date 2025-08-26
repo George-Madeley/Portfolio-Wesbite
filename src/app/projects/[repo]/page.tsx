@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import Repo from "~/components/repo/Repo";
-import RadialBackground from "~/style/RadialBackground";
+import Repo from "./_components/Repo";
+import RadialBackground from "~/components/RadialBackground";
 
 import CircularProgress from "@mui/material/CircularProgress";
 import Grid from "@mui/material/Grid";

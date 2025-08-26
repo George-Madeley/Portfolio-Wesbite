@@ -1,4 +1,4 @@
-import { Copy } from "../copy";
+import Copy from "./Copy";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Stack from "@mui/material/Stack";
@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-export function Footer() {
+export default function Footer() {
   const contactInfo = [
     {
       icon: <EmailIcon />,

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Footer, Nav } from "~/components";
+import Footer from "~/components/Footer";
+import Nav from "~/components/Nav";
 import theme from "~/style/theme";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";

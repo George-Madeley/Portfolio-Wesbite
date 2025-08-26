@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import Aside from "~/components/repo/Aside";
-import ReadMeMarkdown from "~/components/repo/ReadMeMarkdown";
+import Aside from "./Aside";
+import ReadMeMarkdown from "./ReadMeMarkdown";
 
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Button from "@mui/material/Button";

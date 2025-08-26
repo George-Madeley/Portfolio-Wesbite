@@ -9,7 +9,9 @@ import MuiPagination, {
 } from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 
-export default function Pagination(props: Omit<PaginationProps, "renderItem">) {
+export default function ProjectsPagination(
+  props: Omit<PaginationProps, "renderItem">
+) {
   const handleRenderItem = useCallback(
     (item: PaginationRenderItemParams) => (
       <PaginationItem

@@ -9,11 +9,11 @@ import IconButton from "@mui/material/IconButton";
 import Stack, { StackProps } from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-interface PaginationProps extends StackProps {
+interface CommitMapPaginationProps extends StackProps {
   year: number;
 }
 
-export default function Pagination(props: PaginationProps) {
+export default function CommitMapPagination(props: CommitMapPaginationProps) {
   const { year, ...stackProps } = props;
 
   const router = useRouter();

@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import BlendedHeading from "~/components/BlendedHeading";
-import CommitMap from "./_components/CommitMap";
-import Projects from "./_components/Projects";
+import ErrorBoundary from "~/components/ErrorBoundary";
 import NeatBackground from "~/components/NeatBackground";
 
 import Card from "@mui/material/Card";
@@ -11,6 +10,9 @@ import Grid from "@mui/material/Grid";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+
+import CommitMap from "./_components/CommitMap";
+import Projects from "./_components/Projects";
 
 interface PageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -84,17 +86,21 @@ export default async function Page({ searchParams }: PageProps) {
                   source code (if available). If you have any questions about
                   any of these projects, please feel free to contact me.
                 </Typography>
-                <Suspense
-                  fallback={
-                    <Skeleton
-                      height={"10rem"}
-                      variant="rectangular"
-                      width={"100%"}
-                    />
-                  }
+                <ErrorBoundary
+                  fallback={<Typography>Timeout - Failed to load</Typography>}
                 >
-                  <CommitMap repo="*" year={year} />
-                </Suspense>
+                  <Suspense
+                    fallback={
+                      <Skeleton
+                        height={"10rem"}
+                        variant="rectangular"
+                        width={"100%"}
+                      />
+                    }
+                  >
+                    <CommitMap repo="*" year={year} />
+                  </Suspense>
+                </ErrorBoundary>
               </Stack>
             </CardContent>
           </Card>
@@ -104,18 +110,20 @@ export default async function Page({ searchParams }: PageProps) {
                 <Typography fontWeight={700} variant="h2">
                   Repositories
                 </Typography>
-                <Suspense
-                  fallback={
-                    <Skeleton
-                      height={"10rem"}
-                      variant="rectangular"
-                      width={"100%"}
-                    />
-                  }
-                  key={page}
-                >
-                  <Projects page={page} />
-                </Suspense>
+                <ErrorBoundary>
+                  <Suspense
+                    fallback={
+                      <Skeleton
+                        height={"10rem"}
+                        variant="rectangular"
+                        width={"100%"}
+                      />
+                    }
+                    key={page}
+                  >
+                    <Projects page={page} />
+                  </Suspense>
+                </ErrorBoundary>
               </Stack>
             </CardContent>
           </Card>

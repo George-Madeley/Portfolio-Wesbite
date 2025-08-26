@@ -19,7 +19,7 @@ import TableRow from "@mui/material/TableRow";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 
-import Pagination from "./Pagination";
+import ProjectsPagination from "./ProjectsPagination";
 
 interface ProjectsProps {
   page: number;
@@ -120,7 +120,11 @@ export default async function Projects(props: ProjectsProps) {
           </TableBody>
         </Table>
       </TableContainer>
-      <Pagination count={content.last} page={props.page} variant="outlined" />
+      <ProjectsPagination
+        count={content.last}
+        page={props.page}
+        variant="outlined"
+      />
     </Stack>
   );
 }

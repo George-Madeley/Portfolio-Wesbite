@@ -1,5 +1,5 @@
 import BlendedHeading from "~/components/BlendedHeading";
-import NeatBackground from "~/style/NeatBackground";
+import NeatBackground from "~/components/NeatBackground";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import LinkIcon from "@mui/icons-material/Link";

@@ -1,7 +1,5 @@
 "use client";
 
-import "./Copy.css";
-
 import { useCallback, useState } from "react";
 
 import IconButton from "@mui/material/IconButton";
@@ -14,7 +12,7 @@ interface CopyProps {
   label: string;
 }
 
-export function Copy(props: CopyProps) {
+export default function Copy(props: CopyProps) {
   const [clicked, setClicked] = useState<boolean>(false);
 
   const handleClick = useCallback(() => {

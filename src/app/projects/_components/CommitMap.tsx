@@ -1,11 +1,13 @@
 import React from "react";
 import { getCommitsByYear, getRepos } from "~/api/github";
-import CommitHeatMapClient from "./CommitHeatMapClient";
-import { components } from "@octokit/openapi-types";
-import Stack from "@mui/material/Stack";
-import Pagination from "./Pagination";
 
-interface CommitHeatMapProps {
+import Stack from "@mui/material/Stack";
+import { components } from "@octokit/openapi-types";
+
+import CommitMapClient from "./CommitMapClient";
+import CommitMapPagination from "./CommitMapPagination";
+
+interface CommitMapProps {
   year: number;
   repo:
     | components["schemas"]["repository"]
@@ -13,7 +15,7 @@ interface CommitHeatMapProps {
     | "*";
 }
 
-export default async function CommitHeatMap(props: CommitHeatMapProps) {
+export default async function CommitMap(props: CommitMapProps) {
   const repo =
     props.repo === "*"
       ? await getRepos({
@@ -53,8 +55,8 @@ export default async function CommitHeatMap(props: CommitHeatMapProps) {
 
   return (
     <Stack sx={{ width: "100%", height: "100%" }}>
-      <CommitHeatMapClient dailyCounts={commits} year={props.year} />
-      <Pagination
+      <CommitMapClient dailyCounts={commits} year={props.year} />
+      <CommitMapPagination
         justifyContent="end"
         sx={{ width: "100%" }}
         year={props.year}

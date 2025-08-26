@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import BlendedHeading from "~/components/BlendedHeading";
-import CommitHeatMap from "~/components/CommitHeatMap/CommitHeatMap";
-import Projects from "~/components/projects/Projects";
-import NeatBackground from "~/style/NeatBackground";
+import CommitMap from "./_components/CommitMap";
+import Projects from "./_components/Projects";
+import NeatBackground from "~/components/NeatBackground";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -93,7 +93,7 @@ export default async function Page({ searchParams }: PageProps) {
                     />
                   }
                 >
-                  <CommitHeatMap repo="*" year={year} />
+                  <CommitMap repo="*" year={year} />
                 </Suspense>
               </Stack>
             </CardContent>

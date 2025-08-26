@@ -10,7 +10,7 @@ import PersonIcon from "@mui/icons-material/Person";
 
 import Card from "@mui/material/Card";
 
-export function Nav() {
+export default function Nav() {
   return (
     <Stack
       alignItems="center"

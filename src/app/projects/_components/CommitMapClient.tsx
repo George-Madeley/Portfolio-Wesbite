@@ -7,20 +7,18 @@ import React, {
   useRef,
   useState,
 } from "react";
-
-import Box from "@mui/material/Box";
-import { alpha, useTheme } from "@mui/material/styles";
-import Tooltip from "@mui/material/Tooltip";
 import { debounce } from "~/utils/debounce";
 
-import { hexToRgb, rgbToHex } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import { alpha, hexToRgb, rgbToHex, useTheme } from "@mui/material/styles";
+import Tooltip from "@mui/material/Tooltip";
 
-interface CommitHeatMapClientProps {
+interface CommitMapClientProps {
   year: number;
   dailyCounts: Record<string, number>;
 }
 
-export default function CommitHeatMapClient(props: CommitHeatMapClientProps) {
+export default function CommitMapClient(props: CommitMapClientProps) {
   const theme = useTheme();
 
   const containerRef = useRef<HTMLDivElement>(null);

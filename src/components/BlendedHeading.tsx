@@ -7,20 +7,20 @@ export default function BlendedHeading(props: TypographyProps) {
       <Typography
         {...props}
         sx={{
+          opacity: "60%",
           ...props.sx,
           mixBlendMode: "soft-light",
-          opacity: "60%",
           lineHeight: 1,
         }}
       />
       <Typography
         {...props}
         sx={{
+          opacity: "60%",
           ...(props.sx ?? {}),
           position: "absolute",
           zIndex: 100,
           mixBlendMode: "color-dodge",
-          opacity: "60%",
           lineHeight: 1,
           top: 0,
           left: 0,

@@ -15,7 +15,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
@@ -25,6 +24,7 @@ import Typography from "@mui/material/Typography";
 import Carousel from "./_components/Carousel";
 import Highlights from "./_components/Highlights";
 import WaveGridWrapper from "./_components/WaveGridWrapper";
+import JobHighlight from "./_components/JobHighlight";
 
 export default function HomePage() {
   const tags = [
@@ -66,30 +66,6 @@ export default function HomePage() {
     },
   ];
 
-  const work = [
-    {
-      id: "bt",
-      company: "BT",
-      tooltip: "British Telecommunications",
-      duration: "2021-22",
-      link: "https://www.bt.com/",
-    },
-    {
-      id: "bwb",
-      company: "BWB",
-      tooltip: "Biodevices Without Borders",
-      duration: "2023-24",
-      link: "https://bathbiodevices.com/",
-    },
-    {
-      id: "atl",
-      company: "ATL",
-      tooltip: "Atlantic Technology",
-      duration: "2024-Present",
-      link: "https://www.atlantictechnology.co.uk/",
-    },
-  ] as const;
-
   return (
     <NeatBackground
       config={{
@@ -116,10 +92,15 @@ export default function HomePage() {
     >
       <Container sx={{ mb: 5 }}>
         <Grid
+          alignItems="center"
           container
-          direction="column"
-          gap={4}
-          sx={{ width: "100%", height: "80vh", p: 4 }}
+          direction={{ xs: "column", sm: "row" }}
+          spacing={4}
+          sx={{
+            width: "100%",
+            minHeight: "80vh",
+            p: 4,
+          }}
         >
           <Grid
             alignItems="flex-start"
@@ -127,12 +108,13 @@ export default function HomePage() {
             direction="column"
             gap={4}
             justifyContent="center"
-            sx={{ width: "50%", height: "100%" }}
+            size={{ xs: 12, sm: 12, md: "auto" }}
+            sx={{ height: "80vh" }}
           >
             <Grid size={12}>
               <Typography
                 color="#fff"
-                fontSize="2rem"
+                fontSize={{ xs: "1rem", sm: "2rem" }}
                 fontWeight={600}
                 variant="subtitle2"
               >
@@ -142,7 +124,7 @@ export default function HomePage() {
             <Grid size={12}>
               <BlendedHeading
                 color="#FFC5AA"
-                fontSize="8rem"
+                fontSize={{ xs: "4rem", sm: "8rem" }}
                 fontWeight={600}
                 sx={{
                   opacity: "100%",
@@ -150,7 +132,8 @@ export default function HomePage() {
                 textAlign="left"
                 variant="h1"
               >
-                George Madeley
+                George <br />
+                Madeley
               </BlendedHeading>
             </Grid>
             <Grid size={12}>
@@ -159,7 +142,7 @@ export default function HomePage() {
               </Typography>
             </Grid>
             <Grid size={12}>
-              <Stack direction="row" gap={1}>
+              <Stack direction="row" flexWrap="wrap" gap={1}>
                 {tags.map((tag) => (
                   <Chip
                     key={tag}
@@ -170,9 +153,8 @@ export default function HomePage() {
               </Stack>
             </Grid>
             <Grid size={12}>
-              <Stack direction="row" gap={2}>
+              <Stack direction="row" flexWrap="wrap" gap={2}>
                 <Button
-                  color="secondary"
                   component={Link}
                   endIcon={<ArrowForwardIcon />}
                   href="/projects"
@@ -226,11 +208,10 @@ export default function HomePage() {
           <Grid
             alignItems="center"
             container
-            sx={{ width: "50%", height: "100%" }}
+            size={{ sm: 12, md: "grow" }}
+            sx={{ height: "50vh" }}
           >
-            <Grid sx={{ width: "100%", height: "70%" }}>
-              <WaveGridWrapper />
-            </Grid>
+            <WaveGridWrapper />
           </Grid>
         </Grid>
         <Stack gap={30} sx={{ mb: 30 }}>
@@ -245,60 +226,7 @@ export default function HomePage() {
                   projects, building and repairing computers, or even playing
                   video games during my free time.
                 </Typography>
-                <Grid
-                  alignItems="center"
-                  container
-                  gap={2}
-                  sx={{ width: "100%", mt: 5 }}
-                >
-                  {work.flatMap((item, index) => {
-                    const components = [
-                      <Grid key={item.id} size="grow">
-                        <Stack
-                          alignItems="center"
-                          gap={1}
-                          justifyContent="center"
-                        >
-                          <Tooltip placement="top" title={item.tooltip}>
-                            <Typography
-                              fontWeight={500}
-                              textAlign="center"
-                              variant="h4"
-                            >
-                              {item.company}
-                            </Typography>
-                          </Tooltip>
-                          <Typography
-                            color="textDisabled"
-                            textAlign="center"
-                            variant="h5"
-                          >
-                            {item.duration}
-                          </Typography>
-                          <Button
-                            endIcon={<ArrowForwardIcon />}
-                            href={item.link}
-                            rel="noreferrer"
-                            target="_blank"
-                            variant="text"
-                          >
-                            Learn More
-                          </Button>
-                        </Stack>
-                      </Grid>,
-                    ];
-                    if (index < work.length - 1)
-                      components.push(
-                        <Divider
-                          aria-hidden="true"
-                          flexItem
-                          key={`${item.id}-divider`}
-                          orientation="vertical"
-                        />
-                      );
-                    return components;
-                  })}
-                </Grid>
+                <JobHighlight />
               </Stack>
             </CardContent>
           </Card>
@@ -320,7 +248,7 @@ export default function HomePage() {
                           container
                           gap={3}
                           justifyContent="center"
-                          size={4}
+                          size={{ xs: 12, sm: 4 }}
                         >
                           <Grid>
                             <stat.Icon
@@ -329,7 +257,7 @@ export default function HomePage() {
                             />
                           </Grid>
                         </Grid>
-                        <Grid size={8}>
+                        <Grid size={{ xs: 12, sm: 8 }}>
                           <Typography>{stat.text}</Typography>
                         </Grid>
                       </Grid>

@@ -20,7 +20,7 @@ export default function NeatBackground(
       const neatGradient = new NeatGradient({
         ref: canvasRef.current,
         ...props.config,
-        backgroundColor: "var(--mui-palette-background-default)",
+        backgroundColor: "var(--mui-palette-primary-main)",
         colors: [
           {
             enabled: true,
@@ -62,6 +62,7 @@ export default function NeatBackground(
           top: 0,
           right: 0,
           zIndex: -1,
+          backgroundColor: "var(--mui-palette-primary-main)",
           "&>a": {
             display: "none !important",
           },

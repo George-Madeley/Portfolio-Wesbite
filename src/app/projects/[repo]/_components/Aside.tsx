@@ -44,33 +44,44 @@ export default async function Aside(props: AsideProps) {
       <Grid>
         <Stack direction="column" gap={1}>
           <Typography variant="subtitle2">Statistics</Typography>
-          {[
-            {
-              id: "stats-stars",
-              icon: <StarIcon />,
-              message: props.repo.stargazers_count,
-            },
-            {
-              id: "stats-commits",
-              icon: <CommitIcon />,
-              message: numCommits,
-            },
-            {
-              id: "stats-forks",
-              icon: <ForkRightIcon />,
-              message: props.repo.forks,
-            },
-            {
-              id: "stats-watchers",
-              icon: <VisibilityIcon />,
-              message: props.repo.watchers,
-            },
-          ].map((state) => (
-            <Stack direction="row" gap={1} key={state.id}>
-              {state.icon}
-              <Typography>{state.message}</Typography>
-            </Stack>
-          ))}
+          <Stack
+            direction={{ xs: "row", sm: "row", md: "column" }}
+            flexWrap="wrap"
+            gap={1}
+            justifyContent={{
+              xs: "space-around",
+              sm: "space-around",
+              md: "start",
+            }}
+          >
+            {[
+              {
+                id: "stats-stars",
+                icon: <StarIcon />,
+                message: props.repo.stargazers_count,
+              },
+              {
+                id: "stats-commits",
+                icon: <CommitIcon />,
+                message: numCommits,
+              },
+              {
+                id: "stats-forks",
+                icon: <ForkRightIcon />,
+                message: props.repo.forks,
+              },
+              {
+                id: "stats-watchers",
+                icon: <VisibilityIcon />,
+                message: props.repo.watchers,
+              },
+            ].map((state) => (
+              <Stack direction="row" gap={1} key={state.id}>
+                {state.icon}
+                <Typography>{state.message}</Typography>
+              </Stack>
+            ))}
+          </Stack>
         </Stack>
       </Grid>
       <Grid>

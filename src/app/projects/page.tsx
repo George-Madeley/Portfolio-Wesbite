@@ -60,7 +60,7 @@ export default async function Page({ searchParams }: PageProps) {
           <Grid>
             <BlendedHeading
               color="#d5bdcaff"
-              fontSize={"16rem"}
+              fontSize={{ md: "12rem", lg: "16rem" }}
               fontWeight={600}
               textAlign="center"
               variant="h1"

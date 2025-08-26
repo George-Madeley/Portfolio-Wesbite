@@ -56,7 +56,7 @@ export default function AboutPage() {
           <Grid>
             <BlendedHeading
               color="#d5bdcaff"
-              fontSize={"16rem"}
+              fontSize={{ md: "12rem", lg: "16rem" }}
               fontWeight={600}
               textAlign="center"
               variant="h1"
@@ -110,7 +110,7 @@ export default function AboutPage() {
                     <CardContent>
                       <Stack gap={2}>
                         <Grid columnGap={2} container>
-                          <Grid size="auto">
+                          <Grid size={{ xs: 12, sm: 12, md: 12, lg: "auto" }}>
                             <Typography
                               color="textSecondary"
                               fontWeight={700}
@@ -119,7 +119,7 @@ export default function AboutPage() {
                               {exp.timePeriod}
                             </Typography>
                           </Grid>
-                          <Grid size="grow">
+                          <Grid size={{ xs: 12, sm: 12, md: 12, lg: "grow" }}>
                             <Typography fontWeight={700} variant="h2">
                               {exp.position}
                             </Typography>

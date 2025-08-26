@@ -10,6 +10,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import { ThemeProvider } from "@mui/material/styles";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Portfolio of George Madeley",
@@ -77,6 +78,7 @@ export default function RootLayout({
           </ThemeProvider>
         </AppRouterCacheProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

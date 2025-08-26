@@ -1,14 +1,14 @@
 import Link from "next/link";
 import React from "react";
 
-import ToggleDarkMode from "./ToggleDarkmode";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+import DataObjectIcon from "@mui/icons-material/DataObject";
 import HomeIcon from "@mui/icons-material/Home";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import PersonIcon from "@mui/icons-material/Person";
-
 import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
+
+import FlexButton from "./FlexButton";
+import ToggleDarkMode from "./ToggleDarkmode";
 
 export default function Nav() {
   return (
@@ -30,26 +30,36 @@ export default function Nav() {
         <Stack
           alignItems="center"
           direction="row"
-          gap={3}
+          gap={{ xs: 1, sm: 3 }}
           justifyContent="center"
         >
-          <Button LinkComponent={Link} href={"/"} startIcon={<HomeIcon />}>
-            Home
-          </Button>
-          <Button
+          <FlexButton
             LinkComponent={Link}
+            breakCondition="down"
+            breakpoint="sm"
+            href={"/"}
+            startIcon={<HomeIcon />}
+          >
+            Home
+          </FlexButton>
+          <FlexButton
+            LinkComponent={Link}
+            breakCondition="down"
+            breakpoint="sm"
             href={"/projects"}
-            startIcon={<GitHubIcon />}
+            startIcon={<DataObjectIcon />}
           >
             Projects
-          </Button>
-          <Button
+          </FlexButton>
+          <FlexButton
             LinkComponent={Link}
+            breakCondition="down"
+            breakpoint="sm"
             href={"/about"}
             startIcon={<PersonIcon />}
           >
             About Me
-          </Button>
+          </FlexButton>
           <ToggleDarkMode />
         </Stack>
       </Card>

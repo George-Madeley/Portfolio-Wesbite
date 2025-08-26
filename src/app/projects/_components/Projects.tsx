@@ -72,17 +72,43 @@ export default async function Projects(props: ProjectsProps) {
         <Table aria-label="table of repositories">
           <TableHead>
             <TableRow>
-              <TableCell>Year</TableCell>
+              <TableCell
+                sx={{
+                  display: { xs: "none", sm: "table-cell" },
+                }}
+              >
+                Year
+              </TableCell>
               <TableCell>Name</TableCell>
-              <TableCell align="right">Language</TableCell>
-              <TableCell align="right">Visibility</TableCell>
+              <TableCell
+                align="right"
+                sx={{
+                  display: { xs: "none", sm: "none", md: "table-cell" },
+                }}
+              >
+                Language
+              </TableCell>
+              <TableCell
+                align="right"
+                sx={{
+                  display: { xs: "none", sm: "none", md: "table-cell" },
+                }}
+              >
+                Visibility
+              </TableCell>
               <TableCell align="right">Link</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {content.repositories.map((repo) => (
               <TableRow key={repo.id}>
-                <TableCell component="th" scope="row">
+                <TableCell
+                  component="th"
+                  scope="row"
+                  sx={{
+                    display: { xs: "none", sm: "table-cell" },
+                  }}
+                >
                   <Typography variant="h5">
                     {repo.updated_at?.substring(0, 4)}
                   </Typography>
@@ -90,12 +116,22 @@ export default async function Projects(props: ProjectsProps) {
                 <TableCell>
                   <Typography variant="h5">{repo.name}</Typography>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell
+                  align="right"
+                  sx={{
+                    display: { xs: "none", sm: "none", md: "table-cell" },
+                  }}
+                >
                   {repo.language && (
                     <Chip color="primary" label={repo.language} />
                   )}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell
+                  align="right"
+                  sx={{
+                    display: { xs: "none", sm: "none", md: "table-cell" },
+                  }}
+                >
                   <Tooltip
                     title={repo.visibility === "public" ? "Public" : "Private"}
                   >

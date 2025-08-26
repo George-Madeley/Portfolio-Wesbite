@@ -27,7 +27,7 @@ export default function Footer() {
       justifyContent="end"
       sx={{ width: "100%" }}
     >
-      <Card sx={{ width: "100%" }}>
+      <Card sx={{ width: "100%", pt: 7, pb: 6 }}>
         <CardContent>
           <Grid
             alignItems="center"
@@ -38,7 +38,7 @@ export default function Footer() {
           >
             <Grid container direction="column" gap={3}>
               {contactInfo.map((info) => (
-                <Grid container gap={1} key={info.id}>
+                <Grid alignItems="center" container gap={1} key={info.id}>
                   <Grid size="auto">{info.icon}</Grid>
                   <Grid size="grow">
                     <Typography>{info.text}</Typography>

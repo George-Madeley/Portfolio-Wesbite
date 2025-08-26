@@ -31,12 +31,16 @@ export default async function Repo(props: PageProps<"/projects/[repo]">) {
           <Stack justifyContent="end" sx={{ width: "100%", height: "100%" }}>
             <Grid container gap={3}>
               <Grid direction="column" size={12}>
-                <Typography fontSize="8rem" fontWeight={700} variant="h1">
+                <Typography
+                  fontSize={{ xs: "3rem", sm: "4rem", md: "8rem" }}
+                  fontWeight={700}
+                  variant="h1"
+                >
                   {repo.name}
                 </Typography>
                 <Typography
                   color="textSecondary"
-                  fontSize="1.5rem"
+                  fontSize={{ sm: "1rem", md: "1.5rem" }}
                   variant="subtitle1"
                 >
                   {repo.description || "No Description"}
@@ -65,8 +69,16 @@ export default async function Repo(props: PageProps<"/projects/[repo]">) {
         </Container>
         <Container sx={{ mb: 10 }}>
           <Stack>
-            <Grid container gap={3}>
-              <Grid size="grow">
+            <Grid
+              container
+              direction={{
+                xs: "column-reverse",
+                sm: "column-reverse",
+                md: "row",
+              }}
+              gap={3}
+            >
+              <Grid size={{ xs: 12, sm: 12, md: "grow" }}>
                 <Card>
                   <CardContent>
                     <Stack gap={3}>
@@ -85,7 +97,7 @@ export default async function Repo(props: PageProps<"/projects/[repo]">) {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid size={3}>
+              <Grid size={{ xs: 12, sm: 12, md: 3 }}>
                 <Card component="aside">
                   <CardContent>
                     <Suspense

@@ -34,9 +34,14 @@ export default async function Highlights(props: HighlightsProps) {
   );
 
   return (
-    <Grid alignContent="stretch" container gap={2}>
+    <Grid
+      alignContent="stretch"
+      columns={{ sm: 4, md: 12 }}
+      container
+      spacing={2}
+    >
       {repositories.map((repo) => (
-        <Grid key={repo.id} size="grow">
+        <Grid key={repo.id} size={4}>
           <Card sx={{ height: "100%" }}>
             <CardContent sx={{ height: "100%" }}>
               <Stack

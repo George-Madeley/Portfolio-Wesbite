@@ -1,6 +1,7 @@
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import Aside from "./Aside";
-import ReadMeMarkdown from "./ReadMeMarkdown";
+import { getRepo } from "~/api/github";
+import ErrorBoundary from "~/components/ErrorBoundary";
 
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Button from "@mui/material/Button";
@@ -12,8 +13,9 @@ import Grid from "@mui/material/Grid";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { getRepo } from "~/api/github";
-import { notFound } from "next/navigation";
+
+import Aside from "./Aside";
+import ReadMeMarkdown from "./ReadMeMarkdown";
 
 export default async function Repo(props: PageProps<"/projects/[repo]">) {
   const params = await props.params;
@@ -82,17 +84,23 @@ export default async function Repo(props: PageProps<"/projects/[repo]">) {
                 <Card>
                   <CardContent>
                     <Stack gap={3}>
-                      <Suspense
+                      <ErrorBoundary
                         fallback={
-                          <Skeleton
-                            height={40}
-                            variant="rectangular"
-                            width={"100%"}
-                          />
+                          <Typography>Timeout - Failed to load</Typography>
                         }
                       >
-                        <ReadMeMarkdown owner={owner} repo={repo} />
-                      </Suspense>
+                        <Suspense
+                          fallback={
+                            <Skeleton
+                              height={40}
+                              variant="rectangular"
+                              width={"100%"}
+                            />
+                          }
+                        >
+                          <ReadMeMarkdown owner={owner} repo={repo} />
+                        </Suspense>
+                      </ErrorBoundary>
                     </Stack>
                   </CardContent>
                 </Card>
@@ -100,20 +108,25 @@ export default async function Repo(props: PageProps<"/projects/[repo]">) {
               <Grid size={{ xs: 12, sm: 12, md: 3 }}>
                 <Card component="aside">
                   <CardContent>
-                    <Suspense
-                      fallback={
-                        <Stack gap={1}>
-                          <Skeleton sx={{ fontSize: "1rem" }} variant="text" />
-                          <Skeleton
-                            height={40}
-                            variant="rectangular"
-                            width={"100%"}
-                          />
-                        </Stack>
-                      }
-                    >
-                      <Aside owner={owner} repo={repo} />
-                    </Suspense>
+                    <ErrorBoundary>
+                      <Suspense
+                        fallback={
+                          <Stack gap={1}>
+                            <Skeleton
+                              sx={{ fontSize: "1rem" }}
+                              variant="text"
+                            />
+                            <Skeleton
+                              height={40}
+                              variant="rectangular"
+                              width={"100%"}
+                            />
+                          </Stack>
+                        }
+                      >
+                        <Aside owner={owner} repo={repo} />
+                      </Suspense>
+                    </ErrorBoundary>
                   </CardContent>
                 </Card>
               </Grid>

@@ -3,6 +3,7 @@
 import { PropsWithChildren, useEffect, useRef } from "react";
 import { NeatConfig, NeatGradient } from "@firecms/neat";
 import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
 
 interface NeatBackgroundProps {
   config: Omit<NeatConfig, "colors" | "backgroundColor">;
@@ -46,26 +47,29 @@ export default function NeatBackground(
   });
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         minHeight: "100dvh",
-        width: "100vw",
+        width: "100%",
         position: "relative",
       }}
     >
-      <div
-        style={{
+      <Box
+        sx={{
           position: "fixed",
           height: "100dvh",
           width: "100vw",
           top: 0,
           right: 0,
           zIndex: -1,
+          "&>a": {
+            display: "none !important",
+          },
         }}
       >
         <canvas ref={canvasRef} style={{ width: "100%", height: "100%" }} />
-      </div>
+      </Box>
       {props.children}
-    </div>
+    </Box>
   );
 }

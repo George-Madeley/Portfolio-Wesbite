@@ -63,7 +63,7 @@ export default function Error({
               <Box>
                 <BlendedHeading
                   color="#FFC5AA"
-                  fontSize="20rem"
+                  fontSize={{ md: "12rem", lg: "20rem" }}
                   fontWeight={600}
                   sx={{
                     opacity: "100%",
@@ -78,7 +78,7 @@ export default function Error({
                 <Typography>{error.message}</Typography>
                 {error.stack && <pre>{error.stack}</pre>}
               </Alert>
-              <Stack direction="row" gap={1}>
+              <Stack direction={{ xs: "column", sm: "row" }} gap={1}>
                 <Button onClick={handleClick}>Reset</Button>
                 <Button
                   component={Link}

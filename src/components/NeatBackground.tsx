@@ -1,9 +1,21 @@
 "use client";
 
-import { PropsWithChildren, useEffect, useRef } from "react";
+import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import { NeatConfig, NeatGradient } from "@firecms/neat";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+
+function isWebGLAvailable(): boolean {
+  try {
+    const canvas = document.createElement("canvas");
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+    );
+  } catch {
+    return false;
+  }
+}
 
 interface NeatBackgroundProps {
   config: Omit<NeatConfig, "colors" | "backgroundColor">;
@@ -14,6 +26,11 @@ export default function NeatBackground(
 ) {
   const theme = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [webglSupported, setWebglSupported] = useState<boolean>(false);
+
+  useEffect(() => {
+    setWebglSupported(isWebGLAvailable());
+  }, []);
 
   useEffect(() => {
     if (canvasRef.current) {
@@ -63,12 +80,22 @@ export default function NeatBackground(
           right: 0,
           zIndex: -1,
           backgroundColor: "var(--mui-palette-primary-main)",
+          backgroundImage: `
+            radial-gradient(at 40% 20%, var(--mui-palette-primary-main) 0px, transparent 50%),
+            radial-gradient(at 80% 0%, var(--mui-palette-primary-dark) 0px, transparent 50%),
+            radial-gradient(at 0% 50%, var(--mui-palette-secondary-main) 0px, transparent 50%),
+            radial-gradient(at 80% 50%, var(--mui-palette-secondary-dark) 0px, transparent 50%),
+            radial-gradient(at 0% 100%, var(--mui-palette-primary-main) 0px, transparent 50%),
+            radial-gradient(at 80% 100%, var(--mui-palette-secondary-main) 0px, transparent 50%),
+            radial-gradient(at 0% 0%, var(--mui-palette-primary-dark) 0px, transparent 50%)`,
           "&>a": {
             display: "none !important",
           },
         }}
       >
-        <canvas ref={canvasRef} style={{ width: "100%", height: "100%" }} />
+        {webglSupported && (
+          <canvas ref={canvasRef} style={{ width: "100%", height: "100%" }} />
+        )}
       </Box>
       {props.children}
     </Box>

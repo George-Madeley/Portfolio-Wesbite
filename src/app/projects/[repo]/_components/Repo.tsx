@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { getRepo } from "~/api/github";
-import ErrorBoundary from "~/components/ErrorBoundary";
 
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Button from "@mui/material/Button";
@@ -18,14 +17,13 @@ import Aside from "./Aside";
 import ReadMeMarkdown from "./ReadMeMarkdown";
 
 export default async function Repo(props: PageProps<"/projects/[repo]">) {
-  const params = await props.params;
-  const searchParams = await props.searchParams;
-  const owner =
-    (Array.isArray(searchParams.owner)
-      ? searchParams.owner.at(0)
-      : searchParams.owner) ?? "";
-
   try {
+    const params = await props.params;
+    const searchParams = await props.searchParams;
+    const owner =
+      (Array.isArray(searchParams.owner)
+        ? searchParams.owner.at(0)
+        : searchParams.owner) ?? "";
     const repo = await getRepo(owner, params.repo);
     return (
       <Stack>
@@ -84,23 +82,17 @@ export default async function Repo(props: PageProps<"/projects/[repo]">) {
                 <Card>
                   <CardContent>
                     <Stack gap={3}>
-                      <ErrorBoundary
+                      <Suspense
                         fallback={
-                          <Typography>Timeout - Failed to load</Typography>
+                          <Skeleton
+                            height={40}
+                            variant="rectangular"
+                            width={"100%"}
+                          />
                         }
                       >
-                        <Suspense
-                          fallback={
-                            <Skeleton
-                              height={40}
-                              variant="rectangular"
-                              width={"100%"}
-                            />
-                          }
-                        >
-                          <ReadMeMarkdown owner={owner} repo={repo} />
-                        </Suspense>
-                      </ErrorBoundary>
+                        <ReadMeMarkdown owner={owner} repo={repo} />
+                      </Suspense>
                     </Stack>
                   </CardContent>
                 </Card>
@@ -108,25 +100,20 @@ export default async function Repo(props: PageProps<"/projects/[repo]">) {
               <Grid size={{ xs: 12, sm: 12, md: 3 }}>
                 <Card component="aside">
                   <CardContent>
-                    <ErrorBoundary>
-                      <Suspense
-                        fallback={
-                          <Stack gap={1}>
-                            <Skeleton
-                              sx={{ fontSize: "1rem" }}
-                              variant="text"
-                            />
-                            <Skeleton
-                              height={40}
-                              variant="rectangular"
-                              width={"100%"}
-                            />
-                          </Stack>
-                        }
-                      >
-                        <Aside owner={owner} repo={repo} />
-                      </Suspense>
-                    </ErrorBoundary>
+                    <Suspense
+                      fallback={
+                        <Stack gap={1}>
+                          <Skeleton sx={{ fontSize: "1rem" }} variant="text" />
+                          <Skeleton
+                            height={40}
+                            variant="rectangular"
+                            width={"100%"}
+                          />
+                        </Stack>
+                      }
+                    >
+                      <Aside owner={owner} repo={repo} />
+                    </Suspense>
                   </CardContent>
                 </Card>
               </Grid>

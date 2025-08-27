@@ -16,10 +16,10 @@ interface FlexButtonProps
 }
 
 export default function FlexButton(props: FlexButtonProps) {
+  const { breakCondition, breakpoint, ...otherProps } = props;
+
   const theme = useTheme();
-  const isSmall = useMediaQuery(
-    theme.breakpoints[props.breakCondition](props.breakpoint)
-  );
+  const isSmall = useMediaQuery(theme.breakpoints[breakCondition](breakpoint));
 
   if (!props.startIcon && !props.endIcon) {
     throw new Error("`Flex Button` needs either a `startIcon` or an `endIcon`");
@@ -27,9 +27,11 @@ export default function FlexButton(props: FlexButtonProps) {
 
   if (isSmall) {
     return (
-      <IconButton {...props}>{props.startIcon ?? props.endIcon}</IconButton>
+      <IconButton {...otherProps}>
+        {props.startIcon ?? props.endIcon}
+      </IconButton>
     );
   } else {
-    return <Button {...props}>{props.children}</Button>;
+    return <Button {...otherProps}>{props.children}</Button>;
   }
 }

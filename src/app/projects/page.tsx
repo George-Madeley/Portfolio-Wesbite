@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import BlendedHeading from "~/components/BlendedHeading";
-import ErrorBoundary from "~/components/ErrorBoundary";
 import NeatBackground from "~/components/NeatBackground";
 
 import Card from "@mui/material/Card";
@@ -86,21 +85,17 @@ export default async function Page({ searchParams }: PageProps) {
                   source code (if available). If you have any questions about
                   any of these projects, please feel free to contact me.
                 </Typography>
-                <ErrorBoundary
-                  fallback={<Typography>Timeout - Failed to load</Typography>}
+                <Suspense
+                  fallback={
+                    <Skeleton
+                      height={"10rem"}
+                      variant="rectangular"
+                      width={"100%"}
+                    />
+                  }
                 >
-                  <Suspense
-                    fallback={
-                      <Skeleton
-                        height={"10rem"}
-                        variant="rectangular"
-                        width={"100%"}
-                      />
-                    }
-                  >
-                    <CommitMap repo="*" year={year} />
-                  </Suspense>
-                </ErrorBoundary>
+                  <CommitMap repo="*" year={year} />
+                </Suspense>
               </Stack>
             </CardContent>
           </Card>
@@ -110,20 +105,18 @@ export default async function Page({ searchParams }: PageProps) {
                 <Typography fontWeight={700} variant="h2">
                   Repositories
                 </Typography>
-                <ErrorBoundary>
-                  <Suspense
-                    fallback={
-                      <Skeleton
-                        height={"10rem"}
-                        variant="rectangular"
-                        width={"100%"}
-                      />
-                    }
-                    key={page}
-                  >
-                    <Projects page={page} />
-                  </Suspense>
-                </ErrorBoundary>
+                <Suspense
+                  fallback={
+                    <Skeleton
+                      height={"10rem"}
+                      variant="rectangular"
+                      width={"100%"}
+                    />
+                  }
+                  key={page}
+                >
+                  <Projects page={page} />
+                </Suspense>
               </Stack>
             </CardContent>
           </Card>

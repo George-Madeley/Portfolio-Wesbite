@@ -41,10 +41,10 @@ export default function NotFound() {
           sx={{ width: "100%", height: "100vh", p: 4 }}
         >
           <Grid>
-            <Stack alignItems="center" gap={3}>
+            <Stack alignItems="center" gap={3} justifyContent="center">
               <BlendedHeading
                 color="#FFC5AA"
-                fontSize="20rem"
+                fontSize={{ md: "12rem", lg: "20rem" }}
                 fontWeight={600}
                 sx={{
                   opacity: "100%",

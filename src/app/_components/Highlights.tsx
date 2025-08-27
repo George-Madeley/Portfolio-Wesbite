@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { getLanguages, getRepo } from "~/api/github";
+import ErrorFallback from "~/components/ErrorFallback";
 import { Repo } from "~/types";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -10,9 +12,6 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { getLanguagesCached, getRepoCached } from "../../api/github";
-import ErrorFallback from "~/components/ErrorFallback";
-
 interface HighlightsProps {
   repos: Repo[];
 }
@@ -21,8 +20,8 @@ export default async function Highlights(props: HighlightsProps) {
   try {
     const repositories = await Promise.all(
       props.repos.map((repo: Repo) =>
-        getRepoCached(repo.owner, repo.name).then((repoDetails) =>
-          getLanguagesCached(repo.owner, repo.name).then((languages) => {
+        getRepo(repo.owner, repo.name).then((repoDetails) =>
+          getLanguages(repo.owner, repo.name).then((languages) => {
             const languageList = Object.keys(languages);
             const newRepo = {
               ...repoDetails,

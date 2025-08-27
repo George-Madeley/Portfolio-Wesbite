@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { getRepoCached } from "~/api/github";
+import { getRepo } from "~/api/github";
 
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Button from "@mui/material/Button";
@@ -24,7 +24,7 @@ export default async function Repo(props: PageProps<"/projects/[repo]">) {
       (Array.isArray(searchParams.owner)
         ? searchParams.owner.at(0)
         : searchParams.owner) ?? "";
-    const repo = await getRepoCached(owner, params.repo);
+    const repo = await getRepo(owner, params.repo);
     return (
       <Stack>
         <Container sx={{ minHeight: "50vh", mb: 5, pt: 25 }}>

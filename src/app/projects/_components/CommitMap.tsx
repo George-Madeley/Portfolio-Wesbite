@@ -1,11 +1,11 @@
-import { getCommitsByYearCached, getReposCached } from "~/api/github";
+import { getCommitsByYear, getRepos } from "~/api/github";
+import ErrorFallback from "~/components/ErrorFallback";
 
 import Stack from "@mui/material/Stack";
 import { components } from "@octokit/openapi-types";
 
 import CommitMapClient from "./CommitMapClient";
 import CommitMapPagination from "./CommitMapPagination";
-import ErrorFallback from "~/components/ErrorFallback";
 
 interface CommitMapProps {
   year: number;
@@ -19,7 +19,7 @@ export default async function CommitMap(props: CommitMapProps) {
   try {
     const repo =
       props.repo === "*"
-        ? await getReposCached({
+        ? await getRepos({
             per_page: 100,
             page: 1,
             since: `${props.year}-01-01T00:00:00Z`,
@@ -39,7 +39,7 @@ export default async function CommitMap(props: CommitMapProps) {
               Number(repo.created_at?.substring(0, 4) ?? 0) <= props.year
           )
           .map((repo) =>
-            getCommitsByYearCached(repo.owner.login, repo.name, props.year)
+            getCommitsByYear(repo.owner.login, repo.name, props.year)
           )
       );
       commits = repoCommits.reduce((a, b) => ({ ...a, ...b }), {});
@@ -50,7 +50,7 @@ export default async function CommitMap(props: CommitMapProps) {
         // Check if ensure the repo was created on or before the given year
         Number(repo.created_at?.substring(0, 4) ?? 0) <= props.year
       ) {
-        commits = await getCommitsByYearCached(
+        commits = await getCommitsByYear(
           repo.owner.login,
           repo.name,
           props.year

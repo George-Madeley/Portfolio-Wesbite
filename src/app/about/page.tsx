@@ -114,9 +114,9 @@ export default function AboutPage() {
                   }
                   sx={{
                     "& .MuiSvgIcon-root": {
-                      color: "#fff",
+                      color: "#fff !important",
                       "& circle": {
-                        color: "#fff",
+                        color: "#fff !important",
                       },
                       "& .MuiStepIcon-text": {
                         color: "var(--mui-palette-primary-main)",

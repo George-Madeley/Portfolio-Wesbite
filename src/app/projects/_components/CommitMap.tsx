@@ -1,5 +1,4 @@
-import React from "react";
-import { getCommitsByYear, getRepos } from "~/api/github";
+import { getCommitsByYearCached, getReposCached } from "~/api/github";
 
 import Stack from "@mui/material/Stack";
 import { components } from "@octokit/openapi-types";
@@ -20,7 +19,7 @@ export default async function CommitMap(props: CommitMapProps) {
   try {
     const repo =
       props.repo === "*"
-        ? await getRepos({
+        ? await getReposCached({
             per_page: 100,
             page: 1,
             since: `${props.year}-01-01T00:00:00Z`,
@@ -40,7 +39,7 @@ export default async function CommitMap(props: CommitMapProps) {
               Number(repo.created_at?.substring(0, 4) ?? 0) <= props.year
           )
           .map((repo) =>
-            getCommitsByYear(repo.owner.login, repo.name, props.year)
+            getCommitsByYearCached(repo.owner.login, repo.name, props.year)
           )
       );
       commits = repoCommits.reduce((a, b) => ({ ...a, ...b }), {});
@@ -51,7 +50,7 @@ export default async function CommitMap(props: CommitMapProps) {
         // Check if ensure the repo was created on or before the given year
         Number(repo.created_at?.substring(0, 4) ?? 0) <= props.year
       ) {
-        commits = await getCommitsByYear(
+        commits = await getCommitsByYearCached(
           repo.owner.login,
           repo.name,
           props.year

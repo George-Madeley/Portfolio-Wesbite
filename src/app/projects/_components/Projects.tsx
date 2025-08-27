@@ -1,7 +1,11 @@
 "use server";
 
 import { default as NextLink } from "next/link";
-import { getLanguages, getNumberOfCommits, getRepos } from "~/api/github";
+import {
+  getLanguagesCached,
+  getNumberCommitsCached,
+  getReposCached,
+} from "~/api/github";
 import { Repository } from "~/types";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -28,7 +32,7 @@ interface ProjectsProps {
 
 export default async function Projects(props: ProjectsProps) {
   try {
-    const repos = await getRepos({
+    const repos = await getReposCached({
       per_page: 15,
       page: props.page,
       sort: "updated",
@@ -54,8 +58,8 @@ export default async function Projects(props: ProjectsProps) {
         (await Promise.all(
           repos.data.map(async (repo) => {
             const [languages, numberOfCommits] = await Promise.all([
-              getLanguages(repo.owner.login, repo.name),
-              getNumberOfCommits(repo.owner.login, repo.name),
+              getLanguagesCached(repo.owner.login, repo.name),
+              getNumberCommitsCached(repo.owner.login, repo.name),
             ]);
             const languageList = Object.keys(languages);
             const newRepo: Repository = {

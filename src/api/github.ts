@@ -2,12 +2,15 @@
 
 import { Octokit } from "octokit";
 import { components } from "@octokit/openapi-types";
+import { cache } from "react";
 
 const octokit = new Octokit({
   auth: process.env.GH_API_TOKEN,
 });
 
-export const getRepo = async (
+/* -------------------------------- get repo -------------------------------- */
+
+const getRepo = async (
   owner: string,
   repo: string
 ): Promise<components["schemas"]["full-repository"]> => {
@@ -31,7 +34,11 @@ export const getRepo = async (
   }
 };
 
-export const getRepos = async (
+export const getRepoCached = cache(getRepo);
+
+/* -------------------------------- get repos ------------------------------- */
+
+const getRepos = async (
   options: NonNullable<Parameters<typeof octokit.request<"GET /user/repos">>[1]>
 ): Promise<{
   link: components["headers"]["link"] | undefined;
@@ -58,10 +65,11 @@ export const getRepos = async (
   }
 };
 
-export const getRepoReadme = async (
-  owner: string,
-  repo: string
-): Promise<string> => {
+export const getReposCached = cache(getRepos);
+
+/* ----------------------------- get repo readme ---------------------------- */
+
+const getRepoReadme = async (owner: string, repo: string): Promise<string> => {
   try {
     const response = await octokit.request("GET /repos/{owner}/{repo}/readme", {
       owner,
@@ -93,7 +101,11 @@ export const getRepoReadme = async (
   }
 };
 
-export const getLanguages = async (
+export const getRepoReadmeCached = cache(getRepoReadme);
+
+/* ------------------------------ get languages ----------------------------- */
+
+const getLanguages = async (
   owner: string,
   repo: string
 ): Promise<Record<string, number>> => {
@@ -120,7 +132,11 @@ export const getLanguages = async (
   }
 };
 
-export const getNumberOfCommits = async (
+export const getLanguagesCached = cache(getLanguages);
+
+/* ------------------------------- get commits ------------------------------ */
+
+const getNumberOfCommits = async (
   owner: string,
   repo: string
 ): Promise<number> => {
@@ -153,11 +169,11 @@ export const getNumberOfCommits = async (
   }
 };
 
-export const getCommitsByYear = async (
-  owner: string,
-  repo: string,
-  year: number
-) => {
+export const getNumberCommitsCached = cache(getNumberOfCommits);
+
+/* --------------------------- get commits by year -------------------------- */
+
+const getCommitsByYear = async (owner: string, repo: string, year: number) => {
   try {
     type Commits = Awaited<
       ReturnType<typeof octokit.rest.repos.listCommits>
@@ -196,3 +212,5 @@ export const getCommitsByYear = async (
     return {};
   }
 };
+
+export const getCommitsByYearCached = cache(getCommitsByYear);

@@ -1,4 +1,4 @@
-import { getLanguages, getNumberOfCommits } from "~/api/github";
+import { getLanguagesCached, getNumberCommitsCached } from "~/api/github";
 
 import CommitIcon from "@mui/icons-material/Commit";
 import ForkRightIcon from "@mui/icons-material/ForkRight";
@@ -21,9 +21,12 @@ interface AsideProps {
 export default async function Aside(props: AsideProps) {
   try {
     const languages = Object.keys(
-      await getLanguages(props.owner, props.repo.name)
+      await getLanguagesCached(props.owner, props.repo.name)
     );
-    const numCommits = await getNumberOfCommits(props.owner, props.repo.name);
+    const numCommits = await getNumberCommitsCached(
+      props.owner,
+      props.repo.name
+    );
 
     return (
       <Grid container direction="column" gap={3}>

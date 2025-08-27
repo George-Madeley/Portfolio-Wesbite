@@ -4,7 +4,7 @@ import Markdown from "react-markdown";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import { getRepoReadme } from "~/api/github";
+import { getRepoReadmeCached } from "~/api/github";
 
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -18,7 +18,7 @@ interface MarkdownProps {
 
 export default async function ReadMeMarkdown(props: MarkdownProps) {
   try {
-    const readme = (await getRepoReadme(props.owner, props.repo.name))
+    const readme = (await getRepoReadmeCached(props.owner, props.repo.name))
       .replace(/\*\*(.*)\*\*/gm, "$1")
       .replace(/(?<!!)\[(.*?)\]\((.*?)\)/g, "$1")
       .replace(/<.*>(.*)<\/\w+>/gm, "$1");

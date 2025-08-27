@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import BlendedHeading from "~/components/BlendedHeading";
 import NeatBackground from "~/components/NeatBackground";
 import { Repo } from "~/types";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -23,8 +25,9 @@ import Typography from "@mui/material/Typography";
 
 import Carousel from "./_components/Carousel";
 import Highlights from "./_components/Highlights";
-import WaveGridWrapper from "./_components/WaveGridWrapper";
 import JobHighlight from "./_components/JobHighlight";
+import VersionTag from "./_components/VersionTag";
+import WaveGridWrapper from "./_components/WaveGridWrapper";
 
 export default function HomePage() {
   const tags = [
@@ -120,8 +123,6 @@ export default function HomePage() {
               >
                 Hi, I&apos;m
               </Typography>
-            </Grid>
-            <Grid size={12}>
               <BlendedHeading
                 color="#FFC5AA"
                 fontSize={{ xs: "4rem", sm: "8rem" }}
@@ -181,7 +182,7 @@ export default function HomePage() {
               </Stack>
             </Grid>
             <Grid size={12}>
-              <Stack direction="row" gap={2}>
+              <Stack alignItems="center" direction="row" gap={2}>
                 <Tooltip title="GitHub">
                   <IconButton
                     href="https://github.com/George-Madeley"
@@ -202,6 +203,14 @@ export default function HomePage() {
                     <LinkedInIcon />
                   </IconButton>
                 </Tooltip>
+                <Suspense>
+                  <VersionTag
+                    icon={<AutoAwesomeIcon style={{ color: "#fff" }} />}
+                    owner="George-Madeley"
+                    repo="Portfolio-Website"
+                    sx={{ color: "#fff", backgroundColor: "#ffffff29" }}
+                  />
+                </Suspense>
               </Stack>
             </Grid>
           </Grid>

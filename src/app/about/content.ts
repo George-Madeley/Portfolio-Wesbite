@@ -1,38 +1,64 @@
-const content = [
+export interface Content {
+  id: string;
+  startTime: number;
+  endTime: number | "present";
+  timePeriod: string;
+  type: "work" | "education" | "personal";
+  position: string;
+  company: {
+    name: string;
+    abbr?: string;
+    href: string;
+  };
+  repos?: {
+    name: string;
+    href: string;
+  }[];
+  languages?: string[];
+  description: string[];
+}
+
+const content: Content[] = [
   {
+    id: "1fc63857-1eb6-4779-86bc-2b43872dd00e",
     startTime: 2024,
     endTime: 2024,
     timePeriod: "2024 - Present",
     type: "work",
     position: "Software Engineer",
-    company: "Atlantic Technology Ltd.",
-    companyLink: "https://www.atlantictechnology.co.uk/",
-    links: [],
+    company: {
+      name: "Atlantic Technology Ltd.",
+      href: "https://www.atlantictechnology.co.uk/",
+    },
+    repos: [],
     languages: ["Python", "C++", "JavaScript", "TypeScript", "HTML", "CSS"],
     description: [
       "I am currently working as a software engineer at Atlantic Technology Ltd. My role involves developing software solutions for clients in a variety of different sectors. I work closely with clients to understand their requirements and develop bespoke software solutions that meet their needs. I also collaborate with a team of developers to design and implement software solutions that are robust, scalable, and user-friendly. I have gained experience in a wide range of technologies and frameworks, including Python, C++, JavaScript, TypeScript, HTML, and CSS. I have also developed my skills in software design, development, and testing, which has allowed me to deliver high-quality software solutions to clients. I am excited to continue my career in software development and look forward to working on new and exciting projects at Atlantic Technology Ltd.",
     ],
   },
   {
+    id: "7b05c8e1-e6aa-4a76-bc61-d85d347629be",
     startTime: 2023,
     endTime: 2024,
     timePeriod: "2023 - 2024",
     type: "work",
     position: "Lead Software Engineer",
-    company: "Biodevices Without Borders",
-    companyLink: "https://bathbiodevices.com/",
-    links: [
+    company: {
+      name: "Biodevices Without Borders",
+      href: "https://bathbiodevices.com/",
+    },
+    repos: [
       {
         name: "Mobile App Code",
-        url: "https://github.com/Bath-Biodevices-Without-Borders/App",
+        href: "https://github.com/Bath-Biodevices-Without-Borders/App",
       },
       {
         name: "Micro-controller Code",
-        url: "https://github.com/Bath-Biodevices-Without-Borders/Microcontroller",
+        href: "https://github.com/Bath-Biodevices-Without-Borders/Microcontroller",
       },
       {
         name: "Website Code",
-        url: "https://github.com/Bath-Biodevices-Without-Borders/Website",
+        href: "https://github.com/Bath-Biodevices-Without-Borders/Website",
       },
     ],
     languages: [
@@ -50,14 +76,14 @@ const content = [
     ],
   },
   {
+    id: "f5963aa2-c713-4a5e-9789-25904ad8230d",
     startTime: 2021,
     endTime: 2022,
     timePeriod: "2021 - 2022",
     type: "work",
     position: "Front-end Web Developer",
-    company: "BT",
-    companyLink: "https://www.bt.com/",
-    links: [],
+    company: { name: "BT", href: "https://www.bt.com/" },
+    repos: [],
     languages: [
       "JavaScript",
       "HTML",
@@ -75,33 +101,33 @@ const content = [
     ],
   },
   {
+    id: "da17f6e8-1ab8-44de-82db-7dbb51950d9b",
     startTime: 2020,
     endTime: 2022,
     timePeriod: "2020 - 2022",
     type: "personal",
     position: "Game Developer",
-    company: "Independent",
-    companyLink: "",
-    links: [
+    company: { name: "Independent", href: "/projects" },
+    repos: [
       {
         name: "Zombie Runner",
-        url: "https://github.com/George-Madeley/GameDevTV-Unity3D-ZombieRunner",
+        href: "https://github.com/George-Madeley/GameDevTV-Unity3D-ZombieRunner",
       },
       {
         name: "Realm Rush",
-        url: "https://github.com/George-Madeley/GameDevTV-Unity3D-RealmRush",
+        href: "https://github.com/George-Madeley/GameDevTV-Unity3D-RealmRush",
       },
       {
         name: "Obstacle Course",
-        url: "https://github.com/George-Madeley/GameDevTV-Unity3D-ObstacleCourse",
+        href: "https://github.com/George-Madeley/GameDevTV-Unity3D-ObstacleCourse",
       },
       {
         name: "Project Boost",
-        url: "https://github.com/George-Madeley/GameDevTV-Unity3D-ProjectBoost",
+        href: "https://github.com/George-Madeley/GameDevTV-Unity3D-ProjectBoost",
       },
       {
         name: "Argon Assault",
-        url: "https://github.com/George-Madeley/GameDevTV-Unity3D-ArgonAssault",
+        href: "https://github.com/George-Madeley/GameDevTV-Unity3D-ArgonAssault",
       },
     ],
     languages: ["C#", "Unity"],
@@ -111,45 +137,45 @@ const content = [
     ],
   },
   {
+    id: "de1d6887-bc0b-443d-b4e2-cbba06a38723",
     startTime: 2019,
     endTime: 2024,
-    timePeriod: "2019 - Present",
+    timePeriod: "2019 - 2024",
     type: "education",
     position: "MEng Computer Systems Engineer",
-    company: "University of Bath",
-    companyLink: "https://www.bath.ac.uk/",
-    links: [
+    company: { name: "University of Bath", href: "https://www.bath.ac.uk/" },
+    repos: [
       {
         name: "AI Sudoku Solver",
-        url: "https://github.com/George-Madeley/CM20252-AI-Sodoku-Solver",
+        href: "https://github.com/George-Madeley/CM20252-AI-Sodoku-Solver",
       },
       {
         name: "Circuit Analysis",
-        url: "https://github.com/George-Madeley/EE20084-Circuit-Analysis-Coursework",
+        href: "https://github.com/George-Madeley/EE20084-Circuit-Analysis-Coursework",
       },
       {
         name: "Shared Memory",
-        url: "https://github.com/George-Madeley/CM30225-Shared-Memory-Coursework",
+        href: "https://github.com/George-Madeley/CM30225-Shared-Memory-Coursework",
       },
       {
         name: "Distributed Memory",
-        url: "https://github.com/George-Madeley/CM30225-Distributed-Memory-Coursework",
+        href: "https://github.com/George-Madeley/CM30225-Distributed-Memory-Coursework",
       },
       {
         name: "Image Filtering",
-        url: "https://github.com/George-Madeley/EE40054-Image-Filtering-Coursework",
+        href: "https://github.com/George-Madeley/EE40054-Image-Filtering-Coursework",
       },
       {
         name: "Neural Networks",
-        url: "https://github.com/George-Madeley/EE40094-Neural-Networks-Coursework",
+        href: "https://github.com/George-Madeley/EE40094-Neural-Networks-Coursework",
       },
       {
         name: "Genetic Algorithms",
-        url: "https://github.com/George-Madeley/EE40094-Genetic-Algorithms-Coursework",
+        href: "https://github.com/George-Madeley/EE40094-Genetic-Algorithms-Coursework",
       },
       {
         name: "EEG Spike Classification",
-        url: "https://github.com/George-Madeley/EE40094-EEG-Spike-Classification-Coursework",
+        href: "https://github.com/George-Madeley/EE40094-EEG-Spike-Classification-Coursework",
       },
     ],
     languages: ["C", "Python", "MATLAB", "Java", "Assembly", "VHDL", "Verilog"],
@@ -162,31 +188,37 @@ const content = [
     ],
   },
   {
+    id: "54642209-cb40-43b0-ab38-e6f956e5e0cb",
     startTime: 2017,
     endTime: 2019,
     timePeriod: "2017 - 2019",
     type: "education",
     position: "A-Levels",
-    company: "University Technical College Norfolk",
-    companyLink: "https://www.utcn.org.uk/",
-    links: [],
+    company: {
+      name: "University Technical College Norfolk",
+      href: "https://www.utcn.org.uk/",
+    },
+    repos: [],
     languages: [],
     description: [
       "Designed a computer case on Fusion 360 based on the NZXTs H700i case. Adapted to new CAD software and dedicated time researching case standards, cooling methods, and component dimensions which involved first-hand measurements.",
     ],
   },
   {
+    id: "3fd010c5-c790-478c-bd5e-99dce2e96bd6",
     startTime: 2018,
     endTime: 2018,
     timePeriod: "2018 - 2018",
     type: "work",
     position: "Intern",
-    company: "East Coast Energy Internship",
-    companyLink: "https://www.ogdentrust.com/funding/coastal-energy/",
-    links: [
+    company: {
+      name: "East Coast Energy Internship",
+      href: "https://www.ogdentrust.com/funding/coastal-energy/",
+    },
+    repos: [
       {
         name: "Vattenfall",
-        url: "https://www.vattenfall.co.uk/",
+        href: "https://www.vattenfall.co.uk/",
       },
     ],
     languages: [],
@@ -195,17 +227,17 @@ const content = [
     ],
   },
   {
+    id: "c31b9830-d0b0-44e3-806c-5771dfa41a36",
     startTime: 2017,
     endTime: 2017,
     timePeriod: "2017 - 2017",
     type: "education",
     position: "Team Manager",
-    company: "F1 in Schools",
-    companyLink: "https://www.f1inschools.co.uk/",
-    links: [
+    company: { name: "F1 in Schools", href: "https://www.f1inschools.co.uk/" },
+    repos: [
       {
         name: "Sprowston Community Academy",
-        url: "https://sprowstoncommunityacademy.co.uk/",
+        href: "https://sprowstoncommunityacademy.co.uk/",
       },
     ],
     languages: [],
@@ -214,17 +246,20 @@ const content = [
     ],
   },
   {
+    id: "96f32e27-bdc2-42e5-8d18-12ada3778892",
     startTime: 2018,
     endTime: 2018,
     timePeriod: "2018 - 2018",
     type: "work",
     position: "Researcher",
-    company: "Nuffield Foundation",
-    companyLink: "https://www.nuffieldfoundation.org/",
-    links: [
+    company: {
+      name: "Nuffield Foundation",
+      href: "https://www.nuffieldfoundation.org/",
+    },
+    repos: [
       {
         name: "UEA",
-        url: "https://www.uea.ac.uk/",
+        href: "https://www.uea.ac.uk/",
       },
     ],
     languages: [],
@@ -233,29 +268,29 @@ const content = [
     ],
   },
   {
+    id: "580edca2-e2ba-4a74-9e0c-a10b29cbc422",
     startTime: 2021,
     endTime: 2022,
     timePeriod: "2021 - 2022",
     type: "personal",
     position: "Full-Stack Web Developer",
-    company: "Independent",
-    companyLink: "",
-    links: [
+    company: { name: "Independent", href: "/projects" },
+    repos: [
       {
         name: "Past Paper Answer Website",
-        url: "https://github.com/George-Madeley/UoB-Past-Paper-Answer-Website",
+        href: "https://github.com/George-Madeley/UoB-Past-Paper-Answer-Website",
       },
       {
         name: "Ravenous",
-        url: "https://github.com/George-Madeley/Ravenous",
+        href: "https://github.com/George-Madeley/Ravenous",
       },
       {
         name: "Jamming",
-        url: "https://github.com/George-Madeley/Jammming",
+        href: "https://github.com/George-Madeley/Jammming",
       },
       {
         name: "My Portfolio",
-        url: "https://github.com/George-Madeley/my-portfolio",
+        href: "https://github.com/George-Madeley/my-portfolio",
       },
     ],
     languages: [
@@ -281,33 +316,33 @@ const content = [
     ],
   },
   {
+    id: "04c45380-6436-43b1-a383-01850f6e5c1d",
     startTime: 2023,
     endTime: 2023,
     timePeriod: "2023 - 2023",
     type: "personal",
     position: "Machine Learning Engineer",
-    company: "Independent",
-    companyLink: "",
-    links: [
+    company: { name: "Independent", href: "/projects" },
+    repos: [
       {
         name: "Wordle Solver",
-        url: "https://github.com/George-Madeley/AI-Wordle-Solver",
+        href: "https://github.com/George-Madeley/AI-Wordle-Solver",
       },
       {
         name: "2048",
-        url: "https://github.com/George-Madeley/AI-2048",
+        href: "https://github.com/George-Madeley/AI-2048",
       },
       {
         name: "EEG Spike Classification",
-        url: "https://github.com/George-Madeley/EE40094-EEG-Spike-Classification-Coursework",
+        href: "https://github.com/George-Madeley/EE40094-EEG-Spike-Classification-Coursework",
       },
       {
         name: "Genetic Algorithms",
-        url: "https://github.com/George-Madeley/EE40094-Genetic-Algorithms-Coursework",
+        href: "https://github.com/George-Madeley/EE40094-Genetic-Algorithms-Coursework",
       },
       {
         name: "Neural Networks",
-        url: "https://github.com/George-Madeley/EE40094-Neural-Networks-Coursework",
+        href: "https://github.com/George-Madeley/EE40094-Neural-Networks-Coursework",
       },
     ],
     languages: [
@@ -327,6 +362,6 @@ const content = [
       "Overall, undertaking Codecademy courses in machine learning provided me with the necessary skills and knowledge to excel in this field. I successfully applied these skills in professional settings at BT and Biodevices Without Borders, as well as in creating my own projects.",
     ],
   },
-] as const;
+];
 
 export default content;

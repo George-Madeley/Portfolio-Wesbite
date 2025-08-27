@@ -4,12 +4,12 @@ import Markdown from "react-markdown";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import { getRepoReadme } from "~/api/github";
+import { getReadme } from "~/api/github";
+import ErrorFallback from "~/components/ErrorFallback";
 
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { components } from "@octokit/openapi-types";
-import ErrorFallback from "~/components/ErrorFallback";
 
 interface MarkdownProps {
   owner: string;
@@ -18,7 +18,7 @@ interface MarkdownProps {
 
 export default async function ReadMeMarkdown(props: MarkdownProps) {
   try {
-    const readme = (await getRepoReadme(props.owner, props.repo.name))
+    const readme = (await getReadme(props.owner, props.repo.name))
       .replace(/\*\*(.*)\*\*/gm, "$1")
       .replace(/(?<!!)\[(.*?)\]\((.*?)\)/g, "$1")
       .replace(/<.*>(.*)<\/\w+>/gm, "$1");

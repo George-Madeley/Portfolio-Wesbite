@@ -1,5 +1,6 @@
 import Link from "next/link";
-import React from "react";
+import { getLanguages, getRepo } from "~/api/github";
+import ErrorFallback from "~/components/ErrorFallback";
 import { Repo } from "~/types";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -10,9 +11,6 @@ import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-
-import { getLanguages, getRepo } from "../../api/github";
-import ErrorFallback from "~/components/ErrorFallback";
 
 interface HighlightsProps {
   repos: Repo[];

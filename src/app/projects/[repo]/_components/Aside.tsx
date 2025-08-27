@@ -1,4 +1,5 @@
-import { getLanguages, getNumberOfCommits } from "~/api/github";
+import { getLanguages, getNumCommits } from "~/api/github";
+import ErrorFallback from "~/components/ErrorFallback";
 
 import CommitIcon from "@mui/icons-material/Commit";
 import ForkRightIcon from "@mui/icons-material/ForkRight";
@@ -11,7 +12,6 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { components } from "@octokit/openapi-types";
-import ErrorFallback from "~/components/ErrorFallback";
 
 interface AsideProps {
   owner: string;
@@ -23,7 +23,7 @@ export default async function Aside(props: AsideProps) {
     const languages = Object.keys(
       await getLanguages(props.owner, props.repo.name)
     );
-    const numCommits = await getNumberOfCommits(props.owner, props.repo.name);
+    const numCommits = await getNumCommits(props.owner, props.repo.name);
 
     return (
       <Grid container direction="column" gap={3}>

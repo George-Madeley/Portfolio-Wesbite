@@ -1,12 +1,11 @@
-import React from "react";
 import { getCommitsByYear, getRepos } from "~/api/github";
+import ErrorFallback from "~/components/ErrorFallback";
 
 import Stack from "@mui/material/Stack";
 import { components } from "@octokit/openapi-types";
 
 import CommitMapClient from "./CommitMapClient";
 import CommitMapPagination from "./CommitMapPagination";
-import ErrorFallback from "~/components/ErrorFallback";
 
 interface CommitMapProps {
   year: number;

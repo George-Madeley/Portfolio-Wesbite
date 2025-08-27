@@ -10,7 +10,7 @@ import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import CommitMap from "./_components/CommitMap";
+// import CommitMap from "./_components/CommitMap";
 import Projects from "./_components/Projects";
 
 interface PageProps {
@@ -20,12 +20,12 @@ interface PageProps {
 export default async function Page({ searchParams }: PageProps) {
   const awaitedSearchParams = await searchParams;
 
-  const currentYear = new Date(Date.now()).getFullYear();
+  // const currentYear = new Date(Date.now()).getFullYear();
 
   const page = awaitedSearchParams.page ? Number(awaitedSearchParams.page) : 1;
-  const year = awaitedSearchParams.year
-    ? Number(awaitedSearchParams.year)
-    : currentYear;
+  // const year = awaitedSearchParams.year
+  //   ? Number(awaitedSearchParams.year)
+  //   : currentYear;
 
   return (
     <NeatBackground
@@ -85,7 +85,7 @@ export default async function Page({ searchParams }: PageProps) {
                   source code (if available). If you have any questions about
                   any of these projects, please feel free to contact me.
                 </Typography>
-                <Suspense
+                {/* <Suspense
                   fallback={
                     <Skeleton
                       height={"10rem"}
@@ -95,7 +95,7 @@ export default async function Page({ searchParams }: PageProps) {
                   }
                 >
                   <CommitMap repo="*" year={year} />
-                </Suspense>
+                </Suspense> */}
               </Stack>
             </CardContent>
           </Card>

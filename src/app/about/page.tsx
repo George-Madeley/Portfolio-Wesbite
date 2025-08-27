@@ -10,8 +10,12 @@ import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
+import Step from "@mui/material/Step";
+import StepContent from "@mui/material/StepContent";
+import StepLabel from "@mui/material/StepLabel";
 import Typography from "@mui/material/Typography";
 
+import Timeline from "./_components/Timeline";
 import content from "./content";
 
 export default function AboutPage() {
@@ -96,16 +100,36 @@ export default function AboutPage() {
               </Stack>
             </CardContent>
           </Card>
-          <Stack gap="30vh" sx={{ mb: "30vh", mt: "30vh" }}>
-            {experiences.map((exp, index) => (
-              <Grid
-                alignItems="center"
-                container
-                justifyContent="center"
-                key={index}
-                sx={{ width: "100%" }}
-              >
-                <Grid>
+          <Typography sx={{ color: "#fff" }} variant="h2">
+            Experience
+          </Typography>
+          <Timeline orientation="vertical" sx={{ color: "#fff" }}>
+            {experiences.map((exp) => (
+              <Step key={exp.id}>
+                <StepLabel
+                  optional={
+                    <Typography sx={{ color: "#fff" }} variant="caption">
+                      {exp.timePeriod}
+                    </Typography>
+                  }
+                  sx={{
+                    "& .MuiSvgIcon-root": {
+                      color: "#fff",
+                      "& circle": {
+                        color: "#fff",
+                      },
+                      "& .MuiStepIcon-text": {
+                        color: "var(--mui-palette-primary-main)",
+                        fill: "var(--mui-palette-primary-main)",
+                        fontWeight: 1000,
+                        fontSize: "0.9rem",
+                      },
+                    },
+                  }}
+                >
+                  <Typography sx={{ color: "#fff" }}>{exp.position}</Typography>
+                </StepLabel>
+                <StepContent>
                   <Card>
                     <CardContent>
                       <Stack gap={2}>
@@ -127,7 +151,7 @@ export default function AboutPage() {
                           <Grid size={12}>
                             <Button
                               endIcon={<ArrowForwardIcon />}
-                              href={exp.companyLink}
+                              href={exp.company.href}
                               sx={{
                                 textTransform: "none",
                                 width: "fit-content",
@@ -144,7 +168,7 @@ export default function AboutPage() {
                               variant="text"
                             >
                               <Typography variant="h4">
-                                {exp.company}
+                                {exp.company.name}
                               </Typography>
                             </Button>
                           </Grid>
@@ -152,16 +176,16 @@ export default function AboutPage() {
                         {exp.description.map((description, index) => (
                           <Typography key={index}>{description}</Typography>
                         ))}
-                        {!!exp.links.length && (
+                        {exp.repos && !!exp.repos.length && (
                           <Stack direction="row" flexWrap="wrap" gap={1}>
-                            {exp.links.map((link) => (
+                            {exp.repos.map((link) => (
                               <Button
                                 endIcon={
                                   <LinkIcon
                                     sx={{ transform: "rotate(-45deg)" }}
                                   />
                                 }
-                                href={link.url}
+                                href={link.href}
                                 key={link.name}
                                 sx={{
                                   "&>span": {
@@ -179,7 +203,7 @@ export default function AboutPage() {
                             ))}
                           </Stack>
                         )}
-                        {!!exp.languages.length && (
+                        {exp.languages && !!exp.languages.length && (
                           <Stack direction="row" flexWrap="wrap" gap={1}>
                             {exp.languages.map((language, index) => (
                               <Chip
@@ -193,10 +217,10 @@ export default function AboutPage() {
                       </Stack>
                     </CardContent>
                   </Card>
-                </Grid>
-              </Grid>
+                </StepContent>
+              </Step>
             ))}
-          </Stack>
+          </Timeline>
         </Stack>
       </Container>
     </NeatBackground>

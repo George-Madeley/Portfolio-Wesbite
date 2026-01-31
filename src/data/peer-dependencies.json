@@ -1,0 +1,98 @@
+{
+  "src/components/BlendedHeading.tsx": [
+    {
+      "package": "react",
+      "version": "^19.0.0"
+    }
+  ],
+  "src/components/Copy.tsx": [
+    {
+      "package": "@mui/icons-material",
+      "version": "^7.3.1"
+    },
+    {
+      "package": "@mui/material",
+      "version": "^7.3.1"
+    },
+    {
+      "package": "react",
+      "version": "^19.0.0"
+    }
+  ],
+  "src/components/ErrorFallback.tsx": [
+    {
+      "package": "@mui/material",
+      "version": "^7.3.1"
+    },
+    {
+      "package": "react",
+      "version": "^19.0.0"
+    }
+  ],
+  "src/components/FlexButton.tsx": [
+    {
+      "package": "@mui/material",
+      "version": "^7.3.1"
+    }
+  ],
+  "src/components/Footer.tsx": [
+    {
+      "package": "@mui/icons-material",
+      "version": "^7.3.1"
+    },
+    {
+      "package": "@mui/material",
+      "version": "^7.3.1"
+    },
+    {
+      "package": "react",
+      "version": "^19.0.0"
+    }
+  ],
+  "src/components/Nav.tsx": [
+    {
+      "package": "@mui/icons-material",
+      "version": "^7.3.1"
+    },
+    {
+      "package": "@mui/material",
+      "version": "^7.3.1"
+    },
+    {
+      "package": "next",
+      "version": "^15.5.0"
+    },
+    {
+      "package": "react",
+      "version": "^19.0.0"
+    }
+  ],
+  "src/components/NeatBackground.tsx": [
+    {
+      "package": "@firecms/neat",
+      "version": "^0.4.0"
+    },
+    {
+      "package": "@mui/material",
+      "version": "^7.3.1"
+    },
+    {
+      "package": "react",
+      "version": "^19.0.0"
+    }
+  ],
+  "src/components/ToggleDarkmode.tsx": [
+    {
+      "package": "@mui/icons-material",
+      "version": "^7.3.1"
+    },
+    {
+      "package": "@mui/material",
+      "version": "^7.3.1"
+    },
+    {
+      "package": "react",
+      "version": "^19.0.0"
+    }
+  ]
+}

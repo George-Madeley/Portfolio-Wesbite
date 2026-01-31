@@ -12,12 +12,7 @@ import Box from "@mui/material/Box";
 
 import peerDependenciesData from "~/data/peer-dependencies.json";
 
-interface DependencyInfo {
-  package: string;
-  version: string;
-}
-
-type ComponentDependencies = Record<string, DependencyInfo[]>;
+import type { ComponentDependencies } from "~/types/peer-dependencies";
 
 interface DependencyTableProps {
   /**

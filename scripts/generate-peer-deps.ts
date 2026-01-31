@@ -16,15 +16,13 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
+import type {
+  ComponentDependencies,
+  DependencyInfo,
+} from "../src/types/peer-dependencies.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-interface DependencyInfo {
-  package: string;
-  version: string;
-}
-
-type ComponentDependencies = Record<string, DependencyInfo[]>;
 
 // Get package.json to extract version information
 function getPackageJson(projectRoot: string): any {
@@ -273,7 +271,10 @@ function generatePeerDependencies(
 }
 
 // CLI entry point
-if (import.meta.url === `file://${process.argv[1]}`) {
+const scriptPath = fileURLToPath(import.meta.url);
+const mainPath = process.argv[1] ? path.resolve(process.argv[1]) : null;
+
+if (mainPath && scriptPath === mainPath) {
   const args = process.argv.slice(2);
 
   if (args.length < 2) {

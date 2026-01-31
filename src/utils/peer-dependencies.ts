@@ -1,11 +1,11 @@
 import peerDependenciesData from "~/data/peer-dependencies.json";
 
-export interface DependencyInfo {
-  package: string;
-  version: string;
-}
+import type {
+  ComponentDependencies,
+  DependencyInfo,
+} from "~/types/peer-dependencies";
 
-export type ComponentDependencies = Record<string, DependencyInfo[]>;
+export type { ComponentDependencies, DependencyInfo };
 
 /**
  * Get peer dependencies for a specific component

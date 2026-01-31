@@ -19,6 +19,12 @@
       "version": "^19.0.0"
     }
   ],
+  "src/components/DependencyTable.tsx": [
+    {
+      "package": "@mui/material",
+      "version": "^7.3.1"
+    }
+  ],
   "src/components/ErrorFallback.tsx": [
     {
       "package": "@mui/material",

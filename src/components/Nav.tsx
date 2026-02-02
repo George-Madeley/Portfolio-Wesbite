@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
+import ArticleIcon from "@mui/icons-material/Article";
 import DataObjectIcon from "@mui/icons-material/DataObject";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
@@ -59,6 +60,15 @@ export default function Nav() {
             startIcon={<PersonIcon />}
           >
             About Me
+          </FlexButton>
+          <FlexButton
+            LinkComponent={Link}
+            breakCondition="down"
+            breakpoint="sm"
+            href={"/blog"}
+            startIcon={<ArticleIcon />}
+          >
+            Blog
           </FlexButton>
           <ToggleDarkMode />
         </Stack>

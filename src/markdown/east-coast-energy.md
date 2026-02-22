@@ -1,0 +1,3 @@
+- Led the research, design, and delivery of an **electronic stand for a careers event**, taking the initiative from early concepts through to manufacture.
+- Coordinated with **four external engineering firms** to align on the final design, review trade-offs, resolve issues, and move the project into production.
+- Improved the **circuit board design** by reducing component count and simplifying the overall implementation—evaluating alternative approaches, learning new techniques, and iterating toward a more reliable and manufacturable solution.

@@ -1,0 +1,4 @@
+- Supported the research and design of a **3D implantable scaffold device** intended to aid **tendon repair**.
+- Ran simulation-based evaluations across **seven scaffold design variants**, using a custom material, and assessed each design against the project specification.
+- Identified and refined an **optimal model** by comparing performance trade-offs, iterating designs, and documenting outcomes.
+- Worked closely with **PhD researchers and postdoctoral scientists** in biology-related disciplines, quickly adapting to unfamiliar subject areas and incorporating feedback into engineering decisions.

@@ -11,6 +11,7 @@ import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import { ThemeProvider } from "@mui/material/styles";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { roboto } from "~/style/font";
 
 export const metadata: Metadata = {
   title: "Portfolio of George Madeley",
@@ -62,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={roboto.className}>
       <body>
         <InitColorSchemeScript attribute="class" defaultMode="dark" />
         <AppRouterCacheProvider>

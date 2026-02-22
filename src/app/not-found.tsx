@@ -1,5 +1,5 @@
 import BlendedHeading from "~/components/BlendedHeading";
-import NeatBackground from "~/components/NeatBackground";
+import MeshBackground from "~/components/MeshBackground";
 
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -9,29 +9,7 @@ import Typography from "@mui/material/Typography";
 
 export default function NotFound() {
   return (
-    <NeatBackground
-      config={{
-        speed: 2,
-        horizontalPressure: 5,
-        verticalPressure: 5,
-        waveFrequencyX: 3,
-        waveFrequencyY: 3,
-        waveAmplitude: 4,
-        shadows: 4,
-        highlights: 6,
-        colorBrightness: 1,
-        colorSaturation: 5,
-        wireframe: false,
-        colorBlending: 8,
-        backgroundAlpha: 1,
-        grainScale: 2,
-        grainSparsity: 0,
-        grainIntensity: 0.2,
-        grainSpeed: 0.8,
-        resolution: 1.2,
-        yOffset: 0,
-      }}
-    >
+    <MeshBackground>
       <Container sx={{ mb: 5 }}>
         <Grid
           alignItems="center"
@@ -79,6 +57,6 @@ export default function NotFound() {
           </Grid>
         </Grid>
       </Container>
-    </NeatBackground>
+    </MeshBackground>
   );
 }

@@ -1,6 +1,3 @@
-import Link from "next/link";
-import React from "react";
-
 import DataObjectIcon from "@mui/icons-material/DataObject";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
@@ -34,7 +31,6 @@ export default function Nav() {
           justifyContent="center"
         >
           <FlexButton
-            LinkComponent={Link}
             breakCondition="down"
             breakpoint="sm"
             href={"/"}
@@ -43,7 +39,6 @@ export default function Nav() {
             Home
           </FlexButton>
           <FlexButton
-            LinkComponent={Link}
             breakCondition="down"
             breakpoint="sm"
             href={"/projects"}
@@ -52,7 +47,6 @@ export default function Nav() {
             Projects
           </FlexButton>
           <FlexButton
-            LinkComponent={Link}
             breakCondition="down"
             breakpoint="sm"
             href={"/about"}

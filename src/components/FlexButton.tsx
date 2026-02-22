@@ -6,8 +6,7 @@ import { Breakpoint, Breakpoints, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 interface FlexButtonProps
-  extends ButtonProps,
-    Omit<IconButtonProps, keyof ButtonProps> {
+  extends ButtonProps, Omit<IconButtonProps, keyof ButtonProps> {
   breakCondition: Exclude<
     keyof Breakpoints,
     "unit" | "keys" | "values" | "between"

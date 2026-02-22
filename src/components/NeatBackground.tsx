@@ -1,6 +1,6 @@
 "use client";
 
-import { PropsWithChildren, useEffect, useRef, useState } from "react";
+import { PropsWithChildren, useEffect, useMemo, useRef } from "react";
 import { NeatConfig, NeatGradient } from "@firecms/neat";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -26,11 +26,7 @@ export default function NeatBackground(
 ) {
   const theme = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [webglSupported, setWebglSupported] = useState<boolean>(false);
-
-  useEffect(() => {
-    setWebglSupported(isWebGLAvailable());
-  }, []);
+  const webglSupported = useMemo<boolean>(() => isWebGLAvailable(), []);
 
   useEffect(() => {
     if (canvasRef.current) {

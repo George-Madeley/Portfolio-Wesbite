@@ -1,6 +1,5 @@
 "use server";
 
-import { default as NextLink } from "next/link";
 import { getLanguages, getNumCommits, getRepos } from "~/api/github";
 import ErrorFallback from "~/components/ErrorFallback";
 import { Repository } from "~/types";
@@ -148,7 +147,6 @@ export default async function Projects(props: ProjectsProps) {
                   </TableCell>
                   <TableCell align="right">
                     <Button
-                      component={NextLink}
                       endIcon={<ArrowForwardIcon />}
                       href={`/projects/${repo.name}?owner=${repo.owner.login}`}
                     >

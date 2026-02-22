@@ -2,7 +2,7 @@
 
 import { alpha } from "@mui/material";
 import { useEffect, useRef } from "react";
-import { interpolateColor } from "~/utils/color";
+import { Particle } from "~/classes/Particle";
 
 interface WaveGridProps {
   particleSize?: number;
@@ -60,67 +60,6 @@ export default function WaveGrid(props: WaveGridProps) {
       targetY = e.clientY - rect.top;
     });
 
-    // Particle class
-    class Particle {
-      x: number;
-      y: number;
-      size: number;
-      baseX: number;
-      baseY: number;
-      density: number;
-      color: string;
-      distance: number;
-
-      constructor(x: number, y: number) {
-        this.x = x;
-        this.y = y;
-        this.baseX = x;
-        this.baseY = y;
-        this.size = Math.random() * particleSize + 2;
-        this.density = Math.random() * particleDensity + 1;
-        this.distance = 0;
-        this.color = interpolateColor(startColor, endColor);
-      }
-
-      update() {
-        // Calculate distance between mouse and particle
-        const dx = mouseX - this.x;
-        const dy = mouseY - this.y;
-        this.distance = Math.sqrt(dx * dx + dy * dy);
-
-        const forceDirectionX = dx / this.distance;
-        const forceDirectionY = dy / this.distance;
-
-        const force = (maxDistance - this.distance) / maxDistance;
-
-        if (this.distance < maxDistance) {
-          const directionX = forceDirectionX * force * this.density;
-          const directionY = forceDirectionY * force * this.density;
-
-          this.x -= directionX;
-          this.y -= directionY;
-        } else {
-          if (this.x !== this.baseX) {
-            const dx = this.x - this.baseX;
-            this.x -= dx / 10;
-          }
-          if (this.y !== this.baseY) {
-            const dy = this.y - this.baseY;
-            this.y -= dy / 10;
-          }
-        }
-      }
-
-      draw(ctx: CanvasRenderingContext2D | null) {
-        if (!ctx) return;
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fill();
-      }
-    }
-
     // Create particle grid
     const particlesArray: Particle[] = [];
 
@@ -139,7 +78,14 @@ export default function WaveGrid(props: WaveGridProps) {
         for (let x = 0; x < numX; x++) {
           const posX = x * gridSize + gridSize / 2;
           const posY = y * gridSize + gridSize / 2;
-          particlesArray.push(new Particle(posX, posY));
+          particlesArray.push(
+            new Particle(posX, posY, {
+              particleSize,
+              particleDensity,
+              startColor,
+              endColor,
+            })
+          );
         }
       }
     }
@@ -156,7 +102,7 @@ export default function WaveGrid(props: WaveGridProps) {
 
       // Draw connections
       for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
+        particlesArray[i].update(mouseX, mouseY, maxDistance);
         particlesArray[i].draw(ctx);
 
         // Draw connections

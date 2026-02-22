@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { getReadme } from "~/api/github";
 import ErrorFallback from "~/components/ErrorFallback";
+import Image from "next/image";
 
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -77,8 +78,8 @@ export default async function ReadMeMarkdown(props: MarkdownProps) {
                 justifyContent="center"
                 sx={{ width: "100%" }}
               >
-                <img
-                  alt={elementProps.alt ?? ""}
+                <Image
+                  alt={elementProps.alt ?? "no alt"}
                   height={200}
                   src={src}
                   width={400}

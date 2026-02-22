@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { getLanguages, getRepo } from "~/api/github";
 import ErrorFallback from "~/components/ErrorFallback";
 import { Repo } from "~/types";
@@ -59,7 +58,6 @@ export default async function Highlights(props: HighlightsProps) {
                     <Typography>{repo.description}</Typography>
                   </Stack>
                   <Button
-                    component={Link}
                     endIcon={<ArrowForwardIcon />}
                     href={`/projects/${repo.name}?owner=${repo.owner.login}`}
                   >

@@ -26,6 +26,7 @@ export default function CommitMapClient(props: CommitMapClientProps) {
   const [boxSize, setBoxSize] = useState(18);
 
   const gapFactor = 0.1;
+
   const now = Date.now();
   const maxCommit = Math.max(...Object.values(props.dailyCounts));
 

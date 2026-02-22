@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Suspense } from "react";
 import BlendedHeading from "~/components/BlendedHeading";
 import NeatBackground from "~/components/NeatBackground";
@@ -155,15 +154,10 @@ export default function HomePage() {
             </Grid>
             <Grid size={12}>
               <Stack direction="row" flexWrap="wrap" gap={2}>
-                <Button
-                  component={Link}
-                  endIcon={<ArrowForwardIcon />}
-                  href="/projects"
-                >
+                <Button endIcon={<ArrowForwardIcon />} href="/projects">
                   View Projects
                 </Button>
                 <Button
-                  component={Link}
                   href="/about"
                   sx={{
                     color: "#fff",

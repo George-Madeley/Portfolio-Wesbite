@@ -1,4 +1,3 @@
-import Link from "next/link";
 import BlendedHeading from "~/components/BlendedHeading";
 import NeatBackground from "~/components/NeatBackground";
 
@@ -61,7 +60,6 @@ export default function NotFound() {
                 Could not find requested resource
               </Typography>
               <Button
-                component={Link}
                 href="/"
                 sx={{
                   color: "#fff",

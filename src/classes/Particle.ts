@@ -1,6 +1,6 @@
 import { interpolateColor } from "~/utils/color";
 
-export interface ParticleOptions {
+interface ParticleOptions {
   particleSize?: number;
   particleDensity?: number;
   startColor?: string;

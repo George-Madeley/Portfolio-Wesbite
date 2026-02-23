@@ -12,12 +12,12 @@ import Grid from "@mui/material/Grid";
 import Stack, { stackClasses } from "@mui/material/Stack";
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
-import StepLabel from "@mui/material/StepLabel";
 import Typography from "@mui/material/Typography";
 
-import Timeline from "./_components/Timeline";
 import aboutContent from "~/contents/about";
 import Box from "@mui/material/Box";
+import TimelineProvider from "~/providers/TimelineProvider";
+import TimelineLabel from "~/components/TimelineLabel";
 
 export default function AboutPage() {
   const experiences = aboutContent.toSorted((a, b) => {
@@ -49,7 +49,7 @@ export default function AboutPage() {
           </Grid>
         </Grid>
         <Stack gap={3} sx={{ mb: 5 }}>
-          <Card>
+          <Card id="TOP-ME">
             <CardContent>
               <Stack gap={2}>
                 <Typography>
@@ -82,14 +82,15 @@ export default function AboutPage() {
           <Typography sx={{ color: "#fff" }} variant="h2">
             Experience
           </Typography>
-          <Timeline orientation="vertical" sx={{ color: "#fff" }}>
-            {experiences.map(async (exp) => {
+          <TimelineProvider orientation="vertical" sx={{ color: "#fff" }}>
+            {experiences.map(async (exp, index) => {
               const { default: Description } = await import(
                 `~/markdown/${exp.markdown}`
               );
               return (
-                <Step key={exp.id}>
-                  <StepLabel
+                <Step key={exp.id} id={`timeline-item-${index}`}>
+                  <TimelineLabel
+                    step={index}
                     optional={
                       <Typography sx={{ color: "#fff" }} variant="caption">
                         {exp.timePeriod}
@@ -113,7 +114,7 @@ export default function AboutPage() {
                     <Typography sx={{ color: "#fff" }}>
                       {exp.position}
                     </Typography>
-                  </StepLabel>
+                  </TimelineLabel>
                   <StepContent>
                     <Card>
                       <CardContent>
@@ -206,7 +207,7 @@ export default function AboutPage() {
                 </Step>
               );
             })}
-          </Timeline>
+          </TimelineProvider>
         </Stack>
       </Container>
     </MeshBackground>

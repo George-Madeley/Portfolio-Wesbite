@@ -33,7 +33,7 @@ export default function Markdown(props: MarkdownProps) {
                 sx={{ width: "100%" }}
               >
                 <Image
-                  alt={elementProps.alt ?? "no alt"}
+                  alt={elementProps.alt ?? ""}
                   height={1000}
                   src={src}
                   width={1000}

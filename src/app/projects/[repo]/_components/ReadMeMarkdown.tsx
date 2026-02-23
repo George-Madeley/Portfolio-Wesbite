@@ -2,11 +2,9 @@
 
 import { getReadme } from "~/api/github";
 import ErrorFallback from "~/components/ErrorFallback";
-import Image from "next/image";
 
-import Stack, { stackClasses } from "@mui/material/Stack";
+import { stackClasses } from "@mui/material/Stack";
 import { components } from "@octokit/openapi-types";
-import MuiMarkdown from "mui-markdown";
 import Box from "@mui/material/Box";
 import Markdown from "~/components/Markdown";
 interface MarkdownProps {

@@ -29,14 +29,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: 24
+          cache: yarn
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install
 
       - name: Build project
-        run: npx --no-install npm run build
+        run: yarn build
 
   # Deployment job
   release:
@@ -53,11 +53,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: 24
+          cache: yarn
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install
 
       - name: Semantic release
-        run: npm run release
+        run: yarn release

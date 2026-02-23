@@ -4,7 +4,7 @@ const aboutContent: Content[] = [
   {
     id: "1fc63857-1eb6-4779-86bc-2b43872dd00e",
     startTime: 2024,
-    endTime: 2024,
+    endTime: "present",
     timePeriod: "2024 - Present",
     type: "work",
     position: "Software Engineer",

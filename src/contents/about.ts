@@ -334,7 +334,7 @@ const aboutContent: Content[] = [
       "TensorFlow",
       "Keras",
     ],
-    markdown: "personal-web.md",
+    markdown: "personal-machine-learning.md",
   },
 ];
 

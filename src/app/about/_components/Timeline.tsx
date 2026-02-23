@@ -22,6 +22,8 @@ export default function Timeline(props: StepperProps) {
     []
   );
 
+  const handleClick = useCallback((index: number) => () => setStep(index), []);
+
   const handleNext = useCallback(
     () => setStep((curr) => (curr === children.length - 1 ? curr : curr + 1)),
     [children.length]
@@ -50,15 +52,34 @@ export default function Timeline(props: StepperProps) {
             sx={{ display: { xs: "none", sm: "none", md: "flex" } }}
           >
             {children.map((_, index) => (
-              <CircleIcon
+              <IconButton
+                className={`timeline-step-${index}`}
                 key={index}
+                onClick={handleClick(index)}
                 sx={{
-                  color:
-                    index === step
-                      ? "var(--mui-palette-primary-main)"
-                      : "var(--mui-palette-text-disabled)",
+                  p: 0,
+                  transition: "transform 100ms ease",
+                  transformOrigin: "bottom center",
+                  [":hover"]: {
+                    transform: "scale(1.4)",
+                    "& + button": {
+                      transform: "scale(1.1)",
+                    },
+                  },
+                  [`&:has(+ .timeline-step-${index + 1}:hover)`]: {
+                    transform: "scale(1.1)",
+                  },
                 }}
-              />
+              >
+                <CircleIcon
+                  sx={{
+                    color:
+                      index === step
+                        ? "var(--mui-palette-primary-main)"
+                        : "var(--mui-palette-text-disabled)",
+                  }}
+                />
+              </IconButton>
             ))}
           </Stack>
           <IconButton disabled={step === 0} onClick={handlePrev}>

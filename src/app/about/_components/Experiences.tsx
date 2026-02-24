@@ -18,6 +18,8 @@ import ErrorFallback from "~/components/ErrorFallback";
 
 export default async function Experiences() {
   const experiences = aboutContent.toSorted((a, b) => {
+    if (a.endTime === "present") return -1;
+    if (b.endTime === "present") return 1;
     if (a.endTime === b.endTime) {
       return a.startTime < b.startTime ? 1 : -1;
     }

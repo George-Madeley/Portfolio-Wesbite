@@ -33,7 +33,7 @@ export default async function Projects(props: ProjectsProps) {
       sort: "updated",
     });
 
-    const getPage = (search: string) => {
+    const getPage = (search: "first" | "last") => {
       const links = (repos.link ?? "").split(",");
       const regex = new RegExp(`rel="${search}"`);
       const index = links.findIndex((link) => link.match(regex));
@@ -43,7 +43,13 @@ export default async function Projects(props: ProjectsProps) {
           return parseInt(match[1], 10);
         }
       }
-      return 1;
+      // If this is the first page, the link header will not contain a "first"
+      // link, so we can assume that the first page is 1. If this is the last
+      // page, the link header will not contain a "last" link, so we can assume
+      // that the last page is the current page.
+      if (search === "first") {
+        return 1;
+      } else return props.page;
     };
 
     const content = {

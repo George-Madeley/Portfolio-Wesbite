@@ -1,9 +1,10 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import ErrorIcon from "@mui/icons-material/Error";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Button from "@mui/material/Button";
-import Chip from "@mui/material/Chip";
+import Chip, { chipClasses } from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
@@ -114,15 +115,33 @@ export default function Hero({ tags }: HeroProps) {
               </IconButton>
             </Tooltip>
             <Suspense>
-              <ErrorCatcher fallback={null}>
+              <ErrorCatcher
+                fallback={
+                  <Chip
+                    icon={<ErrorIcon />}
+                    label="vX.Y.Z"
+                    sx={{
+                      color: "error.dark",
+                      backgroundColor:
+                        "rgba(var(--mui-palette-error-darkChannel) / 0.1)",
+                      [`& .${chipClasses.icon}`]: {
+                        color: "error.dark",
+                      },
+                    }}
+                  />
+                }
+              >
                 <VersionTag
-                  icon={<AutoAwesomeIcon sx={{ color: "text.primary" }} />}
+                  icon={<AutoAwesomeIcon />}
                   owner="George-Madeley"
                   repo="Portfolio-Website"
                   sx={{
                     color: "text.primary",
                     backgroundColor:
                       "rgba(var(--mui-palette-text-primaryChannel) / 0.1)",
+                    [`& .${chipClasses.icon}`]: {
+                      color: "text.primary",
+                    },
                   }}
                 />
               </ErrorCatcher>

@@ -4,11 +4,11 @@ import StepLabel, { StepLabelProps } from "@mui/material/StepLabel";
 
 import useTimeline from "~/hooks/useTimeline";
 
-interface TimelineLabelProps extends StepLabelProps {
+interface ExperienceLabelProps extends StepLabelProps {
   step: number;
 }
 
-export default function TimelineLabel(props: TimelineLabelProps) {
+export default function ExperienceLabel(props: ExperienceLabelProps) {
   const { setStep } = useTimeline();
 
   const handleClick = () => setStep(props.step);

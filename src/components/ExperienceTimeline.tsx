@@ -11,7 +11,7 @@ import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
 import Typography from "@mui/material/Typography";
 
-import TimelineLabel from "~/components/TimelineLabel";
+import ExperienceLabel from "~/components/ExperienceLabel";
 import aboutContent from "~/contents/about";
 import TimelineProvider from "~/providers/TimelineProvider";
 
@@ -34,14 +34,19 @@ export default async function ExperienceTimeline() {
           );
           return (
             <Step id={`timeline-item-${index}`} key={exp.id}>
-              <TimelineLabel
+              <ExperienceLabel
                 optional={
                   <Typography variant="caption">{exp.timePeriod}</Typography>
                 }
                 step={index}
               >
-                <Typography>{exp.position}</Typography>
-              </TimelineLabel>
+                <Stack alignItems="center" direction="row" gap={1}>
+                  <Typography fontWeight={700}>{exp.position}</Typography> -
+                  <Typography color="textSecondary">
+                    {exp.company.name}
+                  </Typography>
+                </Stack>
+              </ExperienceLabel>
               <StepContent>
                 <Card>
                   <CardContent>

@@ -1,26 +1,20 @@
 "use client";
+
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import Stack from "@mui/material/Stack";
+import IconButton from "@mui/material/IconButton";
 import { useColorScheme } from "@mui/material/styles";
-import Switch from "@mui/material/Switch";
-import { ChangeEvent, useCallback } from "react";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function ThemeSwitcher() {
-  const { mode, setMode } = useColorScheme();
-
-  const handleChange = useCallback(
-    (_: ChangeEvent<HTMLInputElement>, checked: boolean) => {
-      setMode(checked ? "dark" : "light");
-    },
-    [setMode]
-  );
-
+  const { colorScheme, setMode } = useColorScheme();
   return (
-    <Stack alignItems="center" direction="row" gap={1} justifyContent="center">
-      <LightModeIcon />
-      <Switch checked={mode === "dark"} onChange={handleChange} />
-      <DarkModeIcon />
-    </Stack>
+    <Tooltip title={colorScheme === "dark" ? "Dark Mode" : "Light Mode"}>
+      <IconButton
+        onClick={() => setMode(colorScheme === "dark" ? "light" : "dark")}
+      >
+        {colorScheme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+      </IconButton>
+    </Tooltip>
   );
 }

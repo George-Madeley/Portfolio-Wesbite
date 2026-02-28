@@ -5,6 +5,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import NoEncryptionIcon from "@mui/icons-material/NoEncryption";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
+import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -151,9 +152,16 @@ export default async function Projects(props: ProjectsProps) {
                   <Button
                     endIcon={<ArrowForwardIcon />}
                     href={`/projects/${repo.name}?owner=${repo.owner.login}`}
+                    sx={{ display: { xs: "none", sm: "inline-flex" } }}
                   >
                     Learn more
                   </Button>
+                  <IconButton
+                    href={`/projects/${repo.name}?owner=${repo.owner.login}`}
+                    sx={{ display: { xs: "inline-flex", sm: "none" } }}
+                  >
+                    <ArrowForwardIcon />
+                  </IconButton>
                 </TableCell>
               </TableRow>
             ))}

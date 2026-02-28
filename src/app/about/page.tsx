@@ -19,12 +19,12 @@ export default function Page() {
           alignItems="center"
           container
           justifyContent="center"
-          sx={{ width: "100%", height: "70vh", p: 4 }}
+          sx={{ width: "100%", height: "70vh", p: { xs: 0, sm: 2, md: 4 } }}
         >
           <Grid>
             <Typography
               color="textSecondary"
-              fontSize={{ md: "12rem", lg: "16rem" }}
+              fontSize={{ xs: "20vw", md: "12rem", lg: "16rem" }}
               fontWeight={600}
               textAlign="center"
               variant="h1"

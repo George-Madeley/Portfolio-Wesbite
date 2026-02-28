@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useCallback, useEffect } from "react";
-import BlendedHeading from "~/components/BlendedHeading";
 import MeshBackground from "~/components/MeshBackground";
 
 import Alert from "@mui/material/Alert";
@@ -39,17 +38,14 @@ export default function Error({
           <Grid>
             <Stack alignItems="center" gap={3}>
               <Box>
-                <BlendedHeading
-                  color="#FFC5AA"
+                <Typography
+                  color="textSecondary"
                   fontSize={{ md: "12rem", lg: "20rem" }}
                   fontWeight={600}
-                  sx={{
-                    opacity: "100%",
-                  }}
                   variant="h1"
                 >
                   Error
-                </BlendedHeading>
+                </Typography>
               </Box>
               <Alert severity="error" sx={{ width: "100%", overflowX: "auto" }}>
                 <Typography variant="subtitle2">{error.name}</Typography>
@@ -59,18 +55,9 @@ export default function Error({
               <Stack direction={{ xs: "column", sm: "row" }} gap={1}>
                 <Button onClick={handleClick}>Reset</Button>
                 <Button
+                  color="inherit"
                   component={Link}
                   href="/"
-                  sx={{
-                    color: "#fff",
-                    borderColor: "#fff",
-                    transition:
-                      "color 100ms ease-in-out, borderColor 100ms ease-in-out",
-                    "&:hover": {
-                      color: "var(--mui-palette-action-active)",
-                      borderColor: "var(--mui-palette-action-active)",
-                    },
-                  }}
                   variant="outlined"
                 >
                   Return Home

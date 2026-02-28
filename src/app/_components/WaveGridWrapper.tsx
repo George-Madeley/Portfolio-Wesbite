@@ -1,18 +1,23 @@
 "use client";
 
-import { useTheme } from "@mui/material/styles";
-import React from "react";
+import { useColorScheme } from "@mui/material/styles";
 import WaveGrid from "~/app/_components/WaveGrid";
+import {
+  darkLevel1,
+  darkLevel4,
+  lightLevel1,
+  lightLevel4,
+} from "~/style/theme";
 
 export default function GridWaveWrapper() {
-  const theme = useTheme();
+  const { colorScheme } = useColorScheme();
 
   return (
     <WaveGrid
-      endColor={theme.palette.secondary.dark}
+      endColor={colorScheme === "dark" ? lightLevel1 : darkLevel1}
       maxDistance={150}
       particleSize={8}
-      startColor={theme.palette.secondary.light}
+      startColor={colorScheme === "dark" ? lightLevel4 : darkLevel4}
     />
   );
 }

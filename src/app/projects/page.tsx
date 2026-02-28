@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import MeshBackground from "~/components/MeshBackground";
+import MeshBackground from "~/components/layout/MeshBackground";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -9,8 +9,8 @@ import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-// import CommitMap from "./_components/CommitMap";
-import Projects from "./_components/Projects";
+// import CommitMap from "~/components/CommitMap";
+import Projects from "~/components/Projects";
 
 interface PageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

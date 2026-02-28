@@ -1,4 +1,4 @@
-import MeshBackground from "~/components/MeshBackground";
+import MeshBackground from "~/components/layout/MeshBackground";
 
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";

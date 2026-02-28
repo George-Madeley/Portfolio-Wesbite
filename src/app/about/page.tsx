@@ -1,4 +1,4 @@
-import MeshBackground from "~/components/MeshBackground";
+import MeshBackground from "~/components/layout/MeshBackground";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -9,9 +9,9 @@ import Typography from "@mui/material/Typography";
 
 import { Suspense } from "react";
 import { Skeleton } from "@mui/material";
-import Experiences from "./_components/Experiences";
+import ExperienceTimeline from "~/components/ExperienceTimeline";
 
-export default function AboutPage() {
+export default function Page() {
   return (
     <MeshBackground>
       <Container>
@@ -70,7 +70,7 @@ export default function AboutPage() {
               <Skeleton height={"10rem"} variant="rectangular" width={"100%"} />
             }
           >
-            <Experiences />
+            <ExperienceTimeline />
           </Suspense>
         </Stack>
       </Container>

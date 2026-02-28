@@ -1,4 +1,4 @@
-import Copy from "./Copy";
+import CopyButton from "../CopyButton";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Stack from "@mui/material/Stack";
@@ -44,7 +44,7 @@ export default function Footer() {
                     <Typography>{info.text}</Typography>
                   </Grid>
                   <Grid size="auto">
-                    <Copy label={info.id} text={info.text} />
+                    <CopyButton label={info.id} text={info.text} />
                   </Grid>
                 </Grid>
               ))}

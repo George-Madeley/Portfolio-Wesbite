@@ -7,12 +7,12 @@ import Tooltip from "@mui/material/Tooltip";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-interface CopyProps {
+interface CopyButtonProps {
   text: string;
   label: string;
 }
 
-export default function Copy(props: CopyProps) {
+export default function CopyButton(props: CopyButtonProps) {
   const [clicked, setClicked] = useState<boolean>(false);
 
   const handleClick = useCallback(() => {

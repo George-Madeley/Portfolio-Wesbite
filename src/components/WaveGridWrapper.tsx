@@ -1,7 +1,7 @@
 "use client";
 
 import { useColorScheme } from "@mui/material/styles";
-import WaveGrid from "~/app/_components/WaveGrid";
+import WaveGrid from "~/components/WaveGrid";
 import {
   darkLevel1,
   darkLevel4,

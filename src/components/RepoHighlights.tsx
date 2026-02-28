@@ -11,11 +11,11 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-interface HighlightsProps {
+interface RepoHighlightsProps {
   repos: Repo[];
 }
 
-export default async function Highlights(props: HighlightsProps) {
+export default async function RepoHighlights(props: RepoHighlightsProps) {
   try {
     const repositories = await Promise.all(
       props.repos.map((repo: Repo) =>

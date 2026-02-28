@@ -7,7 +7,7 @@ import Stack from "@mui/material/Stack";
 import { useColorScheme } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
 
-export default function ModeSwitch() {
+export default function ThemeSwitcher() {
   const { mode, setMode } = useColorScheme();
 
   const handleChange = useCallback(

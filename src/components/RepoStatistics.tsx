@@ -13,12 +13,12 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { components } from "@octokit/openapi-types";
 
-interface AsideProps {
+interface RepoStatisticsProps {
   owner: string;
   repo: components["schemas"]["full-repository"];
 }
 
-export default async function Aside(props: AsideProps) {
+export default async function RepoStatistics(props: RepoStatisticsProps) {
   try {
     const languages = Object.keys(
       await getLanguages(props.owner, props.repo.name)

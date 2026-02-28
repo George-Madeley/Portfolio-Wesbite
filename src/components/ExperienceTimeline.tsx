@@ -16,7 +16,7 @@ import TimelineProvider from "~/providers/TimelineProvider";
 import TimelineLabel from "~/components/TimelineLabel";
 import ErrorFallback from "~/components/ErrorFallback";
 
-export default async function Experiences() {
+export default async function ExperienceTimeline() {
   const experiences = aboutContent.toSorted((a, b) => {
     if (a.endTime === "present") return -1;
     if (b.endTime === "present") return 1;
@@ -35,12 +35,12 @@ export default async function Experiences() {
               `~/markdown/${exp.markdown}`
             );
             return (
-              <Step key={exp.id} id={`timeline-item-${index}`}>
+              <Step id={`timeline-item-${index}`} key={exp.id}>
                 <TimelineLabel
-                  step={index}
                   optional={
                     <Typography variant="caption">{exp.timePeriod}</Typography>
                   }
+                  step={index}
                 >
                   <Typography>{exp.position}</Typography>
                 </TimelineLabel>

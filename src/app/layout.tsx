@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import Footer from "~/components/Footer";
-import Nav from "~/components/Nav";
+import Footer from "~/components/layout/Footer";
+import Nav from "~/components/layout/Nav";
 import theme from "~/style/theme";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
@@ -63,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={roboto.className}>
+    <html className={roboto.className} lang="en" suppressHydrationWarning>
       <body>
         <InitColorSchemeScript attribute="class" defaultMode="dark" />
         <AppRouterCacheProvider>

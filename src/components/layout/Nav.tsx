@@ -4,8 +4,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 
-import FlexButton from "./FlexButton";
-import ToggleDarkMode from "./ToggleDarkmode";
+import FlexButton from "../FlexButton";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 export default function Nav() {
   return (
@@ -54,7 +54,7 @@ export default function Nav() {
           >
             About Me
           </FlexButton>
-          <ToggleDarkMode />
+          <ThemeSwitcher />
         </Stack>
       </Card>
     </Stack>

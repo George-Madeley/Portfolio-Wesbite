@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect } from "react";
-import MeshBackground from "~/components/MeshBackground";
+import MeshBackground from "~/components/layout/MeshBackground";
 
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";

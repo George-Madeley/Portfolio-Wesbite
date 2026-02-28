@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
 import "./globals.css";
 
-import Footer from "~/components/layout/Footer";
-import Nav from "~/components/layout/Nav";
-import theme from "~/style/theme";
-
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import CssBaseline from "@mui/material/CssBaseline";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import { ThemeProvider } from "@mui/material/styles";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+
+import Footer from "~/components/layout/Footer";
+import Nav from "~/components/layout/Nav";
 import { roboto } from "~/style/font";
+import theme from "~/style/theme";
 
 export const metadata: Metadata = {
   title: "Portfolio of George Madeley",

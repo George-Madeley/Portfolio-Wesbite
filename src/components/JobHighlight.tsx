@@ -1,13 +1,14 @@
 "use client";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { useMediaQuery, useTheme } from "@mui/material";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
+import { useTheme } from "@mui/material/styles";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function JobHighlight() {
   const work = [

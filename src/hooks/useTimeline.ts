@@ -1,6 +1,7 @@
 "use client";
 
 import { useContext } from "react";
+
 import timelineContext from "~/contexts/timelineContext";
 
 export default function useTimeline() {

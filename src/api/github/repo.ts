@@ -1,8 +1,7 @@
 "use server";
 
-import { cache } from "react";
-
 import { components } from "@octokit/openapi-types";
+import { cache } from "react";
 
 import octokit from "./entry";
 

@@ -1,6 +1,3 @@
-import MeshBackground from "~/components/layout/MeshBackground";
-import { Repo } from "~/types";
-
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import TerminalIcon from "@mui/icons-material/Terminal";
@@ -13,9 +10,12 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import Carousel from "~/components/Carousel";
-import RepoHighlights from "~/components/RepoHighlights";
-import JobHighlight from "~/components/JobHighlight";
+import ErrorBoundary from "~/components/ErrorCatcher";
 import Hero from "~/components/Hero";
+import JobHighlight from "~/components/JobHighlight";
+import MeshBackground from "~/components/layout/MeshBackground";
+import RepoHighlights from "~/components/RepoHighlights";
+import { Repo } from "~/types";
 
 export default function HomePage() {
   const tags = [
@@ -116,7 +116,9 @@ export default function HomePage() {
           </Card>
           <Stack gap={3}>
             <Typography variant="h2">Top Projects</Typography>
-            <RepoHighlights repos={repos} />
+            <ErrorBoundary>
+              <RepoHighlights repos={repos} />
+            </ErrorBoundary>
           </Stack>
         </Stack>
       </Container>

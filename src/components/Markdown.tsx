@@ -3,8 +3,8 @@
 import Box from "@mui/material/Box";
 import Stack, { stackClasses } from "@mui/material/Stack";
 import MuiMarkdown from "mui-markdown";
-import { PropsWithChildren } from "react";
 import Image from "next/image";
+import { PropsWithChildren } from "react";
 
 interface MarkdownProps extends PropsWithChildren {
   imageSrc: string;
@@ -36,11 +36,11 @@ export default function Markdown(props: MarkdownProps) {
                   alt={elementProps.alt ?? ""}
                   height={1000}
                   src={src}
-                  width={1000}
                   style={{
                     height: "unset",
                     width: "50%",
                   }}
+                  width={1000}
                 />
               </Stack>
             );

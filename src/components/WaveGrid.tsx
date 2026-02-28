@@ -1,7 +1,8 @@
 "use client";
 
-import { alpha } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import { useEffect, useRef } from "react";
+
 import { Particle } from "~/classes/Particle";
 
 interface WaveGridProps {

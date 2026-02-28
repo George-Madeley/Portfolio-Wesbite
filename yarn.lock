@@ -2817,12 +2817,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^25.3.0":
-  version: 25.3.0
-  resolution: "@types/node@npm:25.3.0"
+"@types/node@npm:^25.3.2":
+  version: 25.3.2
+  resolution: "@types/node@npm:25.3.2"
   dependencies:
     undici-types: "npm:~7.18.0"
-  checksum: 10c0/7b2b18c9d68047157367fc2f786d4f166d22dc0ad9f82331ca02fb16f2f391854123dbe604dcb938cda119c87051e4bb71dcb9ece44a579f483a6f96d4bd41de
+  checksum: 10c0/946c8758668762d3c3b475281b420e580d0ce828c6847534a822b92be791e23e5879b53001ea928e5352dec8908082d854b8076b7bcfc69549e23ad54b1f98ab
   languageName: node
   linkType: hard
 
@@ -5353,7 +5353,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.35.0, eslint-plugin-react@npm:^7.37.0":
+"eslint-plugin-react@npm:^7.37.0":
   version: 7.37.5
   resolution: "eslint-plugin-react@npm:7.37.5"
   dependencies:
@@ -5378,6 +5378,15 @@ __metadata:
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
   checksum: 10c0/c850bfd556291d4d9234f5ca38db1436924a1013627c8ab1853f77cac73ec19b020e861e6c7b783436a48b6ffcdfba4547598235a37ad4611b6739f65fd8ad57
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-simple-import-sort@npm:^12.1.1":
+  version: 12.1.1
+  resolution: "eslint-plugin-simple-import-sort@npm:12.1.1"
+  peerDependencies:
+    eslint: ">=5.0.0"
+  checksum: 10c0/0ad1907ad9ddbadd1db655db0a9d0b77076e274b793a77b982c8525d808d868e6ecfce24f3a411e8a1fa551077387f9ebb38c00956073970ebd7ee6a029ce2b3
   languageName: node
   linkType: hard
 
@@ -7284,7 +7293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knip@npm:^5.63.0":
+"knip@npm:^5.85.0":
   version: 5.85.0
   resolution: "knip@npm:5.85.0"
   dependencies:
@@ -9815,7 +9824,7 @@ __metadata:
     "@semantic-release/npm": "npm:^13.1.4"
     "@semantic-release/release-notes-generator": "npm:^14.0.3"
     "@types/mdx": "npm:^2.0.13"
-    "@types/node": "npm:^25.3.0"
+    "@types/node": "npm:^25.3.2"
     "@types/react": "npm:^19"
     "@types/react-dom": "npm:^19"
     "@vercel/analytics": "npm:^1.5.0"
@@ -9824,11 +9833,12 @@ __metadata:
     eslint: "npm:^9.9.0"
     eslint-config-next: "npm:^16.1.6"
     eslint-config-prettier: "npm:^10.1.8"
-    eslint-plugin-react: "npm:^7.35.0"
+    eslint-plugin-import: "npm:^2.32.0"
     eslint-plugin-react-hooks: "npm:^7.0.1"
+    eslint-plugin-simple-import-sort: "npm:^12.1.1"
     globals: "npm:^17.3.0"
     husky: "npm:^9.1.4"
-    knip: "npm:^5.63.0"
+    knip: "npm:^5.85.0"
     lint-staged: "npm:^16.2.7"
     markdown-to-jsx: "npm:^9.7.6"
     mui-markdown: "npm:^2.1.1"
@@ -9837,12 +9847,13 @@ __metadata:
     prettier: "npm:^3.3.3"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
+    react-error-boundary: "npm:^6.1.1"
     rehype-katex: "npm:^7.0.1"
     remark-gfm: "npm:^4.0.1"
     remark-math: "npm:^6.0.0"
     semantic-release: "npm:^25.0.3"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5"
+    typescript: "npm:^5.9.3"
     zod: "npm:^4.3.6"
   languageName: unknown
   linkType: soft
@@ -10036,6 +10047,15 @@ __metadata:
   peerDependencies:
     react: ^19.2.4
   checksum: 10c0/f0c63f1794dedb154136d4d0f59af00b41907f4859571c155940296808f4b94bf9c0c20633db75b5b2112ec13d8d7dd4f9bf57362ed48782f317b11d05a44f35
+  languageName: node
+  linkType: hard
+
+"react-error-boundary@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "react-error-boundary@npm:6.1.1"
+  peerDependencies:
+    react: ^18.0.0 || ^19.0.0
+  checksum: 10c0/4c72112bd930629e73015515804f95e375f9d83bea07cbc0557eb44752c8e8fc57ce141126b8eed2d9301d3bd1e030ce1f59d0e71f70fc0d10a29b31ec2cf2c5
   languageName: node
   linkType: hard
 
@@ -11689,7 +11709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5":
+"typescript@npm:^5.9.3":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
   bin:
@@ -11699,7 +11719,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.9.3#optional!builtin<compat/typescript>":
   version: 5.9.3
   resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:

@@ -1,15 +1,15 @@
-import MeshBackground from "~/components/layout/MeshBackground";
-
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-
 import { Suspense } from "react";
-import { Skeleton } from "@mui/material";
+
+import ErrorBoundary from "~/components/ErrorCatcher";
 import ExperienceTimeline from "~/components/ExperienceTimeline";
+import MeshBackground from "~/components/layout/MeshBackground";
 
 export default function Page() {
   return (
@@ -23,11 +23,11 @@ export default function Page() {
         >
           <Grid>
             <Typography
+              color="textSecondary"
               fontSize={{ md: "12rem", lg: "16rem" }}
               fontWeight={600}
               textAlign="center"
               variant="h1"
-              color="textSecondary"
             >
               About Me
             </Typography>
@@ -70,7 +70,9 @@ export default function Page() {
               <Skeleton height={"10rem"} variant="rectangular" width={"100%"} />
             }
           >
-            <ExperienceTimeline />
+            <ErrorBoundary>
+              <ExperienceTimeline />
+            </ErrorBoundary>
           </Suspense>
         </Stack>
       </Container>

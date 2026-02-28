@@ -32,6 +32,7 @@ export default async function Repo(props: PageProps<"/projects/[repo]">) {
             <Grid container gap={3}>
               <Grid direction="column" size={12}>
                 <Typography
+                  color="textSecondary"
                   fontSize={{ xs: "3rem", sm: "4rem", md: "8rem" }}
                   fontWeight={700}
                   variant="h1"

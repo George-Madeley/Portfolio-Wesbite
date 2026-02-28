@@ -18,18 +18,20 @@ function hexToRgba(hex: string) {
   };
 }
 
-function randomBetween(a: number, b: number) {
-  return Math.round(a + Math.random() * (b - a));
+function randomBetween(a: number, b: number, seed: number = Math.random()) {
+  return Math.round(a + seed * (b - a));
 }
 
 export function interpolateColor(startHex: string, endHex: string) {
   const s = hexToRgba(startHex);
   const e = hexToRgba(endHex);
 
-  const r = randomBetween(s.r, e.r);
-  const g = randomBetween(s.g, e.g);
-  const b = randomBetween(s.b, e.b);
-  const a = randomBetween(s.a, e.a);
+  const seed = Math.random();
+
+  const r = randomBetween(s.r, e.r, seed);
+  const g = randomBetween(s.g, e.g, seed);
+  const b = randomBetween(s.b, e.b, seed);
+  const a = randomBetween(s.a, e.a, seed);
 
   return `#${[r, g, b, a].map((x) => x.toString(16).padStart(2, "0")).join("")}`;
 }

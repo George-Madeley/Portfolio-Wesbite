@@ -4,6 +4,16 @@ import { PropsWithChildren } from "react";
 import { MeshGradient, MeshGradientProps } from "@mesh-gradient/react";
 import Box from "@mui/material/Box";
 import { useColorScheme } from "@mui/material";
+import {
+  darkLevel1,
+  darkLevel2,
+  darkLevel3,
+  darkLevel4,
+  lightLevel1,
+  lightLevel2,
+  lightLevel3,
+  lightLevel4,
+} from "~/style/theme";
 
 export default function MeshBackground(
   props: PropsWithChildren<MeshGradientProps>
@@ -13,24 +23,24 @@ export default function MeshBackground(
   return (
     <Box
       sx={[
-        (theme) => ({
+        () => ({
           minHeight: "100dvh",
           width: "100%",
           position: "relative",
-          "--mesh-gradient-color-1": "#F7F7F7",
-          "--mesh-gradient-color-2": "#F0F0F0",
-          "--mesh-gradient-color-3": "#E8E8E8",
-          "--mesh-gradient-color-4": "#E0E0E0",
+          "--mesh-gradient-color-1": lightLevel1,
+          "--mesh-gradient-color-2": lightLevel2,
+          "--mesh-gradient-color-3": lightLevel3,
+          "--mesh-gradient-color-4": lightLevel4,
         }),
         (theme) =>
           theme.applyStyles("dark", {
             minHeight: "100dvh",
             width: "100%",
             position: "relative",
-            "--mesh-gradient-color-1": "#121212",
-            "--mesh-gradient-color-2": "#1a1a1a",
-            "--mesh-gradient-color-3": "#212121",
-            "--mesh-gradient-color-4": "#282828",
+            "--mesh-gradient-color-1": darkLevel1,
+            "--mesh-gradient-color-2": darkLevel2,
+            "--mesh-gradient-color-3": darkLevel3,
+            "--mesh-gradient-color-4": darkLevel4,
           }),
       ]}
     >

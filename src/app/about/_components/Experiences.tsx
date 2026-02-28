@@ -39,26 +39,10 @@ export default async function Experiences() {
                 <TimelineLabel
                   step={index}
                   optional={
-                    <Typography sx={{ color: "#fff" }} variant="caption">
-                      {exp.timePeriod}
-                    </Typography>
+                    <Typography variant="caption">{exp.timePeriod}</Typography>
                   }
-                  sx={{
-                    "& .MuiSvgIcon-root": {
-                      color: "#fff !important",
-                      "& circle": {
-                        color: "#fff !important",
-                      },
-                      "& .MuiStepIcon-text": {
-                        color: "var(--mui-palette-primary-main)",
-                        fill: "var(--mui-palette-primary-main)",
-                        fontWeight: 1000,
-                        fontSize: "0.9rem",
-                      },
-                    },
-                  }}
                 >
-                  <Typography sx={{ color: "#fff" }}>{exp.position}</Typography>
+                  <Typography>{exp.position}</Typography>
                 </TimelineLabel>
                 <StepContent>
                   <Card>

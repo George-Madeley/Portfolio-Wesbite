@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import BlendedHeading from "~/components/BlendedHeading";
 import MeshBackground from "~/components/MeshBackground";
 
 import Card from "@mui/material/Card";
@@ -37,15 +36,15 @@ export default async function Page({ searchParams }: PageProps) {
           sx={{ width: "100%", height: "70vh", p: 4 }}
         >
           <Grid>
-            <BlendedHeading
-              color="#d5bdcaff"
+            <Typography
               fontSize={{ md: "12rem", lg: "16rem" }}
               fontWeight={600}
               textAlign="center"
               variant="h1"
+              color="textSecondary"
             >
               Projects
-            </BlendedHeading>
+            </Typography>
           </Grid>
         </Grid>
         <Stack gap={3} sx={{ mb: 5 }}>

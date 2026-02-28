@@ -30,7 +30,7 @@ export default function Hero({ tags }: HeroProps) {
       sx={{
         width: "100%",
         minHeight: "80vh",
-        p: 4,
+        p: { xs: 0, sm: 2, md: 4 },
       }}
     >
       <Grid
@@ -67,11 +67,10 @@ export default function Hero({ tags }: HeroProps) {
             Software Engineering at Atlantic Technology,
           </Typography>
         </Grid>
-        <Grid size={12}>
-          <Stack direction="row" flexWrap="wrap" gap={1}>
-            {tags.map((tag) => (
+        <Grid columnGap={1} container rowGap={1.5} size={12}>
+          {tags.map((tag) => (
+            <Grid key={tag} size="auto">
               <Chip
-                key={tag}
                 label={tag}
                 sx={{
                   color: "text.primary",
@@ -79,8 +78,8 @@ export default function Hero({ tags }: HeroProps) {
                     "rgba(var(--mui-palette-text-primaryChannel) / 0.1)",
                 }}
               />
-            ))}
-          </Stack>
+            </Grid>
+          ))}
         </Grid>
         <Grid size={12}>
           <Stack direction="row" flexWrap="wrap" gap={2}>
@@ -153,7 +152,7 @@ export default function Hero({ tags }: HeroProps) {
         alignItems="center"
         container
         size={{ sm: 12, md: "grow" }}
-        sx={{ height: "50vh" }}
+        sx={{ height: "50vh", display: { xs: "none", md: "flex" } }}
       >
         <WaveGridWrapper />
       </Grid>

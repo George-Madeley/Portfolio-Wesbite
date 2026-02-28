@@ -19,12 +19,7 @@ interface PageProps {
 export default async function Page({ searchParams }: PageProps) {
   const awaitedSearchParams = await searchParams;
 
-  // const currentYear = new Date(Date.now()).getFullYear();
-
   const page = awaitedSearchParams.page ? Number(awaitedSearchParams.page) : 1;
-  // const year = awaitedSearchParams.year
-  //   ? Number(awaitedSearchParams.year)
-  //   : currentYear;
 
   return (
     <MeshBackground>
@@ -33,12 +28,12 @@ export default async function Page({ searchParams }: PageProps) {
           alignItems="center"
           container
           justifyContent="center"
-          sx={{ width: "100%", height: "70vh", p: 4 }}
+          sx={{ width: "100%", height: "70vh", p: { xs: 0, sm: 2, md: 4 } }}
         >
           <Grid>
             <Typography
               color="textSecondary"
-              fontSize={{ md: "12rem", lg: "16rem" }}
+              fontSize={{ xs: "20vw", md: "12rem", lg: "16rem" }}
               fontWeight={600}
               textAlign="center"
               variant="h1"
@@ -62,24 +57,17 @@ export default async function Page({ searchParams }: PageProps) {
                   source code (if available). If you have any questions about
                   any of these projects, please feel free to contact me.
                 </Typography>
-                {/* <Suspense
-                  fallback={
-                    <Skeleton
-                      height={"10rem"}
-                      variant="rectangular"
-                      width={"100%"}
-                    />
-                  }
-                >
-                  <CommitMap repo="*" year={year} />
-                </Suspense> */}
               </Stack>
             </CardContent>
           </Card>
           <Card>
             <CardContent>
               <Stack gap={2}>
-                <Typography fontWeight={700} variant="h2">
+                <Typography
+                  fontSize={{ xs: "13vw", sm: "3.75rem" }}
+                  fontWeight={700}
+                  variant="h2"
+                >
                   Repositories
                 </Typography>
                 <Suspense

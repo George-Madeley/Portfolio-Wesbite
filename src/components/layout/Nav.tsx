@@ -52,7 +52,6 @@ export default function Nav() {
           width: "fit-content",
           m: 1,
           p: 0.5,
-          position: "fixed",
           zIndex: 1000,
         }}
       >

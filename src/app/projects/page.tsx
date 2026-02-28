@@ -1,6 +1,3 @@
-import { Suspense } from "react";
-import MeshBackground from "~/components/layout/MeshBackground";
-
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Container from "@mui/material/Container";
@@ -8,7 +5,10 @@ import Grid from "@mui/material/Grid";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { Suspense } from "react";
 
+import ErrorBoundary from "~/components/ErrorCatcher";
+import MeshBackground from "~/components/layout/MeshBackground";
 // import CommitMap from "~/components/CommitMap";
 import Projects from "~/components/Projects";
 
@@ -37,11 +37,11 @@ export default async function Page({ searchParams }: PageProps) {
         >
           <Grid>
             <Typography
+              color="textSecondary"
               fontSize={{ md: "12rem", lg: "16rem" }}
               fontWeight={600}
               textAlign="center"
               variant="h1"
-              color="textSecondary"
             >
               Projects
             </Typography>
@@ -92,7 +92,9 @@ export default async function Page({ searchParams }: PageProps) {
                   }
                   key={page}
                 >
-                  <Projects page={page} />
+                  <ErrorBoundary>
+                    <Projects page={page} />
+                  </ErrorBoundary>
                 </Suspense>
               </Stack>
             </CardContent>

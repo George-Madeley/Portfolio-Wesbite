@@ -1,7 +1,5 @@
 "use client";
 
-import { useCallback, useState } from "react";
-
 import CircleIcon from "@mui/icons-material/Circle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -9,6 +7,8 @@ import Card from "@mui/material/Card";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Stepper, { StepperProps } from "@mui/material/Stepper";
+import { useCallback, useState } from "react";
+
 import timelineContext from "~/contexts/timelineContext";
 
 export default function TimelineProvider(props: StepperProps) {

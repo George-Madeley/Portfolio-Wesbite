@@ -1,9 +1,5 @@
 "use client"; // Error boundaries must be Client Components
 
-import Link from "next/link";
-import { useCallback, useEffect } from "react";
-import MeshBackground from "~/components/layout/MeshBackground";
-
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -11,6 +7,10 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
+import { useCallback, useEffect } from "react";
+
+import MeshBackground from "~/components/layout/MeshBackground";
 
 export default function Error({
   error,

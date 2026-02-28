@@ -1,12 +1,11 @@
 "use client";
-import Link from "next/link";
-
-import { ColorSystemOptions, createTheme } from "@mui/material/styles";
 import { cyan, teal } from "@mui/material/colors";
+import { ColorSystemOptions, createTheme } from "@mui/material/styles";
+import Link from "next/link";
 
 /* ---------------------------------- dark ---------------------------------- */
 
-export const darkLevel0 = "#090909";
+const darkLevel0 = "#090909";
 export const darkLevel1 = "#121212";
 export const darkLevel2 = "#1a1a1a";
 export const darkLevel3 = "#212121";
@@ -30,7 +29,7 @@ const darkColorScheme: ColorSystemOptions = {
 
 /* ---------------------------------- light --------------------------------- */
 
-export const lightLevel0 = "#F3FFFF";
+const lightLevel0 = "#F3FFFF";
 export const lightLevel1 = "#EDFFFE";
 export const lightLevel2 = "#E1F2F1";
 export const lightLevel3 = "#D5E6E5";

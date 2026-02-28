@@ -14,5 +14,6 @@
     "Verilog",
     "VHDL",
     "Wordle"
-  ]
+  ],
+  "typescript.preferences.autoImportSpecifierExcludeRegexes": ["^@mui/[^/]+$"]
 }

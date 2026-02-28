@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -11,7 +9,9 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
+import { Suspense } from "react";
 
+import ErrorCatcher from "./ErrorCatcher";
 import VersionTag from "./VersionTag";
 import WaveGridWrapper from "./WaveGridWrapper";
 
@@ -86,7 +86,7 @@ export default function Hero({ tags }: HeroProps) {
             <Button endIcon={<ArrowForwardIcon />} href="/projects">
               View Projects
             </Button>
-            <Button href="/about" color="inherit" variant="outlined">
+            <Button color="inherit" href="/about" variant="outlined">
               About me
             </Button>
           </Stack>
@@ -114,16 +114,18 @@ export default function Hero({ tags }: HeroProps) {
               </IconButton>
             </Tooltip>
             <Suspense>
-              <VersionTag
-                icon={<AutoAwesomeIcon sx={{ color: "text.primary" }} />}
-                owner="George-Madeley"
-                repo="Portfolio-Website"
-                sx={{
-                  color: "text.primary",
-                  backgroundColor:
-                    "rgba(var(--mui-palette-text-primaryChannel) / 0.1)",
-                }}
-              />
+              <ErrorCatcher fallback={null}>
+                <VersionTag
+                  icon={<AutoAwesomeIcon sx={{ color: "text.primary" }} />}
+                  owner="George-Madeley"
+                  repo="Portfolio-Website"
+                  sx={{
+                    color: "text.primary",
+                    backgroundColor:
+                      "rgba(var(--mui-palette-text-primaryChannel) / 0.1)",
+                  }}
+                />
+              </ErrorCatcher>
             </Suspense>
           </Stack>
         </Grid>

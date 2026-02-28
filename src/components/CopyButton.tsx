@@ -1,11 +1,10 @@
 "use client";
 
-import { useCallback, useState } from "react";
-
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { useCallback, useState } from "react";
 
 interface CopyButtonProps {
   text: string;

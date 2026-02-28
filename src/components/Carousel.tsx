@@ -1,7 +1,9 @@
 "use client";
 
+import Box from "@mui/material/Box";
+import Pagination from "@mui/material/Pagination";
+import Stack, { StackProps } from "@mui/material/Stack";
 import React, { ChangeEvent, useCallback, useState } from "react";
-import { Box, Pagination, Stack, StackProps } from "@mui/material";
 
 export default function Carousel(props: StackProps) {
   const [activeIndex, setActiveIndex] = useState(0);

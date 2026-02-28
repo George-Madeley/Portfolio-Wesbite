@@ -1,39 +1,52 @@
-import pluginReact from "eslint-plugin-react";
 import { defineConfig, globalIgnores } from "eslint/config";
+import pluginImport from "eslint-plugin-import";
 import pluginReactHooks from "eslint-plugin-react-hooks";
+import pluginImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier/flat";
 
-const eslintConfig = defineConfig([
+/**
+ * This is the esLinter configuration file that dictates how all of the
+ * type/javascript files are formatted and linted.
+ */
+export default defineConfig([
+  globalIgnores([
+    "**/node_modules/*",
+    "**/public/*",
+    "**/.next/*",
+    "**/next-env.d.ts",
+  ]),
   ...nextVitals,
   ...nextTs,
   prettier,
-  pluginReact.configs.flat.recommended,
-  pluginReact.configs.flat["jsx-runtime"],
-  pluginReactHooks.configs.flat.recommended,
+  pluginReactHooks.configs.flat["recommended-latest"],
+
   {
-    files: ["**/*.{ts,tsx,js,jsx,mjs,cjs}"],
-    ignores: [
-      "node_modules/**/*",
-      "public/**/*",
-      "build/**/*",
-      "dist/**/*",
-      ".next/**/*",
-    ],
+    files: ["src/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    plugins: {
+      "simple-import-sort": pluginImportSort,
+      import: pluginImport,
+    },
     rules: {
+      ...pluginReactHooks.configs.recommended.rules,
       "@typescript-eslint/no-empty-function": "off",
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-unused-expressions": [
         "error",
         { allowShortCircuit: true, allowTernary: true },
       ],
-      "no-empty-function": "off",
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [{ regex: "^@mui/[^/]+$" }, { regex: "^@toolpad/[^/]+$" }],
+        },
+      ],
       "react/boolean-prop-naming": "error",
       "react/button-has-type": "error",
       "react/display-name": "error",
@@ -45,21 +58,13 @@ const eslintConfig = defineConfig([
       "react/jsx-uses-react": "error",
       "react/no-children-prop": "error",
       "react/no-danger-with-children": "error",
-      "react/no-multi-comp": "warn",
       "react/prefer-stateless-function": "error",
       "react/prop-types": "error",
-      "react-hooks/error-boundaries": "off",
-      "react-hooks/purity": "off",
+      "simple-import-sort/imports": "warn",
+      "simple-import-sort/exports": "warn",
+      "import/first": "error",
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error",
     },
   },
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
 ]);
-
-export default eslintConfig;

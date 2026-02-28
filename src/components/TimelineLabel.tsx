@@ -1,6 +1,7 @@
 "use client";
 
-import { StepLabel, StepLabelProps } from "@mui/material";
+import StepLabel, { StepLabelProps } from "@mui/material/StepLabel";
+
 import useTimeline from "~/hooks/useTimeline";
 
 interface TimelineLabelProps extends StepLabelProps {

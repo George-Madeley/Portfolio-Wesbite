@@ -1,9 +1,10 @@
 "use client";
 
-import { PropsWithChildren } from "react";
 import { MeshGradient, MeshGradientProps } from "@mesh-gradient/react";
 import Box from "@mui/material/Box";
-import { useColorScheme } from "@mui/material";
+import { useColorScheme } from "@mui/material/styles";
+import { PropsWithChildren } from "react";
+
 import {
   darkLevel1,
   darkLevel2,

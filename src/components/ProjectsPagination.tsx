@@ -1,13 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import React, { useCallback } from "react";
-
 import MuiPagination, {
   PaginationProps,
   PaginationRenderItemParams,
 } from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
+import Link from "next/link";
+import React, { useCallback } from "react";
 
 export default function ProjectsPagination(
   props: Omit<PaginationProps, "renderItem">

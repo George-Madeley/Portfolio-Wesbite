@@ -1,7 +1,3 @@
-import { Suspense } from "react";
-import RadialBackground from "~/components/layout/RadialBackground";
-import { getRepo } from "~/api/github";
-
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
@@ -12,7 +8,12 @@ import Grid from "@mui/material/Grid";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import ReadMeMarkdown from "~/components/RepoMarkdown";
+import { Suspense } from "react";
+
+import { getRepo } from "~/api/github";
+import ErrorCatcher from "~/components/ErrorCatcher";
+import RadialBackground from "~/components/layout/RadialBackground";
+import RepoMarkdown from "~/components/RepoMarkdown";
 import RepoStatistics from "~/components/RepoStatistics";
 
 export default async function Page(props: PageProps<"/projects/[repo]">) {
@@ -92,7 +93,9 @@ export default async function Page(props: PageProps<"/projects/[repo]">) {
                           />
                         }
                       >
-                        <ReadMeMarkdown owner={owner} repo={repo} />
+                        <ErrorCatcher>
+                          <RepoMarkdown owner={owner} repo={repo} />
+                        </ErrorCatcher>
                       </Suspense>
                     </Stack>
                   </CardContent>
@@ -113,7 +116,9 @@ export default async function Page(props: PageProps<"/projects/[repo]">) {
                         </Stack>
                       }
                     >
-                      <RepoStatistics owner={owner} repo={repo} />
+                      <ErrorCatcher>
+                        <RepoStatistics owner={owner} repo={repo} />
+                      </ErrorCatcher>
                     </Suspense>
                   </CardContent>
                 </Card>

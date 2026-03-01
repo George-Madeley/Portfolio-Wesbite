@@ -5,6 +5,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Button from "@mui/material/Button";
 import Chip, { chipClasses } from "@mui/material/Chip";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
@@ -22,140 +23,142 @@ interface HeroProps {
 
 export default function Hero({ tags }: HeroProps) {
   return (
-    <Grid
-      alignItems="center"
-      container
-      direction={{ xs: "column", sm: "row" }}
-      spacing={4}
-      sx={{
-        width: "100%",
-        minHeight: "80vh",
-        p: { xs: 0, sm: 2, md: 4 },
-      }}
-    >
+    <Container>
       <Grid
-        alignItems="flex-start"
+        alignItems="center"
         container
-        direction="column"
-        gap={4}
-        justifyContent="center"
-        size={{ xs: 12, sm: 12, md: "auto" }}
-        sx={{ height: "80vh" }}
+        direction={{ xs: "column", sm: "row" }}
+        spacing={4}
+        sx={{
+          width: "100%",
+          minHeight: "80vh",
+          p: { xs: 0, sm: 2, md: 4 },
+        }}
       >
-        <Grid size={12}>
-          <Typography
-            color="textPrimary"
-            fontSize={{ xs: "1rem", sm: "2rem" }}
-            fontWeight={600}
-            variant="subtitle2"
-          >
-            Hi, I&apos;m
-          </Typography>
-          <Typography
-            color="textSecondary"
-            fontSize={{ xs: "4rem", sm: "8rem" }}
-            fontWeight={600}
-            textAlign="left"
-            variant="h1"
-          >
-            George <br />
-            Madeley
-          </Typography>
-        </Grid>
-        <Grid size={12}>
-          <Typography color="textPrimary">
-            Software Engineering at Atlantic Technology,
-          </Typography>
-        </Grid>
-        <Grid columnGap={1} container rowGap={1.5} size={12}>
-          {tags.map((tag) => (
-            <Grid key={tag} size="auto">
-              <Chip
-                label={tag}
-                sx={{
-                  color: "text.primary",
-                  backgroundColor:
-                    "rgba(var(--mui-palette-text-primaryChannel) / 0.1)",
-                }}
-              />
-            </Grid>
-          ))}
-        </Grid>
-        <Grid size={12}>
-          <Stack direction="row" flexWrap="wrap" gap={2}>
-            <Button endIcon={<ArrowForwardIcon />} href="/projects">
-              View Projects
-            </Button>
-            <Button color="inherit" href="/about" variant="outlined">
-              About me
-            </Button>
-          </Stack>
-        </Grid>
-        <Grid size={12}>
-          <Stack alignItems="center" direction="row" gap={2}>
-            <Tooltip title="GitHub">
-              <IconButton
-                href="https://github.com/George-Madeley"
-                rel="noreferrer"
-                sx={{ color: "text.primary" }}
-                target="_blank"
-              >
-                <GitHubIcon />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="LinkedIn">
-              <IconButton
-                href="https://www.linkedin.com/in/georgemadeleybathcompsyseng"
-                rel="noreferrer"
-                sx={{ color: "text.primary" }}
-                target="_blank"
-              >
-                <LinkedInIcon />
-              </IconButton>
-            </Tooltip>
-            <Suspense>
-              <ErrorCatcher
-                fallback={
-                  <Chip
-                    icon={<ErrorIcon />}
-                    label="vX.Y.Z"
-                    sx={{
-                      color: "error.dark",
-                      backgroundColor:
-                        "rgba(var(--mui-palette-error-darkChannel) / 0.1)",
-                      [`& .${chipClasses.icon}`]: {
-                        color: "error.dark",
-                      },
-                    }}
-                  />
-                }
-              >
-                <VersionTag
-                  icon={<AutoAwesomeIcon />}
-                  owner="George-Madeley"
-                  repo="Portfolio-Website"
+        <Grid
+          alignItems="flex-start"
+          container
+          direction="column"
+          gap={4}
+          justifyContent="center"
+          size={{ xs: 12, sm: 12, md: "auto" }}
+          sx={{ height: "80vh" }}
+        >
+          <Grid size={12}>
+            <Typography
+              color="textPrimary"
+              fontSize={{ xs: "1rem", sm: "2rem" }}
+              fontWeight={600}
+              variant="subtitle2"
+            >
+              Hi, I&apos;m
+            </Typography>
+            <Typography
+              color="textSecondary"
+              fontSize={{ xs: "4rem", sm: "8rem" }}
+              fontWeight={600}
+              textAlign="left"
+              variant="h1"
+            >
+              George <br />
+              Madeley
+            </Typography>
+          </Grid>
+          <Grid size={12}>
+            <Typography color="textPrimary">
+              Software Engineering at Atlantic Technology,
+            </Typography>
+          </Grid>
+          <Grid columnGap={1} container rowGap={1.5} size={12}>
+            {tags.map((tag) => (
+              <Grid key={tag} size="auto">
+                <Chip
+                  label={tag}
                   sx={{
                     color: "text.primary",
                     backgroundColor:
                       "rgba(var(--mui-palette-text-primaryChannel) / 0.1)",
-                    [`& .${chipClasses.icon}`]: {
-                      color: "text.primary",
-                    },
                   }}
                 />
-              </ErrorCatcher>
-            </Suspense>
-          </Stack>
+              </Grid>
+            ))}
+          </Grid>
+          <Grid size={12}>
+            <Stack direction="row" flexWrap="wrap" gap={2}>
+              <Button endIcon={<ArrowForwardIcon />} href="/projects">
+                View Projects
+              </Button>
+              <Button color="inherit" href="/about" variant="outlined">
+                About me
+              </Button>
+            </Stack>
+          </Grid>
+          <Grid size={12}>
+            <Stack alignItems="center" direction="row" gap={2}>
+              <Tooltip title="GitHub">
+                <IconButton
+                  href="https://github.com/George-Madeley"
+                  rel="noreferrer"
+                  sx={{ color: "text.primary" }}
+                  target="_blank"
+                >
+                  <GitHubIcon />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="LinkedIn">
+                <IconButton
+                  href="https://www.linkedin.com/in/georgemadeleybathcompsyseng"
+                  rel="noreferrer"
+                  sx={{ color: "text.primary" }}
+                  target="_blank"
+                >
+                  <LinkedInIcon />
+                </IconButton>
+              </Tooltip>
+              <Suspense>
+                <ErrorCatcher
+                  fallback={
+                    <Chip
+                      icon={<ErrorIcon />}
+                      label="vX.Y.Z"
+                      sx={{
+                        color: "error.dark",
+                        backgroundColor:
+                          "rgba(var(--mui-palette-error-darkChannel) / 0.1)",
+                        [`& .${chipClasses.icon}`]: {
+                          color: "error.dark",
+                        },
+                      }}
+                    />
+                  }
+                >
+                  <VersionTag
+                    icon={<AutoAwesomeIcon />}
+                    owner="George-Madeley"
+                    repo="Portfolio-Website"
+                    sx={{
+                      color: "text.primary",
+                      backgroundColor:
+                        "rgba(var(--mui-palette-text-primaryChannel) / 0.1)",
+                      [`& .${chipClasses.icon}`]: {
+                        color: "text.primary",
+                      },
+                    }}
+                  />
+                </ErrorCatcher>
+              </Suspense>
+            </Stack>
+          </Grid>
+        </Grid>
+        <Grid
+          alignItems="center"
+          container
+          size={{ sm: 12, md: "grow" }}
+          sx={{ height: "50vh", display: { xs: "none", md: "flex" } }}
+        >
+          <WaveGridWrapper />
         </Grid>
       </Grid>
-      <Grid
-        alignItems="center"
-        container
-        size={{ sm: 12, md: "grow" }}
-        sx={{ height: "50vh", display: { xs: "none", md: "flex" } }}
-      >
-        <WaveGridWrapper />
-      </Grid>
-    </Grid>
+    </Container>
   );
 }

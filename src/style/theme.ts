@@ -67,6 +67,9 @@ const theme = createTheme({
       xl: 1536,
     },
   },
+  shape: {
+    borderRadius: 10,
+  },
   palette: darkColorScheme.palette,
   components: {
     MuiLink: {

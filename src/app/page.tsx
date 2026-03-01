@@ -21,6 +21,7 @@ import FeatureSkills from "~/components/FeatureSkills";
 import Hero from "~/components/Hero";
 import JobHighlight from "~/components/JobHighlight";
 import MeshBackground from "~/components/layout/MeshBackground";
+import Metrics from "~/components/Metrics";
 import RepoHighlights from "~/components/RepoHighlights";
 import ApiSvg from "~/icon/ApiSvg";
 import FrontendIcon from "~/icon/FrontendSvg";
@@ -172,6 +173,28 @@ export default function HomePage() {
                   </Button>
                 </Link>
               ),
+            },
+          ]}
+        />
+        <Metrics
+          caption="A snapshot of my recent contributions and activity on GitHub, reflecting my engagement with open-source projects, collaborative development, and continuous learning in the software engineering community."
+          heading="GitHub Activity"
+          metrics={[
+            {
+              value: 1180,
+              caption: "GitHUB commits",
+            },
+            {
+              value: 48,
+              caption: "Pull Requests",
+            },
+            {
+              value: 70,
+              caption: "Issues",
+            },
+            {
+              value: 39,
+              caption: "Authored Repositories",
             },
           ]}
         />

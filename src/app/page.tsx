@@ -16,6 +16,7 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
 import Carousel from "~/components/Carousel";
+import CoursesMenu from "~/components/CoursesMenu";
 import ErrorBoundary from "~/components/ErrorCatcher";
 import FeatureSkills from "~/components/FeatureSkills";
 import Hero from "~/components/Hero";
@@ -25,6 +26,7 @@ import Metrics from "~/components/Metrics";
 import RepoHighlights from "~/components/RepoHighlights";
 import ApiSvg from "~/icon/ApiSvg";
 import FrontendIcon from "~/icon/FrontendSvg";
+import LearningSvg from "~/icon/LearningSvg";
 import RobotSvg from "~/icon/RobotSvg";
 import VideogameSvg from "~/icon/VideogameSvg";
 import { Repo } from "~/types";
@@ -195,6 +197,166 @@ export default function HomePage() {
             {
               value: 39,
               caption: "Authored Repositories",
+            },
+          ]}
+        />
+        <CoursesMenu
+          caption="A curated selection of courses that I have completed, showcasing my dedication to continuous learning and professional development across various domains in software engineering and technology."
+          heading="Courses"
+          image={<LearningSvg />}
+          sections={[
+            {
+              title: "Frontend Engineering",
+              items: [
+                {
+                  title: "CSS",
+                  link: "https://www.codecademy.com/learn/learn-intermediate-css",
+                },
+                {
+                  title: "Front End Engineer",
+                  link: "https://www.codecademy.com/learn/paths/front-end-engineer-career-path",
+                  tag: "Career Path",
+                },
+                {
+                  title: "HTML",
+                  link: "https://www.codecademy.com/learn/learn-html",
+                },
+                {
+                  title: "JavaScript",
+                  link: "https://www.codecademy.com/learn/learn-intermediate-javascript",
+                },
+                {
+                  title: "Next",
+                  link: "https://www.codecademy.com/learn/learn-next-js",
+                },
+                {
+                  title: "React Native",
+                  link: "https://www.codecademy.com/learn/learn-react-native",
+                },
+                {
+                  title: "React",
+                  link: "https://www.codecademy.com/learn/learn-advanced-react",
+                },
+                {
+                  title: "React Router",
+                  link: "https://www.codecademy.com/learn/learn-react-router",
+                },
+                {
+                  title: "React Testing",
+                  link: "https://www.codecademy.com/learn/learn-react-testing",
+                },
+                {
+                  title: "Redux",
+                  link: "https://www.codecademy.com/learn/learn-redux",
+                },
+                {
+                  title: "Sass",
+                  link: "https://www.codecademy.com/learn/learn-sass",
+                },
+                {
+                  title: "TypeScript",
+                  link: "https://www.codecademy.com/learn/learn-intermediate-typescript",
+                },
+                {
+                  title: "VueJs",
+                  link: "https://www.codecademy.com/learn/learn-vue-js",
+                },
+              ],
+            },
+            {
+              title: "Backend Engineering",
+              items: [
+                {
+                  title: "Back End Engineer",
+                  link: "https://www.codecademy.com/learn/paths/back-end-engineer-career-path",
+                  tag: "Career Path",
+                },
+                {
+                  title: "Django",
+                  link: "https://www.codecademy.com/learn/paths/build-python-web-apps-with-django",
+                },
+                {
+                  title: "Flask",
+                  link: "https://www.codecademy.com/learn/learn-flask",
+                },
+                {
+                  title: "MongoDB",
+                  link: "https://www.codecademy.com/learn/learn-mongodb",
+                },
+                {
+                  title: "NodeJs",
+                  link: "https://www.codecademy.com/learn/learn-node-js",
+                },
+                {
+                  title: "SQL",
+                  link: "https://www.codecademy.com/learn/learn-node-js",
+                },
+                {
+                  title: "User Authentication And Authorization in Express",
+                  link: "https://www.codecademy.com/learn/user-authentication-authorization-express",
+                },
+                {
+                  title: "Full Stack Engineer",
+                  link: "https://www.codecademy.com/learn/paths/full-stack-engineer-career-path",
+                  tag: "Career Path",
+                },
+              ],
+            },
+            {
+              title: "Artificial Intelligence",
+              items: [
+                {
+                  title: "Feature Engineering",
+                  link: "https://www.codecademy.com/learn/paths/fe-path-feature-engineering",
+                },
+                {
+                  title: "Build Chatbots with Python",
+                  link: "https://www.codecademy.com/learn/paths/build-chatbots-with-python",
+                },
+                {
+                  title: "Data Science Exploratory Data Analysis",
+                  link: "https://www.codecademy.com/learn/eda-exploratory-data-analysis-python",
+                },
+                {
+                  title: "Data Science Hypothesis Testing",
+                  link: "https://www.codecademy.com/learn/hypothesis-testing-python",
+                },
+                {
+                  title: "Machine Learning",
+                  link: "https://www.codecademy.com/learn/paths/machine-learning-engineer",
+                  tag: "Career Path",
+                },
+                {
+                  title: "Natural Language Processing",
+                  link: "https://www.codecademy.com/enrolled/paths/data-science-nlp",
+                  tag: "Career Path",
+                },
+                {
+                  title: "Python",
+                  link: "https://www.codecademy.com/enrolled/courses/learn-advanced-python",
+                },
+                {
+                  title: "Flask",
+                  link: "https://www.codecademy.com/enrolled/courses/learn-flask",
+                },
+              ],
+            },
+            {
+              title: "Game Development",
+              items: [
+                {
+                  title: "C++",
+                  link: "https://www.codecademy.com/enrolled/courses/learn-c-plus-plus",
+                },
+                {
+                  title: "C",
+                  link: "https://www.codecademy.com/learn/paths/c",
+                },
+                {
+                  title: "C#",
+                  link: "https://www.codecademy.com/enrolled/courses/learn-c-sharp",
+                },
+              ],
             },
           ]}
         />

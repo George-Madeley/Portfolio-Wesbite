@@ -11,40 +11,23 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
 import CoursesMenu from "~/components/CoursesMenu";
-import ErrorBoundary from "~/components/ErrorCatcher";
+import FeaturedRepos from "~/components/FeaturedRepos";
 import FeatureSkills from "~/components/FeatureSkills";
 import Hero from "~/components/Hero";
 import JobHighlight from "~/components/JobHighlight";
 import MeshBackground from "~/components/layout/MeshBackground";
 import Metrics from "~/components/Metrics";
-import RepoHighlights from "~/components/RepoHighlights";
 import ApiSvg from "~/icon/ApiSvg";
 import FrontendIcon from "~/icon/FrontendSvg";
 import LearningSvg from "~/icon/LearningSvg";
 import RobotSvg from "~/icon/RobotSvg";
 import VideogameSvg from "~/icon/VideogameSvg";
-import { Repo } from "~/types";
 
 export default function HomePage() {
   const tags = [
     "Full Stack Engineer",
     "Android Developer",
     "Embedded Engineer",
-  ];
-
-  const repos: Repo[] = [
-    {
-      name: "EE40140-Magnetic-Induction-Tomography",
-      owner: "George-Madeley",
-    },
-    {
-      name: "GameDevTV-Unity3D-RealmRush",
-      owner: "George-Madeley",
-    },
-    {
-      name: "App",
-      owner: "Bath-Biodevices-Without-borders",
-    },
   ];
 
   return (
@@ -336,14 +319,24 @@ export default function HomePage() {
             },
           ]}
         />
-        <Container sx={{ md: 5 }}>
-          <Stack gap={3}>
-            <Typography variant="h2">Top Projects</Typography>
-            <ErrorBoundary>
-              <RepoHighlights repos={repos} />
-            </ErrorBoundary>
-          </Stack>
-        </Container>
+        <FeaturedRepos
+          caption="A selection of my most notable and impactful projects on GitHub, showcasing my contributions to open-source software, collaborative development, and innovative solutions across various domains in software engineering."
+          heading="Top Projects"
+          repos={[
+            {
+              name: "EE40140-Magnetic-Induction-Tomography",
+              owner: "George-Madeley",
+            },
+            {
+              name: "GameDevTV-Unity3D-RealmRush",
+              owner: "George-Madeley",
+            },
+            {
+              name: "App",
+              owner: "Bath-Biodevices-Without-borders",
+            },
+          ]}
+        />
       </Stack>
     </MeshBackground>
   );

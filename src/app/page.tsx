@@ -1,20 +1,31 @@
+import AssistantIcon from "@mui/icons-material/Assistant";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
+import StorageIcon from "@mui/icons-material/Storage";
 import TerminalIcon from "@mui/icons-material/Terminal";
+import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
+import WebIcon from "@mui/icons-material/Web";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 import Carousel from "~/components/Carousel";
 import ErrorBoundary from "~/components/ErrorCatcher";
+import FeatureSkills from "~/components/FeatureSkills";
 import Hero from "~/components/Hero";
 import JobHighlight from "~/components/JobHighlight";
 import MeshBackground from "~/components/layout/MeshBackground";
 import RepoHighlights from "~/components/RepoHighlights";
+import ApiSvg from "~/icon/ApiSvg";
+import FrontendIcon from "~/icon/FrontendSvg";
+import RobotSvg from "~/icon/RobotSvg";
+import VideogameSvg from "~/icon/VideogameSvg";
 import { Repo } from "~/types";
 
 export default function HomePage() {
@@ -59,9 +70,9 @@ export default function HomePage() {
 
   return (
     <MeshBackground>
-      <Container sx={{ mb: 5 }}>
-        <Hero tags={tags} />
-        <Stack gap={30} sx={{ mb: 30 }}>
+      <Hero tags={tags} />
+      <Stack gap={30} sx={{ mb: 30 }}>
+        <Container>
           <Card>
             <CardContent>
               <Stack gap={2}>
@@ -77,6 +88,94 @@ export default function HomePage() {
               </Stack>
             </CardContent>
           </Card>
+        </Container>
+        <FeatureSkills
+          caption="A selection of my most proficient and frequently utilized skills, showcasing my expertise and versatility in software development."
+          heading="Featured Skills"
+          topics={[
+            {
+              icon: <WebIcon />,
+              title: "Frontend Web Development",
+              subtitle: "Crafting engaging and responsive user interfaces",
+              description:
+                "Proficient in building responsive and user-friendly web applications using React, TypeScript, and Material-UI. Experienced in component architecture, state management, and performance optimization to create scalable and maintainable codebases.",
+              list: [
+                "TypeScript",
+                "React",
+                "Next.js",
+                "CSS",
+                "React Router",
+                "Vite.js",
+              ],
+              image: <FrontendIcon />,
+              button: (
+                <Link href="/s">
+                  <Button color="primary" variant="contained">
+                    View Projects
+                  </Button>
+                </Link>
+              ),
+            },
+            {
+              icon: <StorageIcon />,
+              title: "Backend API Development",
+              subtitle:
+                "Designing and implementing robust server-side applications",
+              description:
+                "Experienced in developing RESTful APIs and server-side applications using Node.js, Express, and Go. Skilled in database design and management with MongoDB and PostgreSQL, as well as implementing authentication, authorization, and security best practices.",
+              list: ["Node.js", "Express", "Go", "PostgreSQL", "gRPC", "C++"],
+              image: <ApiSvg />,
+              button: (
+                <Link href="/s">
+                  <Button color="primary" variant="contained">
+                    View Projects
+                  </Button>
+                </Link>
+              ),
+            },
+            {
+              icon: <AssistantIcon />,
+              title: "Artificial Intelligence",
+              subtitle:
+                "Building intelligent systems and machine learning models",
+              description:
+                "Proficient in developing machine learning models and AI applications using Python, TensorFlow, and PyTorch. Experienced in natural language processing, computer vision, and deep learning techniques, with a focus on building scalable and efficient AI solutions.",
+              list: [
+                "Python",
+                "TensorFlow",
+                "PyTorch",
+                "Scikit-learn",
+                "numPy",
+                "Computer Vision",
+              ],
+              image: <RobotSvg />,
+              button: (
+                <Link href="/s">
+                  <Button color="primary" variant="contained">
+                    View Projects
+                  </Button>
+                </Link>
+              ),
+            },
+            {
+              icon: <VideogameAssetIcon />,
+              title: "Game Development",
+              subtitle: "Creating immersive and interactive gaming experiences",
+              description:
+                "Experienced in game development using Unity and Unreal Engine, with a focus on creating engaging gameplay mechanics, optimizing performance, and designing immersive environments. Skilled in C# and C++ programming for game logic, physics, and AI.",
+              list: ["Unity", "Unreal Engine", "C#", "C++", "Game Design"],
+              image: <VideogameSvg />,
+              button: (
+                <Link href="/s">
+                  <Button color="primary" variant="contained">
+                    View Projects
+                  </Button>
+                </Link>
+              ),
+            },
+          ]}
+        />
+        <Container>
           <Card>
             <CardContent>
               <Stack gap={1}>
@@ -114,14 +213,16 @@ export default function HomePage() {
               </Stack>
             </CardContent>
           </Card>
+        </Container>
+        <Container sx={{ md: 5 }}>
           <Stack gap={3}>
             <Typography variant="h2">Top Projects</Typography>
             <ErrorBoundary>
               <RepoHighlights repos={repos} />
             </ErrorBoundary>
           </Stack>
-        </Stack>
-      </Container>
+        </Container>
+      </Stack>
     </MeshBackground>
   );
 }

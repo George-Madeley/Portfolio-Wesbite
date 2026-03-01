@@ -1,21 +1,15 @@
 import AssistantIcon from "@mui/icons-material/Assistant";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import StorageIcon from "@mui/icons-material/Storage";
-import TerminalIcon from "@mui/icons-material/Terminal";
 import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
 import WebIcon from "@mui/icons-material/Web";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
-import Carousel from "~/components/Carousel";
 import CoursesMenu from "~/components/CoursesMenu";
 import ErrorBoundary from "~/components/ErrorCatcher";
 import FeatureSkills from "~/components/FeatureSkills";
@@ -37,24 +31,6 @@ export default function HomePage() {
     "Android Developer",
     "Embedded Engineer",
   ];
-
-  const stats = [
-    {
-      id: "programming-languages",
-      Icon: TerminalIcon,
-      text: "Over 10 years of hands-on programming experience, beginning with Python and expanding into a diverse set of languages including C, C++, Java, MATLAB, Go, and Bash scripting. Proficient in utilizing integrated development environments such as Visual Studio for large-scale and collaborative projects. Specialized in modern web application development, with advanced expertise in React and TypeScript, encompassing component architecture, state management, performance optimization, and scalable codebase design.",
-    },
-    {
-      id: "certificates",
-      Icon: EmojiEventsIcon,
-      text: "Earned over 61 professional certificates across four years, with a focus on Front-End Engineering, Back-End Engineering, Machine Learning, Large Language Models, and Unity Game Development. Demonstrated proficiency in designing and implementing scalable web architectures, building robust APIs, developing and deploying ML models, and creating interactive 3D experiences in Unity. These certifications reflect a commitment to continuous learning and a deep understanding of both foundational and advanced concepts in modern software development.",
-    },
-    {
-      id: "git-stats",
-      Icon: QueryStatsIcon,
-      text: "Over the past four years, I have authored 1,180 commits, submitted 48 pull requests, opened 70 issues, and contributed to 39 repositories—all within my personal commit history. This activity reflects a sustained commitment to version control best practices, collaborative software development workflows, and continuous project maintenance. My contributions span code implementation, bug fixes, documentation enhancements, and feature proposals, demonstrating familiarity with the full lifecycle of software projects on platforms like GitHub.",
-    },
-  ] as const;
 
   const repos: Repo[] = [
     {
@@ -360,45 +336,6 @@ export default function HomePage() {
             },
           ]}
         />
-        <Container>
-          <Card>
-            <CardContent>
-              <Stack gap={1}>
-                <Typography variant="h2">Skill Set</Typography>
-                <Carousel
-                  alignContent="stretch"
-                  alignItems="center"
-                  gap={1}
-                  sx={{ width: "100%" }}
-                >
-                  {stats.map((stat) => (
-                    <Box key={stat.id} sx={{ width: "100%" }}>
-                      <Grid container>
-                        <Grid
-                          alignItems="center"
-                          container
-                          gap={3}
-                          justifyContent="center"
-                          size={{ xs: 12, sm: 4 }}
-                        >
-                          <Grid>
-                            <stat.Icon
-                              color="primary"
-                              sx={{ fontSize: "8rem" }}
-                            />
-                          </Grid>
-                        </Grid>
-                        <Grid size={{ xs: 12, sm: 8 }}>
-                          <Typography>{stat.text}</Typography>
-                        </Grid>
-                      </Grid>
-                    </Box>
-                  ))}
-                </Carousel>
-              </Stack>
-            </CardContent>
-          </Card>
-        </Container>
         <Container sx={{ md: 5 }}>
           <Stack gap={3}>
             <Typography variant="h2">Top Projects</Typography>

@@ -1,20 +1,18 @@
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AssistantIcon from "@mui/icons-material/Assistant";
 import StorageIcon from "@mui/icons-material/Storage";
 import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
 import WebIcon from "@mui/icons-material/Web";
 import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
 import CoursesMenu from "~/components/CoursesMenu";
+import FeaturedJobs from "~/components/FeaturedJobs";
 import FeaturedRepos from "~/components/FeaturedRepos";
-import FeatureSkills from "~/components/FeatureSkills";
+import FeaturedSkills from "~/components/FeaturedSkills";
 import Hero from "~/components/Hero";
-import JobHighlight from "~/components/JobHighlight";
 import MeshBackground from "~/components/layout/MeshBackground";
 import Metrics from "~/components/Metrics";
 import ApiSvg from "~/icon/ApiSvg";
@@ -22,36 +20,121 @@ import FrontendIcon from "~/icon/FrontendSvg";
 import LearningSvg from "~/icon/LearningSvg";
 import RobotSvg from "~/icon/RobotSvg";
 import VideogameSvg from "~/icon/VideogameSvg";
+import WorkSvg from "~/icon/WorkSvg";
 
 export default function HomePage() {
-  const tags = [
-    "Full Stack Engineer",
-    "Android Developer",
-    "Embedded Engineer",
-  ];
-
   return (
     <MeshBackground>
-      <Hero tags={tags} />
+      <Hero
+        tags={["Full Stack Engineer", "Android Developer", "Embedded Engineer"]}
+      />
       <Stack gap={30} sx={{ mb: 30 }}>
-        <Container>
-          <Card>
-            <CardContent>
-              <Stack gap={2}>
-                <Typography variant="h3">Hi, I&apos;m George.</Typography>
-                <Typography>
-                  I&apos;m a software engineer working for Atlantic Technology
+        <FeaturedJobs
+          caption="I'm a software engineer working for Atlantic Technology
                   Ltd. With interests in full-stack development and artificial
                   intelligence. You can find me optimizing my code for many
                   projects, building and repairing computers, or even playing
-                  video games during my free time.
+                  video games during my free time."
+          heading="Featured Jobs"
+          image={<WorkSvg />}
+          jobs={[
+            {
+              companyName: "British Telecommunications",
+              duration: "2021-22",
+              description: (
+                <Typography sx={{ color: "text.primary" }}>
+                  Software Engineer at Atlantic Technology Ltd delivering secure
+                  full-stack products across web, desktop, and mobile. Leads
+                  front-end delivery/modernisation and contributes to back-end
+                  services, CI/CD, and native/embedded integrations.
                 </Typography>
-                <JobHighlight />
-              </Stack>
-            </CardContent>
-          </Card>
-        </Container>
-        <FeatureSkills
+              ),
+              primaryButton: (
+                <Button
+                  endIcon={<ArrowForwardIcon />}
+                  fullWidth
+                  href="/about"
+                  variant="contained"
+                >
+                  Experience
+                </Button>
+              ),
+              secondaryButton: (
+                <Button
+                  endIcon={<ArrowForwardIcon />}
+                  fullWidth
+                  href="https://www.bt.com/"
+                  variant="outlined"
+                >
+                  Company
+                </Button>
+              ),
+            },
+            {
+              companyName: "Biodevices Without Borders",
+              duration: "2023-24",
+              description: (
+                <Typography sx={{ color: "text.primary" }}>
+                  Built a handheld water-quality tester solution for underserved
+                  Sub-Saharan African communities, including a React Native
+                  Bluetooth app and Firebase-based data collection.
+                </Typography>
+              ),
+              primaryButton: (
+                <Button
+                  endIcon={<ArrowForwardIcon />}
+                  fullWidth
+                  href="/about"
+                  variant="contained"
+                >
+                  Experience
+                </Button>
+              ),
+              secondaryButton: (
+                <Button
+                  endIcon={<ArrowForwardIcon />}
+                  fullWidth
+                  href="https://bathbiodevices.com/"
+                  variant="outlined"
+                >
+                  Company
+                </Button>
+              ),
+            },
+            {
+              companyName: "Atlantic Technology Ltd",
+              duration: "2024-Present",
+              description: (
+                <Typography sx={{ color: "text.primary" }}>
+                  Delivered and modernised web apps, introduced Docker best
+                  practices, and mentored graduates on Unity AR projects while
+                  strengthening full-stack testing skills.
+                </Typography>
+              ),
+              primaryButton: (
+                <Button
+                  endIcon={<ArrowForwardIcon />}
+                  fullWidth
+                  href="/about"
+                  variant="contained"
+                >
+                  Experience
+                </Button>
+              ),
+              secondaryButton: (
+                <Button
+                  endIcon={<ArrowForwardIcon />}
+                  fullWidth
+                  href="https://www.atlantictechnology.co.uk/"
+                  variant="outlined"
+                >
+                  Company
+                </Button>
+              ),
+            },
+          ]}
+        />
+        <FeaturedSkills
           caption="A selection of my most proficient and frequently utilized skills, showcasing my expertise and versatility in software development."
           heading="Featured Skills"
           topics={[

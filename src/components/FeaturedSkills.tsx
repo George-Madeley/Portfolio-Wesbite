@@ -15,7 +15,7 @@ import { ReactNode, useState } from "react";
 
 import GraphicsCard from "./GraphicsCard";
 
-interface FeatureSkillsProps {
+interface FeaturedSkillsProps {
   heading: string;
   caption: string;
   topics: {
@@ -29,11 +29,11 @@ interface FeatureSkillsProps {
   }[];
 }
 
-export default function FeatureSkills({
+export default function FeaturedSkills({
   heading,
   caption,
   topics,
-}: FeatureSkillsProps) {
+}: FeaturedSkillsProps) {
   const [value, setValue] = useState("1");
 
   // Handle tab change

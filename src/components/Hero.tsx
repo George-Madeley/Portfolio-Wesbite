@@ -1,19 +1,16 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import ErrorIcon from "@mui/icons-material/Error";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Button from "@mui/material/Button";
 import Chip, { chipClasses } from "@mui/material/Chip";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
-import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { Suspense } from "react";
 
 import ErrorCatcher from "./ErrorCatcher";
+import SocialLinks from "./SocialLinks";
 import VersionTag from "./VersionTag";
 import WaveGridWrapper from "./WaveGridWrapper";
 
@@ -95,26 +92,7 @@ export default function Hero({ tags }: HeroProps) {
           </Grid>
           <Grid size={12}>
             <Stack alignItems="center" direction="row" gap={2}>
-              <Tooltip title="GitHub">
-                <IconButton
-                  href="https://github.com/George-Madeley"
-                  rel="noreferrer"
-                  sx={{ color: "text.primary" }}
-                  target="_blank"
-                >
-                  <GitHubIcon />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="LinkedIn">
-                <IconButton
-                  href="https://www.linkedin.com/in/georgemadeleybathcompsyseng"
-                  rel="noreferrer"
-                  sx={{ color: "text.primary" }}
-                  target="_blank"
-                >
-                  <LinkedInIcon />
-                </IconButton>
-              </Tooltip>
+              <SocialLinks />
               <Suspense>
                 <ErrorCatcher
                   fallback={

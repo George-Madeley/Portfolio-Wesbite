@@ -2,29 +2,33 @@
 
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import IconButton from "@mui/material/IconButton";
+import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import { useCallback, useState } from "react";
 
-interface CopyButtonProps {
+interface CopyButtonProps extends IconButtonProps {
   text: string;
   label: string;
 }
 
-export default function CopyButton(props: CopyButtonProps) {
+export default function CopyButton({
+  text,
+  label,
+  ...iconButtonProps
+}: CopyButtonProps) {
   const [clicked, setClicked] = useState<boolean>(false);
 
   const handleClick = useCallback(() => {
-    navigator.clipboard.writeText(props.text);
+    navigator.clipboard.writeText(text);
     setClicked(true);
     setTimeout(() => {
       setClicked(false);
     }, 2000);
-  }, [props.text]);
+  }, [text]);
 
   return (
-    <Tooltip aria-label={`Copy ${props.label}`} title="Copy">
-      <IconButton onClick={handleClick}>
+    <Tooltip aria-label={`Copy ${label}`} title="Copy">
+      <IconButton onClick={handleClick} {...iconButtonProps}>
         {clicked ? <CheckCircleIcon /> : <ContentCopyIcon />}
       </IconButton>
     </Tooltip>

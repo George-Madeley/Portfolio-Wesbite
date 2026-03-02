@@ -36,7 +36,7 @@ export default function GraphicsCard({
             background:
               typeof overlay === "string"
                 ? overlay
-                : "var(--mui-palette-text-secondary)",
+                : "rgba(var(--mui-palette-background-paperChannel) / 0.7)",
           },
         }),
         ...sx,

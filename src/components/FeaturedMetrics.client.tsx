@@ -27,18 +27,25 @@ export default function FeaturedMetrics(props: FeaturedMetricsProps) {
   return (
     <Container>
       <Stack sx={{ gap: { xs: 3, sm: 4 } }}>
-        <Stack
-          alignItems="center"
-          gap={{ xs: 1, sm: 1.5 }}
-          maxWidth={{ sm: 470, md: 615 }}
-          mx="auto"
-          textAlign="center"
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
-          <Typography variant="h2">{props.heading}</Typography>
-          <Typography color="textSecondary" component="p" variant="h6">
-            {props.caption}
-          </Typography>
-        </Stack>
+          <Stack
+            alignItems="center"
+            gap={{ xs: 1, sm: 1.5 }}
+            maxWidth={{ sm: 470, md: 615 }}
+            mx="auto"
+            textAlign="center"
+          >
+            <Typography variant="h2">{props.heading}</Typography>
+            <Typography color="textSecondary" component="p" variant="h6">
+              {props.caption}
+            </Typography>
+          </Stack>
+        </motion.div>
         <Grid container spacing={1.5}>
           {props.loading
             ? Array(4)

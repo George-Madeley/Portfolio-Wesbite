@@ -1,9 +1,11 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import AssistantIcon from "@mui/icons-material/Assistant";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import StorageIcon from "@mui/icons-material/Storage";
 import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
 import WebIcon from "@mui/icons-material/Web";
 import Button from "@mui/material/Button";
+import { chipClasses } from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
@@ -19,6 +21,8 @@ import AsyncFeaturedRepos from "~/components/FeaturedRepos.server";
 import FeaturedSkills from "~/components/FeaturedSkills";
 import Hero from "~/components/Hero";
 import MeshBackground from "~/components/layout/MeshBackground";
+import SocialLinks from "~/components/SocialLinks";
+import VersionTag from "~/components/VersionTag";
 import ApiSvg from "~/icon/ApiSvg";
 import FrontendIcon from "~/icon/FrontendSvg";
 import LearningSvg from "~/icon/LearningSvg";
@@ -40,7 +44,48 @@ export default function HomePage() {
   return (
     <MeshBackground>
       <Hero
+        buttons={[
+          <Button
+            endIcon={<ArrowForwardIcon />}
+            href="/projects"
+            key="view-projects"
+          >
+            View Projects
+          </Button>,
+          <Button
+            color="inherit"
+            href="/about"
+            key="about-me"
+            variant="outlined"
+          >
+            About me
+          </Button>,
+        ]}
+        caption="Software Engineering at Atlantic Technology."
+        name={
+          <>
+            George <br /> Madeley
+          </>
+        }
+        socials={<SocialLinks />}
         tags={["Full Stack Engineer", "Android Developer", "Embedded Engineer"]}
+        version={
+          <Suspense>
+            <VersionTag
+              icon={<AutoAwesomeIcon />}
+              owner="George-Madeley"
+              repo="Portfolio-Website"
+              sx={{
+                color: "text.primary",
+                backgroundColor:
+                  "rgba(var(--mui-palette-text-primaryChannel) / 0.1)",
+                [`& .${chipClasses.icon}`]: {
+                  color: "text.primary",
+                },
+              }}
+            />
+          </Suspense>
+        }
       />
       <Stack gap={30} sx={{ mb: 30 }}>
         <FeaturedJobs

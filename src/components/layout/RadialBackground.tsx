@@ -16,6 +16,7 @@ export default function RadialBackground(
         width: "100%",
         backgroundColor: "var(--mui-palette-background-default)",
         position: "relative",
+        top: "-70px",
       }}
     >
       <div

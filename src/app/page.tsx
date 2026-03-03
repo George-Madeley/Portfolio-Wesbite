@@ -10,6 +10,7 @@ import Link from "next/link";
 
 import CoursesMenu from "~/components/CoursesMenu";
 import FeaturedJobs from "~/components/FeaturedJobs";
+import FeaturedRecommendations from "~/components/FeaturedRecommendations";
 import FeaturedRepos from "~/components/FeaturedRepos";
 import FeaturedSkills from "~/components/FeaturedSkills";
 import Hero from "~/components/Hero";
@@ -419,6 +420,97 @@ export default function HomePage() {
               owner: "Bath-Biodevices-Without-borders",
             },
           ]}
+        />
+        <FeaturedRecommendations
+          caption="Endorsements from colleagues and mentors that highlight my skills, work ethic, and contributions to various projects, providing insights into my professional relationships and the impact I've had in the software engineering community."
+          heading="Recommendations"
+          recommendations={[
+            {
+              name: "Despina Moschou",
+              position: "Senior Lecturer (Associate Professor)",
+              company: "University of Bath",
+              // MUst be in US format to be interpreted correctly by the Date constructor
+              date: new Date("02-14-2024").toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }),
+              review: (
+                <Typography>
+                  George has been transformational in his role with Team Bath
+                  Biodevices, a project I initiated and currently supervising.
+                  He took the water-diagnostic project to a superior,
+                  professional level in the software aspects he undertook and
+                  helped progress the team to another level. Additionally, his
+                  personality enriched the group with a positive attitude and
+                  upbeat vibe, making all new and existing team members feel
+                  welcome and included, bringing out their best self and
+                  performance. I have no doubt these attributes guarantee an
+                  excellent professional future for him in any new role he
+                  undertakes.
+                </Typography>
+              ),
+              href: "https://www.linkedin.com/in/georgemadeleybathcompsyseng/details/recommendations/?detailScreenTabIndex=0#:~:text=On-,George%20has%20been%20transformational%20in%20his%20role%20with%20Team%20Bath%20Biodevices,an%20excellentprofessional%20future%20for%20him%20in%20any%20new%20role%20he%20undertakes.,-George%20has%20been",
+            },
+            {
+              name: "Syed Latif",
+              position: "Specialist Software Engineering Manager",
+              company: "British Telecommunications",
+              // MUst be in US format to be interpreted correctly by the Date constructor
+              date: new Date("07-15-2022").toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }),
+              review: (
+                <Typography>
+                  George has been a great asset to our team with a keen interest
+                  to learn and excel his expertise. Throughout his placement,
+                  George has been challenged with varying technology assignments
+                  across various platforms and languages and he has proved
+                  himself adaptable and focused on learning. Joining us during
+                  the pandemic resulted in very little face to face time with
+                  his peers. George has proven to be extremely organised and
+                  reliable to work independently, staying regularly in touch
+                  with the team remotely via MS Teams. George&apos;s positive
+                  attitude will greatly benefit him in his future career.
+                </Typography>
+              ),
+              href: "https://www.linkedin.com/in/georgemadeleybathcompsyseng/details/recommendations/?detailScreenTabIndex=0#:~:text=On-,George%20has%20been%20a%20great%20asset%20to%20our%20team%20with%20a,George%E2%80%99s%20positive%20attitude%20will%20greatly%20benefit%20him%20in%20his%20future%20career.,-George%20has%20been",
+            },
+            {
+              name: "Susan Falch-Lovesey FRGS",
+              position: "Local Liaison Officer and Skills Champion",
+              company: "Vattenfall",
+              // MUst be in US format to be interpreted correctly by the Date constructor
+              date: new Date("03-16-2021").toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }),
+              review: (
+                <Typography>
+                  George played an important role in informing the early
+                  development of the Vattenfall-UTCN-3DWebtech offshore wind
+                  farm virtual reality education and skills programme. Raising
+                  the profile of the programme by creating mathematical models
+                  for the wind turbine arrays (which he proficiently shared with
+                  ICE - Institute of Professional Engineers) Following this, he
+                  went on to complete a 4 week summer internship with Vattenfall
+                  and the Ogden Trust - working as part of a small team to
+                  create a physical model of the Norfolk Vanguard and Boreas
+                  wind farm that has been incredibly well received at many
+                  events. George is a highly intelligent, creative and hard
+                  working professional who enthusiastically embraces problems
+                  and uses innovative approaches to maximum effect. It has been
+                  such a pleasure to work with George.
+                </Typography>
+              ),
+              href: "https://www.linkedin.com/in/georgemadeleybathcompsyseng/details/recommendations/?detailScreenTabIndex=0#:~:text=On-,George%20played%20an%20important%20role%20in%20informing%20the%20early%20development%20of,effect.%20It%20has%20been%20such%20a%20pleasure%20to%20work%20with%20George.,-George%20played%20an",
+            },
+          ].toSorted(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+          )}
         />
       </Stack>
     </MeshBackground>

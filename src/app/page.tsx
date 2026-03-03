@@ -14,7 +14,8 @@ import FeaturedJobs from "~/components/FeaturedJobs";
 import FeaturedMetrics from "~/components/FeaturedMetrics.client";
 import { AsyncFeaturedMetrics } from "~/components/FeaturedMetrics.server";
 import FeaturedRecommendations from "~/components/FeaturedRecommendations";
-import FeaturedRepos from "~/components/FeaturedRepos";
+import FeaturedRepos from "~/components/FeaturedRepos.client";
+import AsyncFeaturedRepos from "~/components/FeaturedRepos.server";
 import FeaturedSkills from "~/components/FeaturedSkills";
 import Hero from "~/components/Hero";
 import MeshBackground from "~/components/layout/MeshBackground";
@@ -26,6 +27,16 @@ import VideogameSvg from "~/icon/VideogameSvg";
 import WorkSvg from "~/icon/WorkSvg";
 
 export default function HomePage() {
+  /* Featured Metrics */
+  const featuredMetricsHeading = "GitHub Activity";
+  const featuredMetricsCaption =
+    "A snapshot of my recent contributions and activity on GitHub, reflecting my engagement with open-source projects, collaborative development, and continuous learning in the software engineering community.";
+
+  /* Featured Repositories */
+  const featuredReposHeading = "Top Projects";
+  const featuredReposCaption =
+    "A selection of my most notable and impactful projects on GitHub, showcasing my contributions to open-source software, collaborative development, and innovative solutions across various domains in software engineering.";
+
   return (
     <MeshBackground>
       <Hero
@@ -226,15 +237,15 @@ export default function HomePage() {
         <Suspense
           fallback={
             <FeaturedMetrics
-              caption="A snapshot of my recent contributions and activity on GitHub, reflecting my engagement with open-source projects, collaborative development, and continuous learning in the software engineering community."
-              heading="GitHub Activity"
+              caption={featuredMetricsCaption}
+              heading={featuredMetricsHeading}
               loading
             />
           }
         >
           <AsyncFeaturedMetrics
-            caption="A snapshot of my recent contributions and activity on GitHub, reflecting my engagement with open-source projects, collaborative development, and continuous learning in the software engineering community."
-            heading="GitHub Activity"
+            caption={featuredMetricsCaption}
+            heading={featuredMetricsHeading}
             owner="George-Madeley"
           />
         </Suspense>
@@ -398,24 +409,34 @@ export default function HomePage() {
             },
           ]}
         />
-        <FeaturedRepos
-          caption="A selection of my most notable and impactful projects on GitHub, showcasing my contributions to open-source software, collaborative development, and innovative solutions across various domains in software engineering."
-          heading="Top Projects"
-          repos={[
-            {
-              name: "EE40140-Magnetic-Induction-Tomography",
-              owner: "George-Madeley",
-            },
-            {
-              name: "GameDevTV-Unity3D-RealmRush",
-              owner: "George-Madeley",
-            },
-            {
-              name: "App",
-              owner: "Bath-Biodevices-Without-borders",
-            },
-          ]}
-        />
+        <Suspense
+          fallback={
+            <FeaturedRepos
+              caption={featuredReposCaption}
+              heading={featuredReposHeading}
+              loading
+            />
+          }
+        >
+          <AsyncFeaturedRepos
+            caption={featuredReposCaption}
+            heading={featuredReposHeading}
+            repos={[
+              {
+                name: "EE40140-Magnetic-Induction-Tomography",
+                owner: "George-Madeley",
+              },
+              {
+                name: "GameDevTV-Unity3D-RealmRush",
+                owner: "George-Madeley",
+              },
+              {
+                name: "App",
+                owner: "Bath-Biodevices-Without-borders",
+              },
+            ]}
+          />
+        </Suspense>
         <FeaturedRecommendations
           caption="Endorsements from colleagues and mentors that highlight my skills, work ethic, and contributions to various projects, providing insights into my professional relationships and the impact I've had in the software engineering community."
           heading="Recommendations"

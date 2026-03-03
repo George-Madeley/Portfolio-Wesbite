@@ -32,22 +32,25 @@ export default function FeaturedRecommendations({
   return (
     <Container>
       <Stack gap={{ xs: 3, sm: 4 }}>
-        <Stack
-          gap={{ xs: 1, sm: 1.5 }}
-          sx={{
-            mx: "auto",
-          }}
-          textAlign="center"
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
-          <Typography variant="h2">{heading}</Typography>
-          <Typography
-            component="p"
-            sx={{ color: "text.secondary" }}
-            variant="h6"
+          <Stack
+            alignItems="center"
+            gap={{ xs: 1, sm: 1.5 }}
+            maxWidth={{ sm: 470, md: 615 }}
+            mx="auto"
+            textAlign="center"
           >
-            {caption}
-          </Typography>
-        </Stack>
+            <Typography variant="h2">{heading}</Typography>
+            <Typography color="textSecondary" component="p" variant="h6">
+              {caption}
+            </Typography>
+          </Stack>
+        </motion.div>
         <Stack gap={1.5}>
           {recommendations.map((recommendation, index) => (
             <motion.div

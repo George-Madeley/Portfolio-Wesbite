@@ -38,3 +38,27 @@ const getNumCommitsFn = async (
 };
 
 export const getNumCommits = cache(getNumCommitsFn);
+
+const getTotalNumCommitsFn = async (owner: string): Promise<number> => {
+  try {
+    const res = await octokit.request("GET /search/commits", {
+      q: `author:${owner}`,
+      headers: {
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    });
+
+    if (res.status > 299) {
+      throw new Error(
+        `Failed to fetch total number of commits. Status: ${res.status}`
+      );
+    }
+
+    return res.data.total_count;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export const getTotalNumCommits = cache(getTotalNumCommitsFn);

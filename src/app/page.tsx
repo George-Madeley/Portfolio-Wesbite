@@ -7,15 +7,17 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import { Suspense } from "react";
 
 import CoursesMenu from "~/components/CoursesMenu";
 import FeaturedJobs from "~/components/FeaturedJobs";
+import FeaturedMetrics from "~/components/FeaturedMetrics.client";
+import { AsyncFeaturedMetrics } from "~/components/FeaturedMetrics.server";
 import FeaturedRecommendations from "~/components/FeaturedRecommendations";
 import FeaturedRepos from "~/components/FeaturedRepos";
 import FeaturedSkills from "~/components/FeaturedSkills";
 import Hero from "~/components/Hero";
 import MeshBackground from "~/components/layout/MeshBackground";
-import Metrics from "~/components/Metrics";
 import ApiSvg from "~/icon/ApiSvg";
 import FrontendIcon from "~/icon/FrontendSvg";
 import LearningSvg from "~/icon/LearningSvg";
@@ -221,28 +223,21 @@ export default function HomePage() {
             },
           ]}
         />
-        <Metrics
-          caption="A snapshot of my recent contributions and activity on GitHub, reflecting my engagement with open-source projects, collaborative development, and continuous learning in the software engineering community."
-          heading="GitHub Activity"
-          metrics={[
-            {
-              value: 1180,
-              caption: "GitHUB commits",
-            },
-            {
-              value: 48,
-              caption: "Pull Requests",
-            },
-            {
-              value: 70,
-              caption: "Issues",
-            },
-            {
-              value: 39,
-              caption: "Authored Repositories",
-            },
-          ]}
-        />
+        <Suspense
+          fallback={
+            <FeaturedMetrics
+              caption="A snapshot of my recent contributions and activity on GitHub, reflecting my engagement with open-source projects, collaborative development, and continuous learning in the software engineering community."
+              heading="GitHub Activity"
+              loading
+            />
+          }
+        >
+          <AsyncFeaturedMetrics
+            caption="A snapshot of my recent contributions and activity on GitHub, reflecting my engagement with open-source projects, collaborative development, and continuous learning in the software engineering community."
+            heading="GitHub Activity"
+            owner="George-Madeley"
+          />
+        </Suspense>
         <CoursesMenu
           caption="A curated selection of courses that I have completed, showcasing my dedication to continuous learning and professional development across various domains in software engineering and technology."
           heading="Courses"

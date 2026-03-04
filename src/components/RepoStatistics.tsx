@@ -3,8 +3,6 @@ import ForkRightIcon from "@mui/icons-material/ForkRight";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import StarIcon from "@mui/icons-material/Star";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
@@ -13,6 +11,8 @@ import Typography from "@mui/material/Typography";
 import { components } from "@octokit/openapi-types";
 
 import gitHubFetch from "~/api/github";
+
+import ErrorFallback from "./ErrorFallback";
 
 interface RepoStatisticsProps {
   owner: string;
@@ -55,10 +55,7 @@ export default async function RepoStatistics(props: RepoStatisticsProps) {
               ))}
             </Grid>
           ) : (
-            <Alert severity="error">
-              <AlertTitle>Error - {languages.error.name}</AlertTitle>
-              {languages.error.message}
-            </Alert>
+            <ErrorFallback error={languages.error} />
           )}
         </Stack>
       </Grid>

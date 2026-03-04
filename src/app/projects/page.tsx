@@ -7,7 +7,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Suspense } from "react";
 
-import ErrorBoundary from "~/components/ErrorCatcher";
 import MeshBackground from "~/components/layout/MeshBackground";
 // import CommitMap from "~/components/CommitMap";
 import Projects from "~/components/Projects";
@@ -80,9 +79,7 @@ export default async function Page({ searchParams }: PageProps) {
                   }
                   key={page}
                 >
-                  <ErrorBoundary>
-                    <Projects page={page} />
-                  </ErrorBoundary>
+                  <Projects page={page} />
                 </Suspense>
               </Stack>
             </CardContent>

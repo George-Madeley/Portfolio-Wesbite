@@ -3,8 +3,6 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import LockIcon from "@mui/icons-material/Lock";
 import NoEncryptionIcon from "@mui/icons-material/NoEncryption";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import IconButton from "@mui/material/IconButton";
@@ -22,6 +20,7 @@ import { components } from "@octokit/openapi-types";
 import gitHubFetch from "~/api/github";
 import { Repository, Result } from "~/types";
 
+import ErrorFallback from "./ErrorFallback";
 import ProjectsPagination from "./ProjectsPagination";
 
 interface ProjectsProps {
@@ -216,19 +215,13 @@ export default async function Projects(props: ProjectsProps) {
                 ) : (
                   <TableRow key={index}>
                     <TableCell colSpan={5}>
-                      <Alert severity="error">
-                        <AlertTitle>Error- {repo.error.name}</AlertTitle>
-                        {repo.error.message}
-                      </Alert>
+                      <ErrorFallback error={repo.error} />
                     </TableCell>
                   </TableRow>
                 )
               )
             ) : (
-              <Alert severity="error">
-                <AlertTitle>Error- {content.error.name}</AlertTitle>
-                {content.error.message}
-              </Alert>
+              <ErrorFallback error={content.error} />
             )}
           </TableBody>
         </Table>

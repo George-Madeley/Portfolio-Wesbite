@@ -1,8 +1,6 @@
 "use client";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
 import Button from "@mui/material/Button";
 import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
@@ -16,6 +14,7 @@ import { motion } from "motion/react";
 
 import { PropsWithLoading, Result } from "~/types";
 
+import ErrorFallback from "./ErrorFallback";
 import GraphicsCard from "./GraphicsCard";
 
 export type FeaturedRepo = components["schemas"]["full-repository"] & {
@@ -109,10 +108,7 @@ export default function FeaturedRepos(props: FeaturedReposProps) {
                             </Button>
                           </Stack>
                         ) : (
-                          <Alert severity="error">
-                            <AlertTitle>Error: {repo.error.name}</AlertTitle>
-                            {repo.error.message}
-                          </Alert>
+                          <ErrorFallback error={repo.error} />
                         )}
                       </CardContent>
                     </GraphicsCard>

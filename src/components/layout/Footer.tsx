@@ -42,11 +42,7 @@ export default function Footer({
         whileInView={{ opacity: 1, y: 0 }}
       >
         <GraphicsCard sx={{ mb: 3 }}>
-          <Stack
-            gap={{ xs: 3, sm: 4, md: 5 }}
-            rel="noopener noreferrer"
-            role="contentinfo"
-          >
+          <Stack gap={{ xs: 3, sm: 4, md: 5 }} role="contentinfo">
             <CardContent>
               <Grid container spacing={{ xs: 4, md: 3 }}>
                 <Grid size={{ xs: 12, md: "auto" }}>

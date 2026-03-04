@@ -81,6 +81,12 @@ const theme = createTheme({
     MuiButton: {
       defaultProps: {
         variant: "contained",
+        LinkComponent: Link,
+      },
+    },
+    MuiListItemButton: {
+      defaultProps: {
+        LinkComponent: Link,
       },
     },
   },

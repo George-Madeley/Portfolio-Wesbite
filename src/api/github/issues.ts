@@ -9,11 +9,14 @@ const getTotalIssuesCreatedFn = async (owner: string): Promise<number> => {
     const response = await octokit.request("GET /search/issues", {
       q: `type:issue author:${owner}`,
       per_page: 1,
+      headers: {
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
     });
 
     if (response.status > 299) {
       throw new Error(
-        `Failed to fetch number of commits. Status: ${response.status}`
+        `Failed to fetch number of issues created. Status: ${response.status}`
       );
     }
 

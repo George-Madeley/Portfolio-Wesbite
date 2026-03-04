@@ -64,7 +64,7 @@ export default function FeaturedRepos(props: FeaturedReposProps) {
                       sx={{ aspectRatio: "2 / 3" }}
                       variant="rectangular"
                       width="100%"
-                    />{" "}
+                    />
                   </Grid>
                 ))
             : props.repos.map((repo, index) => (

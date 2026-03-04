@@ -15,8 +15,6 @@ export default function GraphicsCard({
 }: GraphicsCardProps) {
   return (
     <Card
-      aria-label="graphics card"
-      rel="noopener noreferrer"
       sx={{
         ...(bgImage && {
           backgroundImage: `url(${bgImage})`,
@@ -33,6 +31,8 @@ export default function GraphicsCard({
             height: 1,
             top: 0,
             left: 0,
+            pointerEvents: "none",
+            borderRadius: "inherit",
             background:
               typeof overlay === "string"
                 ? overlay

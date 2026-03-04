@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import { chipClasses } from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
+import { Route } from "next";
 import { Suspense } from "react";
 
 import CoursesMenu from "~/components/CoursesMenu";
@@ -102,10 +102,9 @@ export default function HomePage() {
               duration: "2021-22",
               description: (
                 <Typography sx={{ color: "text.primary" }}>
-                  Software Engineer at Atlantic Technology Ltd delivering secure
-                  full-stack products across web, desktop, and mobile. Leads
-                  front-end delivery/modernisation and contributes to back-end
-                  services, CI/CD, and native/embedded integrations.
+                  Delivered and modernised web apps, introduced Docker best
+                  practices, and mentored graduates on Unity AR projects while
+                  strengthening full-stack testing skills.
                 </Typography>
               ),
               primaryButton: (
@@ -165,9 +164,10 @@ export default function HomePage() {
               duration: "2024-Present",
               description: (
                 <Typography sx={{ color: "text.primary" }}>
-                  Delivered and modernised web apps, introduced Docker best
-                  practices, and mentored graduates on Unity AR projects while
-                  strengthening full-stack testing skills.
+                  Software Engineer at Atlantic Technology Ltd delivering secure
+                  full-stack products across web, desktop, and mobile. Leads
+                  front-end delivery/modernisation and contributes to back-end
+                  services, CI/CD, and native/embedded integrations.
                 </Typography>
               ),
               primaryButton: (
@@ -213,11 +213,13 @@ export default function HomePage() {
               ],
               image: <FrontendIcon />,
               button: (
-                <Link href="/s">
-                  <Button color="primary" variant="contained">
-                    View Projects
-                  </Button>
-                </Link>
+                <Button
+                  color="primary"
+                  href={"/projects" satisfies Route}
+                  variant="contained"
+                >
+                  View Projects
+                </Button>
               ),
             },
             {
@@ -230,11 +232,13 @@ export default function HomePage() {
               list: ["Node.js", "Express", "Go", "PostgreSQL", "gRPC", "C++"],
               image: <ApiSvg />,
               button: (
-                <Link href="/s">
-                  <Button color="primary" variant="contained">
-                    View Projects
-                  </Button>
-                </Link>
+                <Button
+                  color="primary"
+                  href={"/projects" satisfies Route}
+                  variant="contained"
+                >
+                  View Projects
+                </Button>
               ),
             },
             {
@@ -254,11 +258,13 @@ export default function HomePage() {
               ],
               image: <RobotSvg />,
               button: (
-                <Link href="/s">
-                  <Button color="primary" variant="contained">
-                    View Projects
-                  </Button>
-                </Link>
+                <Button
+                  color="primary"
+                  href={"/projects" satisfies Route}
+                  variant="contained"
+                >
+                  View Projects
+                </Button>
               ),
             },
             {
@@ -270,11 +276,13 @@ export default function HomePage() {
               list: ["Unity", "Unreal Engine", "C#", "C++", "Game Design"],
               image: <VideogameSvg />,
               button: (
-                <Link href="/s">
-                  <Button color="primary" variant="contained">
-                    View Projects
-                  </Button>
-                </Link>
+                <Button
+                  color="primary"
+                  href={"/projects" satisfies Route}
+                  variant="contained"
+                >
+                  View Projects
+                </Button>
               ),
             },
           ]}
@@ -383,7 +391,7 @@ export default function HomePage() {
                 },
                 {
                   title: "SQL",
-                  link: "https://www.codecademy.com/learn/learn-node-js",
+                  link: "https://www.codecademy.com/learn/learn-sql",
                 },
                 {
                   title: "User Authentication And Authorization in Express",
@@ -477,7 +485,7 @@ export default function HomePage() {
               },
               {
                 name: "App",
-                owner: "Bath-Biodevices-Without-borders",
+                owner: "Bath-Biodevices-Without-Borders",
               },
             ]}
           />
@@ -490,12 +498,8 @@ export default function HomePage() {
               name: "Despina Moschou",
               position: "Senior Lecturer (Associate Professor)",
               company: "University of Bath",
-              // MUst be in US format to be interpreted correctly by the Date constructor
-              date: new Date("02-14-2024").toLocaleDateString("en-GB", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              }),
+              // Must be in US format to be interpreted correctly by the Date constructor
+              date: new Date("02-14-2024"),
               review: (
                 <Typography>
                   George has been transformational in his role with Team Bath
@@ -518,11 +522,7 @@ export default function HomePage() {
               position: "Specialist Software Engineering Manager",
               company: "British Telecommunications",
               // MUst be in US format to be interpreted correctly by the Date constructor
-              date: new Date("07-15-2022").toLocaleDateString("en-GB", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              }),
+              date: new Date("07-15-2022"),
               review: (
                 <Typography>
                   George has been a great asset to our team with a keen interest
@@ -544,11 +544,7 @@ export default function HomePage() {
               position: "Local Liaison Officer and Skills Champion",
               company: "Vattenfall",
               // MUst be in US format to be interpreted correctly by the Date constructor
-              date: new Date("03-16-2021").toLocaleDateString("en-GB", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              }),
+              date: new Date("03-16-2021"),
               review: (
                 <Typography>
                   George played an important role in informing the early
@@ -569,9 +565,16 @@ export default function HomePage() {
               ),
               href: "https://www.linkedin.com/in/georgemadeleybathcompsyseng/details/recommendations/?detailScreenTabIndex=0#:~:text=On-,George%20played%20an%20important%20role%20in%20informing%20the%20early%20development%20of,effect.%20It%20has%20been%20such%20a%20pleasure%20to%20work%20with%20George.,-George%20played%20an",
             },
-          ].toSorted(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-          )}
+          ]
+            .toSorted((a, b) => b.date.getTime() - a.date.getTime())
+            .map((recommendation) => ({
+              ...recommendation,
+              date: recommendation.date.toLocaleDateString("en-GB", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }),
+            }))}
         />
       </Stack>
     </MeshBackground>

@@ -1,7 +1,5 @@
 import "./globals.css";
 
-import EmailIcon from "@mui/icons-material/Email";
-import PhoneIcon from "@mui/icons-material/Phone";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
@@ -75,11 +73,10 @@ export default function RootLayout({
 }>) {
   const contactInfo = [
     {
-      icon: <EmailIcon />,
       text: "george.madeley@outlook.com",
       id: "email",
     },
-    { icon: <PhoneIcon />, text: "+44 7830 979199", id: "phone" },
+    { text: "+44 7830 979199", id: "phone" },
   ];
   return (
     <html className={roboto.className} lang="en" suppressHydrationWarning>

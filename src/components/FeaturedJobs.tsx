@@ -10,7 +10,7 @@ import { ReactNode } from "react";
 
 import GraphicsCard from "./GraphicsCard";
 
-interface FeaturedJObsProps {
+interface FeaturedJobsProps {
   heading: string;
   caption: string;
   image?: ReactNode;
@@ -29,7 +29,7 @@ export default function FeaturedJobs({
   caption,
   image,
   jobs,
-}: FeaturedJObsProps) {
+}: FeaturedJobsProps) {
   const partitionInExtraSmall = 1;
   const partitionInSmall = 2;
   const partitionInLarge = 3;

@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 const nextConfig: NextConfig = {
   typedRoutes: true,
@@ -23,8 +26,8 @@ const withMDX = createMDX({
   // Handle both .md and .mdx files
   extension: /\.(md|mdx)$/,
   options: {
-    remarkPlugins: ["remark-gfm", "remark-math"],
-    rehypePlugins: ["rehype-katex"],
+    remarkPlugins: [remarkGfm, remarkMath],
+    rehypePlugins: [rehypeKatex],
   },
 });
 

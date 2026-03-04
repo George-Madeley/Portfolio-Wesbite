@@ -1,6 +1,8 @@
 "use client";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
 import Button from "@mui/material/Button";
 import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
@@ -12,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import { components } from "@octokit/openapi-types";
 import { motion } from "motion/react";
 
-import { PropsWithLoading } from "~/types";
+import { PropsWithLoading, Result } from "~/types";
 
 import GraphicsCard from "./GraphicsCard";
 
@@ -23,7 +25,7 @@ export type FeaturedRepo = components["schemas"]["full-repository"] & {
 type FeaturedReposProps = {
   heading: string;
   caption: string;
-} & PropsWithLoading<{ repos: FeaturedRepo[] }>;
+} & PropsWithLoading<{ repos: Result<FeaturedRepo>[] }>;
 
 export default function FeaturedRepos(props: FeaturedReposProps) {
   return (
@@ -68,7 +70,7 @@ export default function FeaturedRepos(props: FeaturedReposProps) {
                   </Grid>
                 ))
             : props.repos.map((repo, index) => (
-                <Grid key={repo.id} size={4}>
+                <Grid key={index} size={4}>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     style={{ height: "100%" }}
@@ -82,27 +84,36 @@ export default function FeaturedRepos(props: FeaturedReposProps) {
                   >
                     <GraphicsCard sx={{ height: "100%" }}>
                       <CardContent sx={{ height: "100%" }}>
-                        <Stack
-                          gap={2}
-                          justifyContent="space-between"
-                          sx={{ height: "100%" }}
-                        >
-                          <Stack gap={1}>
-                            <Typography variant="h4">{repo.name}</Typography>
-                            <Stack direction="row" flexWrap="wrap" gap={1}>
-                              {repo.languages.map((language) => (
-                                <Chip key={language} label={language} />
-                              ))}
-                            </Stack>
-                            <Typography>{repo.description}</Typography>
-                          </Stack>
-                          <Button
-                            endIcon={<ArrowForwardIcon />}
-                            href={`/projects/${repo.name}?owner=${repo.owner.login}`}
+                        {repo.success ? (
+                          <Stack
+                            gap={2}
+                            justifyContent="space-between"
+                            sx={{ height: "100%" }}
                           >
-                            Learn More
-                          </Button>
-                        </Stack>
+                            <Stack gap={1}>
+                              <Typography variant="h4">
+                                {repo.data.name}
+                              </Typography>
+                              <Stack direction="row" flexWrap="wrap" gap={1}>
+                                {repo.data.languages.map((language) => (
+                                  <Chip key={language} label={language} />
+                                ))}
+                              </Stack>
+                              <Typography>{repo.data.description}</Typography>
+                            </Stack>
+                            <Button
+                              endIcon={<ArrowForwardIcon />}
+                              href={`/projects/${repo.data.name}?owner=${repo.data.owner.login}`}
+                            >
+                              Learn More
+                            </Button>
+                          </Stack>
+                        ) : (
+                          <Alert severity="error">
+                            <AlertTitle>Error: {repo.error.name}</AlertTitle>
+                            {repo.error.message}
+                          </Alert>
+                        )}
                       </CardContent>
                     </GraphicsCard>
                   </motion.div>

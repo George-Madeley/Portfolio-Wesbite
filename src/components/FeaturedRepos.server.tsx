@@ -1,5 +1,5 @@
-import { getLanguages, getRepo } from "~/api/github";
-import { Repo } from "~/types";
+import gitHubFetch from "~/api/github";
+import { Repo, Result } from "~/types";
 
 import FeaturedRepos, { FeaturedRepo } from "./FeaturedRepos.client";
 
@@ -14,14 +14,41 @@ export default async function AsyncFeaturedRepos({
   caption,
   heading,
 }: AsyncFeaturedReposProps) {
-  const repositories: FeaturedRepo[] = await Promise.all(
-    repos.map(async (repo: Repo) => {
-      const repoDetails = await getRepo(repo.owner, repo.name);
-      const languages = await getLanguages(repo.owner, repo.name);
-      const languageList = Object.keys(languages);
+  const repositories = await Promise.all(
+    repos.map(async (repo: Repo): Promise<Result<FeaturedRepo>> => {
+      const repoDetails = await gitHubFetch("GET /repos/{owner}/{repo}", {
+        owner: repo.owner,
+        repo: repo.name,
+        headers: {
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      });
+
+      const languages = await gitHubFetch(
+        "GET /repos/{owner}/{repo}/languages",
+        {
+          owner: repo.owner,
+          repo: repo.name,
+          headers: {
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
+        }
+      );
+
+      if (!repoDetails.success || !languages.success) {
+        return {
+          success: false,
+          error: new Error(
+            `Failed to fetch details for repo ${repo.owner}/${repo.name}`
+          ),
+        };
+      }
       return {
-        ...repoDetails,
-        languages: languageList,
+        success: true,
+        data: {
+          ...repoDetails.data,
+          languages: Object.keys(languages.data),
+        },
       };
     })
   );

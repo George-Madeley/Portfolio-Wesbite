@@ -11,7 +11,7 @@ import Stack from "@mui/material/Stack";
 import Tab, { TabProps } from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import { motion } from "motion/react";
-import { ReactNode, useState } from "react";
+import { ReactNode, SyntheticEvent, useState } from "react";
 
 import GraphicsCard from "./GraphicsCard";
 
@@ -37,7 +37,7 @@ export default function FeaturedSkills({
   const [value, setValue] = useState("1");
 
   // Handle tab change
-  const handleChange = (_: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_: SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 

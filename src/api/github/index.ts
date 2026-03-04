@@ -1,5 +1,4 @@
 export * from "./commits";
-export * from "./entry";
 export * from "./issues";
 export * from "./languages";
 export * from "./pullRequests";

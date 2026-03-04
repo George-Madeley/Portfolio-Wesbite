@@ -1,3 +1,5 @@
+"use server";
+
 import { cache } from "react";
 
 import octokit from "./entry";
@@ -11,7 +13,7 @@ const getTotalPRsCreatedFn = async (owner: string): Promise<number> => {
 
     if (response.status > 299) {
       throw new Error(
-        `Failed to fetch number of commits. Status: ${response.status}`
+        `Failed to fetch number of pull requests. Status: ${response.status}`
       );
     }
 

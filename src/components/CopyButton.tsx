@@ -6,7 +6,7 @@ import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import { useCallback, useState } from "react";
 
-interface CopyButtonProps extends IconButtonProps {
+interface CopyButtonProps extends Omit<IconButtonProps, "onClick"> {
   text: string;
   label: string;
 }
@@ -28,7 +28,7 @@ export default function CopyButton({
 
   return (
     <Tooltip aria-label={`Copy ${label}`} title="Copy">
-      <IconButton onClick={handleClick} {...iconButtonProps}>
+      <IconButton {...iconButtonProps} onClick={handleClick}>
         {clicked ? <CheckCircleIcon /> : <ContentCopyIcon />}
       </IconButton>
     </Tooltip>

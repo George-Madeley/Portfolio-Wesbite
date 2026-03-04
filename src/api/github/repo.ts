@@ -69,7 +69,7 @@ const getTotalNumReposFn = async (owner: string): Promise<number> => {
 
     if (response.status > 299) {
       throw new Error(
-        `Failed to fetch number of commits. Status: ${response.status}`
+        `Failed to fetch number of repositories for owner "${owner}". Status: ${response.status}`
       );
     }
 

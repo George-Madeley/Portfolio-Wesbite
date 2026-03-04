@@ -1,6 +1,7 @@
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import Chip, { ChipProps } from "@mui/material/Chip";
 
-import { getTags } from "~/api/github";
+import gitHubFetch from "~/api/github";
 
 interface VersionTagProps extends ChipProps {
   owner: string;
@@ -10,11 +11,16 @@ interface VersionTagProps extends ChipProps {
 export default async function VersionTag(props: VersionTagProps) {
   const { owner, repo, ...chipProps } = props;
 
-  const tags = await getTags(owner, repo);
-  const latestTag = tags.at(0);
+  const tags = await gitHubFetch("GET /repos/{owner}/{repo}/tags", {
+    owner: owner,
+    repo: repo,
+    headers: {
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
 
-  if (latestTag) {
-    return <Chip {...chipProps} label={latestTag.name} />;
+  if (!tags.success || tags.data.at(0) === undefined) {
+    return <Chip icon={<ErrorOutlineIcon />} label="Error" />;
   }
-  return null;
+  return <Chip {...chipProps} label={tags.data.at(0)?.name ?? "N/A"} />;
 }

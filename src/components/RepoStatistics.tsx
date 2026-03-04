@@ -3,6 +3,8 @@ import ForkRightIcon from "@mui/icons-material/ForkRight";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import StarIcon from "@mui/icons-material/Star";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
@@ -10,7 +12,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { components } from "@octokit/openapi-types";
 
-import { getLanguages, getNumCommits } from "~/api/github";
+import gitHubFetch from "~/api/github";
 
 interface RepoStatisticsProps {
   owner: string;
@@ -18,10 +20,22 @@ interface RepoStatisticsProps {
 }
 
 export default async function RepoStatistics(props: RepoStatisticsProps) {
-  const languages = Object.keys(
-    await getLanguages(props.owner, props.repo.name)
-  );
-  const numCommits = await getNumCommits(props.owner, props.repo.name);
+  const [languages, numCommits] = await Promise.all([
+    gitHubFetch("GET /repos/{owner}/{repo}/languages", {
+      owner: props.owner,
+      repo: props.repo.name,
+      headers: {
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    }),
+    gitHubFetch("GET /repos/{owner}/{repo}/stats/contributors", {
+      owner: props.owner,
+      repo: props.repo.name,
+      headers: {
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    }),
+  ]);
 
   return (
     <Grid container direction="column" gap={3}>
@@ -32,13 +46,20 @@ export default async function RepoStatistics(props: RepoStatisticsProps) {
       <Grid>
         <Stack direction="column" gap={1}>
           <Typography variant="subtitle2">Languages</Typography>
-          <Grid container gap={1}>
-            {languages.map((language) => (
-              <Grid key={language} size="auto">
-                <Chip color="primary" label={language} />
-              </Grid>
-            ))}
-          </Grid>
+          {languages.success ? (
+            <Grid container gap={1}>
+              {Object.keys(languages.data).map((language) => (
+                <Grid key={language} size="auto">
+                  <Chip color="primary" label={language} />
+                </Grid>
+              ))}
+            </Grid>
+          ) : (
+            <Alert severity="error">
+              <AlertTitle>Error - {languages.error.name}</AlertTitle>
+              {languages.error.message}
+            </Alert>
+          )}
         </Stack>
       </Grid>
       <Grid>
@@ -63,7 +84,12 @@ export default async function RepoStatistics(props: RepoStatisticsProps) {
               {
                 id: "stats-commits",
                 icon: <CommitIcon />,
-                message: numCommits,
+                message: numCommits.success
+                  ? numCommits.data.reduce(
+                      (acc: number, curr) => acc + curr.total,
+                      0
+                    )
+                  : "N/A",
               },
               {
                 id: "stats-forks",
@@ -86,7 +112,7 @@ export default async function RepoStatistics(props: RepoStatisticsProps) {
       </Grid>
       <Grid>
         <Button fullWidth href={props.repo.url} startIcon={<GitHubIcon />}>
-          GithUb
+          GitHub
         </Button>
       </Grid>
     </Grid>

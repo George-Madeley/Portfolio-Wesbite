@@ -10,7 +10,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Suspense } from "react";
 
-import { getRepo } from "~/api/github";
+import gitHubFetch from "~/api/github";
 import ErrorCatcher from "~/components/ErrorCatcher";
 import RadialBackground from "~/components/layout/RadialBackground";
 import RepoMarkdown from "~/components/RepoMarkdown";
@@ -23,7 +23,18 @@ export default async function Page(props: PageProps<"/projects/[repo]">) {
     (Array.isArray(searchParams.owner)
       ? searchParams.owner.at(0)
       : searchParams.owner) ?? "";
-  const repo = await getRepo(owner, params.repo);
+
+  const response = await gitHubFetch("GET /repos/{owner}/{repo}", {
+    owner,
+    repo: params.repo,
+    headers: {
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+
+  if (!response.success) {
+    throw response.error;
+  }
 
   return (
     <RadialBackground color="var(--mui-palette-primary-main)">
@@ -38,28 +49,28 @@ export default async function Page(props: PageProps<"/projects/[repo]">) {
                   fontWeight={700}
                   variant="h1"
                 >
-                  {repo.name}
+                  {response.data.name}
                 </Typography>
                 <Typography
                   color="textSecondary"
                   fontSize={{ sm: "1rem", md: "1.5rem" }}
                   variant="subtitle1"
                 >
-                  {repo.description || "No Description"}
+                  {response.data.description || "No Description"}
                 </Typography>
               </Grid>
               <Grid size={12}>
                 <Stack direction="row" gap={1}>
-                  <Typography>{repo.owner.login}</Typography>
+                  <Typography>{response.data.owner.login}</Typography>
                   <Divider aria-hidden="true" flexItem orientation="vertical" />
-                  <Typography>{repo.default_branch}</Typography>
+                  <Typography>{response.data.default_branch}</Typography>
                   <Divider aria-hidden="true" flexItem orientation="vertical" />
-                  <Typography>{repo.visibility}</Typography>
+                  <Typography>{response.data.visibility}</Typography>
                 </Stack>
               </Grid>
               <Grid size="auto">
                 <Button
-                  href={repo.url}
+                  href={response.data.url}
                   startIcon={<GitHubIcon />}
                   variant="contained"
                 >
@@ -94,7 +105,7 @@ export default async function Page(props: PageProps<"/projects/[repo]">) {
                         }
                       >
                         <ErrorCatcher>
-                          <RepoMarkdown owner={owner} repo={repo} />
+                          <RepoMarkdown owner={owner} repo={response.data} />
                         </ErrorCatcher>
                       </Suspense>
                     </Stack>
@@ -117,7 +128,7 @@ export default async function Page(props: PageProps<"/projects/[repo]">) {
                       }
                     >
                       <ErrorCatcher>
-                        <RepoStatistics owner={owner} repo={repo} />
+                        <RepoStatistics owner={owner} repo={response.data} />
                       </ErrorCatcher>
                     </Suspense>
                   </CardContent>

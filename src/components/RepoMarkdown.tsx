@@ -1,13 +1,13 @@
 "use server";
 
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
 import Box from "@mui/material/Box";
 import { stackClasses } from "@mui/material/Stack";
 import { components } from "@octokit/openapi-types";
 
 import gitHubFetch from "~/api/github";
 import Markdown from "~/components/Markdown";
+
+import ErrorFallback from "./ErrorFallback";
 
 interface MarkdownProps {
   owner: string;
@@ -24,12 +24,7 @@ export default async function RepoMarkdown(props: MarkdownProps) {
   });
 
   if (!response.success) {
-    return (
-      <Alert severity="error">
-        <AlertTitle>Error - {response.error.name}</AlertTitle>
-        {response.error.message}
-      </Alert>
-    );
+    return <ErrorFallback error={response.error} />;
   }
 
   // The content is base64 encoded

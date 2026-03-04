@@ -7,7 +7,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Suspense } from "react";
 
-import ErrorBoundary from "~/components/ErrorCatcher";
 import ExperienceTimeline from "~/components/ExperienceTimeline";
 import MeshBackground from "~/components/layout/MeshBackground";
 
@@ -70,9 +69,7 @@ export default function Page() {
               <Skeleton height={"10rem"} variant="rectangular" width={"100%"} />
             }
           >
-            <ErrorBoundary>
-              <ExperienceTimeline />
-            </ErrorBoundary>
+            <ExperienceTimeline />
           </Suspense>
         </Stack>
       </Container>

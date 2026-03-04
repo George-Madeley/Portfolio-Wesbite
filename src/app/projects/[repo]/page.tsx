@@ -11,7 +11,6 @@ import Typography from "@mui/material/Typography";
 import { Suspense } from "react";
 
 import gitHubFetch from "~/api/github";
-import ErrorCatcher from "~/components/ErrorCatcher";
 import RadialBackground from "~/components/layout/RadialBackground";
 import RepoMarkdown from "~/components/RepoMarkdown";
 import RepoStatistics from "~/components/RepoStatistics";
@@ -104,9 +103,7 @@ export default async function Page(props: PageProps<"/projects/[repo]">) {
                           />
                         }
                       >
-                        <ErrorCatcher>
-                          <RepoMarkdown owner={owner} repo={response.data} />
-                        </ErrorCatcher>
+                        <RepoMarkdown owner={owner} repo={response.data} />
                       </Suspense>
                     </Stack>
                   </CardContent>
@@ -127,9 +124,7 @@ export default async function Page(props: PageProps<"/projects/[repo]">) {
                         </Stack>
                       }
                     >
-                      <ErrorCatcher>
-                        <RepoStatistics owner={owner} repo={response.data} />
-                      </ErrorCatcher>
+                      <RepoStatistics owner={owner} repo={response.data} />
                     </Suspense>
                   </CardContent>
                 </Card>

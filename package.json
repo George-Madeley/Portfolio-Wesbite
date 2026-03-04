@@ -33,7 +33,6 @@
     "octokit": "^5.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-error-boundary": "^6.1.1",
     "rehype-katex": "^7.0.1",
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",

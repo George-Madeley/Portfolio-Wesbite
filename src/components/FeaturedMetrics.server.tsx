@@ -1,5 +1,3 @@
-import { cache } from "react";
-
 import gitHubFetch from "~/api/github";
 
 import FeaturedMetrics from "./FeaturedMetrics.client";
@@ -51,10 +49,10 @@ export async function AsyncFeaturedMetrics(props: AsyncFeaturedMetricsProps) {
   };
 
   const metrics = await Promise.all([
-    cache(getTotalNumCommits)(props.owner),
-    cache(getTotalPRsCreated)(props.owner),
-    cache(getTotalIssuesCreated)(props.owner),
-    cache(getTotalNumRepos)(props.owner),
+    getTotalNumCommits(props.owner),
+    getTotalPRsCreated(props.owner),
+    getTotalIssuesCreated(props.owner),
+    getTotalNumRepos(props.owner),
   ]);
 
   return (
@@ -63,19 +61,19 @@ export async function AsyncFeaturedMetrics(props: AsyncFeaturedMetricsProps) {
       heading={props.heading}
       metrics={[
         {
-          value: metrics[0].success ? metrics[0].data.total_count : NaN,
+          value: metrics[0].success ? metrics[0].data.total_count : 0,
           caption: metrics[0].success ? "Total Commits" : "Failed to fetch",
         },
         {
-          value: metrics[1].success ? metrics[1].data.total_count : NaN,
+          value: metrics[1].success ? metrics[1].data.total_count : 0,
           caption: metrics[1].success ? "PRs Created" : "Failed to fetch",
         },
         {
-          value: metrics[2].success ? metrics[2].data.total_count : NaN,
+          value: metrics[2].success ? metrics[2].data.total_count : 0,
           caption: metrics[2].success ? "Issues Created" : "Failed to fetch",
         },
         {
-          value: metrics[3].success ? metrics[3].data.total_count : NaN,
+          value: metrics[3].success ? metrics[3].data.total_count : 0,
           caption: metrics[3].success ? "Authored Repos" : "Failed to fetch",
         },
       ]}

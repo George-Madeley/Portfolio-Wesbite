@@ -32,9 +32,9 @@ export default async function RepoMarkdown(props: MarkdownProps) {
   let decodedContent = "";
 
   if (encoding === "base64") {
-    // If in browser, use atob
-    decodedContent = atob(content.replace(/\n/g, ""));
-    // If in Node.js, use: decodedContent = Buffer.from(content, "base64").toString("utf-8");
+    decodedContent = Buffer.from(content.replace(/\n/g, ""), "base64").toString(
+      "utf-8"
+    );
   } else {
     decodedContent = content;
   }

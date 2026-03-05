@@ -9038,6 +9038,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"non-error@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "non-error@npm:0.1.0"
+  checksum: 10c0/acaba9060f2682037b85241d914bbbf17210024e5bcce9f80ce104fec8f2946a19222b0503e3c1a5ed6d172354cf772f474211680c9d8559e4868cdd8e9d878d
+  languageName: node
+  linkType: hard
+
 "nopt@npm:^9.0.0":
   version: 9.0.0
   resolution: "nopt@npm:9.0.0"
@@ -9943,6 +9950,8 @@ __metadata:
     remark-gfm: "npm:^4.0.1"
     remark-math: "npm:^6.0.0"
     semantic-release: "npm:^25.0.3"
+    serialize-error: "npm:^13.0.1"
+    server-only: "npm:^0.0.1"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.9.3"
     zod: "npm:^4.3.6"
@@ -10717,6 +10726,23 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 10c0/5215ad0234e2845d4ea5bb9d836d42b03499546ddafb12075566899fc617f68794bb6f146076b6881d755de17d6c6cc73372555879ec7dce2c2feee947866ad2
+  languageName: node
+  linkType: hard
+
+"serialize-error@npm:^13.0.1":
+  version: 13.0.1
+  resolution: "serialize-error@npm:13.0.1"
+  dependencies:
+    non-error: "npm:^0.1.0"
+    type-fest: "npm:^5.4.1"
+  checksum: 10c0/bca59e7b1d6ad6f8f50d698f2851b65a907a7a0fe63bb35fb8e1712781d7d7634fde49a2df1586d5aa6874e56c2e2304514725ef0810c7b964941d9bc7b7ae02
+  languageName: node
+  linkType: hard
+
+"server-only@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "server-only@npm:0.0.1"
+  checksum: 10c0/4704f0ef85da0be981af6d4ed8e739d39bcfd265b9c246a684060acda5642d0fdc6daffc2308e71e2682c5f508090978802eae0a77623c9b90a49f9ae68048d6
   languageName: node
   linkType: hard
 
@@ -11714,7 +11740,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^5.2.0, type-fest@npm:^5.4.4":
+"type-fest@npm:^5.2.0, type-fest@npm:^5.4.1, type-fest@npm:^5.4.4":
   version: 5.4.4
   resolution: "type-fest@npm:5.4.4"
   dependencies:

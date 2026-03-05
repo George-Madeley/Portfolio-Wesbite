@@ -1,3 +1,5 @@
+import { serializeError } from "serialize-error";
+
 import gitHubFetch from "~/api/github";
 import { Repo, Result } from "~/types";
 
@@ -38,8 +40,10 @@ export default async function AsyncFeaturedRepos({
       if (!repoDetails.success || !languages.success) {
         return {
           success: false,
-          error: new Error(
-            `Failed to fetch details for repo ${repo.owner}/${repo.name}`
+          error: serializeError(
+            new Error(
+              `Failed to fetch details for repo ${repo.owner}/${repo.name}`
+            )
           ),
         };
       }

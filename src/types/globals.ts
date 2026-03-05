@@ -1,14 +1,9 @@
-import { components } from "@octokit/openapi-types";
+import { ErrorObject } from "serialize-error";
 
 export interface Repo {
   name: string;
   owner: string;
 }
-
-export type Repository = components["schemas"]["repository"] & {
-  languages?: string[];
-  num_of_commits?: number;
-};
 
 export type PropsWithLoading<T extends object> =
   | { loading: true }
@@ -20,4 +15,4 @@ export type Result<
   Failure extends object = object,
 > =
   | ({ success: true; data: Data } & Success)
-  | ({ success: false; error: Error } & Failure);
+  | ({ success: false; error: ErrorObject } & Failure);

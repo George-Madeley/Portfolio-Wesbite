@@ -20,7 +20,14 @@ export default async function VersionTag(props: VersionTagProps) {
   });
 
   if (!tags.success || tags.data.at(0) === undefined) {
-    return <Chip icon={<ErrorOutlineIcon />} label="Error" />;
+    return (
+      <Chip
+        color="error"
+        icon={<ErrorOutlineIcon color="error" />}
+        label="Error"
+        variant="outlined"
+      />
+    );
   }
   return <Chip {...chipProps} label={tags.data.at(0)?.name ?? "N/A"} />;
 }

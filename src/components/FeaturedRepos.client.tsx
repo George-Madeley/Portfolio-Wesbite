@@ -69,7 +69,10 @@ export default function FeaturedRepos(props: FeaturedReposProps) {
                   </Grid>
                 ))
             : props.repos.map((repo, index) => (
-                <Grid key={index} size={4}>
+                <Grid
+                  key={repo.success ? repo.data.id : `error-${index}`}
+                  size={4}
+                >
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     style={{ height: "100%" }}
@@ -81,9 +84,9 @@ export default function FeaturedRepos(props: FeaturedReposProps) {
                     viewport={{ once: true }}
                     whileInView={{ opacity: 1, y: 0 }}
                   >
-                    <GraphicsCard sx={{ height: "100%" }}>
-                      <CardContent sx={{ height: "100%" }}>
-                        {repo.success ? (
+                    {repo.success ? (
+                      <GraphicsCard sx={{ height: "100%" }}>
+                        <CardContent sx={{ height: "100%" }}>
                           <Stack
                             gap={2}
                             justifyContent="space-between"
@@ -107,11 +110,14 @@ export default function FeaturedRepos(props: FeaturedReposProps) {
                               Learn More
                             </Button>
                           </Stack>
-                        ) : (
-                          <ErrorFallback error={repo.error} />
-                        )}
-                      </CardContent>
-                    </GraphicsCard>
+                        </CardContent>
+                      </GraphicsCard>
+                    ) : (
+                      <ErrorFallback
+                        error={repo.error}
+                        sx={{ height: "100%" }}
+                      />
+                    )}
                   </motion.div>
                 </Grid>
               ))}

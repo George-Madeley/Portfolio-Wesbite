@@ -55,7 +55,7 @@ export default async function RepoStatistics(props: RepoStatisticsProps) {
               ))}
             </Grid>
           ) : (
-            <ErrorFallback error={languages.error} />
+            <ErrorFallback error={languages.error} hideStack />
           )}
         </Stack>
       </Grid>
@@ -82,11 +82,13 @@ export default async function RepoStatistics(props: RepoStatisticsProps) {
                 id: "stats-commits",
                 icon: <CommitIcon />,
                 message: numCommits.success
-                  ? numCommits.data.reduce(
-                      (acc: number, curr) => acc + curr.total,
-                      0
-                    )
-                  : "N/A",
+                  ? Array.isArray(numCommits.data)
+                    ? numCommits.data.reduce(
+                        (acc: number, curr) => acc + curr.total,
+                        0
+                      )
+                    : (numCommits.data.total ?? 0)
+                  : "Error fetching commits",
               },
               {
                 id: "stats-forks",

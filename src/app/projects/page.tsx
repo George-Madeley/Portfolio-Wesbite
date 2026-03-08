@@ -10,6 +10,7 @@ import { Suspense } from "react";
 import MeshBackground from "~/components/layout/MeshBackground";
 // import CommitMap from "~/components/CommitMap";
 import Projects from "~/components/Projects";
+import { perPageSchema } from "~/validations/projects";
 
 interface PageProps {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -19,6 +20,7 @@ export default async function Page({ searchParams }: PageProps) {
   const awaitedSearchParams = await searchParams;
 
   const page = awaitedSearchParams.page ? Number(awaitedSearchParams.page) : 1;
+  const rowsPerPage = perPageSchema.parse(awaitedSearchParams.per_page ?? "");
 
   return (
     <MeshBackground>
@@ -79,7 +81,7 @@ export default async function Page({ searchParams }: PageProps) {
                   }
                   key={page}
                 >
-                  <Projects page={page} />
+                  <Projects page={page} rowsPerPage={rowsPerPage} />
                 </Suspense>
               </Stack>
             </CardContent>

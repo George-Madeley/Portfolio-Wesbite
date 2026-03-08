@@ -1,26 +1,33 @@
 "use client";
 
-import MuiPagination, {
-  PaginationProps,
-  PaginationRenderItemParams,
-} from "@mui/material/Pagination";
-import PaginationItem from "@mui/material/PaginationItem";
-import Link from "next/link";
-import React, { useCallback } from "react";
+import Stack from "@mui/material/Stack";
+import TablePagination, {
+  TablePaginationProps,
+} from "@mui/material/TablePagination";
+import { useRouter } from "next/navigation";
 
 export default function ProjectsPagination(
-  props: Omit<PaginationProps, "renderItem">
+  props: Omit<TablePaginationProps, "onPageChange" | "onRowsPerPageChange">
 ) {
-  const handleRenderItem = useCallback(
-    (item: PaginationRenderItemParams) => (
-      <PaginationItem
-        component={Link}
-        href={`/projects?page=${item.page}`}
-        {...item}
-      />
-    ),
-    []
-  );
+  const router = useRouter();
 
-  return <MuiPagination {...props} renderItem={handleRenderItem} />;
+  const handlePageChange = (event: unknown, newPage: number) => {
+    router.push(`/projects?page=${newPage + 1}&per_page=${props.rowsPerPage}`);
+  };
+
+  const handleRowsPerPageChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    router.push(`/projects?page=1&per_page=${event.target.value}`);
+  };
+
+  return (
+    <Stack alignItems={{ xs: "center", sm: "flex-end" }} sx={{ width: "100%" }}>
+      <TablePagination
+        {...props}
+        onPageChange={handlePageChange}
+        onRowsPerPageChange={handleRowsPerPageChange}
+      />
+    </Stack>
+  );
 }

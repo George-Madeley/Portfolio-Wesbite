@@ -18,12 +18,14 @@ import Typography from "@mui/material/Typography";
 import { components } from "@octokit/openapi-types";
 
 import gitHubFetch from "~/api/github";
+import { PerPage, rowsPerPageOptions } from "~/validations/projects";
 
 import ErrorFallback from "./ErrorFallback";
 import ProjectsPagination from "./ProjectsPagination";
 
 interface ProjectsProps {
   page: number;
+  rowsPerPage: PerPage;
 }
 
 export default async function Projects(props: ProjectsProps) {
@@ -33,7 +35,7 @@ export default async function Projects(props: ProjectsProps) {
     },
     affiliation: "owner,organization_member",
     visibility: "all",
-    per_page: 15,
+    per_page: props.rowsPerPage,
     page: props.page,
     sort: "updated",
   });
@@ -159,9 +161,11 @@ export default async function Projects(props: ProjectsProps) {
         </Table>
       </TableContainer>
       <ProjectsPagination
-        count={getPage("last", repos.headers.link)}
-        page={props.page}
-        variant="outlined"
+        component="div"
+        count={props.rowsPerPage * getPage("last", repos.headers.link)}
+        page={props.page - 1}
+        rowsPerPage={props.rowsPerPage}
+        rowsPerPageOptions={rowsPerPageOptions}
       />
     </Stack>
   );

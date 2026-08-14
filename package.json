@@ -81,6 +81,7 @@
     ]
   },
   "name": "portfolio-website",
+  "packageManager": "yarn@4.12.0",
   "private": true,
   "release": {
     "branches": [
@@ -89,14 +90,14 @@
   },
   "scripts": {
     "build": "next build",
+    "dev": "next dev --turbopack",
     "gen:types": "next typegen",
     "knip": "knip",
     "lint": "eslint src && prettier --check . && knip",
     "lint:fix": "eslint --fix src && prettier --write .",
     "prepare": "husky",
-    "start": "next start",
     "release": "semantic-release",
-    "dev": "next dev --turbopack"
+    "start": "next start"
   },
   "type": "module",
   "version": "0.1.0"
